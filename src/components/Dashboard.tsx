@@ -3,7 +3,6 @@ import { products } from '../data/products';
 import { territories } from '../data/territories';
 import { marketplaces } from '../data/marketplaces';
 import { calculateLandedCostTerritory, calculateLandedCostMarketplace, formatCurrency, formatPercent } from '../utils/calculations';
-import { MultiProductCashFlow, ExportExcelButton, PriceComparisonChart } from './AdvancedFeatures';
 
 const Dashboard: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>(products[0].id);
@@ -51,10 +50,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="dashboard">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-        <h2>📊 Dashboard</h2>
-        <ExportExcelButton />
-      </div>
+      <h2>📊 Dashboard</h2>
       
       <div className="dashboard-grid">
         <div className="dashboard-form">
@@ -111,8 +107,30 @@ const Dashboard: React.FC = () => {
             <div className="kpi-card"><div className="kpi-label">Seuil rentabilité</div><div className="kpi-value" style={{ color: '#f59e0b' }}>{formatCurrency(calc.breakEven)}</div></div>
           </div>
 
-          <PriceComparisonChart />
-          <MultiProductCashFlow />
+          <div className="breakdown">
+            <h3>📋 Détail du calcul</h3>
+            <div className="breakdown-row"><span>Prix d'achat (Alibaba × {quantity})</span><span>{formatCurrency(product.alibabaPrice * quantity)}</span></div>
+            <div className="breakdown-row"><span>Frais de port × {quantity}</span><span>{formatCurrency(product.shippingPrice * quantity)}</span></div>
+            <div className="breakdown-row"><span>CIF</span><span>{formatCurrency(calc.cif)}</span></div>
+            
+            {calculationMode === 'marketplace' ? (
+              <>
+                <div className="breakdown-row"><span>Commission Amazon ({calc.marketplace?.referralFee}%)</span><span>{formatCurrency(calc.referralFee || 0)}</span></div>
+                {(calc.marketplace?.vatRate || 0) > 0 && <div className="breakdown-row"><span>TVA ({calc.marketplace?.vatRate}%)</span><span>{formatCurrency(calc.vat || 0)}</span></div>}
+              </>
+            ) : (
+              <>
+                <div className="breakdown-row"><span>Octroi de Mer ({calc.territory?.octroiDeMer}%)</span><span>{formatCurrency(calc.octroiDeMer || 0)}</span></div>
+                <div className="breakdown-row"><span>Taxe Régionale ({calc.territory?.taxeRegionale}%)</span><span>{formatCurrency(calc.taxeRegionale || 0)}</span></div>
+                <div className="breakdown-row"><span>TVA ({calc.territory?.tva}%)</span><span>{formatCurrency(calc.tva || 0)}</span></div>
+              </>
+            )}
+            
+            <div className="breakdown-row total"><span>Total taxes</span><span>{formatCurrency(calc.totalTaxes)}</span></div>
+            <div className="breakdown-row total"><span>Coût rendu total</span><span>{formatCurrency(calc.landedCost)}</span></div>
+            <div className="breakdown-row total"><span>Prix de vente</span><span>{formatCurrency(calc.sellingPrice || product.amazonPrice)}</span></div>
+            <div className="breakdown-row total"><span>Profit net</span><span style={{ color: '#22c55e' }}>{formatCurrency(calc.profit)}</span></div>
+          </div>
         </div>
       </div>
     </div>

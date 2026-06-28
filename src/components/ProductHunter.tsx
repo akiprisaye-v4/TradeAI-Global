@@ -93,7 +93,7 @@ const ProductHunter: React.FC = () => {
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="product-card">
+    <div className="product-card" tabIndex={0} aria-label={`Produit ${product.name}`}>
       <div className="product-image">
         <div className="product-category">{product.category}</div>
       </div>
@@ -124,7 +124,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           <span className={`demand ${product.demand.toLowerCase().replace(' ', '-')}`}>{product.demand}</span>
           <span className={`difficulty ${product.difficulty.toLowerCase()}`}>{product.difficulty}</span>
         </div>
-        <button className="btn-expand" onClick={() => setExpanded(!expanded)}>
+        <button className="btn-expand" onClick={() => setExpanded(!expanded)} tabIndex={0}>
           {expanded ? 'Réduire' : 'Détails'}
         </button>
         {expanded && (
