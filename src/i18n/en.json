@@ -1,0 +1,42 @@
+{
+  "app": {
+    "name": "Amazon Profit Pro",
+    "elite": "Elite"
+  },
+  "tabs": {
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "tradeai": "TradeAI",
+    "stocks": "Inventory",
+    "competitive": "Competitors",
+    "about": "About",
+    "ideas": "Ideas",
+    "calculator": "Calculator",
+    "cogs": "COGS",
+    "pricing": "Pricing",
+    "portfolio": "Portfolio",
+    "history": "History"
+  },
+  "about": {
+    "title": "Amazon Profit Pro Elite",
+    "subtitle": "The most advanced business intelligence platform for Amazon FBA/FBM sellers",
+    "forWho": "For Who?",
+    "why": "Why Use Amazon Profit Pro?",
+    "features": "Key Features",
+    "sellers": "Amazon Sellers",
+    "sellersDesc": "Beginners or experts wanting to maximize profits",
+    "arbitrage": "Arbitrageurs",
+    "arbitrageDesc": "Retail/online arbitrage professionals",
+    "brands": "Private Labels",
+    "brandsDesc": "Brand creators optimizing profitability",
+    "agencies": "E-commerce Agencies",
+    "agenciesDesc": "Multiple Amazon account managers"
+  },
+  "dashboard": {
+    "overview": "Overview",
+    "activeProducts": "Active products",
+    "totalProfit": "Total monthly profit",
+    "avgMargin": "Average margin",
+    "bestProduct": "Best product"
+  }
+}

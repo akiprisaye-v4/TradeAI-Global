@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e6edf3;
+      margin: 0;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #FF9900;
+    }
+    .logo {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0;
+      color: #FF9900;
+      font-weight: 800;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #8B949E;
+      margin-top: 4px;
+    }
+    .button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #FF9900 0%, #FFB800 100%);
+      border: none;
+      border-radius: 8px;
+      color: #0D1117;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255,153,0,0.4);
+    }
+    .button:disabled {
+      background: #30363D;
+      color: #8B949E;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .status {
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 12px;
+      text-align: center;
+    }
+    .status.success {
+      background: rgba(0,200,83,0.15);
+      border: 1px solid #00C853;
+      color: #00C853;
+    }
+    .status.error {
+      background: rgba(255,61,0,0.15);
+      border: 1px solid #FF3D00;
+      color: #FF3D00;
+    }
+    .status.info {
+      background: rgba(59,130,246,0.15);
+      border: 1px solid #3B82F6;
+      color: #3B82F6;
+    }
+    .product-info {
+      margin-top: 15px;
+      padding: 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      font-size: 11px;
+    }
+    .product-info div {
+      margin: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .product-info strong {
+      color: #FF9900;
+    }
+    .links {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #30363D;
+    }
+    .link-button {
+      display: block;
+      padding: 10px;
+      background: #21262D;
+      border: 1px solid #30363D;
+      border-radius: 6px;
+      color: #E6EDF3;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      margin: 6px 0;
+      transition: all 0.2s;
+    }
+    .link-button:hover {
+      background: #30363D;
+      border-color: #FF9900;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">📦</div>
+    <h1>Amazon Profit Pro</h1>
+    <div class="subtitle">Product Extractor</div>
+  </div>
+
+  <button id="extractBtn" class="button">
+    🔍 Extraire le produit Amazon
+  </button>
+
+  <div id="status"></div>
+
+  <div id="productInfo" class="product-info" style="display: none;"></div>
+
+  <div class="links">
+    <a href="#" id="openApp" class="link-button">
+      📊 Ouvrir Amazon Profit Pro
+    </a>
+    <a href="https://trade-ai-global.vercel.app" target="_blank" class="link-button">
+      🌐 Accéder à l'application web
+    </a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

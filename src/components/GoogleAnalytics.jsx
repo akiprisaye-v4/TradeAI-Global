@@ -18,4 +18,4 @@ const GoogleAnalytics = ({ trackingId }) => {
   return null;
 };
 
-export default GoogleAnalytics;
+export default React.memo(GoogleAnalytics);

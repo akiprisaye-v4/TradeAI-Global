@@ -1,0 +1,50 @@
+{
+  "app": {
+    "title": "Amazon Profit Pro",
+    "subtitle": "Amazon FBA/FBM Profit Calculator"
+  },
+  "tabs": {
+    "dashboard": "📊 Dashboard",
+    "tradeai": "🤖 TradeAI",
+    "stock": "📦 Stock",
+    "competitive": "🎯 Competitors",
+    "apropos": "ℹ️ About",
+    "idees": "💡 Ideas",
+    "calculateur": "📊 Calculator",
+    "cogs": "📦 COGS",
+    "pricing": "💲 Pricing",
+    "comparateur": "⚖️ Portfolio",
+    "historique": "🕐 History"
+  },
+  "common": {
+    "save": "💾 Save",
+    "export": "📊 Export",
+    "import": "📥 Import",
+    "add": "+ Add",
+    "delete": "✕ Delete",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "product": {
+    "name": "Product name",
+    "marketplace": "Marketplace",
+    "sellingPrice": "Selling price",
+    "costPrice": "Cost price",
+    "units": "Units / month",
+    "category": "Category"
+  },
+  "results": {
+    "profit": "Profit",
+    "margin": "Net margin",
+    "roi": "ROI",
+    "monthlyProfit": "Monthly profit"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "revenue": "💰 Revenue",
+    "profit": "📈 Net profit",
+    "units": "📦 Units sold",
+    "avgMargin": "🎯 Avg margin"
+  }
+}

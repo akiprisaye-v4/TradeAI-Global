@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Amazon Profit Pro",
+    "subtitle": "Amazon FBA/FBM Gewinnrechner"
+  },
+  "tabs": {
+    "dashboard": "📊 Dashboard",
+    "tradeai": "🤖 TradeAI",
+    "stock": "📦 Lager",
+    "competitive": "🎯 Konkurrenten",
+    "apropos": "ℹ️ Über",
+    "idees": "💡 Ideen",
+    "calculateur": "📊 Rechner",
+    "cogs": "📦 COGS",
+    "pricing": "💲 Preise",
+    "comparateur": "⚖️ Portfolio",
+    "historique": "🕐 Verlauf"
+  },
+  "common": {
+    "save": "💾 Speichern",
+    "export": "📊 Export",
+    "import": "📥 Import",
+    "add": "+ Hinzufügen",
+    "delete": "✕ Löschen",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg"
+  }
+}

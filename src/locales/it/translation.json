@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Amazon Profit Pro",
+    "subtitle": "Calcolatore Profitti Amazon"
+  },
+  "tabs": {
+    "dashboard": "📊 Dashboard",
+    "tradeai": "🤖 TradeAI",
+    "stock": "📦 Magazzino",
+    "competitive": "🎯 Concorrenti",
+    "apropos": "ℹ️ Info",
+    "idees": "💡 Idee",
+    "calculateur": "📊 Calcolatore",
+    "cogs": "📦 COGS",
+    "pricing": "💲 Prezzi",
+    "comparateur": "⚖️ Portfolio",
+    "historique": "🕐 Cronologia"
+  },
+  "common": {
+    "save": "💾 Salva",
+    "export": "📊 Esporta",
+    "import": "📥 Importa",
+    "add": "+ Aggiungi",
+    "delete": "✕ Elimina",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo"
+  }
+}

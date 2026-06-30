@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Amazon Profit Pro",
+    "subtitle": "Calculadora de Beneficios Amazon"
+  },
+  "tabs": {
+    "dashboard": "📊 Panel",
+    "tradeai": "🤖 TradeAI",
+    "stock": "📦 Inventario",
+    "competitive": "🎯 Competencia",
+    "apropos": "ℹ️ Acerca de",
+    "idees": "💡 Ideas",
+    "calculateur": "📊 Calculadora",
+    "cogs": "📦 COGS",
+    "pricing": "💲 Precios",
+    "comparateur": "⚖️ Portfolio",
+    "historique": "🕐 Historial"
+  },
+  "common": {
+    "save": "💾 Guardar",
+    "export": "📊 Exportar",
+    "import": "📥 Importar",
+    "add": "+ Agregar",
+    "delete": "✕ Eliminar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  }
+}

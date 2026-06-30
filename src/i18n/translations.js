@@ -1,0 +1,94 @@
+export const translations = {
+  fr: {
+    app: {
+      title: "Amazon Profit Pro",
+      subtitle: "Élite",
+      saving: "enregistrement…",
+      saved: "✓ enregistré"
+    },
+    tabs: {
+      dashboard: "📊 Dashboard",
+      analytics: "📈 Analytics",
+      tradeai: "🤖 TradeAI",
+      stocks: "📦 Stocks",
+      competitive: "🎯 Concurrents",
+      about: "ℹ️ À propos",
+      ideas: "💡 Idées",
+      calculator: "📊 Calcul",
+      cogs: "📦 COGS",
+      pricing: "💲 Pricing",
+      portfolio: "⚖️ Portfolio",
+      history: "🕐 Historique"
+    },
+    about: {
+      title: "Amazon Profit Pro Élite",
+      subtitle: "La plateforme d'intelligence commerciale la plus avancée pour les vendeurs Amazon FBA/FBM",
+      forWho: "Pour Qui ?",
+      why: "Pourquoi Utiliser Amazon Profit Pro ?",
+      features: "Fonctionnalités Clés",
+      vendors: "Vendeurs Amazon",
+      vendorsDesc: "Débutants ou confirmés voulant maximiser leurs profits",
+      arbitrage: "Arbitragistes",
+      arbitrageDesc: "Professionnels du retail/online arbitrage cherchant les meilleures opportunités",
+      brands: "Marques Privées",
+      brandsDesc: "Créateurs de marques voulant optimiser leur rentabilité",
+      agencies: "Agences E-commerce",
+      agenciesDesc: "Gestionnaires de comptes Amazon multiples"
+    },
+    common: {
+      product: "Produit",
+      add: "Ajouter",
+      remove: "Supprimer",
+      save: "Sauvegarder",
+      export: "Exporter",
+      loading: "Chargement…"
+    }
+  },
+  en: {
+    app: {
+      title: "Amazon Profit Pro",
+      subtitle: "Elite",
+      saving: "saving…",
+      saved: "✓ saved"
+    },
+    tabs: {
+      dashboard: "📊 Dashboard",
+      analytics: "📈 Analytics",
+      tradeai: "🤖 TradeAI",
+      stocks: "📦 Stocks",
+      competitive: "🎯 Competitors",
+      about: "ℹ️ About",
+      ideas: "💡 Ideas",
+      calculator: "📊 Calculator",
+      cogs: "📦 COGS",
+      pricing: "💲 Pricing",
+      portfolio: "⚖️ Portfolio",
+      history: "🕐 History"
+    },
+    about: {
+      title: "Amazon Profit Pro Elite",
+      subtitle: "The most advanced business intelligence platform for Amazon FBA/FBM sellers",
+      forWho: "For Who?",
+      why: "Why Use Amazon Profit Pro?",
+      features: "Key Features",
+      vendors: "Amazon Sellers",
+      vendorsDesc: "Beginners or experts wanting to maximize their profits",
+      arbitrage: "Arbitrageurs",
+      arbitrageDesc: "Retail/online arbitrage professionals seeking the best opportunities",
+      brands: "Private Labels",
+      brandsDesc: "Brand creators wanting to optimize their profitability",
+      agencies: "E-commerce Agencies",
+      agenciesDesc: "Managers of multiple Amazon accounts"
+    },
+    common: {
+      product: "Product",
+      add: "Add",
+      remove: "Remove",
+      save: "Save",
+      export: "Export",
+      loading: "Loading…"
+    }
+  }
+};
+
+export const defaultLang = 'fr';

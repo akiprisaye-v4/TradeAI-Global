@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, createContext, useContext, useRef } from"react";
+import React, { useState, useMemo, useCallback, useEffect, createContext, useContext, useRef } from"react";
 
 const AppContext = createContext();
 export const useAppContext = () => useContext(AppContext);
@@ -10,25 +10,25 @@ const MARKETPLACES = {
  US: { label:"🇺🇸 Amazon.com", currency:"USD", symbol:"$", vatDefault: 0, fxRate: 1.08 },
  IT: { label:"🇮🇹 Amazon.it", currency:"EUR", symbol:"€", vatDefault: 22, fxRate: 1 },
  ES: { label:"🇪🇸 Amazon.es", currency:"EUR", symbol:"€", vatDefault: 21, fxRate: 1 },
-  // 🌍 Europe additionnelle
-  NL: { label: "🇳🇱 Amazon.nl", currency: "EUR", symbol: "€", vatDefault: 21, fxRate: 1 },
-  PL: { label: "🇵🇱 Amazon.pl", currency: "PLN", symbol: "zł", vatDefault: 23, fxRate: 4.3 },
-  SE: { label: "🇸🇪 Amazon.se", currency: "SEK", symbol: "kr", vatDefault: 25, fxRate: 11.2 },
-  BE: { label: "🇧🇪 Amazon.com.be", currency: "EUR", symbol: "€", vatDefault: 21, fxRate: 1 },
-  // 🌎 Amérique
-  CA: { label: "🇨🇦 Amazon.ca", currency: "CAD", symbol: "C$", vatDefault: 5, fxRate: 1.45 },
-  MX: { label: "🇲🇽 Amazon.com.mx", currency: "MXN", symbol: "MX$", vatDefault: 16, fxRate: 18.5 },
-  BR: { label: "🇧🇷 Amazon.com.br", currency: "BRL", symbol: "R$", vatDefault: 17, fxRate: 5.4 },
-  // 🌏 Asie-Pacifique
-  JP: { label: "🇯🇵 Amazon.co.jp", currency: "JPY", symbol: "¥", vatDefault: 10, fxRate: 157 },
-  AU: { label: "🇦🇺 Amazon.com.au", currency: "AUD", symbol: "A$", vatDefault: 10, fxRate: 1.52 },
-  SG: { label: "🇸🇬 Amazon.sg", currency: "SGD", symbol: "S$", vatDefault: 8, fxRate: 1.44 },
-  IN: { label: "🇮🇳 Amazon.in", currency: "INR", symbol: "₹", vatDefault: 18, fxRate: 89.5 },
-  // 🌍 Moyen-Orient
-  AE: { label: "🇦🇪 Amazon.ae", currency: "AED", symbol: "د.إ", vatDefault: 5, fxRate: 3.97 },
-  SA: { label: "🇸🇦 Amazon.sa", currency: "SAR", symbol: "﷼", vatDefault: 15, fxRate: 4.05 },
-  TR: { label: "🇹🇷 Amazon.com.tr", currency: "TRY", symbol: "₺", vatDefault: 18, fxRate: 34.5 },
-  EG: { label: "🇪🇬 Amazon.eg", currency: "EGP", symbol: "E£", vatDefault: 14, fxRate: 51.2 },
+ // 🌍 Europe additionnelle
+ NL: { label: "🇳🇱 Amazon.nl", currency: "EUR", symbol: "€", vatDefault: 21, fxRate: 1 },
+ PL: { label: "🇵🇱 Amazon.pl", currency: "PLN", symbol: "zł", vatDefault: 23, fxRate: 4.3 },
+ SE: { label: "🇸🇪 Amazon.se", currency: "SEK", symbol: "kr", vatDefault: 25, fxRate: 11.2 },
+ BE: { label: "🇧🇪 Amazon.com.be", currency: "EUR", symbol: "€", vatDefault: 21, fxRate: 1 },
+ // 🌎 Amérique
+ CA: { label: "🇨🇦 Amazon.ca", currency: "CAD", symbol: "C$", vatDefault: 5, fxRate: 1.45 },
+ MX: { label: "🇲🇽 Amazon.com.mx", currency: "MXN", symbol: "MX$", vatDefault: 16, fxRate: 18.5 },
+ BR: { label: "🇧🇷 Amazon.com.br", currency: "BRL", symbol: "R$", vatDefault: 17, fxRate: 5.4 },
+ // 🌏 Asie-Pacifique
+ JP: { label: "🇯🇵 Amazon.co.jp", currency: "JPY", symbol: "¥", vatDefault: 10, fxRate: 157 },
+ AU: { label: "🇦🇺 Amazon.com.au", currency: "AUD", symbol: "A$", vatDefault: 10, fxRate: 1.52 },
+ SG: { label: "🇸🇬 Amazon.sg", currency: "SGD", symbol: "S$", vatDefault: 8, fxRate: 1.44 },
+ IN: { label: "🇮🇳 Amazon.in", currency: "INR", symbol: "₹", vatDefault: 18, fxRate: 89.5 },
+ // 🌍 Moyen-Orient
+ AE: { label: "🇦🇪 Amazon.ae", currency: "AED", symbol: "د.إ", vatDefault: 5, fxRate: 3.97 },
+ SA: { label: "🇸🇦 Amazon.sa", currency: "SAR", symbol: "﷼", vatDefault: 15, fxRate: 4.05 },
+ TR: { label: "🇹🇷 Amazon.com.tr", currency: "TRY", symbol: "₺", vatDefault: 18, fxRate: 34.5 },
+ EG: { label: "🇪🇬 Amazon.eg", currency: "EGP", symbol: "E£", vatDefault: 14, fxRate: 51.2 },
 };
 
 const AMAZON_DOMAINS = { FR:"amazon.fr", DE:"amazon.de", UK:"amazon.co.uk", US:"amazon.com", IT:"amazon.it", ES:"amazon.es", NL: "amazon.nl", PL: "amazon.pl", SE: "amazon.se", BE: "amazon.com.be", CA: "amazon.ca", MX: "amazon.com.mx", BR: "amazon.com.br", JP: "amazon.co.jp", AU: "amazon.com.au", SG: "amazon.sg", IN: "amazon.in", AE: "amazon.ae", SA: "amazon.sa", TR: "amazon.com.tr", EG: "amazon.eg"};
@@ -277,21 +277,21 @@ function InputField({ label, value, onChange, prefix ="", min = -Infinity, max =
 function SelectField({ label, value, onChange, options, parseAs = "index" }) {
  const id =`sf-${label.replace(/\s+/g,"-").toLowerCase()}`;
  const handleChange = (e) => {
-   const index = parseInt(e.target.value);
-   if (parseAs === "string" && options[index]) {
-     // Pour Marketplace, utiliser la propriété 'value' de l'option
-     const selectedValue = options[index].value;
-     onChange(selectedValue || e.target.value);
-   } else {
-     // Pour les autres (Catégorie), utiliser l'index
-     onChange(index);
-   }
+ const index = parseInt(e.target.value);
+ if (parseAs === "string" && options[index]) {
+ // Pour Marketplace, utiliser la propriété 'value' de l'option
+ const selectedValue = options[index].value;
+ onChange(selectedValue || e.target.value);
+ } else {
+ // Pour les autres (Catégorie), utiliser l'index
+ onChange(index);
+ }
  };
  
  // Trouver l'index actuel basé sur la valeur
  const currentIndex = parseAs === "string" 
-   ? options.findIndex(o => o.value === value)
-   : value;
+ ? options.findIndex(o => o.value === value)
+ : value;
  
  return (
  <div style={{ marginBottom: 12 }}>
@@ -479,7 +479,17 @@ function CalculateurPanel() {
  <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap: 14 }}>
  <div>
  <Section title="🏪 Produit & Marché">
- <InputField label="Nom du produit"value={p.name} onChange={v => u("name", v)} prefix=""/>
+ <div style={{ marginBottom: 12 }}>
+ <label style={{ display: "block", fontSize: 11, color: "#8B949E", marginBottom: 4, fontWeight: 700 }}>Nom du produit</label>
+ <input
+ type="text"
+ value={p.name}
+ onChange={(e) => u("name", e.target.value)}
+ style={{ width: "100%", boxSizing: "border-box", background: "#1C2128", border: "1px solid #30363D", borderRadius: 7, padding: "9px 10px", color: "#E6EDF3", fontSize: 14, fontWeight: 600, outline: "none" }}
+ onFocus={(e) => e.target.style.borderColor = "#FF9900"}
+ onBlur={(e) => e.target.style.borderColor = "#30363D"}
+ />
+</div>
  <SelectField label="Marketplace" value={p.marketplace} onChange={v => u("marketplace", v)} options={Object.entries(MARKETPLACES).map(([k, v]) => ({ label: v.label, value: k }))} parseAs="string" />
  <InputField label="Prix de vente TTC"value={p.sellingPrice} onChange={v => u("sellingPrice", v)} prefix={sym} min={0.01} max={9999} />
  <InputField label="Unités vendues / mois"value={p.units} onChange={v => u("units", v)} prefix=""min={1} step={1} />
@@ -659,24 +669,29 @@ function AProposPanel() {
 }
 
 const defaultProduct = (name = "Produit 1") => ({
-  name, marketplace: "FR", sellingPrice: 29.99, costPrice: 8.00,
-  shippingToAmazon: 1.50, categoryIdx: 2, fulfillment: "fba", fbaSizeIdx: 1,
-  length: 20, width: 15, height: 5, weight: 0.3,
-  fbmShipping: 4.50, fbmPacking: 0.80, vatRate: 20, vatRegistered: false,
-  b2bSales: false, useEFN: false, isQ4: false,
-  inboundPlacementFee: false, lowInventoryPenalty: false,
-  ads: 1.50, ppcConvRate: 10, otherCosts: 0, units: 100,
-  longStorage: false, includeReturns: true,
-  customsDuty: 0, insurance: 0,
-  qcInspection: false, qcCost: 300,
-  useAirFreight: false, airFreightExtra: 2,
-  supplierLeadDays: 30, amazonPayoutDays: 14,
-  initialOrderUnits: 500, rampMonths: 3,
-  supplierFinancing: false, capitalCostRate: 0,
+ name, marketplace: "FR", sellingPrice: 29.99, costPrice: 8.00,
+ shippingToAmazon: 1.50, categoryIdx: 2, fulfillment: "fba", fbaSizeIdx: 1,
+ length: 20, width: 15, height: 5, weight: 0.3,
+ fbmShipping: 4.50, fbmPacking: 0.80, vatRate: 20, vatRegistered: false,
+ b2bSales: false, useEFN: false, isQ4: false,
+ inboundPlacementFee: false, lowInventoryPenalty: false,
+ ads: 1.50, ppcConvRate: 10, otherCosts: 0, units: 100,
+ longStorage: false, includeReturns: true,
+ customsDuty: 0, insurance: 0,
+ qcInspection: false, qcCost: 300,
+ useAirFreight: false, airFreightExtra: 2,
+ supplierLeadDays: 30, amazonPayoutDays: 14,
+ initialOrderUnits: 500, rampMonths: 3,
+ supplierFinancing: false, capitalCostRate: 0,
 });
 
-const TABS = ["apropos","idees","calculateur","cogs","pricing","comparateur","historique"];
+const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique"];
 const TAB_LABELS = {
+ dashboard: "📊 Dashboard",
+ analytics: "📈 Analytics",
+ tradeai: "🤖 TradeAI",
+ stock: "📦 Stocks",
+ competitive: "🎯 Concurrents",
  apropos:"ℹ️ À propos",
  idees:"💡 Idées",
  calculateur:"📊 Calcul",
@@ -685,6 +700,405 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
 };
+
+import InstallPWA from "./components/InstallPWA.jsx";
+import About from "./components/About";
+
+
+function DashboardPanel() {
+ const { products, fxRates, calcP, p, mk } = useAppContext();
+ 
+ const totalMonthlyProfit = products.reduce((sum, prod) => {
+ const c = calcProduct(prod, fxRates);
+ return sum + c.monthlyProfit;
+ }, 0);
+ 
+ const avgMargin = products.length > 0 
+ ? products.reduce((sum, prod) => sum + calcProduct(prod, fxRates).netMargin, 0) / products.length 
+ : 0;
+ 
+ const bestProduct = products.reduce((best, prod) => {
+ const c = calcProduct(prod, fxRates);
+ const bestC = calcProduct(best, fxRates);
+ return c.monthlyProfit > bestC.monthlyProfit ? prod : best;
+ }, products[0]);
+ 
+ const bestCalc = bestProduct ? calcProduct(bestProduct, fxRates) : null;
+
+ return (
+ <div>
+ <Section title="📊 Vue d'ensemble">
+ <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12, marginBottom: 16 }}>
+ <StatCard label="Produits actifs" value={products.length} color="#FF9900" />
+ <StatCard label="Profit mensuel total" value={fmt(totalMonthlyProfit)} color={totalMonthlyProfit >= 0 ? "#00C853" : "#FF3D00"} />
+ <StatCard label="Marge moyenne" value={fmtPct(avgMargin)} color={avgMargin >= 15 ? "#00C853" : "#FF9900"} />
+ <StatCard label="Meilleur produit" value={bestProduct?.name || "-"} color="#FFD600" sub={bestCalc ? fmt(bestCalc.monthlyProfit) + "/mois" : ""} />
+ </div>
+ </Section>
+ 
+ <Section title="🏆 Top 3 Produits">
+ {products.slice().sort((a, b) => calcProduct(b, fxRates).monthlyProfit - calcProduct(a, fxRates).monthlyProfit).slice(0, 3).map((prod, i) => {
+ const c = calcProduct(prod, fxRates);
+ return (
+ <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "10px 12px", background: "#1C2128", borderRadius: 8, marginBottom: 8, border: "1px solid #30363D" }}>
+ <div>
+ <div style={{ fontSize: 13, fontWeight: 700 }}>{i + 1}. {prod.name}</div>
+ <div style={{ fontSize: 10, color: "#8B949E" }}>{MARKETPLACES[prod.marketplace]?.label} · Marge {c.netMargin.toFixed(1)}%</div>
+ </div>
+ <div style={{ fontSize: 16, fontWeight: 800, color: c.monthlyProfit >= 0 ? "#00C853" : "#FF3D00" }}>
+ {fmt(c.monthlyProfit, c.sym)}
+ </div>
+ </div>
+ );
+ })}
+ </Section>
+ 
+ <Section title="📈 Répartition par marketplace">
+ {Object.keys(MARKETPLACES).slice(0, 6).map(mk => {
+ const count = products.filter(p => p.marketplace === mk).length;
+ const profit = products.filter(p => p.marketplace === mk).reduce((sum, p) => sum + calcProduct(p, fxRates).monthlyProfit, 0);
+ return (
+ <div key={mk} style={{ display: "flex", justifyContent: "space-between", padding: "8px 12px", background: "#1C2128", borderRadius: 6, marginBottom: 6, fontSize: 12 }}>
+ <span>{MARKETPLACES[mk].label}</span>
+ <span style={{ color: "#8B949E" }}>{count} produit{count > 1 ? 's' : ''} · <strong style={{ color: profit >= 0 ? "#00C853" : "#FF3D00" }}>{fmt(profit)}</strong></span>
+ </div>
+ );
+ })}
+ </Section>
+ </div>
+ );
+}
+
+function AnalyticsPanel() {
+ const { products, fxRates } = useAppContext();
+ 
+ const categoryStats = {};
+ products.forEach(p => {
+ const cat = CATEGORIES[p.categoryIdx]?.label || "Autre";
+ if (!categoryStats[cat]) categoryStats[cat] = { count: 0, profit: 0 };
+ categoryStats[cat].count++;
+ categoryStats[cat].profit += calcProduct(p, fxRates).monthlyProfit;
+ });
+ 
+ const totalProfit = products.reduce((sum, p) => sum + calcProduct(p, fxRates).monthlyProfit, 0);
+ const totalROI = products.length > 0 
+ ? products.reduce((sum, p) => sum + calcProduct(p, fxRates).roi, 0) / products.length 
+ : 0;
+
+ return (
+ <div>
+ <Section title="📈 Analytics Globales">
+ <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12 }}>
+ <StatCard label="Profit total" value={fmt(totalProfit)} color={totalProfit >= 0 ? "#00C853" : "#FF3D00"} />
+ <StatCard label="ROI moyen" value={fmtPct(totalROI)} color={totalROI >= 50 ? "#00C853" : "#FF9900"} />
+ <StatCard label="Produits rentables" value={products.filter(p => calcProduct(p, fxRates).profit > 0).length + "/" + products.length} color="#00C853" />
+ <StatCard label="Score moyen" value={(products.reduce((s, p) => s + calcProduct(p, fxRates).score, 0) / products.length).toFixed(1) + "/10"} color="#FFD600" />
+ </div>
+ </Section>
+ 
+ <Section title="🏷️ Par catégorie">
+ {Object.entries(categoryStats).map(([cat, data]) => (
+ <div key={cat} style={{ marginBottom: 10 }}>
+ <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4, fontSize: 12 }}>
+ <span style={{ fontWeight: 700 }}>{cat}</span>
+ <span style={{ color: data.profit >= 0 ? "#00C853" : "#FF3D00" }}>{fmt(data.profit)} · {data.count} prod.</span>
+ </div>
+ <div style={{ background: "#1C2128", height: 6, borderRadius: 3, overflow: "hidden" }}>
+ <div style={{ 
+ height: "100%", 
+ width: Math.min(100, Math.abs(data.profit / Math.max(Math.abs(totalProfit), 1)) * 100) + "%",
+ background: data.profit >= 0 ? "#00C853" : "#FF3D00"
+ }} />
+ </div>
+ </div>
+ ))}
+ </Section>
+ 
+ <Section title="📊 Distribution des scores">
+ <div style={{ display: "flex", gap: 8, height: 80, alignItems: "flex-end" }}>
+ {[...Array(11)].map((_, i) => {
+ const count = products.filter(p => calcProduct(p, fxRates).score === i).length;
+ const maxCount = Math.max(...[...Array(11)].map((_, j) => products.filter(p => calcProduct(p, fxRates).score === j).length), 1);
+ return (
+ <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+ <div style={{ 
+ width: "100%", 
+ height: (count / maxCount * 70) + "px", 
+ background: scoreColor(i),
+ borderRadius: "2px 2px 0 0",
+ minHeight: count > 0 ? 4 : 0
+ }} />
+ <span style={{ fontSize: 9, color: "#8B949E" }}>{i}</span>
+ </div>
+ );
+ })}
+ </div>
+ </Section>
+ </div>
+ );
+}
+
+function TradeAIPanel() {
+ const { products, fxRates, p, calcP } = useAppContext();
+ 
+ const suggestions = [];
+ 
+ // Suggestion 1 : Optimisation prix
+ if (calcP.netMargin < 15) {
+ suggestions.push({
+ icon: "💰",
+ title: "Augmentez votre prix",
+ desc: `Votre marge nette est de ${calcP.netMargin.toFixed(1)}%. Visez au moins 15% pour être rentable.`,
+ color: "#FF9900"
+ });
+ }
+ 
+ // Suggestion 2 : Publicité
+ if (p.ads < 1 && p.units > 50) {
+ suggestions.push({
+ icon: "📢",
+ title: "Activez la publicité PPC",
+ desc: `Avec ${p.units} ventes/mois, un budget pub de 1-2€/unité boosterait votre visibilité.`,
+ color: "#3B82F6"
+ });
+ }
+ 
+ // Suggestion 3 : Arbitrage FBA
+ if (calcP.arbitrageFBA) {
+ suggestions.push({
+ icon: "📦",
+ title: "Optimisez votre taille FBA",
+ desc: `Passez à "${calcP.arbitrageFBA.label}" pour économiser ${fmt(calcP.arbitrageFBA.saving)}/unité.`,
+ color: "#00C853"
+ });
+ }
+ 
+ // Suggestion 4 : Q4
+ if (!p.isQ4) {
+ suggestions.push({
+ icon: "🎄",
+ title: "Préparez Q4",
+ desc: "Activez le mode Q4 pour anticiper les frais de stockage multipliés par 3 en fin d'année.",
+ color: "#8B5CF6"
+ });
+ }
+ 
+ // Suggestion 5 : Multi-marketplace
+ const uniqueMk = new Set(products.map(p => p.marketplace)).size;
+ if (uniqueMk < 3) {
+ suggestions.push({
+ icon: "🌍",
+ title: "Étendez-vous à d'autres marketplaces",
+ desc: `Vous n'êtes que sur ${uniqueMk} marketplace(s). DE, UK et IT offrent de belles opportunités.`,
+ color: "#06B6D4"
+ });
+ }
+
+ return (
+ <div>
+ <Section title="🤖 Assistant IA - Recommandations">
+ <div style={{ padding: 16, background: "rgba(255,153,0,0.1)", border: "1px solid #FF990033", borderRadius: 9, marginBottom: 16 }}>
+ <div style={{ fontSize: 14, fontWeight: 700, color: "#FF9900", marginBottom: 6 }}>
+ 💡 {suggestions.length} suggestion{ suggestions.length > 1 ? 's' : '' } pour {p.name}
+ </div>
+ <div style={{ fontSize: 11, color: "#8B949E" }}>
+ Analyse basée sur vos données actuelles et les meilleures pratiques Amazon FBA.
+ </div>
+ </div>
+ 
+ {suggestions.map((s, i) => (
+ <div key={i} style={{ 
+ padding: 16, 
+ background: "#1C2128", 
+ border: `1px solid ${s.color}33`,
+ borderLeft: `4px solid ${s.color}`,
+ borderRadius: 9, 
+ marginBottom: 10 
+ }}>
+ <div style={{ fontSize: 24, marginBottom: 8 }}>{s.icon}</div>
+ <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 6, color: s.color }}>{s.title}</div>
+ <div style={{ fontSize: 12, color: "#E6EDF3", lineHeight: 1.5 }}>{s.desc}</div>
+ </div>
+ ))}
+ </Section>
+ 
+ <Section title="📊 Benchmark du marché">
+ <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+ <div style={{ padding: 12, background: "#1C2128", borderRadius: 8 }}>
+ <div style={{ fontSize: 10, color: "#8B949E", marginBottom: 4 }}>Marge moyenne FBA</div>
+ <div style={{ fontSize: 20, fontWeight: 800, color: "#FF9900" }}>18.5%</div>
+ <div style={{ fontSize: 10, color: calcP.netMargin >= 18.5 ? "#00C853" : "#FF3D00", marginTop: 4 }}>
+ {calcP.netMargin >= 18.5 ? "✓ Au-dessus" : "⚠ En-dessous"}
+ </div>
+ </div>
+ <div style={{ padding: 12, background: "#1C2128", borderRadius: 8 }}>
+ <div style={{ fontSize: 10, color: "#8B949E", marginBottom: 4 }}>ROI moyen FBA</div>
+ <div style={{ fontSize: 20, fontWeight: 800, color: "#FF9900" }}>75%</div>
+ <div style={{ fontSize: 10, color: calcP.roi >= 75 ? "#00C853" : "#FF3D00", marginTop: 4 }}>
+ {calcP.roi >= 75 ? "✓ Au-dessus" : "⚠ En-dessous"}
+ </div>
+ </div>
+ </div>
+ </Section>
+ </div>
+ );
+}
+
+function StockPanel() {
+ const { products, fxRates } = useAppContext();
+ 
+ return (
+ <div>
+ <Section title="📦 Gestion des Stocks">
+ <div style={{ display: "grid", gap: 10 }}>
+ {products.map((prod, i) => {
+ const c = calcProduct(prod, fxRates);
+ const daysOfStock = prod.units > 0 ? (prod.initialOrderUnits / prod.units) * 30 : 0;
+ const leadDays = prod.supplierLeadDays || 30;
+ const status = daysOfStock <= leadDays * 0.5 ? "critical" : daysOfStock <= leadDays ? "warning" : "ok";
+ const color = status === "critical" ? "#FF3D00" : status === "warning" ? "#FF9900" : "#00C853";
+ 
+ return (
+ <div key={i} style={{ 
+ padding: 14, 
+ background: "#1C2128", 
+ border: `1px solid ${color}33`,
+ borderLeft: `4px solid ${color}`,
+ borderRadius: 9 
+ }}>
+ <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
+ <div style={{ fontSize: 14, fontWeight: 700 }}>{prod.name}</div>
+ <div style={{ fontSize: 11, fontWeight: 700, color }}>
+ {status === "critical" ? "🚨 Critique" : status === "warning" ? "⚠️ Attention" : "✅ OK"}
+ </div>
+ </div>
+ 
+ <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8, fontSize: 11 }}>
+ <div>
+ <div style={{ color: "#8B949E" }}>Stock</div>
+ <div style={{ fontWeight: 700 }}>{prod.initialOrderUnits} u</div>
+ </div>
+ <div>
+ <div style={{ color: "#8B949E" }}>Ventes/mois</div>
+ <div style={{ fontWeight: 700 }}>{prod.units}</div>
+ </div>
+ <div>
+ <div style={{ color: "#8B949E" }}>Couverture</div>
+ <div style={{ fontWeight: 700, color }}>{daysOfStock.toFixed(0)} j</div>
+ </div>
+ <div>
+ <div style={{ color: "#8B949E" }}>Délai</div>
+ <div style={{ fontWeight: 700 }}>{leadDays} j</div>
+ </div>
+ </div>
+ 
+ {status !== "ok" && (
+ <div style={{ marginTop: 10, padding: 8, background: `${color}15`, borderRadius: 6, fontSize: 11, color }}>
+ 💰 Perte estimée si rupture: <strong>{fmt((c.profit * prod.units / 30) * Math.max(0, leadDays - daysOfStock), c.sym)}</strong>
+ </div>
+ )}
+ </div>
+ );
+ })}
+ </div>
+ </Section>
+ 
+ <Section title="📊 Métriques globales">
+ <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10 }}>
+ <StatCard 
+ label="Stock total" 
+ value={products.reduce((s, p) => s + p.initialOrderUnits, 0) + " u"} 
+ color="#FF9900" 
+ />
+ <StatCard 
+ label="Valeur stock" 
+ value={fmt(products.reduce((s, p) => s + (p.initialOrderUnits * p.costPrice), 0))} 
+ color="#FFD600" 
+ />
+ <StatCard 
+ label="Rotation/mois" 
+ value={(products.reduce((s, p) => s + p.units, 0) / Math.max(1, products.reduce((s, p) => s + p.initialOrderUnits, 0)) * 100).toFixed(1) + "%"} 
+ color="#00C853" 
+ />
+ </div>
+ </Section>
+ </div>
+ );
+}
+
+function CompetitivePanel() {
+ const { p, calcP, products, fxRates } = useAppContext();
+ 
+ const competitors = [
+ { name: "Concurrent A", price: p.sellingPrice * 0.95, rating: 4.2, reviews: 1240, fba: true },
+ { name: "Concurrent B", price: p.sellingPrice * 1.10, rating: 4.5, reviews: 890, fba: true },
+ { name: "Concurrent C", price: p.sellingPrice * 0.85, rating: 3.8, reviews: 320, fba: false },
+ { name: "Marque Amazon", price: p.sellingPrice * 0.80, rating: 4.6, reviews: 5400, fba: true },
+ ];
+
+ return (
+ <div>
+ <Section title="🎯 Analyse Concurrentielle">
+ <div style={{ padding: 14, background: "#1C2128", borderRadius: 9, marginBottom: 12 }}>
+ <div style={{ fontSize: 12, color: "#8B949E", marginBottom: 8 }}>Votre positionnement</div>
+ <div style={{ fontSize: 16, fontWeight: 800, color: "#FF9900", marginBottom: 4 }}>{p.name}</div>
+ <div style={{ display: "flex", gap: 14, fontSize: 12 }}>
+ <span>Prix: <strong>{fmt(p.sellingPrice, calcP.sym)}</strong></span>
+ <span>Marge: <strong style={{ color: calcP.netMargin >= 15 ? "#00C853" : "#FF9900" }}>{calcP.netMargin.toFixed(1)}%</strong></span>
+ <span>Score: <strong>{calcP.score}/10</strong></span>
+ </div>
+ </div>
+ </Section>
+ 
+ <Section title="👥 Concurrents Simulés">
+ {competitors.map((c, i) => {
+ const priceDiff = ((c.price - p.sellingPrice) / p.sellingPrice) * 100;
+ return (
+ <div key={i} style={{ 
+ padding: 14, 
+ background: "#1C2128", 
+ borderRadius: 9, 
+ marginBottom: 8,
+ border: "1px solid #30363D"
+ }}>
+ <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+ <div style={{ fontSize: 13, fontWeight: 700 }}>{c.name} {c.fba && <span style={{ fontSize: 10, color: "#00C853" }}>FBA</span>}</div>
+ <div style={{ fontSize: 14, fontWeight: 800, color: priceDiff < 0 ? "#FF3D00" : "#00C853" }}>
+ {fmt(c.price, calcP.sym)} <span style={{ fontSize: 10, color: "#8B949E" }}>({priceDiff >= 0 ? "+" : ""}{priceDiff.toFixed(1)}%)</span>
+ </div>
+ </div>
+ <div style={{ display: "flex", gap: 14, fontSize: 11, color: "#8B949E" }}>
+ <span>⭐ {c.rating}</span>
+ <span>💬 {c.reviews} avis</span>
+ </div>
+ </div>
+ );
+ })}
+ </Section>
+ 
+ <Section title="💡 Stratégies Recommandées">
+ {[
+ { title: "Prix d'appel", desc: "Positionnez-vous 5-10% sous le concurrent principal pour gagner en visibilité", color: "#00C853" },
+ { title: "Différenciation", desc: "Mettez en avant vos avantages (livraison rapide, garantie, bundle)", color: "#3B82F6" },
+ { title: "Avis clients", desc: `Avec ${competitors[0].reviews} avis chez le leader, visez 50-100 avis rapidement`, color: "#FF9900" },
+ { title: "Publicité ciblée", desc: "Ciblez les mots-clés de vos concurrents avec un budget PPC agressif", color: "#8B5CF6" },
+ ].map((s, i) => (
+ <div key={i} style={{ 
+ padding: 12, 
+ background: "#1C2128", 
+ borderLeft: `3px solid ${s.color}`,
+ borderRadius: 6, 
+ marginBottom: 8 
+ }}>
+ <div style={{ fontSize: 13, fontWeight: 700, color: s.color, marginBottom: 4 }}>{s.title}</div>
+ <div style={{ fontSize: 11, color: "#E6EDF3", lineHeight: 1.5 }}>{s.desc}</div>
+ </div>
+ ))}
+ </Section>
+ </div>
+ );
+}
+
 
 export default function AmazonPro() {
  const [tab, setTab] = useState("calculateur");
@@ -822,13 +1236,18 @@ export default function AmazonPro() {
  {products.length > 1 && <button onClick={() => removeProduct(activeProduct)} tabIndex={0} style={{ padding:"6px 10px", borderRadius: 20, border:"1px solid #FF3D0033", background:"#FF3D0010", color:"#FF3D00", fontSize: 11, cursor:"pointer"}}>✕</button>}
  </div>
 
- {tab ==="apropos"&& <AProposPanel />}
- {tab ==="idees"&& <IdeesPanel />}
- {tab ==="calculateur"&& <CalculateurPanel />}
- {tab ==="cogs"&& <COGSPanel p={p} u={u} sym={sym} />}
- {tab ==="pricing"&& <PricingPanel />}
- {tab ==="comparateur"&& <PortfolioPanel />}
- {tab ==="historique"&& <HistoriquePanel />}
+ {tab === "dashboard" && <DashboardPanel />}
+        {tab === "analytics" && <AnalyticsPanel />}
+        {tab === "tradeai" && <TradeAIPanel />}
+        {tab === "stock" && <StockPanel />}
+        {tab === "competitive" && <CompetitivePanel />}
+        {tab === "apropos" && <About />}
+        {tab === "idees" && <IdeesPanel />}
+        {tab === "calculateur" && <CalculateurPanel />}
+        {tab === "cogs" && <COGSPanel p={p} u={u} sym={sym} />}
+        {tab === "pricing" && <PricingPanel />}
+        {tab === "comparateur" && <PortfolioPanel />}
+        {tab === "historique" && <HistoriquePanel />}
  </div>
  </div>
  {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
