@@ -177,8 +177,6 @@ const AmazonToAlibaba = () => {
             value={amazonPrice}
             onChange={(e) => setAmazonPrice(e.target.value)}
             aria-label="Prix Amazon en euros" required min="0" step="0.01" placeholder="9.99"
-            step="0.01"
-            min="0"
             style={{
               width: "100%",
               padding: "12px 14px",
@@ -211,8 +209,6 @@ const AmazonToAlibaba = () => {
             value={alibabaPrice}
             onChange={(e) => setAlibabaPrice(e.target.value)}
             aria-label="Prix Alibaba en euros" min="0" step="0.01" placeholder="2.50"
-            step="0.01"
-            min="0"
             style={{
               width: "100%",
               padding: "12px 14px",
@@ -638,7 +634,7 @@ const AmazonToAlibaba = () => {
               </button>
               <button
                 onClick={() => {
-                  const updated = savedSearches.filter(s => s.id !=== selectedSearch.id);
+                  const updated = savedSearches.filter(s => s.id !== selectedSearch.id);
                   setSavedSearches(updated);
                   localStorage.setItem('amazonAlibabaSearches', JSON.stringify(updated));
                   setSelectedSearch(null);

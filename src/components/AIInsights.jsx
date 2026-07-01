@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useMemo } from "react";
 
 function AIInsights({ products, fxRates, calcProduct, setToast }) {

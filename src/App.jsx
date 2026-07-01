@@ -67,12 +67,41 @@ const FBA_SIZES = [
 ];
 
 const TRENDING_PRODUCTS = [
- { name:"Patchs anti-imperfections", category:"Beauté & Santé", categoryIdx: 5, growth:"+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note:"Viral TikTok. Marge 85-90%.", icon:"✨", color:"#FFD54F"},
- { name:"Bandes LED RGB", category:"Maison & Cuisine", categoryIdx: 2, growth:"+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note:"Déco gaming. Marge 70-85%.", icon:"💡", color:"#FFA726"},
- { name:"Powerbank magnétique", category:"Électronique", categoryIdx: 1, growth:"+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note:"Tech gadget. Marge 60-75%.", icon:"🔋", color:"#5C6BC0"},
- { name:"Masque soie naturelle", category:"Beauté & Santé", categoryIdx: 5, growth:"+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note:"Beauty sleep. Marge 85-95%.", icon:"😴", color:"#7E57C2"},
- { name:"Harnais chien", category:"Autre", categoryIdx: 10, growth:"+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note:"Pet market. Marge 70-85%.", icon:"🦮", color:"#FF5722"},
+{ name: "Patchs anti-imperfections", category: "Beauté & Santé", categoryIdx: 5, growth: "+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note: "Viral TikTok. Marge 85-90%.", icon: "✨", color: "#FFD54F", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Bandes LED RGB", category: "Maison & Cuisine", categoryIdx: 2, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note: "Déco gaming. Marge 70-85%.", icon: "💡", color: "#FFA726", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" },
+{ name: "Powerbank magnétique", category: "Électronique", categoryIdx: 1, growth: "+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note: "Tech gadget. Marge 60-75%.", icon: "🔋", color: "#5C6BC0", image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop" },
+{ name: "Masque soie naturelle", category: "Beauté & Santé", categoryIdx: 5, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note: "Beauty sleep. Marge 85-95%.", icon: "😴", color: "#7E57C2", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Harnais chien", category: "Autre", categoryIdx: 10, growth: "+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note: "Pet market. Marge 70-85%.", icon: "🦮", color: "#FF5722", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" },
 ];
+
+// Noms de produits réalistes par catégorie
+const REALISTIC_PRODUCT_NAMES = {
+  0: ["T-shirt Coton Bio Homme", "Robe Été Florale", "Jean Slim Stretch", "Pull Col Roulé Laine", "Veste Imperméable Légère", "Short Sport Respirant", "Chemise Lin Élégante", "Pantalon Chino Classique"],
+  1: ["Écouteurs Bluetooth Sans Fil", "Coque iPhone 17 Transparente", "Chargeur USB-C Rapide 65W", "Batterie Externe 20000mAh", "Câble HDMI 4K 2m", "Support Téléphone Voiture", "Enceinte Portable Waterproof", "Lampe LED Bureau RGB"],
+  2: ["Set 3 Poêles Antiadhésives", "Bougie Parfumée Soja 200g", "Organisateur Cuisine Bambou", "Tapis de Bain Antidérapant", "Miroir LED Salle de Bain", "Boîte à Thé 12 Compartiments", "Presse-Agrumes Manuel Inox", "Set 6 Verres à Vin"],
+  3: ["Guide Marketing Digital 2026", "Roman Thriller Best-Seller", "Livre Cuisine Méditerranéenne", "Atlas Géographique Illustré", "Manuel Développement Web", "Biographie Steve Jobs", "Guide Investissement Bourse", "Livre Enfants 3-6 ans"],
+  4: ["Lego City Pompiers 500pcs", "Puzzle 1000 Pièces Paysage", "Jeu Société Stratégie", "Poupée Fashion 30cm", "Voiture Télécommandée 4x4", "Kit Science Enfants 8+", "Jeu Cartes Famille", "Figurine Collection Marvel"],
+  5: ["Crème Hydratante Visage 50ml", "Sérum Vitamine C Anti-Âge", "Masque Cheveux Kératine", "Rouge à Lèvres Mat Longue Tenue", "Parfum Femme Floral 100ml", "Gel Douche Homme 400ml", "Palette Maquillage 12 Couleurs", "Huile Essentielle Lavande"],
+  6: ["Tapis Yoga Antidérapant 6mm", "Haltères Réglables 20kg", "Corde à Sauter Speed", "Gourde Sport Isotherme 750ml", "Sac à Dos Randonnée 40L", "Montre Connectée Sport GPS", "Vélo Appartement Pliable", "Kit Musculation Complet"],
+  7: ["Kit Nettoyage Auto 5pcs", "Support Téléphone GPS", "Housse Siège Voiture Universelle", "Aspirateur Portable 12V", "Caméra Recul Sans Fil", "Chargeur Allume-Cigare USB", "Tapis Sol Voiture Caoutchouc", "Organisateur Coffre Pliable"],
+  8: ["Perceuse Visseuse Sans Fil 18V", "Set 50 Embouts Visseuse", "Niveau Laser Auto 15m", "Caisse à Outils 150pcs", "Scie Sauteuse 700W", "Mètre Laser Digital 40m", "Lampe Atelier LED Rechargeable", "Clé Dynamométrique 5-25Nm"],
+  9: ["Collier Or 18K Chaîne Fine", "Boucles d'Oreilles Perles", "Bracelet Argent 925 Ajustable", "Montre Femme Acier Rose", "Bague Diamant Solitaire", "Pendentif Cœur Zirconium", "Parure Bijoux Mariage", "Bracelet Jonc Plaqué Or"],
+  10: ["Harnais Chien Réglable", "Jouet Interactif Chat", "Lit Chien Orthopédique L", "Gamelle Automatique 4L", "Sac Transport Chat Airline", "Collier GPS Chien Étanche", "Arbre à Chat 150cm", "Tapis Litière Chat Imperméable"],
+};
+
+const getRandomProductName = (categoryIdx) => {
+  const names = REALISTIC_PRODUCT_NAMES[categoryIdx] || REALISTIC_PRODUCT_NAMES[2];
+  const randomName = names[Math.floor(Math.random() * names.length)];
+  const suffix = Math.floor(Math.random() * 900) + 100;
+  return `${randomName} ${suffix}`;
+};
+
+
+// Noms de produits réalistes par catégorie
+
+
+
+
 
 const fmt = (n, sym ="€") =>`${sym}${Math.abs(n).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
 const fmtPct = (n) =>`${n >= 0 ?"+":""}${n.toFixed(1)}%`;
@@ -553,24 +582,66 @@ function COGSPanel({ p, u, sym }) {
 }
 
 function IdeesPanel() {
- const { setTab, products, activeProduct, setProducts, setToast } = useAppContext();
- return (
- <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap: 12 }}>
- {TRENDING_PRODUCTS.map((item, i) => (
- <div key={i} style={{ background:"#161B22", border:"1px solid #21262D", borderRadius: 11, padding:"14px"}}>
- <div style={{ fontSize: 38, textAlign:"center", marginBottom: 10 }}>{item.icon}</div>
- <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 8 }}>{item.name}</div>
- <button onClick={() => {
- setProducts(prev => prev.map((prod, idx) => idx === activeProduct ? { ...prod, name: item.name, sellingPrice: (item.amazonPriceRange[0] + item.amazonPriceRange[1]) / 2, costPrice: (item.alibabaPriceRange[0] + item.alibabaPriceRange[1]) / 2, categoryIdx: item.categoryIdx } : prod));
- setTab("calculateur");
- setToast({ message:`✅ ${item.name} chargé`, type:"success"});
- }} style={{ width:"100%", background:"#FF9900", border:"none", borderRadius: 7, padding:"9px", color:"#0D1117", fontWeight: 700, fontSize: 12, cursor:"pointer"}}>
- Utiliser ce produit →
- </button>
- </div>
- ))}
- </div>
- );
+const { setTab, products, activeProduct, setProducts, setToast } = useAppContext();
+return (
+<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
+{TRENDING_PRODUCTS.map((item, i) => (
+<div key={i} style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: 12, overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.3)" }}>
+  {/* Image du produit */}
+  <div style={{ width: "100%", height: 200, overflow: "hidden", position: "relative", background: "#1C2128" }}>
+    <img 
+      src={item.image} 
+      alt={item.name}
+      loading="lazy"
+      style={{ 
+        width: "100%", 
+        height: "100%", 
+        objectFit: "cover",
+        transition: "transform 0.3s"
+      }}
+      onError={(e) => {
+        e.target.style.display = "none";
+        e.target.parentElement.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:60px;">' + item.icon + '</div>';
+      }}
+    />
+  </div>
+  
+  <div style={{ padding: "16px" }}>
+    <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8, color: "#E6EDF3" }}>{item.icon} {item.name}</div>
+    <div style={{ fontSize: 11, color: "#8B949E", marginBottom: 12 }}>{item.category}</div>
+    
+    <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+      <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
+        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix Amazon</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#FF9900" }}>{fmt(item.amazonPriceRange[0])}-{fmt(item.amazonPriceRange[1])}</div>
+      </div>
+      <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
+        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix Alibaba</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#00C853" }}>{fmt(item.alibabaPriceRange[0])}-{fmt(item.alibabaPriceRange[1])}</div>
+      </div>
+    </div>
+    
+    <div style={{ padding: "8px", background: `${item.color}15`, borderRadius: 6, marginBottom: 12 }}>
+      <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>
+         Croissance: {item.growth}
+      </div>
+      <div style={{ fontSize: 10, color: "#8B949E", marginTop: 2 }}>
+        {item.note}
+      </div>
+    </div>
+    
+    <button onClick={() => {
+setProducts(prev => prev.map((prod, idx) => idx === activeProduct ? { ...prod, name: item.name, sellingPrice: (item.amazonPriceRange[0] + item.amazonPriceRange[1]) / 2, costPrice: (item.alibabaPriceRange[0] + item.alibabaPriceRange[1]) / 2, categoryIdx: item.categoryIdx } : prod));
+setTab("calculateur");
+setToast({ message:`✅ ${item.name} chargé`, type: "success"});
+}} style={{ width: "100%", background: "linear-gradient(135deg, #FF9900 0%, #FFB800 100%)", border: "none", borderRadius: 8, padding: "12px", color: "#0D1117", fontWeight: 700, fontSize: 13, cursor: "pointer", boxShadow: "0 2px 8px rgba(255,153,0,0.3)" }}>
+      Utiliser ce produit →
+    </button>
+  </div>
+</div>
+))}
+</div>
+);
 }
 
 function PortfolioPanel() {
@@ -685,7 +756,7 @@ const defaultProduct = (name = "Produit 1") => ({
  supplierFinancing: false, capitalCostRate: 0,
 });
 
-const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique"];
+const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations"];
 const TAB_LABELS = {
  dashboard: "📊 Dashboard",
  analytics: "📈 Analytics",
@@ -699,10 +770,16 @@ const TAB_LABELS = {
  pricing:"💲 Pricing",
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
+  abonnements:"💎 Abonnements",
+  formations:"🎓 Formations",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
 import About from "./components/About";
+import ChatAssistant from "./components/ChatAssistant";
+import Tutorial from "./components/Tutorial";
+import Pricing from "./components/Pricing";
+import FormationsShop from "./components/FormationsShop";
 
 
 function DashboardPanel() {
@@ -1102,12 +1179,14 @@ function CompetitivePanel() {
 
 export default function AmazonPro() {
  const [tab, setTab] = useState("calculateur");
- const [products, setProducts] = useState([defaultProduct("Produit 1")]);
+ const [products, setProducts] = useState([defaultProduct("Coque iPhone 17 Transparente 456")]);
  const [activeProduct, setActiveProduct] = useState(0);
  const [fxRates, setFxRates] = useState(null);
  const [loaded, setLoaded] = useState(false);
  const [saveStatus, setSaveStatus] = useState("");
  const [toast, setToast] = useState(null);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
 
  useEffect(() => {
  fetch("https://api.frankfurter.app/latest?from=EUR")
@@ -1151,9 +1230,11 @@ export default function AmazonPro() {
  }, []);
 
  const addProduct = () => {
- setProducts(prev => [...prev, defaultProduct(`Produit ${prev.length + 1}`)]);
- setActiveProduct(products.length);
- };
+const randomCategory = Math.floor(Math.random() * 11);
+const randomName = getRandomProductName(randomCategory);
+setProducts(prev => [...prev, defaultProduct(randomName)]);
+setActiveProduct(products.length);
+};
 
  const removeProduct = (idx) => {
  if (products.length <= 1) return;
@@ -1176,7 +1257,25 @@ export default function AmazonPro() {
  return newHistory;
  };
 
- const p = products[activeProduct] || defaultProduct();
+ 
+  // Vérifier si c'est le premier lancement
+  useEffect(() => {
+    (async () => {
+      try {
+        const shown = await safeStorageGet("tutorialShown");
+        if (!shown) {
+          setShowTutorial(true);
+        }
+      } catch (e) {}
+    })();
+  }, []);
+
+  const closeTutorial = async () => {
+    setShowTutorial(false);
+    await safeStorageSet("tutorialShown", "true");
+  };
+
+  const p = products[activeProduct] || defaultProduct();
  const mk = MARKETPLACES[p.marketplace] || MARKETPLACES.FR;
  const sym = mk.symbol;
  const calcP = useMemo(() => calcProduct(p, fxRates), [p, fxRates]);
@@ -1197,7 +1296,8 @@ export default function AmazonPro() {
  <div style={{ maxWidth: 1100, margin:"0 auto"}}>
  <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom: 10 }}>
  <div style={{ display:"flex", alignItems:"center", gap: 10 }}>
- <div style={{ background:"#FF9900", borderRadius: 8, width: 30, height: 30, display:"flex", alignItems:"center", justifyContent:"center", fontSize: 16, fontWeight: 900, color:"#0D1117"}}>A</div>
+ <div style={{ background:"#FF9900", borderRadius: 8, width: 30, height: 30, display:"flex", alignItems:"center", justifyContent:"center", fontSize: 16, fontWeight: 900, color:"#0D1117"}}></div>
+<img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
  <div>
  <div style={{ fontSize: 16, fontWeight: 800 }}>Amazon Profit <span style={{ color:"#FF9900"}}>Pro</span></div>
  <div style={{ fontSize: 10, color:"#00C853"}}>
@@ -1248,9 +1348,49 @@ export default function AmazonPro() {
         {tab === "pricing" && <PricingPanel />}
         {tab === "comparateur" && <PortfolioPanel />}
         {tab === "historique" && <HistoriquePanel />}
+            {tab === "abonnements" && <Pricing />}
+            {tab === "formations" && <FormationsShop />}
  </div>
  </div>
- {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
- </AppContext.Provider>
+ 
+      {showTutorial && <Tutorial onClose={closeTutorial} />}
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
+ 
+      {/* Bouton Assistant IA flottant */}
+      <button
+        onClick={() => setChatOpen(true)}
+        style={{
+          position: 'fixed',
+          bottom: 20,
+          right: 20,
+          width: 60,
+          height: 60,
+          borderRadius: '50%',
+          background: 'linear-gradient(135deg, #FF9900 0%, #FFB800 100%)',
+          border: 'none',
+          boxShadow: '0 4px 16px rgba(255,153,0,0.4)',
+          cursor: 'pointer',
+          fontSize: 28,
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        aria-label="Ouvrir l'assistant IA"
+      >
+        🤖
+      </button>
+      
+      {chatOpen && <ChatAssistant 
+        isOpen={chatOpen} 
+        onClose={() => setChatOpen(false)}
+        products={products}
+        activeProduct={activeProduct}
+        calcP={calcP}
+        p={p}
+        mk={mk}
+      />}
+
+    </AppContext.Provider>
  );
 }

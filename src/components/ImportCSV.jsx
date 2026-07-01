@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useRef } from "react";
 
 function ImportCSV({ onImport, setToast }) {

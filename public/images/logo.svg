@@ -1,0 +1,10 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Letter A with arrow -->
+  <path d="M20 90 L40 30 L60 70 L80 30 L100 90" stroke="#FF9900" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Upward arrow -->
+  <path d="M35 65 L60 40 L75 55 L95 25" stroke="#FF9900" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M85 25 L95 25 L95 35" stroke="#FF9900" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Shopping bag -->
+  <rect x="70" y="60" width="35" height="35" rx="4" fill="#FF9900" opacity="0.9"/>
+  <path d="M80 70 L80 65 C80 62 83 60 87.5 60 C92 60 95 62 95 65 L95 70" stroke="#0D1117" stroke-width="3" stroke-linecap="round"/>
+</svg>
