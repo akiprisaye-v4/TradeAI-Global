@@ -103,10 +103,10 @@ const About = () => {
           textAlign: "center"
         }}>
           <h2 style={{ color: "#FF9900", marginBottom: "16px", fontSize: "24px" }}>
-            💡 100% Gratuit & Open Source
+            💡 Freemium & Transparent
           </h2>
           <p style={{ color: "#E6EDF3", lineHeight: 1.8, marginBottom: "16px" }}>
-            Amazon Profit Pro est entièrement gratuit, sans publicité, et sans inscription requise.
+            Amazon Profit Pro offre une version de base gratuite avec des fonctionnalités essentielles. Les plans Pro et Elite débloquent des fonctionnalités avancées.
             Vos données restent sur votre appareil (localStorage).
           </p>
           <p style={{ color: "#8B949E", fontSize: "14px" }}>
