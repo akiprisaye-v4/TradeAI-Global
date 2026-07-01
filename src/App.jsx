@@ -1357,6 +1357,7 @@ setActiveProduct(products.length);
  <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom: 10 }}>
  <div style={{ display:"flex", alignItems:"center", gap: 10 }}>
  <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
+<span style={{ fontSize: 12, color: "var(--text-secondary)", marginLeft: 10 }}>v6.0.0</span>
 {/* Burger Menu Button */}
 <button
   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
