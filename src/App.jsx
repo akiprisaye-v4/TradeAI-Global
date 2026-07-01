@@ -777,6 +777,8 @@ const TAB_LABELS = {
 import InstallPWA from "./components/InstallPWA.jsx";
 import About from "./components/About";
 import ChatAssistant from "./components/ChatAssistant";
+import ThemeToggle from "./components/ThemeToggle";
+import { ThemeProvider } from "./context/ThemeContext";
 import Tutorial from "./components/Tutorial";
 import Pricing from "./components/Pricing";
 import FormationsShop from "./components/FormationsShop";
@@ -1392,5 +1394,6 @@ setActiveProduct(products.length);
       />}
 
     </AppContext.Provider>
+    </ThemeProvider>
  );
 }
