@@ -1301,7 +1301,7 @@ setActiveProduct(products.length);
  <div style={{ display:"flex", alignItems:"center", gap: 10 }}>
  <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
 <ThemeToggle />
-<img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
+
  <div>
  <div style={{ fontSize: 16, fontWeight: 800 }}>Amazon Profit <span style={{ color:"#FF9900"}}>Pro</span></div>
  <div style={{ fontSize: 10, color:"#00C853"}}>
