@@ -1191,7 +1191,7 @@ export default function AmazonPro() {
   const [showTutorial, setShowTutorial] = useState(false);
 
  useEffect(() => {
- fetch("https://api.frankfurter.app/latest?from=EUR")
+ fetch("https://open.er-api.com/v6/latest/EUR")
  .then(res => res.json())
  .then(data => setFxRates(data.rates))
  .catch(e => console.log("FX API unavailable", e));
@@ -1298,7 +1298,7 @@ setActiveProduct(products.length);
  <div style={{ maxWidth: 1100, margin:"0 auto"}}>
  <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom: 10 }}>
  <div style={{ display:"flex", alignItems:"center", gap: 10 }}>
- <div style={{ background:"#FF9900", borderRadius: 8, width: 30, height: 30, display:"flex", alignItems:"center", justifyContent:"center", fontSize: 16, fontWeight: 900, color:"#0D1117"}}></div>
+ <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
 <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
  <div>
  <div style={{ fontSize: 16, fontWeight: 800 }}>Amazon Profit <span style={{ color:"#FF9900"}}>Pro</span></div>

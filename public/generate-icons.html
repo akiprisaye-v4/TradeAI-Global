@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Générateur d'icônes PWA</title>
+</head>
+<body>
+    <h1>Génération d'icônes PWA</h1>
+    <p>Ouvre ce fichier dans un navigateur et utilise les outils de développement pour capturer les icônes.</p>
+    <canvas id="canvas192" width="192" height="192"></canvas>
+    <canvas id="canvas512" width="512" height="512"></canvas>
+    <script>
+        // Dessiner le logo sur les canvas
+        function drawLogo(ctx, size) {
+            ctx.fillStyle = '#FF9900';
+            ctx.fillRect(0, 0, size, size);
+            ctx.fillStyle = '#0D1117';
+            ctx.font = `bold ${size/2}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('A', size/2, size/2);
+        }
+        
+        const canvas192 = document.getElementById('canvas192');
+        const ctx192 = canvas192.getContext('2d');
+        drawLogo(ctx192, 192);
+        
+        const canvas512 = document.getElementById('canvas512');
+        const ctx512 = canvas512.getContext('2d');
+        drawLogo(ctx512, 512);
+        
+        // Télécharger les icônes
+        canvas192.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'icon-192.png';
+            a.click();
+        });
+        
+        canvas512.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'icon-512.png';
+            a.click();
+        });
+    </script>
+</body>
+</html>

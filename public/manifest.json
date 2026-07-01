@@ -1,7 +1,7 @@
 {
-  "name": "Amazon Profit Pro",
-  "short_name": "Profit Pro",
-  "description": "Analyse de rentabilité Amazon → Alibaba",
+  "name": "TradeAI Global - Amazon Profit Pro",
+  "short_name": "TradeAI",
+  "description": "Plateforme SaaS d'Intelligence Commerciale Globale et calculateur de co\u00fbt rendu pour Amazon, DOM-TOM et Afrique.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0D1117",
@@ -19,14 +19,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-  "categories": ["business", "finance", "productivity"],
-  "screenshots": [
-    {
-      "src": "/screenshots/dashboard.png",
-      "sizes": "1080x1920",
-      "type": "image/png"
     }
   ]
 }
