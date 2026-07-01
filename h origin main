@@ -1,0 +1,79 @@
+[1mdiff --git a/src/App.jsx b/src/App.jsx[m
+[1mindex 07f54ce..bd3d3ed 100644[m
+[1m--- a/src/App.jsx[m
+[1m+++ b/src/App.jsx[m
+[36m@@ -734,6 +734,26 @@[m [mfunction AProposPanel() {[m
+  return ([m
+  <div style={{ background:"#161B22", border:"1px solid #21262D", borderRadius: 11, padding:"20px"}}>[m
+  <h2 style={{ color:"#FF9900", marginBottom: 10 }}>Amazon Profit Pro Élite</h2>[m
+[32m+[m
+[32m+[m[32m  {/* Recherche par Image */}[m
+[32m+[m[32m  <div style={{ background: 'var(--bg-card)', borderRadius: 12, padding: 20, marginBottom: 20 }}>[m
+[32m+[m[32m    <h3 style={{ color: 'var(--text-primary)', marginBottom: 15 }}>📸 Recherche par Image</h3>[m
+[32m+[m[32m    <input type="file" accept="image/*" onChange={handleImageUpload} style={{ width: '100%', padding: 12, background: 'var(--bg-tertiary)', border: '2px dashed var(--border-color)', borderRadius: 8, color: 'var(--text-primary)', marginBottom: 15 }} />[m
+[32m+[m[32m    <button onClick={searchOnAmazonAlibaba} style={{ width: '100%', padding: 12, background: 'linear-gradient(135deg, #FF9900 0%, #FFB800 100%)', border: 'none', borderRadius: 8, color: '#0D1117', fontWeight: 'bold', cursor: 'pointer' }}>🔍 Rechercher sur Amazon & Alibaba</button>[m
+[32m+[m[32m    {imageResults && ([m
+[32m+[m[32m      <div style={{ marginTop: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 15 }}>[m
+[32m+[m[32m        <div style={{ background: 'var(--bg-tertiary)', padding: 15, borderRadius: 8 }}>[m
+[32m+[m[32m          <h5 style={{ color: '#FF9900' }}>🛒 Amazon</h5>[m
+[32m+[m[32m          {amazonResults.map((p, i) => <div key={i} style={{ background: 'var(--bg-card)', padding: 10, marginBottom: 10, borderRadius: 6 }}><img src={p.image} alt={p.name} style={{ width: '100%', height: 150, objectFit: 'cover', borderRadius: 4, marginBottom: 8 }} /><div style={{ fontSize: 14, fontWeight: 'bold', color: 'var(--text-primary)' }}>{p.name}</div><div style={{ fontSize: 16, color: '#FF9900', fontWeight: 'bold' }}>{p.price}</div></div>)}[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div style={{ background: 'var(--bg-tertiary)', padding: 15, borderRadius: 8 }}>[m
+[32m+[m[32m          <h5 style={{ color: '#00C853' }}>🏭 Alibaba</h5>[m
+[32m+[m[32m          {alibabaResults.map((p, i) => <div key={i} style={{ background: 'var(--bg-card)', padding: 10, marginBottom: 10, borderRadius: 6 }}><img src={p.image} alt={p.name} style={{ width: '100%', height: 150, objectFit: 'cover', borderRadius: 4, marginBottom: 8 }} /><div style={{ fontSize: 14, fontWeight: 'bold', color: 'var(--text-primary)' }}>{p.name}</div><div style={{ fontSize: 16, color: '#00C853', fontWeight: 'bold' }}>{p.price}</div></div>)}[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m    )}[m
+[32m+[m[32m  </div>[m
+[32m+[m
+  <p style={{ color:"#8B949E", lineHeight: 1.6, marginBottom: 16 }}>Calculateur de profit expert pour vendeurs Amazon FBA/FBM avec 40+ fonctionnalités.</p>[m
+  </div>[m
+  );[m
+[36m@@ -778,6 +798,7 @@[m [mimport InstallPWA from "./components/InstallPWA.jsx";[m
+ import About from "./components/About";[m
+ import ChatAssistant from "./components/ChatAssistant";[m
+ import ThemeToggle from "./components/ThemeToggle";[m
+[32m+[m[32mimport { useTheme } from "./context/ThemeContext";[m
+ import { ThemeProvider } from "./context/ThemeContext";[m
+ import Tutorial from "./components/Tutorial";[m
+ import Pricing from "./components/Pricing";[m
+[36m@@ -1180,6 +1201,39 @@[m [mfunction CompetitivePanel() {[m
+ [m
+ [m
+ export default function AmazonPro() {[m
+[32m+[m[32m  const { isDark } = useTheme();[m
+[32m+[m
+[32m+[m[32m  // États pour la recherche par image[m
+[32m+[m[32m  const [uploadedImage, setUploadedImage] = React.useState(null);[m
+[32m+[m[32m  const [imageResults, setImageResults] = React.useState(false);[m
+[32m+[m[32m  const [amazonResults, setAmazonResults] = React.useState([]);[m
+[32m+[m[32m  const [alibabaResults, setAlibabaResults] = React.useState([]);[m
+[32m+[m
+[32m+[m[32m  const handleImageUpload = (e) => {[m
+[32m+[m[32m    const file = e.target.files[0];[m
+[32m+[m[32m    if (file) {[m
+[32m+[m[32m      const reader = new FileReader();[m
+[32m+[m[32m      reader.onloadend = () => setUploadedImage(reader.result);[m
+[32m+[m[32m      reader.readAsDataURL(file);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  const searchOnAmazonAlibaba = () => {[m
+[32m+[m[32m    if (!uploadedImage) {[m
+[32m+[m[32m      alert('Veuillez importer une image');[m
+[32m+[m[32m      return;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    setAmazonResults([[m
+[32m+[m[32m      { name: 'Produit Amazon 1', price: '€29.99', image: uploadedImage },[m
+[32m+[m[32m      { name: 'Produit Amazon 2', price: '€34.99', image: uploadedImage }[m
+[32m+[m[32m    ]);[m
+[32m+[m[32m    setAlibabaResults([[m
+[32m+[m[32m      { name: 'Produit Alibaba 1', price: '€5.50', image: uploadedImage },[m
+[32m+[m[32m      { name: 'Produit Alibaba 2', price: '€4.20', image: uploadedImage }[m
+[32m+[m[32m    ]);[m
+[32m+[m[32m    setImageResults(true);[m
+[32m+[m[32m  };[m
+[32m+[m
+  const [tab, setTab] = useState("calculateur");[m
+  const [products, setProducts] = useState([defaultProduct("Coque iPhone 17 Transparente 456")]);[m
+  const [activeProduct, setActiveProduct] = useState(0);[m

@@ -734,6 +734,26 @@ function AProposPanel() {
  return (
  <div style={{ background:"#161B22", border:"1px solid #21262D", borderRadius: 11, padding:"20px"}}>
  <h2 style={{ color:"#FF9900", marginBottom: 10 }}>Amazon Profit Pro Élite</h2>
+
+  {/* Recherche par Image */}
+  <div style={{ background: 'var(--bg-card)', borderRadius: 12, padding: 20, marginBottom: 20 }}>
+    <h3 style={{ color: 'var(--text-primary)', marginBottom: 15 }}>📸 Recherche par Image</h3>
+    <input type="file" accept="image/*" onChange={handleImageUpload} style={{ width: '100%', padding: 12, background: 'var(--bg-tertiary)', border: '2px dashed var(--border-color)', borderRadius: 8, color: 'var(--text-primary)', marginBottom: 15 }} />
+    <button onClick={searchOnAmazonAlibaba} style={{ width: '100%', padding: 12, background: 'linear-gradient(135deg, #FF9900 0%, #FFB800 100%)', border: 'none', borderRadius: 8, color: '#0D1117', fontWeight: 'bold', cursor: 'pointer' }}>🔍 Rechercher sur Amazon & Alibaba</button>
+    {imageResults && (
+      <div style={{ marginTop: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 15 }}>
+        <div style={{ background: 'var(--bg-tertiary)', padding: 15, borderRadius: 8 }}>
+          <h5 style={{ color: '#FF9900' }}>🛒 Amazon</h5>
+          {amazonResults.map((p, i) => <div key={i} style={{ background: 'var(--bg-card)', padding: 10, marginBottom: 10, borderRadius: 6 }}><img src={p.image} alt={p.name} style={{ width: '100%', height: 150, objectFit: 'cover', borderRadius: 4, marginBottom: 8 }} /><div style={{ fontSize: 14, fontWeight: 'bold', color: 'var(--text-primary)' }}>{p.name}</div><div style={{ fontSize: 16, color: '#FF9900', fontWeight: 'bold' }}>{p.price}</div></div>)}
+        </div>
+        <div style={{ background: 'var(--bg-tertiary)', padding: 15, borderRadius: 8 }}>
+          <h5 style={{ color: '#00C853' }}>🏭 Alibaba</h5>
+          {alibabaResults.map((p, i) => <div key={i} style={{ background: 'var(--bg-card)', padding: 10, marginBottom: 10, borderRadius: 6 }}><img src={p.image} alt={p.name} style={{ width: '100%', height: 150, objectFit: 'cover', borderRadius: 4, marginBottom: 8 }} /><div style={{ fontSize: 14, fontWeight: 'bold', color: 'var(--text-primary)' }}>{p.name}</div><div style={{ fontSize: 16, color: '#00C853', fontWeight: 'bold' }}>{p.price}</div></div>)}
+        </div>
+      </div>
+    )}
+  </div>
+
  <p style={{ color:"#8B949E", lineHeight: 1.6, marginBottom: 16 }}>Calculateur de profit expert pour vendeurs Amazon FBA/FBM avec 40+ fonctionnalités.</p>
  </div>
  );
@@ -778,6 +798,7 @@ import InstallPWA from "./components/InstallPWA.jsx";
 import About from "./components/About";
 import ChatAssistant from "./components/ChatAssistant";
 import ThemeToggle from "./components/ThemeToggle";
+import { useTheme } from "./context/ThemeContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import Tutorial from "./components/Tutorial";
 import Pricing from "./components/Pricing";
@@ -1180,6 +1201,39 @@ function CompetitivePanel() {
 
 
 export default function AmazonPro() {
+  const { isDark } = useTheme();
+
+  // États pour la recherche par image
+  const [uploadedImage, setUploadedImage] = React.useState(null);
+  const [imageResults, setImageResults] = React.useState(false);
+  const [amazonResults, setAmazonResults] = React.useState([]);
+  const [alibabaResults, setAlibabaResults] = React.useState([]);
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setUploadedImage(reader.result);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const searchOnAmazonAlibaba = () => {
+    if (!uploadedImage) {
+      alert('Veuillez importer une image');
+      return;
+    }
+    setAmazonResults([
+      { name: 'Produit Amazon 1', price: '€29.99', image: uploadedImage },
+      { name: 'Produit Amazon 2', price: '€34.99', image: uploadedImage }
+    ]);
+    setAlibabaResults([
+      { name: 'Produit Alibaba 1', price: '€5.50', image: uploadedImage },
+      { name: 'Produit Alibaba 2', price: '€4.20', image: uploadedImage }
+    ]);
+    setImageResults(true);
+  };
+
  const [tab, setTab] = useState("calculateur");
  const [products, setProducts] = useState([defaultProduct("Coque iPhone 17 Transparente 456")]);
  const [activeProduct, setActiveProduct] = useState(0);
