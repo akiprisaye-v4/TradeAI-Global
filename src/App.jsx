@@ -1395,8 +1395,8 @@ setActiveProduct(products.length);
         mk={mk}
       />}
 
-    </ThemeProvider>
     </AppContext.Provider>
+      </ThemeProvider>
  );
 }
 
