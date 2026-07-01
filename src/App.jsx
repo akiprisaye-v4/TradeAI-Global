@@ -1292,13 +1292,15 @@ setActiveProduct(products.length);
  };
 
  return (
- <AppContext.Provider value={contextValue}>
+ <ThemeProvider>
+      <AppContext.Provider value={contextValue}>
  <div style={{ minHeight:"100vh", background:"#0D1117", color:"#E6EDF3", fontFamily:"'Inter', system-ui, sans-serif", paddingBottom: 60 }}>
  <div style={{ background:"#161B22", borderBottom:"1px solid #21262D", padding:"14px 16px", position:"sticky", top: 0, zIndex: 100 }}>
  <div style={{ maxWidth: 1100, margin:"0 auto"}}>
  <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom: 10 }}>
  <div style={{ display:"flex", alignItems:"center", gap: 10 }}>
  <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
+<ThemeToggle />
 <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
  <div>
  <div style={{ fontSize: 16, fontWeight: 800 }}>Amazon Profit <span style={{ color:"#FF9900"}}>Pro</span></div>
@@ -1393,6 +1395,7 @@ setActiveProduct(products.length);
         mk={mk}
       />}
 
+    </ThemeProvider>
     </AppContext.Provider>
  );
 }
