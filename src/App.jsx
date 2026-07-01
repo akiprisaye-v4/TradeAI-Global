@@ -1394,6 +1394,5 @@ setActiveProduct(products.length);
       />}
 
     </AppContext.Provider>
-    </ThemeProvider>
  );
 }
