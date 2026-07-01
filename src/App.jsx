@@ -1205,6 +1205,9 @@ export default function AmazonPro() {
 
   // États pour la recherche par image
   const [uploadedImage, setUploadedImage] = React.useState(null);
+
+  const [activeTab, setActiveTab] = React.useState('dashboard');
+
   const [imageResults, setImageResults] = React.useState(false);
   const [amazonResults, setAmazonResults] = React.useState([]);
   const [alibabaResults, setAlibabaResults] = React.useState([]);
