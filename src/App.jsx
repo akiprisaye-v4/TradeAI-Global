@@ -1372,6 +1372,42 @@ setActiveProduct(products.length);
   {mobileMenuOpen ? '✕' : '☰'}
 </button>
 
+  {/* Menu Mobile Déroulant */}
+  {mobileMenuOpen && (
+    <div style={{
+      display: 'none',
+      position: 'fixed',
+      top: 70,
+      left: 10,
+      right: 10,
+      background: 'var(--bg-secondary)',
+      borderRadius: 12,
+      padding: 15,
+      boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+      zIndex: 1000,
+      maxHeight: '70vh',
+      overflowY: 'auto'
+    }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <button onClick={() => { setActiveTab('dashboard'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📊 Dashboard</button>
+        <button onClick={() => { setActiveTab('analytics'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📈 Analytics</button>
+        <button onClick={() => { setActiveTab('tradeai'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🤖 TradeAI</button>
+        <button onClick={() => { setActiveTab('stocks'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📦 Stocks</button>
+        <button onClick={() => { setActiveTab('concurrents'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎯 Concurrents</button>
+        <button onClick={() => { setActiveTab('about'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>️ À propos</button>
+        <button onClick={() => { setActiveTab('ideas'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💡 Idées</button>
+        <button onClick={() => { setActiveTab('calcul'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧮 Calcul</button>
+        <button onClick={() => { setActiveTab('cogs'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}> COGS</button>
+        <button onClick={() => { setActiveTab('pricing'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💵 Pricing</button>
+        <button onClick={() => { setActiveTab('portfolio'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📊 Portfolio</button>
+        <button onClick={() => { setActiveTab('historique'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🕐 Historique</button>
+        <button onClick={() => { setActiveTab('abonnements'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💎 Abonnements</button>
+        <button onClick={() => { setActiveTab('formations'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎓 Formations</button>
+      </div>
+    </div>
+  )}
+
+
 <ThemeToggle />
 
  <div>
