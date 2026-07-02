@@ -1242,6 +1242,7 @@ export default function AmazonPro() {
   const [uploadedImage, setUploadedImage] = React.useState(null);
 
   const [activeTab, setActiveTab] = React.useState('dashboard');
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const [imageResults, setImageResults] = React.useState(false);
   const [amazonResults, setAmazonResults] = React.useState([]);
