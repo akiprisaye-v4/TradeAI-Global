@@ -776,7 +776,7 @@ const defaultProduct = (name = "Produit 1") => ({
  supplierFinancing: false, capitalCostRate: 0,
 });
 
-const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations","academy","calculators","aiprice","insights","community","listing","keywords","extension","ecosystem"];
+const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations","academy","calculators","aiprice","insights","community","listing","keywords","extension","ecosystem","v7roadmap"];
 
 const TAB_TO_ACTIVE = {
   stock: "stocks",
@@ -801,7 +801,7 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem",
+  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", v7roadmap:"🚀 v7",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -824,6 +824,7 @@ import ListingBuilder from "./components/ListingBuilder";
 import KeywordResearch from "./components/KeywordResearch";
 import ExtensionData from "./components/ExtensionData";
 import TradeAIEcosystem from "./components/TradeAIEcosystem";
+import V7Roadmap from "./pages/V7Roadmap";
 
 
 
@@ -1561,6 +1562,7 @@ setActiveProduct(products.length);
         {activeTab === "keywords" && <KeywordResearchPanel />}
         {activeTab === "extension" && <ExtensionDataPanel />}
         {activeTab === "ecosystem" && <TradeAIEcosystem />}
+        {activeTab === "v7roadmap" && <V7Roadmap />}
 
  </div>
  </div>
