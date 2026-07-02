@@ -1201,8 +1201,7 @@ function CompetitivePanel() {
 
 
 export default function AmazonPro() {
-  const { isDark } = useTheme();
-
+  
   // États pour la recherche par image
   const [uploadedImage, setUploadedImage] = React.useState(null);
 
