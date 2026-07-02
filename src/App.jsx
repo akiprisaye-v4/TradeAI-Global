@@ -809,6 +809,7 @@ import CompetitiveAnalysis from "./components/CompetitiveAnalysis";
 import SmartInsights from "./components/SmartInsights";
 import CommunityHub from "./components/CommunityHub";
 import FormationsShop from "./components/FormationsShop";
+import ListingBuilder from "./components/ListingBuilder";
 
 
 function DashboardPanel() {
@@ -1244,6 +1245,11 @@ function TutorialPanel() {
 function FormationsShopPanel() {
   return <FormationsShop />;
 }
+
+function ListingBuilderPanel() {
+  return <ListingBuilder />;
+}
+
 export default function AmazonPro() {
   
   // États pour la recherche par image
@@ -1325,6 +1331,8 @@ export default function AmazonPro() {
   if (activeTab === 'aiprice') return <AiPriceToolPanel />;
   if (activeTab === 'insights') return <SmartInsightsPanel />;
   if (activeTab === 'community') return <CommunityHubPanel />;
+  if (activeTab === 'listing') return <ListingBuilderPanel />;
+
  return () => clearTimeout(t);
  }, [products, loaded]);
 
@@ -1463,6 +1471,8 @@ setActiveProduct(products.length);
         <button onClick={() => { setActiveTab('aiprice'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎯 AiPrice</button>
         <button onClick={() => { setActiveTab('insights'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧠 Smart Insights</button>
         <button onClick={() => { setActiveTab('community'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🌱 Communauté</button>
+        <button onClick={() => { setActiveTab('listing'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📝 Listing</button>
+
       </div>
     </div>
   )}
