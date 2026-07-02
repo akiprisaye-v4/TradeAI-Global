@@ -802,6 +802,7 @@ import { useTheme } from "./context/ThemeContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import Tutorial from "./components/Tutorial";
 import Pricing from "./components/Pricing";
+import FBAAcademy from "./components/FBAAcademy";
 import FormationsShop from "./components/FormationsShop";
 
 
@@ -1199,6 +1200,11 @@ function CompetitivePanel() {
  );
 }
 
+
+
+function FBAAcademyPanel() {
+  return <FBAAcademy />;
+}
 
 export default function AmazonPro() {
   
