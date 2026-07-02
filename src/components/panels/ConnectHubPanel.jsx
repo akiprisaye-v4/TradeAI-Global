@@ -1,3 +1,4 @@
+import FreeApiLab from "./FreeApiLab";
 import CurrencyCenter from "./CurrencyCenter";
 import React from "react";
 import { FREE_CONNECTORS, getFreeConnectorsSummary } from "../../connectors/free/freeConnectorsRegistry";
@@ -37,6 +38,8 @@ export default function ConnectHubPanel() {
     
       <CurrencyCenter />
 
+      <FreeApiLab />
+
 </div>
   );
 
@@ -50,6 +53,8 @@ function Metric({ label, value }) {
     
       <CurrencyCenter />
 
+      <FreeApiLab />
+
 </div>
   );
 
@@ -62,6 +67,8 @@ function Section({ title, children }) {
       <div style={{ display: "grid", gap: 10 }}>{children}</div>
     
       <CurrencyCenter />
+
+      <FreeApiLab />
 
 </div>
   );
@@ -87,6 +94,8 @@ function ConnectorCard({ connector }) {
       </div>
     
       <CurrencyCenter />
+
+      <FreeApiLab />
 
 </div>
   );
