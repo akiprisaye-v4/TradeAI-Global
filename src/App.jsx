@@ -1363,32 +1363,17 @@ export default function AmazonPro() {
  .catch(e => console.log("FX API unavailable", e));
  }, []);
 
- useEffect(() => {
- (async () => {
- try {
- const saved = await safeStorageGet("products");
- if (saved) {
- const parsed = JSON.parse(saved);
- if (Array.isArray(parsed) && parsed.length > 0) setProducts(parsed);
- }
- } catch (e) {}
- finally { setLoaded(true); }
- })();
- }, []);
+ usePersistence({
+  loaded,
+  products,
+  setProducts,
+  safeStorageGet,
+  safeStorageSet,
+  setLoaded,
+  setSaveStatus
+});
 
- useEffect(() => {
- if (!loaded) return;
- setSaveStatus("saving");
- const t = setTimeout(async () => {
- const ok = await safeStorageSet("products", JSON.stringify(products));
- setSaveStatus(ok ?"saved":"error");
- }, 600);
-
-  // Rendu des nouveaux onglets
- return () => clearTimeout(t);
- }, [products, loaded]);
-
- useEffect(() => {
+useEffect(() => {
  if (saveStatus ==="saved") {
  const t = setTimeout(() => setSaveStatus(""), 1800);
  return () => clearTimeout(t);
