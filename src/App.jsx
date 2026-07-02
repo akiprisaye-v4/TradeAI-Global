@@ -1512,6 +1512,16 @@ setActiveProduct(products.length);
         {activeTab === "historique" && <HistoriquePanel />}
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
+
+        {activeTab === "academy" && <FBAAcademyPanel />}
+        {activeTab === "calculators" && <FBACalculatorsPanel />}
+        {activeTab === "aiprice" && <AiPriceToolPanel />}
+        {activeTab === "insights" && <SmartInsightsPanel />}
+        {activeTab === "community" && <CommunityHubPanel />}
+        {activeTab === "listing" && <ListingBuilderPanel />}
+        {activeTab === "keywords" && <KeywordResearchPanel />}
+        {activeTab === "extension" && <ExtensionDataPanel />}
+
  </div>
  </div>
       {showTutorial && <Tutorial onClose={closeTutorial} />}
