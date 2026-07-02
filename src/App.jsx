@@ -1642,7 +1642,17 @@ setActiveProduct(products.length);
     fmtPct={fmtPct}
   />
 )}
-        {activeTab === "cogs" && <COGSPage><COGSPanel p={p} u={u} sym={sym} /></COGSPage>}
+        {activeTab === "cogs" && (
+  <COGSPage
+    p={p}
+    u={u}
+    sym={sym}
+    calcP={calcP}
+    Section={Section}
+    InputField={InputField}
+    RestockAlert={RestockAlert}
+  />
+)}
         {activeTab === "pricing" && <PricingPage><PricingPanel /></PricingPage>}
         {activeTab === "portfolio" && <PortfolioPage><PortfolioPanel /></PortfolioPage>}
         {activeTab === "historique" && <HistoriquePage><HistoriquePanel /></HistoriquePage>}
