@@ -1607,7 +1607,14 @@ setActiveProduct(products.length);
     fmt={fmt}
   />
 )}
-        {activeTab === "concurrents" && <CompetitivePage><CompetitivePanel /></CompetitivePage>}
+        {activeTab === "concurrents" && (
+  <CompetitivePage
+    p={p}
+    calcP={calcP}
+    Section={Section}
+    fmt={fmt}
+  />
+)}
         {activeTab === "about" && <About />}
         {activeTab === "ideas" && <IdeasPage><IdeesPanel /></IdeasPage>}
         {activeTab === "calcul" && <CalculateurPage><CalculateurPanel /></CalculateurPage>}
