@@ -1,0 +1,306 @@
+{
+  "categories": [
+    {
+      "id": "recherche-produits",
+      "title": "Recherche de Produits Rentables",
+      "icon": "🎯",
+      "description": "Identifiez des produits à forte demande et faible concurrence",
+      "steps": [
+        {
+          "title": "Analyser la demande",
+          "content": "Vérifiez le Best Seller Rank (BSR) : Un BSR sous 10 000 indique une bonne demande (ex: BSR < 5 000 = +30 ventes/jour). Étudiez les tendances avec Google Trends ou les outils d'Amazon (Movers & Shakers) pour repérer les produits en croissance.",
+          "checklist": [
+            "Vérifier le BSR du produit",
+            "Consulter Google Trends",
+            "Analyser les Movers & Shakers Amazon"
+          ]
+        },
+        {
+          "title": "Évaluer la concurrence",
+          "content": "Analysez les 10 premiers résultats : Privilégiez les niches où les concurrents ont < 300 avis, des photos médiocres ou des descriptions incomplètes. Évitez les marchés dominés comme l'électronique ou la mode.",
+          "checklist": [
+            "Analyser les 10 premiers concurrents",
+            "Compter les avis des concurrents",
+            "Évaluer la qualité des fiches produits"
+          ]
+        },
+        {
+          "title": "Calculer la rentabilité",
+          "content": "Formule : Marge nette = Prix de vente - (Coût produit + Frais FBA + Commission 15% + Publicité 10-20%). Seuil minimum : 25-30% de marge nette pour les débutants.",
+          "checklist": [
+            "Calculer le coût total du produit",
+            "Estimer les frais FBA",
+            "Prévoir le budget publicitaire",
+            "Calculer la marge nette"
+          ]
+        },
+        {
+          "title": "Utiliser des outils",
+          "content": "Logiciels recommandés : Helium 10, Jungle Scout ou AMZScout. Filtres clés : Prix de vente 20-70€, Poids < 1kg, Volume mensuel > 3000 recherches.",
+          "checklist": [
+            "S'abonner à un outil d'analyse",
+            "Configurer les filtres de recherche",
+            "Exporter la liste de produits potentiels"
+          ]
+        },
+        {
+          "title": "Vérifier les risques",
+          "content": "Catégories gated : Certaines nécessitent une approbation d'Amazon. Tendances saisonnières : Évitez les produits avec des pics de demande très irréguliers.",
+          "checklist": [
+            "Vérifier si la catégorie est gated",
+            "Analyser la saisonnalité",
+            "Évaluer les risques de suspension"
+          ]
+        }
+      ],
+      "example": {
+        "title": "Exemple concret",
+        "content": "Un produit vendu 29,99€ avec un coût de 6€, des frais FBA de 4€ et une publicité de 3€ donne une marge brute de ~17€. Après déduction des autres frais, une marge nette d'environ 7€ par unité."
+      }
+    },
+    {
+      "id": "fournisseurs",
+      "title": "Trouver des Fournisseurs Fiables",
+      "icon": "🏭",
+      "description": "Sélectionnez des fournisseurs de qualité pour votre activité FBA",
+      "steps": [
+        {
+          "title": "Où chercher des fournisseurs",
+          "content": "Plateformes B2B : Alibaba, DHgate, ou Global Sources. Recherche locale : Google pour des fournisseurs en France/Europe. Marques directement : Contactez les fabricants pour leur liste de distributeurs agréés.",
+          "checklist": [
+            "Créer un compte Alibaba",
+            "Rechercher des fournisseurs locaux",
+            "Contacter les fabricants directement"
+          ]
+        },
+        {
+          "title": "Vérifier la fiabilité",
+          "content": "Expérience : Privilégiez les fournisseurs avec plus de 3 ans d'activité. Avis clients : Lisez les commentaires. Assurance transaction : Sur Alibaba, cochez 'Trade Assurance' pour une protection.",
+          "checklist": [
+            "Vérifier l'ancienneté du fournisseur",
+            "Lire les avis clients",
+            "Activer Trade Assurance"
+          ]
+        },
+        {
+          "title": "Évaluer la qualité et les coûts",
+          "content": "Échantillons : Commandez toujours des échantillons avant une grande commande. MOQ : Négociez les quantités minimales. Contrôle qualité : Envisagez un contrôle par une tierce institution.",
+          "checklist": [
+            "Commander des échantillons",
+            "Négocier le MOQ",
+            "Planifier un contrôle qualité"
+          ]
+        },
+        {
+          "title": "Contacter les fournisseurs",
+          "content": "1. Recherchez sur Alibaba avec filtres 'Trade Assurance' et '3+ ans'. 2. Envoyez une demande de devis à 7-8 fournisseurs. 3. Testez les échantillons avant de finaliser.",
+          "checklist": [
+            "Filtrer les fournisseurs sur Alibaba",
+            "Envoyer 7-8 demandes de devis",
+            "Tester les échantillons reçus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "logistique-fba",
+      "title": "Gérer la Logistique FBA",
+      "icon": "📦",
+      "description": "Envoyez votre stock à Amazon étape par étape",
+      "steps": [
+        {
+          "title": "Préparer les produits",
+          "content": "Étiquetage : Attachez les étiquettes FNSKU à chaque produit. Emballage : Boîtes solides (résistance 200 lb), rembourrage suffisant. Dimensions : max 25 pouces par côté, 50 lbs par boîte.",
+          "checklist": [
+            "Générer les étiquettes FNSKU",
+            "Préparer les boîtes d'expédition",
+            "Vérifier les dimensions et poids"
+          ]
+        },
+        {
+          "title": "Créer le plan d'expédition",
+          "content": "Dans Seller Central : Inventaire > Gérer les expéditions FBA > 'Envoyer vers Amazon'. Saisissez quantité, dimensions, poids. Choisissez le mode d'expédition.",
+          "checklist": [
+            "Créer le plan dans Seller Central",
+            "Saisir les informations de colis",
+            "Imprimer les étiquettes"
+          ]
+        },
+        {
+          "title": "Expédier et suivre",
+          "content": "Méthodes : Laissez votre fournisseur expédier directement (DDP) ou utilisez UPS/FedEx. Suivi : Monitorizez dans 'File d'attente des expéditions'.",
+          "checklist": [
+            "Choisir le transporteur",
+            "Suivre l'envoi en temps réel",
+            "Confirmer la réception par Amazon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marge-nette",
+      "title": "Calculer la Marge Nette",
+      "icon": "💰",
+      "description": "Identifiez les coûts cachés et maximisez votre profitabilité",
+      "steps": [
+        {
+          "title": "Formule de base",
+          "content": "Bénéfice net = Prix de vente - (Coût produit + Frais FBA + Commission Amazon + Publicité). Exemple : Produit à 29,99€ (coût 8€, FBA 3,50€, commission 4,50€, pub 4,50€) = 9,39€ net (31,3% de marge).",
+          "checklist": [
+            "Lister tous les coûts",
+            "Calculer la marge brute",
+            "Déduire les frais cachés"
+          ]
+        },
+        {
+          "title": "Identifier les coûts cachés",
+          "content": "Frais récurrents : Stockage mensuel (majoré en fêtes), retours, étiquetage. Frais variables : Publicité PPC, promotions, expédition entrante.",
+          "checklist": [
+            "Lister les frais de stockage",
+            "Estimer les coûts de retour",
+            "Budgéter la publicité"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiches-produits",
+      "title": "Optimiser les Fiches Produits",
+      "icon": "📝",
+      "description": "Maximisez vos ventes avec des fiches optimisées",
+      "steps": [
+        {
+          "title": "Titre percutant",
+          "content": "Structure : Marque + Nom produit + Caractéristiques clés + Mot-clé principal. Règles : ≤ 200 caractères, majuscules sur premières lettres, pas d'émojis.",
+          "checklist": [
+            "Rédiger un titre optimisé SEO",
+            "Vérifier la longueur (≤ 200 car.)",
+            "Inclure le mot-clé principal"
+          ]
+        },
+        {
+          "title": "Images et vidéos",
+          "content": "7-9 images minimum (angles, zoom, scènes d'usage). Résolution ≥ 2000×2000 px. Vidéos ≤ 30 secondes montrant le produit en action.",
+          "checklist": [
+            "Prendre 7-9 photos professionnelles",
+            "Créer une vidéo de démonstration",
+            "Optimiser pour le zoom"
+          ]
+        },
+        {
+          "title": "Bullet Points",
+          "content": "Bénéfices > Fonctionnalités. Mots-clés secondaires intégrés naturellement. ~200 caractères par point.",
+          "checklist": [
+            "Rédiger 5 bullet points",
+            "Intégrer les mots-clés secondaires",
+            "Focus sur les bénéfices client"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "publicite-ppc",
+      "title": "Maîtriser la Publicité PPC",
+      "icon": "📢",
+      "description": "Boostez vos ventes avec Amazon Ads",
+      "steps": [
+        {
+          "title": "Types de campagnes",
+          "content": "Sponsored Products : Annonces individuelles dans les résultats. Sponsored Brands : Logo + plusieurs produits. Sponsored Display : Retargeting sur et hors Amazon.",
+          "checklist": [
+            "Choisir le type de campagne",
+            "Définir l'objectif",
+            "Configurer le budget"
+          ]
+        },
+        {
+          "title": "Optimisation",
+          "content": "Mots-clés négatifs : Excluez les recherches inutiles. Analyse régulière : Ajustez les enchères chaque semaine. Fiches produits : Optimisez pour maximiser la conversion.",
+          "checklist": [
+            "Ajouter des mots-clés négatifs",
+            "Analyser les performances hebdomadaires",
+            "Ajuster les enchères"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "avis-clients",
+      "title": "Gérer les Avis Clients",
+      "icon": "⭐",
+      "description": "Encouragez les avis positifs et gérez les critiques",
+      "steps": [
+        {
+          "title": "Encourager les avis positifs",
+          "content": "Fonction 'Demander un avis' dans Seller Central (5-30 jours après livraison). Programme Amazon Vine pour nouveaux produits. Améliorez l'expérience client.",
+          "checklist": [
+            "Activer 'Demander un avis'",
+            "S'inscrire à Amazon Vine si éligible",
+            "Améliorer l'emballage et le service"
+          ]
+        },
+        {
+          "title": "Gérer les critiques négatives",
+          "content": "Répondez professionnellement avec empathie. Signalez les contenus illicites. Corrigez les problèmes identifiés.",
+          "checklist": [
+            "Répondre aux avis négatifs",
+            "Signaler les abus",
+            "Améliorer le produit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sante-compte",
+      "title": "Maintenir la Santé du Compte",
+      "icon": "❤️",
+      "description": "Évitez les suspensions et restrictions",
+      "steps": [
+        {
+          "title": "Indicateurs clés",
+          "content": "ODR < 1%, Livraison en retard < 4%, Annulations < 2,5%. Vérifiez dans Performance > Account Health.",
+          "checklist": [
+            "Vérifier l'ODR hebdomadairement",
+            "Suivre le taux de livraison",
+            "Monitorer les annulations"
+          ]
+        },
+        {
+          "title": "Plan d'Action (POA)",
+          "content": "Structure : Cause racine + Actions correctives + Prévention. Ton professionnel et factuel. Soumettez via Account Health.",
+          "checklist": [
+            "Identifier la cause racine",
+            "Décrire les actions correctives",
+            "Planifier la prévention"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expansion-internationale",
+      "title": "Expansion Internationale",
+      "icon": "🌍",
+      "description": "Vendez sur d'autres marketplaces Amazon",
+      "steps": [
+        {
+          "title": "Choisir le marché cible",
+          "content": "Étude de marché : Demande, concurrence, tendances locales. Normes locales : Étiquetage, sécurité, langues.",
+          "checklist": [
+            "Analyser le marché cible",
+            "Vérifier les réglementations",
+            "Adapter les fiches produits"
+          ]
+        },
+        {
+          "title": "Gérer la TVA internationale",
+          "content": "OSS pour ventes > 10 000€/an dans l'UE. Immatriculation TVA dans chaque pays de stockage FBA.",
+          "checklist": [
+            "S'inscrire à l'OSS si éligible",
+            "Immatriculer la TVA par pays",
+            "Configurer les déclarations"
+          ]
+        }
+      ]
+    }
+  ]
+}
