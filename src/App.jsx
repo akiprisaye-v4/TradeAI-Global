@@ -1318,6 +1318,13 @@ export default function AmazonPro() {
  const ok = await safeStorageSet("products", JSON.stringify(products));
  setSaveStatus(ok ?"saved":"error");
  }, 600);
+
+  // Rendu des nouveaux onglets
+  if (activeTab === 'academy') return <FBAAcademyPanel />;
+  if (activeTab === 'calculators') return <FBACalculatorsPanel />;
+  if (activeTab === 'aiprice') return <AiPriceToolPanel />;
+  if (activeTab === 'insights') return <SmartInsightsPanel />;
+  if (activeTab === 'community') return <CommunityHubPanel />;
  return () => clearTimeout(t);
  }, [products, loaded]);
 
@@ -1451,6 +1458,11 @@ setActiveProduct(products.length);
         <button onClick={() => { setActiveTab('historique'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🕐 Historique</button>
         <button onClick={() => { setActiveTab('abonnements'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💎 Abonnements</button>
         <button onClick={() => { setActiveTab('formations'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎓 Formations</button>
+        <button onClick={() => { setActiveTab('academy'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📚 Académie</button>
+        <button onClick={() => { setActiveTab('calculators'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧮 Calculateurs</button>
+        <button onClick={() => { setActiveTab('aiprice'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎯 AiPrice</button>
+        <button onClick={() => { setActiveTab('insights'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧠 Smart Insights</button>
+        <button onClick={() => { setActiveTab('community'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🌱 Communauté</button>
       </div>
     </div>
   )}
