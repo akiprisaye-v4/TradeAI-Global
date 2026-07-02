@@ -807,6 +807,7 @@ import FBACalculators from "./components/FBACalculators";
 import AiPriceTool from "./components/AiPriceTool";
 import CompetitiveAnalysis from "./components/CompetitiveAnalysis";
 import SmartInsights from "./components/SmartInsights";
+import CommunityHub from "./components/CommunityHub";
 import FormationsShop from "./components/FormationsShop";
 
 
@@ -1209,6 +1210,11 @@ function CompetitivePanel() {
 
 
 
+
+
+function CommunityHubPanel() {
+  return <CommunityHub />;
+}
 
 function SmartInsightsPanel() {
   return <SmartInsights />;
