@@ -801,7 +801,7 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", predictive:"🧠 Prédictif", automation:"🤖 Automation", v7roadmap:"🚀 v7",
+  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", sourcing:"🌍 Sourcing", predictive:"🧠 Prédictif", automation:"🤖 Automation", v7roadmap:"🚀 v7",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -865,6 +865,8 @@ import StockPanel from "./components/panels/StockPanel";
 import CompetitivePanel from "./components/panels/CompetitivePanel";
 import { runAutomationEngine } from "./automation/automationEngine";
 import { runPredictiveEngine } from "./prediction/predictiveEngine";
+import { runGlobalSourcingEngine } from "./sourcing/globalSourcingEngine";
+import GlobalSourcingPanel from "./components/panels/GlobalSourcingPanel";
 import PredictiveDashboard from "./components/panels/PredictiveDashboard";
 import AutomationCenter from "./components/panels/AutomationCenter";
 import useToast from "./hooks/useToast";
@@ -996,6 +998,21 @@ useEffect(() => {
   setPredictiveInsights(predictions);
 }, [products, fxRates]);
 
+
+useEffect(() => {
+  if (!products?.length) return;
+
+  const sourcing = runGlobalSourcingEngine({
+    product: products[0],
+    products,
+    fxRates,
+    calcProduct
+  });
+
+  setGlobalSourcing(sourcing);
+}, [products, fxRates]);
+
+
  const updateProduct = useCallback((idx, key, val) => {
  setProducts(prev => prev.map((p, i) => i === idx ? { ...p, [key]: val } : p));
  }, []);
@@ -1076,6 +1093,7 @@ setActiveProduct(products.length);
   activeTab={activeTab}
   automationAlerts={automationAlerts}
   predictiveInsights={predictiveInsights}
+  globalSourcing={globalSourcing}
   setTab={setTab}
   setActiveTab={setActiveTab}
   tabToActive={TAB_TO_ACTIVE}
