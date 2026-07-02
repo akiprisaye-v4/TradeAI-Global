@@ -1511,14 +1511,14 @@ setActiveProduct(products.length);
  {activeTab === "dashboard" && <DashboardPanel />}
         {activeTab === "analytics" && <AnalyticsPanel />}
         {activeTab === "tradeai" && <TradeAIPanel />}
-        {activeTab === "stock" && <StockPanel />}
-        {activeTab === "competitive" && <CompetitivePanel />}
-        {activeTab === "apropos" && <About />}
-        {activeTab === "idees" && <IdeesPanel />}
-        {activeTab === "calculateur" && <CalculateurPanel />}
+        {activeTab === "stocks" && <StockPanel />}
+        {activeTab === "concurrents" && <CompetitivePanel />}
+        {activeTab === "about" && <About />}
+        {activeTab === "ideas" && <IdeesPanel />}
+        {activeTab === "calcul" && <CalculateurPanel />}
         {activeTab === "cogs" && <COGSPanel p={p} u={u} sym={sym} />}
         {activeTab === "pricing" && <PricingPanel />}
-        {activeTab === "comparateur" && <PortfolioPanel />}
+        {activeTab === "portfolio" && <PortfolioPanel />}
         {activeTab === "historique" && <HistoriquePanel />}
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
