@@ -803,6 +803,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Tutorial from "./components/Tutorial";
 import Pricing from "./components/Pricing";
 import FBAAcademy from "./components/FBAAcademy";
+import FBACalculators from "./components/FBACalculators";
 import FormationsShop from "./components/FormationsShop";
 
 
@@ -1201,6 +1202,11 @@ function CompetitivePanel() {
 }
 
 
+
+
+function FBACalculatorsPanel() {
+  return <FBACalculators />;
+}
 
 function FBAAcademyPanel() {
   return <FBAAcademy />;
