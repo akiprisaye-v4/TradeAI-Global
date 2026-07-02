@@ -1,0 +1,27 @@
+AUDIT CHIRURGICAL ET MINUTIEUX
+================================================================================
+
+Succès: 76
+Avertissements: 15
+Erreurs critiques: 1
+Score: 82.6%
+
+ERREURS CRITIQUES:
+- ❌ Import ThemeProvider manquant
+
+AVERTISSEMENTS:
+- ⚠️ Rendu dashboard non trouvé
+- ⚠️ Rendu analytics non trouvé
+- ⚠️ Rendu tradeai non trouvé
+- ⚠️ Rendu stocks non trouvé
+- ⚠️ Rendu concurrents non trouvé
+- ⚠️ Rendu about non trouvé
+- ⚠️ Rendu ideas non trouvé
+- ⚠️ Rendu calcul non trouvé
+- ⚠️ Rendu cogs non trouvé
+- ⚠️ Rendu pricing non trouvé
+- ⚠️ Rendu portfolio non trouvé
+- ⚠️ Rendu historique non trouvé
+- ⚠️ Rendu abonnements non trouvé
+- ⚠️ Rendu formations non trouvé
+- ⚠️ Parenthèses: différence de 2
