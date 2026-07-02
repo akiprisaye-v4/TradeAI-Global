@@ -6,3 +6,5 @@ export { default as PanelLayout } from "./PanelLayout";
 export { default as SectionTitle } from "./SectionTitle";
 export { default as EmptyState } from "./EmptyState";
 export { default as LoadingState } from "./LoadingState";
+
+export { default as DashboardCard } from "./DashboardCard";
