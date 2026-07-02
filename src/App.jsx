@@ -684,6 +684,9 @@ function HistoriquePanel() {
  const { saveCurrentToHistory } = useAppContext();
  const [history, setHistory] = useState([]);
  const [loaded, setLoaded] = useState(false);
+const [automationAlerts, setAutomationAlerts] = useState([]);
+const [predictiveInsights, setPredictiveInsights] = useState([]);
+const [globalSourcing, setGlobalSourcing] = useState([]);
 
  useEffect(() => {
  (async () => {
