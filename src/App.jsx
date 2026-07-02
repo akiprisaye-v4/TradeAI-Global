@@ -1701,7 +1701,7 @@ setActiveProduct(products.length);
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
 
-        {activeTab === "academy" && <AcademyPage><FBAAcademyPanel /></AcademyPage>}
+        {activeTab === "academy" && <AcademyPage><FBAAcademy /></AcademyPage>}
         {activeTab === "calculators" && <FBACalculatorsPage><FBACalculatorsPanel /></FBACalculatorsPage>}
         {activeTab === "aiprice" && <AiPricePage><AiPriceToolPanel /></AiPricePage>}
         {activeTab === "insights" && <SmartInsightsPage><SmartInsightsPanel /></SmartInsightsPage>}
