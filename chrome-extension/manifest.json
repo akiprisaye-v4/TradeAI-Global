@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon Profit Pro Analyzer",
+  "version": "1.0.0",
+  "description": "Analysez les produits Amazon en temps réel avec Amazon Profit Pro",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.amazon.com/*",
+    "*://*.amazon.fr/*",
+    "*://*.amazon.de/*",
+    "*://*.amazon.co.uk/*",
+    "*://*.amazon.it/*",
+    "*://*.amazon.es/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.amazon.com/dp/*",
+        "*://*.amazon.fr/dp/*",
+        "*://*.amazon.de/dp/*",
+        "*://*.amazon.co.uk/dp/*",
+        "*://*.amazon.it/dp/*",
+        "*://*.amazon.es/dp/*",
+        "*://*.amazon.com/gp/product/*",
+        "*://*.amazon.fr/gp/product/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content-styles.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png"
+  }
+}

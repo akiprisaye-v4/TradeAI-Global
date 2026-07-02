@@ -776,7 +776,17 @@ const defaultProduct = (name = "Produit 1") => ({
  supplierFinancing: false, capitalCostRate: 0,
 });
 
-const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations"];
+const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations","academy","calculators","aiprice","insights","community","listing","keywords","extension"];
+
+const TAB_TO_ACTIVE = {
+  stock: "stocks",
+  competitive: "concurrents",
+  apropos: "about",
+  idees: "ideas",
+  calculateur: "calcul",
+  comparateur: "portfolio"
+};
+
 const TAB_LABELS = {
  dashboard: "📊 Dashboard",
  analytics: "📈 Analytics",
@@ -791,7 +801,7 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations",
+  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -809,6 +819,11 @@ import CompetitiveAnalysis from "./components/CompetitiveAnalysis";
 import SmartInsights from "./components/SmartInsights";
 import CommunityHub from "./components/CommunityHub";
 import FormationsShop from "./components/FormationsShop";
+
+import ListingBuilder from "./components/ListingBuilder";
+import KeywordResearch from "./components/KeywordResearch";
+import ExtensionData from "./components/ExtensionData";
+
 
 
 function DashboardPanel() {
@@ -1244,6 +1259,19 @@ function TutorialPanel() {
 function FormationsShopPanel() {
   return <FormationsShop />;
 }
+
+function ListingBuilderPanel() {
+  return <ListingBuilder />;
+}
+
+function KeywordResearchPanel() {
+  return <KeywordResearch />;
+}
+
+function ExtensionDataPanel() {
+  return <ExtensionData />;
+}
+
 export default function AmazonPro() {
   
   // États pour la recherche par image
@@ -1481,7 +1509,7 @@ setActiveProduct(products.length);
  </div>
  <div style={{ display:"flex", gap: 4, overflowX:"auto", paddingBottom: 2 }}>
  {TABS.map(t => (
- <button key={t} onClick={() => setTab(t)} tabIndex={0} aria-label={TAB_LABELS[t]} style={{
+ <button key={t} onClick={() => { setTab(t); setActiveTab(TAB_TO_ACTIVE[t] || t); }} tabIndex={0} aria-label={TAB_LABELS[t]} style={{
  padding:"6px 12px", borderRadius: 20, border:"none", cursor:"pointer", fontSize: 11, fontWeight: 600,
  background: tab === t ?"#FF9900":"#21262D", color: tab === t ?"#0D1117":"#8B949E", transition:"all 0.2s",
  }}>{TAB_LABELS[t]}</button>
@@ -1522,6 +1550,16 @@ setActiveProduct(products.length);
         {activeTab === "historique" && <HistoriquePanel />}
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
+
+        {activeTab === "academy" && <FBAAcademyPanel />}
+        {activeTab === "calculators" && <FBACalculatorsPanel />}
+        {activeTab === "aiprice" && <AiPriceToolPanel />}
+        {activeTab === "insights" && <SmartInsightsPanel />}
+        {activeTab === "community" && <CommunityHubPanel />}
+        {activeTab === "listing" && <ListingBuilderPanel />}
+        {activeTab === "keywords" && <KeywordResearchPanel />}
+        {activeTab === "extension" && <ExtensionDataPanel />}
+
  </div>
  </div>
  
