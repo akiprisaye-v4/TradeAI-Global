@@ -1617,7 +1617,31 @@ setActiveProduct(products.length);
 )}
         {activeTab === "about" && <About />}
         {activeTab === "ideas" && <IdeasPage><IdeesPanel /></IdeasPage>}
-        {activeTab === "calcul" && <CalculateurPage><CalculateurPanel /></CalculateurPage>}
+        {activeTab === "calcul" && (
+  <CalculateurPage
+    p={p}
+    u={u}
+    calcP={calcP}
+    sym={sym}
+    mk={mk}
+    cashFlow={cashFlow}
+    pCol={pCol}
+    products={products}
+    fxRates={fxRates}
+    MARKETPLACES={MARKETPLACES}
+    CATEGORIES={CATEGORIES}
+    Section={Section}
+    SelectField={SelectField}
+    InputField={InputField}
+    StatCard={StatCard}
+    ScoreGauge={ScoreGauge}
+    ProfitMeter={ProfitMeter}
+    CashFlowChart={CashFlowChart}
+    MultiProductCashFlow={MultiProductCashFlow}
+    fmt={fmt}
+    fmtPct={fmtPct}
+  />
+)}
         {activeTab === "cogs" && <COGSPage><COGSPanel p={p} u={u} sym={sym} /></COGSPage>}
         {activeTab === "pricing" && <PricingPage><PricingPanel /></PricingPage>}
         {activeTab === "portfolio" && <PortfolioPage><PortfolioPanel /></PortfolioPage>}
