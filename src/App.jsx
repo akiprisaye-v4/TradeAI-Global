@@ -838,6 +838,18 @@ import PricingPage from "./pages/core/PricingPage";
 import PortfolioPage from "./pages/core/PortfolioPage";
 import HistoriquePage from "./pages/core/HistoriquePage";
 
+import AcademyPage from "./pages/core/AcademyPage";
+import FBACalculatorsPage from "./pages/core/FBACalculatorsPage";
+import AiPricePage from "./pages/core/AiPricePage";
+import SmartInsightsPage from "./pages/core/SmartInsightsPage";
+import CommunityPage from "./pages/core/CommunityPage";
+import ListingPage from "./pages/core/ListingPage";
+import KeywordPage from "./pages/core/KeywordPage";
+import ExtensionPage from "./pages/core/ExtensionPage";
+import EcosystemPage from "./pages/core/EcosystemPage";
+import V7RoadmapPage from "./pages/core/V7RoadmapPage";
+
+
 
 
 
@@ -1566,16 +1578,16 @@ setActiveProduct(products.length);
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
 
-        {activeTab === "academy" && <FBAAcademyPanel />}
-        {activeTab === "calculators" && <FBACalculatorsPanel />}
-        {activeTab === "aiprice" && <AiPriceToolPanel />}
-        {activeTab === "insights" && <SmartInsightsPanel />}
-        {activeTab === "community" && <CommunityHubPanel />}
-        {activeTab === "listing" && <ListingBuilderPanel />}
-        {activeTab === "keywords" && <KeywordResearchPanel />}
-        {activeTab === "extension" && <ExtensionDataPanel />}
-        {activeTab === "ecosystem" && <TradeAIEcosystem />}
-        {activeTab === "v7roadmap" && <V7Roadmap />}
+        {activeTab === "academy" && <AcademyPage><FBAAcademyPanel /></AcademyPage>}
+        {activeTab === "calculators" && <FBACalculatorsPage><FBACalculatorsPanel /></FBACalculatorsPage>}
+        {activeTab === "aiprice" && <AiPricePage><AiPriceToolPanel /></AiPricePage>}
+        {activeTab === "insights" && <SmartInsightsPage><SmartInsightsPanel /></SmartInsightsPage>}
+        {activeTab === "community" && <CommunityPage><CommunityHubPanel /></CommunityPage>}
+        {activeTab === "listing" && <ListingPage><ListingBuilderPanel /></ListingPage>}
+        {activeTab === "keywords" && <KeywordPage><KeywordResearchPanel /></KeywordPage>}
+        {activeTab === "extension" && <ExtensionPage><ExtensionDataPanel /></ExtensionPage>}
+        {activeTab === "ecosystem" && <EcosystemPage><TradeAIEcosystem /></EcosystemPage>}
+        {activeTab === "v7roadmap" && <V7RoadmapPage><V7Roadmap /></V7RoadmapPage>}
 
  </div>
  </div>
