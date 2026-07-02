@@ -1616,7 +1616,16 @@ setActiveProduct(products.length);
   />
 )}
         {activeTab === "about" && <About />}
-        {activeTab === "ideas" && <IdeasPage><IdeesPanel /></IdeasPage>}
+        {activeTab === "ideas" && (
+  <IdeasPage
+    TRENDING_PRODUCTS={TRENDING_PRODUCTS}
+    activeProduct={activeProduct}
+    setProducts={setProducts}
+    setTab={setTab}
+    setToast={setToast}
+    fmt={fmt}
+  />
+)}
         {activeTab === "calcul" && (
   <CalculateurPage
     p={p}
