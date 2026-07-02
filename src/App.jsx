@@ -1702,13 +1702,13 @@ setActiveProduct(products.length);
             {activeTab === "formations" && <FormationsShop />}
 
         {activeTab === "academy" && <AcademyPage><FBAAcademy /></AcademyPage>}
-        {activeTab === "calculators" && <FBACalculatorsPage><FBACalculatorsPanel /></FBACalculatorsPage>}
-        {activeTab === "aiprice" && <AiPricePage><AiPriceToolPanel /></AiPricePage>}
-        {activeTab === "insights" && <SmartInsightsPage><SmartInsightsPanel /></SmartInsightsPage>}
-        {activeTab === "community" && <CommunityPage><CommunityHubPanel /></CommunityPage>}
-        {activeTab === "listing" && <ListingPage><ListingBuilderPanel /></ListingPage>}
-        {activeTab === "keywords" && <KeywordPage><KeywordResearchPanel /></KeywordPage>}
-        {activeTab === "extension" && <ExtensionPage><ExtensionDataPanel /></ExtensionPage>}
+        {activeTab === "calculators" && <FBACalculatorsPage><FBACalculators /></FBACalculatorsPage>}
+        {activeTab === "aiprice" && <AiPricePage><AiPriceTool /></AiPricePage>}
+        {activeTab === "insights" && <SmartInsightsPage><SmartInsights /></SmartInsightsPage>}
+        {activeTab === "community" && <CommunityPage><CommunityHub /></CommunityPage>}
+        {activeTab === "listing" && <ListingPage><ListingBuilder /></ListingPage>}
+        {activeTab === "keywords" && <KeywordPage><KeywordResearch /></KeywordPage>}
+        {activeTab === "extension" && <ExtensionPage><ExtensionData /></ExtensionPage>}
         {activeTab === "ecosystem" && <EcosystemPage><TradeAIEcosystem /></EcosystemPage>}
         {activeTab === "v7roadmap" && <V7RoadmapPage><V7Roadmap /></V7RoadmapPage>}
 
