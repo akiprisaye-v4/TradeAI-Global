@@ -856,6 +856,7 @@ import AppRouter from "./components/layout/AppRouter";
 import FloatingChatButton from "./components/layout/FloatingChatButton";
 import useAppState from "./hooks/useAppState";
 import usePersistence from "./hooks/usePersistence";
+import useFxRates from "./hooks/useFxRates";
 
 
 
