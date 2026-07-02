@@ -828,6 +828,17 @@ import V7Roadmap from "./pages/V7Roadmap";
 import DashboardPage from "./pages/core/DashboardPage";
 import AnalyticsPage from "./pages/core/AnalyticsPage";
 
+import TradeAIPage from "./pages/core/TradeAIPage";
+import StockPage from "./pages/core/StockPage";
+import CompetitivePage from "./pages/core/CompetitivePage";
+import IdeasPage from "./pages/core/IdeasPage";
+import CalculateurPage from "./pages/core/CalculateurPage";
+import COGSPage from "./pages/core/COGSPage";
+import PricingPage from "./pages/core/PricingPage";
+import PortfolioPage from "./pages/core/PortfolioPage";
+import HistoriquePage from "./pages/core/HistoriquePage";
+
+
 
 
 function DashboardPanel() {
@@ -1542,16 +1553,16 @@ setActiveProduct(products.length);
 
  {activeTab === "dashboard" && <DashboardPage><DashboardPanel /></DashboardPage>}
         {activeTab === "analytics" && <AnalyticsPage><AnalyticsPanel /></AnalyticsPage>}
-        {activeTab === "tradeai" && <TradeAIPanel />}
-        {activeTab === "stocks" && <StockPanel />}
-        {activeTab === "concurrents" && <CompetitivePanel />}
+        {activeTab === "tradeai" && <TradeAIPage><TradeAIPanel /></TradeAIPage>}
+        {activeTab === "stocks" && <StockPage><StockPanel /></StockPage>}
+        {activeTab === "concurrents" && <CompetitivePage><CompetitivePanel /></CompetitivePage>}
         {activeTab === "about" && <About />}
-        {activeTab === "ideas" && <IdeesPanel />}
-        {activeTab === "calcul" && <CalculateurPanel />}
-        {activeTab === "cogs" && <COGSPanel p={p} u={u} sym={sym} />}
-        {activeTab === "pricing" && <PricingPanel />}
-        {activeTab === "portfolio" && <PortfolioPanel />}
-        {activeTab === "historique" && <HistoriquePanel />}
+        {activeTab === "ideas" && <IdeasPage><IdeesPanel /></IdeasPage>}
+        {activeTab === "calcul" && <CalculateurPage><CalculateurPanel /></CalculateurPage>}
+        {activeTab === "cogs" && <COGSPage><COGSPanel p={p} u={u} sym={sym} /></COGSPage>}
+        {activeTab === "pricing" && <PricingPage><PricingPanel /></PricingPage>}
+        {activeTab === "portfolio" && <PortfolioPage><PortfolioPanel /></PortfolioPage>}
+        {activeTab === "historique" && <HistoriquePage><HistoriquePanel /></HistoriquePage>}
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
 
