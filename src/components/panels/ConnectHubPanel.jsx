@@ -1,3 +1,4 @@
+import CurrencyCenter from "./CurrencyCenter";
 import React from "react";
 import { FREE_CONNECTORS, getFreeConnectorsSummary } from "../../connectors/free/freeConnectorsRegistry";
 import { IMPORT_CONNECTORS, getImportConnectorsSummary } from "../../connectors/imports/importConnectorsRegistry";
@@ -33,8 +34,12 @@ export default function ConnectHubPanel() {
           <ConnectorCard key={c.id} connector={c} />
         ))}
       </Section>
-    </div>
+    
+      <CurrencyCenter />
+
+</div>
   );
+
 }
 
 function Metric({ label, value }) {
@@ -42,8 +47,12 @@ function Metric({ label, value }) {
     <div style={{ background: "#1C2128", border: "1px solid #30363D", padding: 12, borderRadius: 10 }}>
       <div style={{ fontSize: 10, color: "#8B949E", marginBottom: 4 }}>{label}</div>
       <div style={{ fontSize: 20, fontWeight: 800, color: "#FF9900" }}>{value}</div>
-    </div>
+    
+      <CurrencyCenter />
+
+</div>
   );
+
 }
 
 function Section({ title, children }) {
@@ -51,8 +60,12 @@ function Section({ title, children }) {
     <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: 10, padding: 14 }}>
       <h3 style={{ marginTop: 0 }}>{title}</h3>
       <div style={{ display: "grid", gap: 10 }}>{children}</div>
-    </div>
+    
+      <CurrencyCenter />
+
+</div>
   );
+
 }
 
 function ConnectorCard({ connector }) {
@@ -72,6 +85,10 @@ function ConnectorCard({ connector }) {
       <div style={{ marginTop: 6, fontSize: 11, color: "#6E7681" }}>
         Type : {connector.type}
       </div>
-    </div>
+    
+      <CurrencyCenter />
+
+</div>
   );
+
 }
