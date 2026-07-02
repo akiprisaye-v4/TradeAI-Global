@@ -1575,7 +1575,19 @@ setActiveProduct(products.length);
     fmtPct={fmtPct}
   />
 )}
-        {activeTab === "analytics" && <AnalyticsPage><AnalyticsPanel /></AnalyticsPage>}
+        {activeTab === "analytics" && (
+  <AnalyticsPage
+    products={products}
+    fxRates={fxRates}
+    CATEGORIES={CATEGORIES}
+    calcProduct={calcProduct}
+    Section={Section}
+    StatCard={StatCard}
+    fmt={fmt}
+    fmtPct={fmtPct}
+    scoreColor={scoreColor}
+  />
+)}
         {activeTab === "tradeai" && <TradeAIPage><TradeAIPanel /></TradeAIPage>}
         {activeTab === "stocks" && <StockPage><StockPanel /></StockPage>}
         {activeTab === "concurrents" && <CompetitivePage><CompetitivePanel /></CompetitivePage>}
