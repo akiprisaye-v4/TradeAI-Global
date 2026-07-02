@@ -1,0 +1,22 @@
+export const NAV_ITEMS = [
+  { id: "dashboard", label: "📊 Dashboard" },
+  { id: "analytics", label: "📈 Analytics" },
+  { id: "tradeai", label: "🤖 TradeAI" },
+  { id: "stocks", label: "📦 Stocks" },
+  { id: "concurrents", label: "🎯 Concurrents" },
+  { id: "calcul", label: "🧮 Calcul" },
+  { id: "pricing", label: "💵 Pricing" },
+  { id: "portfolio", label: "📊 Portfolio" },
+  { id: "historique", label: "🕐 Historique" },
+  { id: "formations", label: "🎓 Formations" },
+  { id: "academy", label: "📚 Academy" },
+  { id: "calculators", label: "🧮 FBA" },
+  { id: "aiprice", label: "🎯 AiPrice" },
+  { id: "insights", label: "🧠 Insights" },
+  { id: "community", label: "🌱 Community" },
+  { id: "listing", label: "📝 Listing" },
+  { id: "keywords", label: "🔍 Keywords" },
+  { id: "extension", label: "🚀 Extension" },
+  { id: "ecosystem", label: "🌐 Ecosystem" },
+  { id: "about", label: "ℹ️ À propos" }
+];
