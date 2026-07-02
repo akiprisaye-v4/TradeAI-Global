@@ -36,6 +36,7 @@ import ExtensionData from "../ExtensionData";
 import TradeAIEcosystem from "../TradeAIEcosystem";
 import V7Roadmap from "../../pages/V7Roadmap";
 import AutomationCenter from "../panels/AutomationCenter";
+import PredictiveDashboard from "../panels/PredictiveDashboard";
 
 export default function AppRouter(props) {
   const {
@@ -76,6 +77,7 @@ export default function AppRouter(props) {
       {activeTab === "keywords" && <KeywordPage><KeywordResearch /></KeywordPage>}
       {activeTab === "extension" && <ExtensionPage><ExtensionData /></ExtensionPage>}
       {activeTab === "ecosystem" && <EcosystemPage><TradeAIEcosystem /></EcosystemPage>}
+      {activeTab === "predictive" && <PredictiveDashboard predictions={props.predictiveInsights} fmt={fmt} />}
       {activeTab === "automation" && <AutomationCenter alerts={props.automationAlerts} />}
       {activeTab === "v7roadmap" && <V7RoadmapPage><V7Roadmap /></V7RoadmapPage>}
     </>

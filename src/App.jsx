@@ -801,7 +801,7 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", automation:"🤖 Automation", v7roadmap:"🚀 v7",
+  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", predictive:"🧠 Prédictif", automation:"🤖 Automation", v7roadmap:"🚀 v7",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -864,6 +864,8 @@ import TradeAIPanel from "./components/panels/TradeAIPanel";
 import StockPanel from "./components/panels/StockPanel";
 import CompetitivePanel from "./components/panels/CompetitivePanel";
 import { runAutomationEngine } from "./automation/automationEngine";
+import { runPredictiveEngine } from "./prediction/predictiveEngine";
+import PredictiveDashboard from "./components/panels/PredictiveDashboard";
 import AutomationCenter from "./components/panels/AutomationCenter";
 import useToast from "./hooks/useToast";
 import useAutoDismissToast from "./hooks/useAutoDismissToast";
@@ -982,6 +984,18 @@ useEffect(() => {
   setAutomationAlerts(alerts);
 }, [products, fxRates]);
 
+useEffect(() => {
+  if (!products?.length) return;
+
+  const predictions = runPredictiveEngine({
+    products,
+    fxRates,
+    calcProduct
+  });
+
+  setPredictiveInsights(predictions);
+}, [products, fxRates]);
+
  const updateProduct = useCallback((idx, key, val) => {
  setProducts(prev => prev.map((p, i) => i === idx ? { ...p, [key]: val } : p));
  }, []);
@@ -1061,6 +1075,7 @@ setActiveProduct(products.length);
   tabLabels={TAB_LABELS}
   activeTab={activeTab}
   automationAlerts={automationAlerts}
+  predictiveInsights={predictiveInsights}
   setTab={setTab}
   setActiveTab={setActiveTab}
   tabToActive={TAB_TO_ACTIVE}
