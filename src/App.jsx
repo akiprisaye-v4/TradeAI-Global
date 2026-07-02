@@ -801,7 +801,7 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", v7roadmap:"🚀 v7",
+  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", automation:"🤖 Automation", v7roadmap:"🚀 v7",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -863,6 +863,8 @@ import AnalyticsPanel from "./components/panels/AnalyticsPanel";
 import TradeAIPanel from "./components/panels/TradeAIPanel";
 import StockPanel from "./components/panels/StockPanel";
 import CompetitivePanel from "./components/panels/CompetitivePanel";
+import { runAutomationEngine } from "./automation/automationEngine";
+import AutomationCenter from "./components/panels/AutomationCenter";
 import useToast from "./hooks/useToast";
 import useAutoDismissToast from "./hooks/useAutoDismissToast";
 import useAutoClearSaveStatus from "./hooks/useAutoClearSaveStatus";
@@ -968,6 +970,18 @@ useAutoClearSaveStatus({
   setSaveStatus
 });
 
+useEffect(() => {
+  if (!products?.length) return;
+
+  const alerts = runAutomationEngine({
+    products,
+    fxRates,
+    calcProduct
+  });
+
+  setAutomationAlerts(alerts);
+}, [products, fxRates]);
+
  const updateProduct = useCallback((idx, key, val) => {
  setProducts(prev => prev.map((p, i) => i === idx ? { ...p, [key]: val } : p));
  }, []);
@@ -1046,6 +1060,7 @@ setActiveProduct(products.length);
   tabs={TABS}
   tabLabels={TAB_LABELS}
   activeTab={activeTab}
+  automationAlerts={automationAlerts}
   setTab={setTab}
   setActiveTab={setActiveTab}
   tabToActive={TAB_TO_ACTIVE}

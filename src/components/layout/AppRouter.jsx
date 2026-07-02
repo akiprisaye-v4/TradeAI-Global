@@ -35,6 +35,7 @@ import KeywordResearch from "../KeywordResearch";
 import ExtensionData from "../ExtensionData";
 import TradeAIEcosystem from "../TradeAIEcosystem";
 import V7Roadmap from "../../pages/V7Roadmap";
+import AutomationCenter from "../panels/AutomationCenter";
 
 export default function AppRouter(props) {
   const {
@@ -75,6 +76,7 @@ export default function AppRouter(props) {
       {activeTab === "keywords" && <KeywordPage><KeywordResearch /></KeywordPage>}
       {activeTab === "extension" && <ExtensionPage><ExtensionData /></ExtensionPage>}
       {activeTab === "ecosystem" && <EcosystemPage><TradeAIEcosystem /></EcosystemPage>}
+      {activeTab === "automation" && <AutomationCenter alerts={props.automationAlerts} />}
       {activeTab === "v7roadmap" && <V7RoadmapPage><V7Roadmap /></V7RoadmapPage>}
     </>
   );
