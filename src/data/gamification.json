@@ -1,0 +1,88 @@
+{
+  "achievements": [
+    {
+      "id": "first_product",
+      "name": "Premier Produit",
+      "description": "Ajoutez votre premier produit à la base",
+      "icon": "🎯",
+      "points": 50,
+      "rarity": "common"
+    },
+    {
+      "id": "price_master",
+      "name": "Maître des Prix",
+      "description": "Mettez à jour 100 prix",
+      "icon": "💰",
+      "points": 500,
+      "rarity": "rare"
+    },
+    {
+      "id": "trend_hunter",
+      "name": "Chasseur de Tendances",
+      "description": "Trouvez 10 produits tendance avant les autres",
+      "icon": "🔥",
+      "points": 1000,
+      "rarity": "epic"
+    },
+    {
+      "id": "community_legend",
+      "name": "Légende de la Communauté",
+      "description": "Atteignez 10000 points",
+      "icon": "",
+      "points": 10000,
+      "rarity": "legendary"
+    },
+    {
+      "id": "data_scientist",
+      "name": "Scientifique des Données",
+      "description": "Contribuez à 500 analyses",
+      "icon": "📊",
+      "points": 2500,
+      "rarity": "epic"
+    }
+  ],
+  "streaks": {
+    "daily": {
+      "7_days": 100,
+      "30_days": 500,
+      "100_days": 2000
+    },
+    "contribution": {
+      "5_days": 50,
+      "15_days": 200,
+      "30_days": 500
+    }
+  },
+  "multipliers": {
+    "weekend": 1.5,
+    "holiday": 2.0,
+    "first_contribution_day": 3.0
+  },
+  "rewards_catalog": [
+    {
+      "cost": 100,
+      "reward": "Badge exclusif",
+      "type": "badge"
+    },
+    {
+      "cost": 500,
+      "reward": "Accès Premium 1 mois",
+      "type": "premium"
+    },
+    {
+      "cost": 1000,
+      "reward": "Mise en avant profil",
+      "type": "visibility"
+    },
+    {
+      "cost": 2500,
+      "reward": "Accès Premium 3 mois",
+      "type": "premium"
+    },
+    {
+      "cost": 5000,
+      "reward": "Accès Elite 1 mois",
+      "type": "elite"
+    }
+  ]
+}

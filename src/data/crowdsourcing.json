@@ -1,0 +1,118 @@
+{
+  "system": {
+    "name": "Communauté Amazon Profit Pro",
+    "version": "1.0.0"
+  },
+  "rewards": {
+    "add_product": {
+      "points": 10,
+      "badge": "Explorateur"
+    },
+    "update_price": {
+      "points": 5,
+      "badge": "Veilleur"
+    },
+    "add_review": {
+      "points": 15,
+      "badge": "Analyste"
+    },
+    "verify_data": {
+      "points": 20,
+      "badge": "Vérificateur"
+    },
+    "share_insight": {
+      "points": 25,
+      "badge": "Expert"
+    },
+    "daily_login": {
+      "points": 2,
+      "badge": "Fidèle"
+    }
+  },
+  "levels": [
+    {
+      "name": "Débutant",
+      "min_points": 0,
+      "icon": "🌱"
+    },
+    {
+      "name": "Intermédiaire",
+      "min_points": 100,
+      "icon": "🌿"
+    },
+    {
+      "name": "Expert",
+      "min_points": 500,
+      "icon": ""
+    },
+    {
+      "name": "Master",
+      "min_points": 2000,
+      "icon": "⭐"
+    },
+    {
+      "name": "Legend",
+      "min_points": 10000,
+      "icon": "👑"
+    }
+  ],
+  "badges": [
+    {
+      "id": "first_contribution",
+      "name": "Premier Pas",
+      "icon": "🎯",
+      "condition": "Première contribution"
+    },
+    {
+      "id": "price_hunter",
+      "name": "Chasseur de Prix",
+      "icon": "💰",
+      "condition": "50 mises à jour de prix"
+    },
+    {
+      "id": "data_master",
+      "name": "Maître des Données",
+      "icon": "",
+      "condition": "500 contributions"
+    },
+    {
+      "id": "community_hero",
+      "name": "Héros de la Communauté",
+      "icon": "🦸",
+      "condition": "1000 points"
+    },
+    {
+      "id": "trend_setter",
+      "name": "Tendanceur",
+      "icon": "🔥",
+      "condition": "10 produits tendance trouvés"
+    }
+  ],
+  "leaderboard": {
+    "weekly": [],
+    "monthly": [],
+    "all_time": []
+  },
+  "daily_challenges": [
+    {
+      "task": "Ajouter 3 produits",
+      "reward": 30,
+      "difficulty": "easy"
+    },
+    {
+      "task": "Mettre à jour 10 prix",
+      "reward": 50,
+      "difficulty": "medium"
+    },
+    {
+      "task": "Analyser 5 avis",
+      "reward": 75,
+      "difficulty": "hard"
+    },
+    {
+      "task": "Trouver un produit tendance",
+      "reward": 100,
+      "difficulty": "expert"
+    }
+  ]
+}

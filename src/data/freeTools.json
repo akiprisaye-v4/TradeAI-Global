@@ -1,0 +1,53 @@
+{
+  "bsr_calculator": {
+    "description": "Calcule les ventes estimées à partir du BSR",
+    "formula": "ventes_mensuelles = coefficient × BSR^exposant",
+    "accuracy": "±20%",
+    "cost": "Gratuit"
+  },
+  "profit_calculator": {
+    "description": "Calcule la marge nette complète",
+    "inputs": [
+      "prix_vente",
+      "cout_produit",
+      "frais_fba",
+      "commission",
+      "publicite"
+    ],
+    "outputs": [
+      "marge_brute",
+      "marge_nette",
+      "roi",
+      "break_even"
+    ],
+    "cost": "Gratuit"
+  },
+  "competition_analyzer": {
+    "description": "Analyse le niveau de concurrence",
+    "factors": [
+      "nombre_avis",
+      "nombre_vendeurs",
+      "qualite_listings",
+      "prix_moyen"
+    ],
+    "output": "score_concurrence (0-100)",
+    "cost": "Gratuit"
+  },
+  "trend_detector": {
+    "description": "Détecte les produits en croissance",
+    "method": "Analyse BSR historique + saisonnalité",
+    "output": "trend_score (declining/stable/growing/exploding)",
+    "cost": "Gratuit"
+  },
+  "niche_finder": {
+    "description": "Trouve des niches rentables",
+    "filters": [
+      "bsr_range",
+      "price_range",
+      "competition_level",
+      "seasonality"
+    ],
+    "output": "liste_niches_opportunites",
+    "cost": "Gratuit"
+  }
+}

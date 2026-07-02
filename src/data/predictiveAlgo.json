@@ -1,0 +1,158 @@
+{
+  "bsr_to_sales": {
+    "description": "Estimation des ventes mensuelles selon le BSR",
+    "formula": "ventes = a × BSR^b",
+    "categories": {
+      "Electronics": {
+        "a": 50000,
+        "b": -0.85,
+        "avg_price": 45
+      },
+      "Home & Kitchen": {
+        "a": 35000,
+        "b": -0.78,
+        "avg_price": 30
+      },
+      "Sports": {
+        "a": 28000,
+        "b": -0.75,
+        "avg_price": 35
+      },
+      "Books": {
+        "a": 20000,
+        "b": -0.65,
+        "avg_price": 15
+      },
+      "Toys": {
+        "a": 32000,
+        "b": -0.8,
+        "avg_price": 25
+      },
+      "Beauty": {
+        "a": 30000,
+        "b": -0.77,
+        "avg_price": 20
+      },
+      "Clothing": {
+        "a": 25000,
+        "b": -0.72,
+        "avg_price": 28
+      },
+      "Garden": {
+        "a": 22000,
+        "b": -0.7,
+        "avg_price": 32
+      },
+      "Pet Supplies": {
+        "a": 18000,
+        "b": -0.68,
+        "avg_price": 22
+      },
+      "Office": {
+        "a": 15000,
+        "b": -0.65,
+        "avg_price": 18
+      }
+    }
+  },
+  "profitability_score": {
+    "description": "Score de rentabilité basé sur plusieurs facteurs",
+    "weights": {
+      "bsr_score": 25,
+      "competition_score": 20,
+      "margin_score": 25,
+      "trend_score": 15,
+      "review_score": 15
+    },
+    "thresholds": {
+      "excellent": 85,
+      "good": 70,
+      "average": 50,
+      "poor": 30
+    }
+  },
+  "competition_analysis": {
+    "low": {
+      "max_reviews": 100,
+      "max_sellers": 20,
+      "score": 90
+    },
+    "medium": {
+      "max_reviews": 500,
+      "max_sellers": 50,
+      "score": 60
+    },
+    "high": {
+      "max_reviews": 1000,
+      "max_sellers": 100,
+      "score": 30
+    },
+    "saturated": {
+      "max_reviews": 99999,
+      "max_sellers": 99999,
+      "score": 10
+    }
+  },
+  "seasonal_trends": {
+    "Q1": {
+      "multiplier": 0.8,
+      "note": "Post-fêtes, baisse générale"
+    },
+    "Q2": {
+      "multiplier": 1.0,
+      "note": "Stable, printemps"
+    },
+    "Q3": {
+      "multiplier": 1.1,
+      "note": "Back to school"
+    },
+    "Q4": {
+      "multiplier": 1.5,
+      "note": "Noël, Black Friday, pics"
+    }
+  },
+  "niche_opportunities": [
+    {
+      "niche": "Accessoires téléphone écologiques",
+      "bsr_range": [
+        1000,
+        10000
+      ],
+      "price_range": [
+        15,
+        35
+      ],
+      "competition": "low",
+      "trend": "growing",
+      "score": 92
+    },
+    {
+      "niche": "Organisation maison minimaliste",
+      "bsr_range": [
+        2000,
+        15000
+      ],
+      "price_range": [
+        20,
+        45
+      ],
+      "competition": "medium",
+      "trend": "stable",
+      "score": 85
+    },
+    {
+      "niche": "Gadgets cuisine innovants",
+      "bsr_range": [
+        500,
+        8000
+      ],
+      "price_range": [
+        25,
+        50
+      ],
+      "competition": "low",
+      "trend": "growing",
+      "score": 88
+    }
+  ]
+}

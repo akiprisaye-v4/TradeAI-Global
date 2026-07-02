@@ -1,0 +1,45 @@
+{
+  "products": {
+    "B08N5WRWNW": {
+      "asin": "B08N5WRWNW",
+      "title": "Echo Dot (4e génération)",
+      "category": "Electronics",
+      "bsr": 150,
+      "estimated_sales_monthly": 45000,
+      "avg_price": 49.99,
+      "competition_level": "high",
+      "profitability_score": 45,
+      "last_updated": "2026-01-15"
+    },
+    "B09B8V1LZ3": {
+      "asin": "B09B8V1LZ3",
+      "title": "Organisateur de tiroirs bambou",
+      "category": "Home & Kitchen",
+      "bsr": 2500,
+      "estimated_sales_monthly": 3200,
+      "avg_price": 24.99,
+      "competition_level": "low",
+      "profitability_score": 82,
+      "last_updated": "2026-01-15"
+    },
+    "B07ZPKN6YR": {
+      "asin": "B07ZPKN6YR",
+      "title": "Bande de résistance fitness",
+      "category": "Sports",
+      "bsr": 1800,
+      "estimated_sales_monthly": 4100,
+      "avg_price": 19.99,
+      "competition_level": "medium",
+      "profitability_score": 75,
+      "last_updated": "2026-01-15"
+    }
+  },
+  "price_history": {},
+  "user_contributions": [],
+  "statistics": {
+    "total_products": 0,
+    "total_contributions": 0,
+    "active_users": 0,
+    "last_updated": null
+  }
+}
