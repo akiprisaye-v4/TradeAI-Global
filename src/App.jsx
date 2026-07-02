@@ -852,6 +852,7 @@ import AProposPage from "./pages/core/AProposPage";
 import NavigationTabs from "./components/layout/NavigationTabs";
 import ProductSelector from "./components/layout/ProductSelector";
 import Header from "./components/layout/Header";
+import AppRouter from "./components/layout/AppRouter";
 
 
 
@@ -1486,153 +1487,48 @@ setActiveProduct(products.length);
   removeProduct={removeProduct}
 />
 
-{activeTab === "dashboard" && (
-  <DashboardPage
-    products={products}
-    fxRates={fxRates}
-    calcProduct={calcProduct}
-    MARKETPLACES={MARKETPLACES}
-    Section={Section}
-    StatCard={StatCard}
-    fmt={fmt}
-    fmtPct={fmtPct}
-  />
-)}
-        {activeTab === "analytics" && (
-  <AnalyticsPage
-    products={products}
-    fxRates={fxRates}
-    CATEGORIES={CATEGORIES}
-    calcProduct={calcProduct}
-    Section={Section}
-    StatCard={StatCard}
-    fmt={fmt}
-    fmtPct={fmtPct}
-    scoreColor={scoreColor}
-  />
-)}
-        {activeTab === "tradeai" && (
-  <TradeAIPage
-    products={products}
-    p={p}
-    calcP={calcP}
-    Section={Section}
-    fmt={fmt}
-  />
-)}
-        {activeTab === "stocks" && (
-  <StockPage
-    products={products}
-    fxRates={fxRates}
-    calcProduct={calcProduct}
-    Section={Section}
-    StatCard={StatCard}
-    fmt={fmt}
-  />
-)}
-        {activeTab === "concurrents" && (
-  <CompetitivePage
-    p={p}
-    calcP={calcP}
-    Section={Section}
-    fmt={fmt}
-  />
-)}
-        {activeTab === "about" && (
-  <AProposPage
-    handleImageUpload={handleImageUpload}
-    searchOnAmazonAlibaba={searchOnAmazonAlibaba}
-    imageResults={imageResults}
-    amazonResults={amazonResults}
-    alibabaResults={alibabaResults}
-  />
-)}
-        {activeTab === "ideas" && (
-  <IdeasPage
-    TRENDING_PRODUCTS={TRENDING_PRODUCTS}
-    activeProduct={activeProduct}
-    setProducts={setProducts}
-    setTab={setTab}
-    setToast={setToast}
-    fmt={fmt}
-  />
-)}
-        {activeTab === "calcul" && (
-  <CalculateurPage
-    p={p}
-    u={u}
-    calcP={calcP}
-    sym={sym}
-    mk={mk}
-    cashFlow={cashFlow}
-    pCol={pCol}
-    products={products}
-    fxRates={fxRates}
-    MARKETPLACES={MARKETPLACES}
-    CATEGORIES={CATEGORIES}
-    Section={Section}
-    SelectField={SelectField}
-    InputField={InputField}
-    StatCard={StatCard}
-    ScoreGauge={ScoreGauge}
-    ProfitMeter={ProfitMeter}
-    CashFlowChart={CashFlowChart}
-    MultiProductCashFlow={MultiProductCashFlow}
-    fmt={fmt}
-    fmtPct={fmtPct}
-  />
-)}
-        {activeTab === "cogs" && (
-  <COGSPage
-    p={p}
-    u={u}
-    sym={sym}
-    calcP={calcP}
-    Section={Section}
-    InputField={InputField}
-    RestockAlert={RestockAlert}
-  />
-)}
-        {activeTab === "pricing" && (
-  <PricingPage
-    p={p}
-    fxRates={fxRates}
-    PriceComparisonChart={PriceComparisonChart}
-  />
-)}
-        {activeTab === "portfolio" && (
-  <PortfolioPage
-    products={products}
-    fxRates={fxRates}
-    calcProduct={calcProduct}
-    fmt={fmt}
-    StatCard={StatCard}
-    PortfolioExportButton={PortfolioExportButton}
-    MultiProductCashFlow={MultiProductCashFlow}
-  />
-)}
-        {activeTab === "historique" && (
-  <HistoriquePage
-    saveCurrentToHistory={saveCurrentToHistory}
-    safeStorageGet={safeStorageGet}
-    MARKETPLACES={MARKETPLACES}
-    profitColor={profitColor}
-    fmt={fmt}
-  />
-)}
-            {activeTab === "abonnements" && <Pricing />}
-            {activeTab === "formations" && <FormationsShop />}
-
-        {activeTab === "academy" && <AcademyPage><FBAAcademy /></AcademyPage>}
-        {activeTab === "calculators" && <FBACalculatorsPage><FBACalculators /></FBACalculatorsPage>}
-        {activeTab === "aiprice" && <AiPricePage><AiPriceTool /></AiPricePage>}
-        {activeTab === "insights" && <SmartInsightsPage><SmartInsights /></SmartInsightsPage>}
-        {activeTab === "community" && <CommunityPage><CommunityHub /></CommunityPage>}
-        {activeTab === "listing" && <ListingPage><ListingBuilder /></ListingPage>}
-        {activeTab === "keywords" && <KeywordPage><KeywordResearch /></KeywordPage>}
-        {activeTab === "extension" && <ExtensionPage><ExtensionData /></ExtensionPage>}
-        {activeTab === "ecosystem" && <EcosystemPage><TradeAIEcosystem /></EcosystemPage>}
-        {activeTab === "v7roadmap" && <V7RoadmapPage><V7Roadmap /></V7RoadmapPage>}
+<AppRouter
+  activeTab={activeTab}
+  products={products}
+  activeProduct={activeProduct}
+  p={p}
+  u={u}
+  mk={mk}
+  sym={sym}
+  calcP={calcP}
+  cashFlow={cashFlow}
+  pCol={pCol}
+  fxRates={fxRates}
+  setProducts={setProducts}
+  setTab={setTab}
+  setToast={setToast}
+  saveCurrentToHistory={saveCurrentToHistory}
+  safeStorageGet={safeStorageGet}
+  handleImageUpload={handleImageUpload}
+  searchOnAmazonAlibaba={searchOnAmazonAlibaba}
+  imageResults={imageResults}
+  amazonResults={amazonResults}
+  alibabaResults={alibabaResults}
+  MARKETPLACES={MARKETPLACES}
+  CATEGORIES={CATEGORIES}
+  TRENDING_PRODUCTS={TRENDING_PRODUCTS}
+  calcProduct={calcProduct}
+  profitColor={profitColor}
+  scoreColor={scoreColor}
+  Section={Section}
+  StatCard={StatCard}
+  SelectField={SelectField}
+  InputField={InputField}
+  ScoreGauge={ScoreGauge}
+  ProfitMeter={ProfitMeter}
+  CashFlowChart={CashFlowChart}
+  MultiProductCashFlow={MultiProductCashFlow}
+  PriceComparisonChart={PriceComparisonChart}
+  PortfolioExportButton={PortfolioExportButton}
+  RestockAlert={RestockAlert}
+  fmt={fmt}
+  fmtPct={fmtPct}
+/>
 
  </div>
  </div>
