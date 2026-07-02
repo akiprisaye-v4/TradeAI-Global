@@ -1588,7 +1588,15 @@ setActiveProduct(products.length);
     scoreColor={scoreColor}
   />
 )}
-        {activeTab === "tradeai" && <TradeAIPage><TradeAIPanel /></TradeAIPage>}
+        {activeTab === "tradeai" && (
+  <TradeAIPage
+    products={products}
+    p={p}
+    calcP={calcP}
+    Section={Section}
+    fmt={fmt}
+  />
+)}
         {activeTab === "stocks" && <StockPage><StockPanel /></StockPage>}
         {activeTab === "concurrents" && <CompetitivePage><CompetitivePanel /></CompetitivePage>}
         {activeTab === "about" && <About />}
