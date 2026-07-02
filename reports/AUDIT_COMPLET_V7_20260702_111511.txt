@@ -1,0 +1,140 @@
+===== AUDIT TRADEAI GLOBAL V7 =====
+Thu Jul  2 11:15:11 AST 2026
+
+BRANCHE:
+v6.1-integration
+
+DERNIER COMMIT:
+8a8b0ef chore: initialise architecture modulaire TradeAI v7
+
+STATUS GIT:
+?? reports/
+?? scripts/audit-complet-v7.sh
+
+FICHIERS CLÉS:
+✅ src/App.jsx
+✅ src/config/navigation.js
+✅ src/config/tradeai.config.js
+✅ src/modules/registry.js
+✅ src/layouts/AppLayout.jsx
+✅ src/components/TradeAIEcosystem.jsx
+✅ ARCHITECTURE_V7.md
+
+COMPOSANTS RÉCENTS:
+✅ ListingBuilder.jsx
+✅ KeywordResearch.jsx
+✅ ExtensionData.jsx
+✅ TradeAIEcosystem.jsx
+
+ONGLETS DANS App.jsx:
+activeTab === "abonnements"
+activeTab === "about"
+activeTab === "academy"
+activeTab === "aiprice"
+activeTab === "analytics"
+activeTab === "calcul"
+activeTab === "calculators"
+activeTab === "cogs"
+activeTab === "community"
+activeTab === "concurrents"
+activeTab === "dashboard"
+activeTab === "ecosystem"
+activeTab === "extension"
+activeTab === "formations"
+activeTab === "historique"
+activeTab === "ideas"
+activeTab === "insights"
+activeTab === "keywords"
+activeTab === "listing"
+activeTab === "portfolio"
+activeTab === "pricing"
+activeTab === "stocks"
+activeTab === "tradeai"
+
+BUILD:
+
+> tradeai-global@6.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 58 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   3.87 kB │ gzip:  1.42 kB
+dist/assets/vendor-nf7bT_Uh.js  140.87 kB │ gzip: 45.24 kB
+dist/assets/index-9SsEPQ-C.js   183.79 kB │ gzip: 45.98 kB
+✓ built in 1.32s
+
+AUDIT-V7:
+✅ App.jsx existe
+
+--- COMPOSANTS ---
+✅ FBAAcademy.jsx
+✅ FBAAcademy relié dans App.jsx
+✅ FBACalculators.jsx
+✅ FBACalculators relié dans App.jsx
+✅ AiPriceTool.jsx
+✅ AiPriceTool relié dans App.jsx
+✅ CompetitiveAnalysis.jsx
+✅ CompetitiveAnalysis relié dans App.jsx
+✅ SmartInsights.jsx
+✅ SmartInsights relié dans App.jsx
+✅ CommunityHub.jsx
+✅ CommunityHub relié dans App.jsx
+✅ ListingBuilder.jsx
+✅ ListingBuilder relié dans App.jsx
+✅ KeywordResearch.jsx
+✅ KeywordResearch relié dans App.jsx
+✅ ExtensionData.jsx
+✅ ExtensionData relié dans App.jsx
+
+--- ONGLETS / ROUTES ---
+✅ activeTab dashboard
+✅ activeTab analytics
+✅ activeTab tradeai
+✅ activeTab stocks
+✅ activeTab concurrents
+✅ activeTab portfolio
+✅ activeTab historique
+✅ activeTab abonnements
+✅ activeTab formations
+✅ activeTab academy
+✅ activeTab calculators
+✅ activeTab aiprice
+✅ activeTab insights
+✅ activeTab community
+✅ activeTab listing
+✅ activeTab keywords
+✅ activeTab extension
+✅ activeTab pricing
+✅ activeTab about
+
+--- MENU MOBILE ---
+✅ mobileMenuOpen présent
+✅ setMobileMenuOpen présent
+✅ bouton burger détecté
+
+--- SYNTAXE ---
+✅ accolades équilibrées
+✅ parenthèses équilibrées
+
+--- BUILD ---
+
+> tradeai-global@6.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 58 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   3.87 kB │ gzip:  1.42 kB
+dist/assets/vendor-nf7bT_Uh.js  140.87 kB │ gzip: 45.24 kB
+dist/assets/index-9SsEPQ-C.js   183.79 kB │ gzip: 45.98 kB
+✓ built in 1.30s
+✅ build OK
+
+Erreurs: 0
+
+===== FIN AUDIT =====
