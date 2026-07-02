@@ -381,9 +381,9 @@ export default function FBACalculators() {
                   fontSize: 14
                 }}
               >
-                <option value="standard">Standard (< 1kg)</option>
-                <option value="grand">Grand (> 1kg)</option>
-                <option value="lourd">Lourd (> 5kg)</option>
+                <option value="standard">Standard (&lt; 1kg)</option>
+                <option value="grand">Grand (&gt; 1kg)</option>
+                <option value="lourd">Lourd (&gt; 5kg)</option>
               </select>
             </div>
           </div>
