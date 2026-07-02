@@ -1549,24 +1549,15 @@ setActiveProduct(products.length);
  </div>
 
  <div style={{ maxWidth: 1100, margin:"0 auto", padding:"20px 14px 0"}}>
- <div style={{ display:"flex", gap: 6, marginBottom: 16, flexWrap:"wrap"}}>
- {products.map((prod, idx) => (
- <button key={idx} onClick={() => setActiveProduct(idx)} tabIndex={0} aria-label={`Produit ${prod.name}`} style={{
- padding:"6px 12px", borderRadius: 20, border:`1px solid ${activeProduct === idx ?"#FF9900":"#30363D"}`,
- background: activeProduct === idx ?"#FF990020":"#161B22",
- color: activeProduct === idx ?"#FF9900":"#8B949E",
- fontSize: 11, cursor:"pointer", fontWeight: 600,
- }}>
- {prod.name}
- </button>
- ))}
- <button onClick={addProduct} tabIndex={0} aria-label="Ajouter un produit"style={{ padding:"6px 12px", borderRadius: 20, border:"1px dashed #30363D", background:"transparent", color:"#8B949E", fontSize: 11, cursor:"pointer"}}>
- + Ajouter
- </button>
- {products.length > 1 && <button onClick={() => removeProduct(activeProduct)} tabIndex={0} style={{ padding:"6px 10px", borderRadius: 20, border:"1px solid #FF3D0033", background:"#FF3D0010", color:"#FF3D00", fontSize: 11, cursor:"pointer"}}>✕</button>}
- </div>
+ <ProductSelector
+  products={products}
+  activeProduct={activeProduct}
+  setActiveProduct={setActiveProduct}
+  addProduct={addProduct}
+  removeProduct={removeProduct}
+/>
 
- {activeTab === "dashboard" && (
+{activeTab === "dashboard" && (
   <DashboardPage
     products={products}
     fxRates={fxRates}
