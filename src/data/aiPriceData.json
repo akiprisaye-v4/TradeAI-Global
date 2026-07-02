@@ -1,0 +1,78 @@
+{
+  "platforms": [
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "icon": "🛒",
+      "url": "https://www.amazon.com"
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba",
+      "icon": "🏭",
+      "url": "https://www.alibaba.com"
+    },
+    {
+      "id": "aliexpress",
+      "name": "AliExpress",
+      "icon": "🌐",
+      "url": "https://www.aliexpress.com"
+    },
+    {
+      "id": "1688",
+      "name": "1688",
+      "icon": "📦",
+      "url": "https://www.1688.com"
+    },
+    {
+      "id": "taobao",
+      "name": "Taobao",
+      "icon": "🛍️",
+      "url": "https://www.taobao.com"
+    },
+    {
+      "id": "temu",
+      "name": "Temu",
+      "icon": "🎯",
+      "url": "https://www.temu.com"
+    }
+  ],
+  "features": {
+    "image_search": {
+      "name": "Recherche par Image",
+      "icon": "📸",
+      "description": "Recherchez des produits similaires sur 1688, Amazon, AliExpress, Alibaba",
+      "enabled": true
+    },
+    "price_history": {
+      "name": "Historique des Prix",
+      "icon": "📊",
+      "description": "Suivez l'historique des prix sur Amazon et AliExpress",
+      "enabled": true
+    },
+    "product_pro": {
+      "name": "Amazon Product Pro",
+      "icon": "💎",
+      "description": "BSR, ASIN, ventes, concurrents directement sur Amazon",
+      "enabled": true
+    },
+    "review_analysis": {
+      "name": "Analyse des Avis",
+      "icon": "⭐",
+      "description": "Analysez la répartition et téléchargez les avis",
+      "enabled": true
+    },
+    "currency_converter": {
+      "name": "Conversion Devises",
+      "icon": "💱",
+      "description": "Convertissez les prix en temps réel",
+      "enabled": true
+    },
+    "bulk_export": {
+      "name": "Export Excel",
+      "icon": "📁",
+      "description": "Exportez les produits vers Excel",
+      "enabled": true
+    }
+  }
+}
