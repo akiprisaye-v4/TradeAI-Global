@@ -849,6 +849,7 @@ import ExtensionPage from "./pages/core/ExtensionPage";
 import EcosystemPage from "./pages/core/EcosystemPage";
 import V7RoadmapPage from "./pages/core/V7RoadmapPage";
 import AProposPage from "./pages/core/AProposPage";
+import NavigationTabs from "./components/layout/NavigationTabs";
 
 
 
