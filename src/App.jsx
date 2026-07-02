@@ -1669,7 +1669,17 @@ setActiveProduct(products.length);
     PriceComparisonChart={PriceComparisonChart}
   />
 )}
-        {activeTab === "portfolio" && <PortfolioPage><PortfolioPanel /></PortfolioPage>}
+        {activeTab === "portfolio" && (
+  <PortfolioPage
+    products={products}
+    fxRates={fxRates}
+    calcProduct={calcProduct}
+    fmt={fmt}
+    StatCard={StatCard}
+    PortfolioExportButton={PortfolioExportButton}
+    MultiProductCashFlow={MultiProductCashFlow}
+  />
+)}
         {activeTab === "historique" && <HistoriquePage><HistoriquePanel /></HistoriquePage>}
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
