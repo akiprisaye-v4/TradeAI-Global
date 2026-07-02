@@ -853,6 +853,7 @@ import NavigationTabs from "./components/layout/NavigationTabs";
 import ProductSelector from "./components/layout/ProductSelector";
 import Header from "./components/layout/Header";
 import AppRouter from "./components/layout/AppRouter";
+import FloatingChatButton from "./components/layout/FloatingChatButton";
 
 
 
@@ -1531,32 +1532,9 @@ setActiveProduct(products.length);
       {showTutorial && <Tutorial onClose={closeTutorial} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
  
-      {/* Bouton Assistant IA flottant */}
-      <button
-        onClick={() => setChatOpen(true)}
-        style={{
-          position: 'fixed',
-          bottom: 20,
-          right: 20,
-          width: 60,
-          height: 60,
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #FF9900 0%, #FFB800 100%)',
-          border: 'none',
-          boxShadow: '0 4px 16px rgba(255,153,0,0.4)',
-          cursor: 'pointer',
-          fontSize: 28,
-          zIndex: 1000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-        aria-label="Ouvrir l'assistant IA"
-      >
-        🤖
-      </button>
-      
-      {chatOpen && <ChatAssistant 
+      <FloatingChatButton onClick={() => setChatOpen(true)} />
+
+{chatOpen && <ChatAssistant 
         isOpen={chatOpen} 
         onClose={() => setChatOpen(false)}
         products={products}
