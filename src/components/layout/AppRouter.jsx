@@ -38,6 +38,7 @@ import V7Roadmap from "../../pages/V7Roadmap";
 import AutomationCenter from "../panels/AutomationCenter";
 import PredictiveDashboard from "../panels/PredictiveDashboard";
 import GlobalSourcingPanel from "../panels/GlobalSourcingPanel";
+import ConnectHubPanel from "../panels/ConnectHubPanel";
 
 export default function AppRouter(props) {
   const {
@@ -78,6 +79,7 @@ export default function AppRouter(props) {
       {activeTab === "keywords" && <KeywordPage><KeywordResearch /></KeywordPage>}
       {activeTab === "extension" && <ExtensionPage><ExtensionData /></ExtensionPage>}
       {activeTab === "ecosystem" && <EcosystemPage><TradeAIEcosystem /></EcosystemPage>}
+      {activeTab === "connect" && <ConnectHubPanel />}
       {activeTab === "sourcing" && <GlobalSourcingPanel sources={props.globalSourcing} fmt={fmt} />}
       {activeTab === "predictive" && <PredictiveDashboard predictions={props.predictiveInsights} fmt={fmt} />}
       {activeTab === "automation" && <AutomationCenter alerts={props.automationAlerts} />}

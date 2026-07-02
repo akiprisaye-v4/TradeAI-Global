@@ -801,7 +801,7 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", sourcing:"🌍 Sourcing", predictive:"🧠 Prédictif", automation:"🤖 Automation", v7roadmap:"🚀 v7",
+  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem", connect:"🔌 Connect Hub", sourcing:"🌍 Sourcing", predictive:"🧠 Prédictif", automation:"🤖 Automation", v7roadmap:"🚀 v7",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -867,6 +867,7 @@ import { runAutomationEngine } from "./automation/automationEngine";
 import { runPredictiveEngine } from "./prediction/predictiveEngine";
 import { runGlobalSourcingEngine } from "./sourcing/globalSourcingEngine";
 import GlobalSourcingPanel from "./components/panels/GlobalSourcingPanel";
+import ConnectHubPanel from "./components/panels/ConnectHubPanel";
 import PredictiveDashboard from "./components/panels/PredictiveDashboard";
 import AutomationCenter from "./components/panels/AutomationCenter";
 import useToast from "./hooks/useToast";
