@@ -20,7 +20,14 @@ export default function IdeasPage({
               style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.3s" }}
               onError={(e) => {
                 e.target.style.display = "none";
-                e.target.parentElement.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:60px;">' + item.icon + '</div>';
+                const fallback = document.createElement("div");
+        fallback.style.display = "flex";
+        fallback.style.alignItems = "center";
+        fallback.style.justifyContent = "center";
+        fallback.style.height = "100%";
+        fallback.style.fontSize = "60px";
+        fallback.textContent = item.icon;
+        e.target.parentElement.replaceChildren(fallback);
               }}
             />
           </div>
