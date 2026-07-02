@@ -1236,6 +1236,14 @@ function FBAAcademyPanel() {
   return <FBAAcademy />;
 }
 
+
+function TutorialPanel() {
+  return <Tutorial />;
+}
+
+function FormationsShopPanel() {
+  return <FormationsShop />;
+}
 export default function AmazonPro() {
   
   // États pour la recherche par image
