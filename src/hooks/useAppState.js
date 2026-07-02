@@ -2,6 +2,8 @@ import { useState } from "react";
 
 export default function useAppState(defaultProduct) {
   const [tab, setTab] = useState("calculateur");
+  const [activeTab, setActiveTab] = useState("dashboard");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [products, setProducts] = useState([
     defaultProduct("Coque iPhone 17 Transparente 456")
   ]);
@@ -15,6 +17,8 @@ export default function useAppState(defaultProduct) {
 
   return {
     tab, setTab,
+    activeTab, setActiveTab,
+    mobileMenuOpen, setMobileMenuOpen,
     products, setProducts,
     activeProduct, setActiveProduct,
     fxRates, setFxRates,

@@ -939,6 +939,8 @@ export default function AmazonPro() {
 
  const {
   tab, setTab,
+  activeTab, setActiveTab,
+  mobileMenuOpen, setMobileMenuOpen,
   products, setProducts,
   activeProduct, setActiveProduct,
   fxRates, setFxRates,
