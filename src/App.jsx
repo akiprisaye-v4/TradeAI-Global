@@ -826,6 +826,7 @@ import ExtensionData from "./components/ExtensionData";
 import TradeAIEcosystem from "./components/TradeAIEcosystem";
 import V7Roadmap from "./pages/V7Roadmap";
 import DashboardPage from "./pages/core/DashboardPage";
+import AnalyticsPage from "./pages/core/AnalyticsPage";
 
 
 
@@ -1540,7 +1541,7 @@ setActiveProduct(products.length);
  </div>
 
  {activeTab === "dashboard" && <DashboardPage><DashboardPanel /></DashboardPage>}
-        {activeTab === "analytics" && <AnalyticsPanel />}
+        {activeTab === "analytics" && <AnalyticsPage><AnalyticsPanel /></AnalyticsPage>}
         {activeTab === "tradeai" && <TradeAIPanel />}
         {activeTab === "stocks" && <StockPanel />}
         {activeTab === "concurrents" && <CompetitivePanel />}
