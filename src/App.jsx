@@ -858,6 +858,9 @@ import useAppState from "./hooks/useAppState";
 import usePersistence from "./hooks/usePersistence";
 import useFxRates from "./hooks/useFxRates";
 import useImageSearch from "./hooks/useImageSearch";
+import useToast from "./hooks/useToast";
+import useAutoDismissToast from "./hooks/useAutoDismissToast";
+import useAutoClearSaveStatus from "./hooks/useAutoClearSaveStatus";
 
 
 
@@ -1344,12 +1347,10 @@ export default function AmazonPro() {
   setSaveStatus
 });
 
-useEffect(() => {
- if (saveStatus ==="saved") {
- const t = setTimeout(() => setSaveStatus(""), 1800);
- return () => clearTimeout(t);
- }
- }, [saveStatus]);
+useAutoClearSaveStatus({
+  saveStatus,
+  setSaveStatus
+});
 
  const updateProduct = useCallback((idx, key, val) => {
  setProducts(prev => prev.map((p, i) => i === idx ? { ...p, [key]: val } : p));
