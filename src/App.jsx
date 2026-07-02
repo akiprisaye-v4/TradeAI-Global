@@ -968,6 +968,10 @@ export default function AmazonPro() {
   showTutorial, setShowTutorial
 } = useAppState(defaultProduct);
 
+const [automationAlerts, setAutomationAlerts] = useState([]);
+const [predictiveInsights, setPredictiveInsights] = useState([]);
+const [globalSourcing, setGlobalSourcing] = useState([]);
+
  useFxRates(setFxRates);
 
  usePersistence({
