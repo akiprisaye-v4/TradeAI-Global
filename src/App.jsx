@@ -316,12 +316,10 @@ function SelectField({ label, value, onChange, options, parseAs = "index" }) {
  onChange(index);
  }
  };
- 
  // Trouver l'index actuel basé sur la valeur
  const currentIndex = parseAs === "string" 
  ? options.findIndex(o => o.value === value)
  : value;
- 
  return (
  <div style={{ marginBottom: 12 }}>
  <label htmlFor={id} style={{ display:"block", fontSize: 11, color:"#8B949E", marginBottom: 4, fontWeight: 700 }}>{label}</label>
@@ -605,11 +603,9 @@ return (
       }}
     />
   </div>
-  
   <div style={{ padding: "16px" }}>
     <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8, color: "#E6EDF3" }}>{item.icon} {item.name}</div>
     <div style={{ fontSize: 11, color: "#8B949E", marginBottom: 12 }}>{item.category}</div>
-    
     <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
       <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
         <div style={{ fontSize: 9, color: "#8B949E" }}>Prix Amazon</div>
@@ -620,7 +616,6 @@ return (
         <div style={{ fontSize: 13, fontWeight: 700, color: "#00C853" }}>{fmt(item.alibabaPriceRange[0])}-{fmt(item.alibabaPriceRange[1])}</div>
       </div>
     </div>
-    
     <div style={{ padding: "8px", background: `${item.color}15`, borderRadius: 6, marginBottom: 12 }}>
       <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>
          Croissance: {item.growth}
@@ -629,7 +624,6 @@ return (
         {item.note}
       </div>
     </div>
-    
     <button onClick={() => {
 setProducts(prev => prev.map((prod, idx) => idx === activeProduct ? { ...prod, name: item.name, sellingPrice: (item.amazonPriceRange[0] + item.amazonPriceRange[1]) / 2, costPrice: (item.alibabaPriceRange[0] + item.alibabaPriceRange[1]) / 2, categoryIdx: item.categoryIdx } : prod));
 setTab("calculateur");
@@ -810,26 +804,24 @@ import SmartInsights from "./components/SmartInsights";
 import CommunityHub from "./components/CommunityHub";
 import FormationsShop from "./components/FormationsShop";
 import ListingBuilder from "./components/ListingBuilder";
+import KeywordResearch from "./components/KeywordResearch";
+import ExtensionData from "./components/ExtensionData";
 
 
 function DashboardPanel() {
  const { products, fxRates, calcP, p, mk } = useAppContext();
- 
  const totalMonthlyProfit = products.reduce((sum, prod) => {
  const c = calcProduct(prod, fxRates);
  return sum + c.monthlyProfit;
  }, 0);
- 
  const avgMargin = products.length > 0 
  ? products.reduce((sum, prod) => sum + calcProduct(prod, fxRates).netMargin, 0) / products.length 
  : 0;
- 
  const bestProduct = products.reduce((best, prod) => {
  const c = calcProduct(prod, fxRates);
  const bestC = calcProduct(best, fxRates);
  return c.monthlyProfit > bestC.monthlyProfit ? prod : best;
  }, products[0]);
- 
  const bestCalc = bestProduct ? calcProduct(bestProduct, fxRates) : null;
 
  return (
@@ -842,7 +834,6 @@ function DashboardPanel() {
  <StatCard label="Meilleur produit" value={bestProduct?.name || "-"} color="#FFD600" sub={bestCalc ? fmt(bestCalc.monthlyProfit) + "/mois" : ""} />
  </div>
  </Section>
- 
  <Section title="🏆 Top 3 Produits">
  {products.slice().sort((a, b) => calcProduct(b, fxRates).monthlyProfit - calcProduct(a, fxRates).monthlyProfit).slice(0, 3).map((prod, i) => {
  const c = calcProduct(prod, fxRates);
@@ -859,7 +850,6 @@ function DashboardPanel() {
  );
  })}
  </Section>
- 
  <Section title="📈 Répartition par marketplace">
  {Object.keys(MARKETPLACES).slice(0, 6).map(mk => {
  const count = products.filter(p => p.marketplace === mk).length;
@@ -878,7 +868,6 @@ function DashboardPanel() {
 
 function AnalyticsPanel() {
  const { products, fxRates } = useAppContext();
- 
  const categoryStats = {};
  products.forEach(p => {
  const cat = CATEGORIES[p.categoryIdx]?.label || "Autre";
@@ -886,7 +875,6 @@ function AnalyticsPanel() {
  categoryStats[cat].count++;
  categoryStats[cat].profit += calcProduct(p, fxRates).monthlyProfit;
  });
- 
  const totalProfit = products.reduce((sum, p) => sum + calcProduct(p, fxRates).monthlyProfit, 0);
  const totalROI = products.length > 0 
  ? products.reduce((sum, p) => sum + calcProduct(p, fxRates).roi, 0) / products.length 
@@ -902,7 +890,6 @@ function AnalyticsPanel() {
  <StatCard label="Score moyen" value={(products.reduce((s, p) => s + calcProduct(p, fxRates).score, 0) / products.length).toFixed(1) + "/10"} color="#FFD600" />
  </div>
  </Section>
- 
  <Section title="🏷️ Par catégorie">
  {Object.entries(categoryStats).map(([cat, data]) => (
  <div key={cat} style={{ marginBottom: 10 }}>
@@ -920,7 +907,6 @@ function AnalyticsPanel() {
  </div>
  ))}
  </Section>
- 
  <Section title="📊 Distribution des scores">
  <div style={{ display: "flex", gap: 8, height: 80, alignItems: "flex-end" }}>
  {[...Array(11)].map((_, i) => {
@@ -947,9 +933,7 @@ function AnalyticsPanel() {
 
 function TradeAIPanel() {
  const { products, fxRates, p, calcP } = useAppContext();
- 
  const suggestions = [];
- 
  // Suggestion 1 : Optimisation prix
  if (calcP.netMargin < 15) {
  suggestions.push({
@@ -959,7 +943,6 @@ function TradeAIPanel() {
  color: "#FF9900"
  });
  }
- 
  // Suggestion 2 : Publicité
  if (p.ads < 1 && p.units > 50) {
  suggestions.push({
@@ -969,7 +952,6 @@ function TradeAIPanel() {
  color: "#3B82F6"
  });
  }
- 
  // Suggestion 3 : Arbitrage FBA
  if (calcP.arbitrageFBA) {
  suggestions.push({
@@ -979,7 +961,6 @@ function TradeAIPanel() {
  color: "#00C853"
  });
  }
- 
  // Suggestion 4 : Q4
  if (!p.isQ4) {
  suggestions.push({
@@ -989,7 +970,6 @@ function TradeAIPanel() {
  color: "#8B5CF6"
  });
  }
- 
  // Suggestion 5 : Multi-marketplace
  const uniqueMk = new Set(products.map(p => p.marketplace)).size;
  if (uniqueMk < 3) {
@@ -1012,7 +992,6 @@ function TradeAIPanel() {
  Analyse basée sur vos données actuelles et les meilleures pratiques Amazon FBA.
  </div>
  </div>
- 
  {suggestions.map((s, i) => (
  <div key={i} style={{ 
  padding: 16, 
@@ -1028,7 +1007,6 @@ function TradeAIPanel() {
  </div>
  ))}
  </Section>
- 
  <Section title="📊 Benchmark du marché">
  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
  <div style={{ padding: 12, background: "#1C2128", borderRadius: 8 }}>
@@ -1053,7 +1031,6 @@ function TradeAIPanel() {
 
 function StockPanel() {
  const { products, fxRates } = useAppContext();
- 
  return (
  <div>
  <Section title="📦 Gestion des Stocks">
@@ -1064,7 +1041,6 @@ function StockPanel() {
  const leadDays = prod.supplierLeadDays || 30;
  const status = daysOfStock <= leadDays * 0.5 ? "critical" : daysOfStock <= leadDays ? "warning" : "ok";
  const color = status === "critical" ? "#FF3D00" : status === "warning" ? "#FF9900" : "#00C853";
- 
  return (
  <div key={i} style={{ 
  padding: 14, 
@@ -1079,7 +1055,6 @@ function StockPanel() {
  {status === "critical" ? "🚨 Critique" : status === "warning" ? "⚠️ Attention" : "✅ OK"}
  </div>
  </div>
- 
  <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8, fontSize: 11 }}>
  <div>
  <div style={{ color: "#8B949E" }}>Stock</div>
@@ -1098,7 +1073,6 @@ function StockPanel() {
  <div style={{ fontWeight: 700 }}>{leadDays} j</div>
  </div>
  </div>
- 
  {status !== "ok" && (
  <div style={{ marginTop: 10, padding: 8, background: `${color}15`, borderRadius: 6, fontSize: 11, color }}>
  💰 Perte estimée si rupture: <strong>{fmt((c.profit * prod.units / 30) * Math.max(0, leadDays - daysOfStock), c.sym)}</strong>
@@ -1109,7 +1083,6 @@ function StockPanel() {
  })}
  </div>
  </Section>
- 
  <Section title="📊 Métriques globales">
  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10 }}>
  <StatCard 
@@ -1135,7 +1108,6 @@ function StockPanel() {
 
 function CompetitivePanel() {
  const { p, calcP, products, fxRates } = useAppContext();
- 
  const competitors = [
  { name: "Concurrent A", price: p.sellingPrice * 0.95, rating: 4.2, reviews: 1240, fba: true },
  { name: "Concurrent B", price: p.sellingPrice * 1.10, rating: 4.5, reviews: 890, fba: true },
@@ -1156,7 +1128,6 @@ function CompetitivePanel() {
  </div>
  </div>
  </Section>
- 
  <Section title="👥 Concurrents Simulés">
  {competitors.map((c, i) => {
  const priceDiff = ((c.price - p.sellingPrice) / p.sellingPrice) * 100;
@@ -1182,7 +1153,6 @@ function CompetitivePanel() {
  );
  })}
  </Section>
- 
  <Section title="💡 Stratégies Recommandées">
  {[
  { title: "Prix d'appel", desc: "Positionnez-vous 5-10% sous le concurrent principal pour gagner en visibilité", color: "#00C853" },
@@ -1246,12 +1216,19 @@ function FormationsShopPanel() {
   return <FormationsShop />;
 }
 
+function KeywordResearchPanel() {
+  return <KeywordResearch />;
+}
+
+function ExtensionDataPanel() {
+  return <ExtensionData />;
+}
+
 function ListingBuilderPanel() {
   return <ListingBuilder />;
 }
 
 export default function AmazonPro() {
-  
   // États pour la recherche par image
   const [uploadedImage, setUploadedImage] = React.useState(null);
 
@@ -1331,6 +1308,8 @@ export default function AmazonPro() {
   if (activeTab === 'aiprice') return <AiPriceToolPanel />;
   if (activeTab === 'insights') return <SmartInsightsPanel />;
   if (activeTab === 'community') return <CommunityHubPanel />;
+  if (activeTab === 'keywords') return <KeywordResearchPanel />;
+  if (activeTab === 'extension') return <ExtensionDataPanel />;
   if (activeTab === 'listing') return <ListingBuilderPanel />;
 
  return () => clearTimeout(t);
@@ -1375,7 +1354,6 @@ setActiveProduct(products.length);
  return newHistory;
  };
 
- 
   // Vérifier si c'est le premier lancement
   useEffect(() => {
     (async () => {
@@ -1472,6 +1450,8 @@ setActiveProduct(products.length);
         <button onClick={() => { setActiveTab('insights'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧠 Smart Insights</button>
         <button onClick={() => { setActiveTab('community'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🌱 Communauté</button>
         <button onClick={() => { setActiveTab('listing'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📝 Listing</button>
+        <button onClick={() => { setActiveTab('keywords'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🔍 Keywords</button>
+        <button onClick={() => { setActiveTab('extension'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🚀 Extension</button>
 
       </div>
     </div>
@@ -1534,10 +1514,8 @@ setActiveProduct(products.length);
             {activeTab === "formations" && <FormationsShop />}
  </div>
  </div>
- 
       {showTutorial && <Tutorial onClose={closeTutorial} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
- 
       {/* Bouton Assistant IA flottant */}
       <button
         onClick={() => setChatOpen(true)}
@@ -1562,7 +1540,6 @@ setActiveProduct(products.length);
       >
         🤖
       </button>
-      
       {chatOpen && <ChatAssistant 
         isOpen={chatOpen} 
         onClose={() => setChatOpen(false)}

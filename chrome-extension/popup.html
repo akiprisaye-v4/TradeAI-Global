@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Profit Pro Analyzer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 Amazon Profit Pro</h1>
+      <p class="subtitle">Analyse en temps réel</p>
+    </header>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Analyse en cours...</p>
+    </div>
+
+    <div id="content" class="content" style="display: none;">
+      <div class="product-info">
+        <h2 id="product-title" class="product-title"></h2>
+        <div class="product-meta">
+          <span id="product-asin" class="badge">ASIN: </span>
+          <span id="product-marketplace" class="badge"></span>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon">💰</div>
+          <div class="metric-label">Prix</div>
+          <div id="product-price" class="metric-value">-</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">⭐</div>
+          <div class="metric-label">Note</div>
+          <div id="product-rating" class="metric-value">-</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">💬</div>
+          <div class="metric-label">Avis</div>
+          <div id="product-reviews" class="metric-value">-</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">📊</div>
+          <div class="metric-label">BSR</div>
+          <div id="product-bsr" class="metric-value">-</div>
+        </div>
+      </div>
+
+      <div class="analysis-section">
+        <h3>📈 Analyse</h3>
+        <div id="analysis-result" class="analysis-result"></div>
+      </div>
+
+      <div class="actions">
+        <button id="btn-save" class="btn btn-primary">
+          💾 Sauvegarder dans l'app
+        </button>
+        <button id="btn-compare" class="btn btn-secondary">
+          🔍 Comparer avec concurrents
+        </button>
+      </div>
+    </div>
+
+    <div id="error" class="error" style="display: none;">
+      <p>⚠️ Impossible d'analyser ce produit</p>
+      <p class="error-detail">Vérifiez que vous êtes sur une page produit Amazon</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
