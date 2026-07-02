@@ -776,7 +776,7 @@ const defaultProduct = (name = "Produit 1") => ({
  supplierFinancing: false, capitalCostRate: 0,
 });
 
-const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations","academy","calculators","aiprice","insights","community","listing","keywords","extension"];
+const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations","academy","calculators","aiprice","insights","community","listing","keywords","extension","ecosystem"];
 
 const TAB_TO_ACTIVE = {
   stock: "stocks",
@@ -801,7 +801,7 @@ const TAB_LABELS = {
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension",
+  formations:"🎓 Formations", academy:"📚 Academy", calculators:"🧮 FBA", aiprice:"🎯 AiPrice", insights:"🧠 Insights", community:"🌱 Community", listing:"📝 Listing", keywords:"🔍 Keywords", extension:"🚀 Extension", ecosystem:"🌐 Ecosystem",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -823,6 +823,7 @@ import FormationsShop from "./components/FormationsShop";
 import ListingBuilder from "./components/ListingBuilder";
 import KeywordResearch from "./components/KeywordResearch";
 import ExtensionData from "./components/ExtensionData";
+import TradeAIEcosystem from "./components/TradeAIEcosystem";
 
 
 
@@ -1559,6 +1560,7 @@ setActiveProduct(products.length);
         {activeTab === "listing" && <ListingBuilderPanel />}
         {activeTab === "keywords" && <KeywordResearchPanel />}
         {activeTab === "extension" && <ExtensionDataPanel />}
+        {activeTab === "ecosystem" && <TradeAIEcosystem />}
 
  </div>
  </div>
