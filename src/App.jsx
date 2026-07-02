@@ -825,6 +825,7 @@ import KeywordResearch from "./components/KeywordResearch";
 import ExtensionData from "./components/ExtensionData";
 import TradeAIEcosystem from "./components/TradeAIEcosystem";
 import V7Roadmap from "./pages/V7Roadmap";
+import DashboardPage from "./pages/core/DashboardPage";
 
 
 
@@ -1538,7 +1539,7 @@ setActiveProduct(products.length);
  {products.length > 1 && <button onClick={() => removeProduct(activeProduct)} tabIndex={0} style={{ padding:"6px 10px", borderRadius: 20, border:"1px solid #FF3D0033", background:"#FF3D0010", color:"#FF3D00", fontSize: 11, cursor:"pointer"}}>✕</button>}
  </div>
 
- {activeTab === "dashboard" && <DashboardPanel />}
+ {activeTab === "dashboard" && <DashboardPage><DashboardPanel /></DashboardPage>}
         {activeTab === "analytics" && <AnalyticsPanel />}
         {activeTab === "tradeai" && <TradeAIPanel />}
         {activeTab === "stocks" && <StockPanel />}
