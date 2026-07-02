@@ -857,6 +857,7 @@ import FloatingChatButton from "./components/layout/FloatingChatButton";
 import useAppState from "./hooks/useAppState";
 import usePersistence from "./hooks/usePersistence";
 import useFxRates from "./hooks/useFxRates";
+import useImageSearch from "./hooks/useImageSearch";
 
 
 
@@ -1310,40 +1311,14 @@ function ExtensionDataPanel() {
 
 export default function AmazonPro() {
   
-  // États pour la recherche par image
-  const [uploadedImage, setUploadedImage] = React.useState(null);
-
-  const [activeTab, setActiveTab] = React.useState('dashboard');
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-
-  const [imageResults, setImageResults] = React.useState(false);
-  const [amazonResults, setAmazonResults] = React.useState([]);
-  const [alibabaResults, setAlibabaResults] = React.useState([]);
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => setUploadedImage(reader.result);
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const searchOnAmazonAlibaba = () => {
-    if (!uploadedImage) {
-      alert('Veuillez importer une image');
-      return;
-    }
-    setAmazonResults([
-      { name: 'Produit Amazon 1', price: '€29.99', image: uploadedImage },
-      { name: 'Produit Amazon 2', price: '€34.99', image: uploadedImage }
-    ]);
-    setAlibabaResults([
-      { name: 'Produit Alibaba 1', price: '€5.50', image: uploadedImage },
-      { name: 'Produit Alibaba 2', price: '€4.20', image: uploadedImage }
-    ]);
-    setImageResults(true);
-  };
+  const {
+  uploadedImage,
+  imageResults,
+  amazonResults,
+  alibabaResults,
+  handleImageUpload,
+  searchOnAmazonAlibaba
+} = useImageSearch();
 
  const {
   tab, setTab,
