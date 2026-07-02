@@ -1662,7 +1662,13 @@ setActiveProduct(products.length);
     RestockAlert={RestockAlert}
   />
 )}
-        {activeTab === "pricing" && <PricingPage><PricingPanel /></PricingPage>}
+        {activeTab === "pricing" && (
+  <PricingPage
+    p={p}
+    fxRates={fxRates}
+    PriceComparisonChart={PriceComparisonChart}
+  />
+)}
         {activeTab === "portfolio" && <PortfolioPage><PortfolioPanel /></PortfolioPage>}
         {activeTab === "historique" && <HistoriquePage><HistoriquePanel /></HistoriquePage>}
             {activeTab === "abonnements" && <Pricing />}
