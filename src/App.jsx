@@ -1380,11 +1380,6 @@ export default function AmazonPro() {
  }, 600);
 
   // Rendu des nouveaux onglets
-  if (activeTab === 'academy') return <FBAAcademyPanel />;
-  if (activeTab === 'calculators') return <FBACalculatorsPanel />;
-  if (activeTab === 'aiprice') return <AiPriceToolPanel />;
-  if (activeTab === 'insights') return <SmartInsightsPanel />;
-  if (activeTab === 'community') return <CommunityHubPanel />;
  return () => clearTimeout(t);
  }, [products, loaded]);
 
