@@ -1563,7 +1563,18 @@ setActiveProduct(products.length);
  {products.length > 1 && <button onClick={() => removeProduct(activeProduct)} tabIndex={0} style={{ padding:"6px 10px", borderRadius: 20, border:"1px solid #FF3D0033", background:"#FF3D0010", color:"#FF3D00", fontSize: 11, cursor:"pointer"}}>✕</button>}
  </div>
 
- {activeTab === "dashboard" && <DashboardPage><DashboardPanel /></DashboardPage>}
+ {activeTab === "dashboard" && (
+  <DashboardPage
+    products={products}
+    fxRates={fxRates}
+    calcProduct={calcProduct}
+    MARKETPLACES={MARKETPLACES}
+    Section={Section}
+    StatCard={StatCard}
+    fmt={fmt}
+    fmtPct={fmtPct}
+  />
+)}
         {activeTab === "analytics" && <AnalyticsPage><AnalyticsPanel /></AnalyticsPage>}
         {activeTab === "tradeai" && <TradeAIPage><TradeAIPanel /></TradeAIPage>}
         {activeTab === "stocks" && <StockPage><StockPanel /></StockPage>}
