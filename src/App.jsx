@@ -1597,7 +1597,16 @@ setActiveProduct(products.length);
     fmt={fmt}
   />
 )}
-        {activeTab === "stocks" && <StockPage><StockPanel /></StockPage>}
+        {activeTab === "stocks" && (
+  <StockPage
+    products={products}
+    fxRates={fxRates}
+    calcProduct={calcProduct}
+    Section={Section}
+    StatCard={StatCard}
+    fmt={fmt}
+  />
+)}
         {activeTab === "concurrents" && <CompetitivePage><CompetitivePanel /></CompetitivePage>}
         {activeTab === "about" && <About />}
         {activeTab === "ideas" && <IdeasPage><IdeesPanel /></IdeasPage>}
