@@ -424,7 +424,7 @@ export default function AiPriceTool() {
             <h4 style={{ color: "#FF9900", marginBottom: 10 }}>📈 Analyse Concurrentielle</h4>
             <ul style={{ margin: 0, paddingLeft: 20, color: "var(--text-secondary)" }}>
               <li>Concurrence: <strong style={{ color: "#00C853" }}>Faible</strong> (23 vendeurs)</li>
-              <li>Opportunité: <strong style={{ color: "#FF9900" }}>Élevée</strong> (BSR < 5000)</li>
+              <li>Opportunité: <strong style={{ color: "#FF9900" }}>Élevée</strong> (BSR &lt; 5000)</li>
               <li>Recommandation: <strong style={{ color: "#00C853" }}>Produit prometteur</strong></li>
             </ul>
           </div>
