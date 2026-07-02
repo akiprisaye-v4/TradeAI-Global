@@ -848,6 +848,7 @@ import KeywordPage from "./pages/core/KeywordPage";
 import ExtensionPage from "./pages/core/ExtensionPage";
 import EcosystemPage from "./pages/core/EcosystemPage";
 import V7RoadmapPage from "./pages/core/V7RoadmapPage";
+import AProposPage from "./pages/core/AProposPage";
 
 
 
@@ -1615,7 +1616,15 @@ setActiveProduct(products.length);
     fmt={fmt}
   />
 )}
-        {activeTab === "about" && <About />}
+        {activeTab === "about" && (
+  <AProposPage
+    handleImageUpload={handleImageUpload}
+    searchOnAmazonAlibaba={searchOnAmazonAlibaba}
+    imageResults={imageResults}
+    amazonResults={amazonResults}
+    alibabaResults={alibabaResults}
+  />
+)}
         {activeTab === "ideas" && (
   <IdeasPage
     TRENDING_PRODUCTS={TRENDING_PRODUCTS}
