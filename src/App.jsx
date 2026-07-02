@@ -1357,12 +1357,7 @@ export default function AmazonPro() {
   showTutorial, setShowTutorial
 } = useAppState(defaultProduct);
 
- useEffect(() => {
- fetch("https://open.er-api.com/v6/latest/EUR")
- .then(res => res.json())
- .then(data => setFxRates(data.rates))
- .catch(e => console.log("FX API unavailable", e));
- }, []);
+ useFxRates(setFxRates);
 
  usePersistence({
   loaded,
