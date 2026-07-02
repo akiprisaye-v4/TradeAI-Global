@@ -1399,7 +1399,7 @@ setActiveProduct(products.length);
 <button
   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
   style={{
-    display: 'none',
+    display: 'block',
     background: 'none',
     border: 'none',
     color: 'var(--text-primary)',
@@ -1416,7 +1416,7 @@ setActiveProduct(products.length);
   {/* Menu Mobile Déroulant */}
   {mobileMenuOpen && (
     <div style={{
-      display: 'none',
+      display: 'block',
       position: 'fixed',
       top: 70,
       left: 10,
@@ -1471,7 +1471,7 @@ setActiveProduct(products.length);
  </div>
  <div style={{ display:"flex", gap: 4, overflowX:"auto", paddingBottom: 2 }}>
  {TABS.map(t => (
- <button key={t} onClick={() => setTab(t)} tabIndex={0} aria-label={TAB_LABELS[t]} style={{
+ <button key={t} onClick={() => { setTab(t); setActiveTab(t); }} tabIndex={0} aria-label={TAB_LABELS[t]} style={{
  padding:"6px 12px", borderRadius: 20, border:"none", cursor:"pointer", fontSize: 11, fontWeight: 600,
  background: tab === t ?"#FF9900":"#21262D", color: tab === t ?"#0D1117":"#8B949E", transition:"all 0.2s",
  }}>{TAB_LABELS[t]}</button>
