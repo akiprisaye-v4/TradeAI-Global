@@ -854,6 +854,7 @@ import ProductSelector from "./components/layout/ProductSelector";
 import Header from "./components/layout/Header";
 import AppRouter from "./components/layout/AppRouter";
 import FloatingChatButton from "./components/layout/FloatingChatButton";
+import useAppState from "./hooks/useAppState";
 
 
 
@@ -1342,15 +1343,17 @@ export default function AmazonPro() {
     setImageResults(true);
   };
 
- const [tab, setTab] = useState("calculateur");
- const [products, setProducts] = useState([defaultProduct("Coque iPhone 17 Transparente 456")]);
- const [activeProduct, setActiveProduct] = useState(0);
- const [fxRates, setFxRates] = useState(null);
- const [loaded, setLoaded] = useState(false);
- const [saveStatus, setSaveStatus] = useState("");
- const [toast, setToast] = useState(null);
-  const [chatOpen, setChatOpen] = useState(false);
-  const [showTutorial, setShowTutorial] = useState(false);
+ const {
+  tab, setTab,
+  products, setProducts,
+  activeProduct, setActiveProduct,
+  fxRates, setFxRates,
+  loaded, setLoaded,
+  saveStatus, setSaveStatus,
+  toast, setToast,
+  chatOpen, setChatOpen,
+  showTutorial, setShowTutorial
+} = useAppState(defaultProduct);
 
  useEffect(() => {
  fetch("https://open.er-api.com/v6/latest/EUR")
