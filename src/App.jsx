@@ -851,6 +851,7 @@ import V7RoadmapPage from "./pages/core/V7RoadmapPage";
 import AProposPage from "./pages/core/AProposPage";
 import NavigationTabs from "./components/layout/NavigationTabs";
 import ProductSelector from "./components/layout/ProductSelector";
+import Header from "./components/layout/Header";
 
 
 
@@ -1461,94 +1462,22 @@ setActiveProduct(products.length);
  <ThemeProvider>
       <AppContext.Provider value={contextValue}>
  <div style={{ minHeight:"100vh", background:"#0D1117", color:"#E6EDF3", fontFamily:"'Inter', system-ui, sans-serif", paddingBottom: 60 }}>
- <div style={{ background:"#161B22", borderBottom:"1px solid #21262D", padding:"14px 16px", position:"sticky", top: 0, zIndex: 100 }}>
- <div style={{ maxWidth: 1100, margin:"0 auto"}}>
- <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom: 10 }}>
- <div style={{ display:"flex", alignItems:"center", gap: 10 }}>
- <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
-<span style={{ fontSize: 12, color: "var(--text-secondary)", marginLeft: 10 }}>v6.0.0</span>
-{/* Burger Menu Button */}
-<button
-  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  style={{
-    display: 'none',
-    background: 'none',
-    border: 'none',
-    color: 'var(--text-primary)',
-    fontSize: 28,
-    cursor: 'pointer',
-    padding: '4px 8px',
-    marginLeft: 'auto'
-  }}
-  aria-label="Menu"
->
-  {mobileMenuOpen ? '✕' : '☰'}
-</button>
+ <Header
+  saveStatus={saveStatus}
+  mobileMenuOpen={mobileMenuOpen}
+  setMobileMenuOpen={setMobileMenuOpen}
+/>
 
-  {/* Menu Mobile Déroulant */}
-  {mobileMenuOpen && (
-    <div style={{
-      display: 'none',
-      position: 'fixed',
-      top: 70,
-      left: 10,
-      right: 10,
-      background: 'var(--bg-secondary)',
-      borderRadius: 12,
-      padding: 15,
-      boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-      zIndex: 1000,
-      maxHeight: '70vh',
-      overflowY: 'auto'
-    }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <button onClick={() => { setActiveTab('dashboard'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📊 Dashboard</button>
-        <button onClick={() => { setActiveTab('analytics'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📈 Analytics</button>
-        <button onClick={() => { setActiveTab('tradeai'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🤖 TradeAI</button>
-        <button onClick={() => { setActiveTab('stocks'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📦 Stocks</button>
-        <button onClick={() => { setActiveTab('concurrents'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎯 Concurrents</button>
-        <button onClick={() => { setActiveTab('about'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>️ À propos</button>
-        <button onClick={() => { setActiveTab('ideas'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💡 Idées</button>
-        <button onClick={() => { setActiveTab('calcul'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧮 Calcul</button>
-        <button onClick={() => { setActiveTab('cogs'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}> COGS</button>
-        <button onClick={() => { setActiveTab('pricing'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💵 Pricing</button>
-        <button onClick={() => { setActiveTab('portfolio'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📊 Portfolio</button>
-        <button onClick={() => { setActiveTab('historique'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🕐 Historique</button>
-        <button onClick={() => { setActiveTab('abonnements'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💎 Abonnements</button>
-        <button onClick={() => { setActiveTab('formations'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎓 Formations</button>
-        <button onClick={() => { setActiveTab('academy'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📚 Académie</button>
-        <button onClick={() => { setActiveTab('calculators'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧮 Calculateurs</button>
-        <button onClick={() => { setActiveTab('aiprice'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎯 AiPrice</button>
-        <button onClick={() => { setActiveTab('insights'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧠 Smart Insights</button>
-        <button onClick={() => { setActiveTab('community'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🌱 Communauté</button>
-      </div>
-    </div>
-  )}
+<NavigationTabs
+  tabs={TABS}
+  tabLabels={TAB_LABELS}
+  activeTab={activeTab}
+  setTab={setTab}
+  setActiveTab={setActiveTab}
+  tabToActive={TAB_TO_ACTIVE}
+/>
 
-
-<ThemeToggle />
-
- <div>
- <div style={{ fontSize: 16, fontWeight: 800 }}>Amazon Profit <span style={{ color:"#FF9900"}}>Pro</span></div>
- <div style={{ fontSize: 10, color:"#00C853"}}>
- {saveStatus ==="saving"&&"· enregistrement…"}
- {saveStatus ==="saved"&&"· ✓ enregistré"}
- </div>
- </div>
- </div>
- </div>
- <div style={{ display:"flex", gap: 4, overflowX:"auto", paddingBottom: 2 }}>
- {TABS.map(t => (
- <button key={t} onClick={() => { setTab(t); setActiveTab(TAB_TO_ACTIVE[t] || t); }} tabIndex={0} aria-label={TAB_LABELS[t]} style={{
- padding:"6px 12px", borderRadius: 20, border:"none", cursor:"pointer", fontSize: 11, fontWeight: 600,
- background: tab === t ?"#FF9900":"#21262D", color: tab === t ?"#0D1117":"#8B949E", transition:"all 0.2s",
- }}>{TAB_LABELS[t]}</button>
- ))}
- </div>
- </div>
- </div>
-
- <div style={{ maxWidth: 1100, margin:"0 auto", padding:"20px 14px 0"}}>
+<div style={{ maxWidth: 1100, margin:"0 auto", padding:"20px 14px 0"}}>
  <ProductSelector
   products={products}
   activeProduct={activeProduct}
