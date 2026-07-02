@@ -1508,18 +1508,18 @@ setActiveProduct(products.length);
  {products.length > 1 && <button onClick={() => removeProduct(activeProduct)} tabIndex={0} style={{ padding:"6px 10px", borderRadius: 20, border:"1px solid #FF3D0033", background:"#FF3D0010", color:"#FF3D00", fontSize: 11, cursor:"pointer"}}>✕</button>}
  </div>
 
- {tab === "dashboard" && <DashboardPanel />}
-        {tab === "analytics" && <AnalyticsPanel />}
-        {tab === "tradeai" && <TradeAIPanel />}
-        {tab === "stock" && <StockPanel />}
-        {tab === "competitive" && <CompetitivePanel />}
+ {activeTab === "dashboard" && <DashboardPanel />}}
+        {activeTab === "analytics" && <AnalyticsPanel />}}
+        {activeTab === "tradeai" && <TradeAIPanel />}}
+        {activeTab === "stock" && <StockPanel />}}
+        {activeTab === "competitive" && <CompetitivePanel />}}
         {tab === "apropos" && <About />}
-        {tab === "idees" && <IdeesPanel />}
-        {tab === "calculateur" && <CalculateurPanel />}
+        {activeTab === "idees" && <IdeesPanel />}}
+        {activeTab === "calculateur" && <CalculateurPanel />}}
         {tab === "cogs" && <COGSPanel p={p} u={u} sym={sym} />}
-        {tab === "pricing" && <PricingPanel />}
-        {tab === "comparateur" && <PortfolioPanel />}
-        {tab === "historique" && <HistoriquePanel />}
+        {activeTab === "pricing" && <PricingPanel />}}
+        {activeTab === "comparateur" && <PortfolioPanel />}}
+        {activeTab === "historique" && <HistoriquePanel />}}
             {tab === "abonnements" && <Pricing />}
             {tab === "formations" && <FormationsShop />}
  </div>
