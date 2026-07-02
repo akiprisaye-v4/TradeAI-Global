@@ -1680,7 +1680,15 @@ setActiveProduct(products.length);
     MultiProductCashFlow={MultiProductCashFlow}
   />
 )}
-        {activeTab === "historique" && <HistoriquePage><HistoriquePanel /></HistoriquePage>}
+        {activeTab === "historique" && (
+  <HistoriquePage
+    saveCurrentToHistory={saveCurrentToHistory}
+    safeStorageGet={safeStorageGet}
+    MARKETPLACES={MARKETPLACES}
+    profitColor={profitColor}
+    fmt={fmt}
+  />
+)}
             {activeTab === "abonnements" && <Pricing />}
             {activeTab === "formations" && <FormationsShop />}
 
