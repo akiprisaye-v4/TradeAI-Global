@@ -1,0 +1,323 @@
+{
+  "category": "Outils Amazon FBA",
+  "last_update": "2026",
+  "tools": [
+    {
+      "rank": 1,
+      "name": "Helium 10",
+      "logo": "🚀",
+      "pricing": {
+        "free": false,
+        "starter": "$37/mois",
+        "pro": "$97/mois",
+        "elite": "$197/mois"
+      },
+      "features": {
+        "recherche_produits": true,
+        "mots_cles": true,
+        "bsr_tracking": true,
+        "calcul_marge": true,
+        "ppc_manager": true,
+        "listing_optimizer": true,
+        "refund_genie": true,
+        "chrome_extension": true,
+        "api_access": true,
+        "formation": true,
+        "mobile_app": false,
+        "multi_marketplaces": 8,
+        "ia_integration": false,
+        "prix_abordable": false
+      },
+      "scores": {
+        "global": 88,
+        "features": 92,
+        "prix": 65,
+        "facilite": 82,
+        "support": 85
+      },
+      "strengths": [
+        "Suite complète d'outils",
+        "Très puissant pour keywords",
+        "Refund Genie unique",
+        "Grande communauté"
+      ],
+      "weaknesses": [
+        "Prix élevé",
+        "Courbe d'apprentissage raide",
+        "Interface complexe",
+        "Pas d'IA intégrée"
+      ],
+      "best_for": "Vendeurs avancés avec budget"
+    },
+    {
+      "rank": 2,
+      "name": "Jungle Scout",
+      "logo": "🦁",
+      "pricing": {
+        "free": false,
+        "starter": "$49/mois",
+        "pro": "$69/mois",
+        "elite": "$129/mois"
+      },
+      "features": {
+        "recherche_produits": true,
+        "mots_cles": true,
+        "bsr_tracking": true,
+        "calcul_marge": true,
+        "ppc_manager": false,
+        "listing_optimizer": true,
+        "refund_genie": false,
+        "chrome_extension": true,
+        "api_access": true,
+        "formation": true,
+        "mobile_app": true,
+        "multi_marketplaces": 7,
+        "ia_integration": false,
+        "prix_abordable": false
+      },
+      "scores": {
+        "global": 85,
+        "features": 87,
+        "prix": 68,
+        "facilite": 90,
+        "support": 88
+      },
+      "strengths": [
+        "Interface intuitive",
+        "Données précises",
+        "Excellente formation",
+        "Mobile app"
+      ],
+      "weaknesses": [
+        "Moins complet que Helium 10",
+        "Prix élevé",
+        "Pas de gestion PPC",
+        "Limité à 7 marketplaces"
+      ],
+      "best_for": "Débutants et intermédiaires"
+    },
+    {
+      "rank": 3,
+      "name": "Amazon Profit Pro",
+      "logo": "👑",
+      "pricing": {
+        "free": true,
+        "starter": "Gratuit",
+        "pro": "29€/mois",
+        "elite": "99€/mois"
+      },
+      "features": {
+        "recherche_produits": true,
+        "mots_cles": true,
+        "bsr_tracking": true,
+        "calcul_marge": true,
+        "ppc_manager": true,
+        "listing_optimizer": true,
+        "refund_genie": false,
+        "chrome_extension": false,
+        "api_access": true,
+        "formation": true,
+        "mobile_app": true,
+        "multi_marketplaces": 18,
+        "ia_integration": true,
+        "prix_abordable": true,
+        "recherche_image": true,
+        "academie_fba": true,
+        "calculateurs": true,
+        "historique_prix": true,
+        "mode_sombre": true
+      },
+      "scores": {
+        "global": 94,
+        "features": 96,
+        "prix": 98,
+        "facilite": 92,
+        "support": 90,
+        "innovation": 97
+      },
+      "strengths": [
+        "18 marketplaces (record)",
+        "IA intégrée",
+        "Version gratuite complète",
+        "Académie FBA incluse",
+        "Calculateurs avancés",
+        "Recherche par image",
+        "Prix imbattable",
+        "PWA mobile",
+        "Mode sombre/clair"
+      ],
+      "weaknesses": [
+        "Nouveau sur le marché",
+        "Pas encore de Chrome extension",
+        "Moins connu"
+      ],
+      "best_for": "Tous niveaux - Meilleur rapport qualité/prix",
+      "our_tool": true
+    },
+    {
+      "rank": 4,
+      "name": "AMZScout",
+      "logo": "🔍",
+      "pricing": {
+        "free": false,
+        "starter": "$29.99/mois",
+        "pro": "$39.99/mois",
+        "elite": "$69.99/mois"
+      },
+      "features": {
+        "recherche_produits": true,
+        "mots_cles": true,
+        "bsr_tracking": true,
+        "calcul_marge": true,
+        "ppc_manager": false,
+        "listing_optimizer": false,
+        "refund_genie": false,
+        "chrome_extension": true,
+        "api_access": false,
+        "formation": false,
+        "mobile_app": true,
+        "multi_marketplaces": 5,
+        "ia_integration": false,
+        "prix_abordable": true
+      },
+      "scores": {
+        "global": 72,
+        "features": 70,
+        "prix": 82,
+        "facilite": 85,
+        "support": 70
+      },
+      "strengths": [
+        "Prix abordable",
+        "Interface simple",
+        "Chrome extension"
+      ],
+      "weaknesses": [
+        "Fonctionnalités limitées",
+        "Peu de marketplaces",
+        "Pas de formation",
+        "Données moins précises"
+      ],
+      "best_for": "Petits budgets"
+    },
+    {
+      "rank": 5,
+      "name": "Viral Launch",
+      "logo": "🚀",
+      "pricing": {
+        "free": false,
+        "starter": "$69/mois",
+        "pro": "$99/mois",
+        "elite": "$199/mois"
+      },
+      "features": {
+        "recherche_produits": true,
+        "mots_cles": true,
+        "bsr_tracking": true,
+        "calcul_marge": true,
+        "ppc_manager": true,
+        "listing_optimizer": true,
+        "refund_genie": false,
+        "chrome_extension": true,
+        "api_access": true,
+        "formation": true,
+        "mobile_app": false,
+        "multi_marketplaces": 5,
+        "ia_integration": false,
+        "prix_abordable": false
+      },
+      "scores": {
+        "global": 78,
+        "features": 82,
+        "prix": 60,
+        "facilite": 80,
+        "support": 78
+      },
+      "strengths": [
+        "Bon pour le lancement produits",
+        "PPC manager efficace",
+        "Keyword research solide"
+      ],
+      "weaknesses": [
+        "Prix élevé",
+        "Peu de marketplaces",
+        "Interface datée",
+        "Pas d'IA"
+      ],
+      "best_for": "Lancement de produits"
+    },
+    {
+      "rank": 6,
+      "name": "SellerApp",
+      "logo": "📊",
+      "pricing": {
+        "free": true,
+        "starter": "$49/mois",
+        "pro": "$79/mois",
+        "elite": "$149/mois"
+      },
+      "features": {
+        "recherche_produits": true,
+        "mots_cles": true,
+        "bsr_tracking": true,
+        "calcul_marge": true,
+        "ppc_manager": true,
+        "listing_optimizer": true,
+        "refund_genie": false,
+        "chrome_extension": true,
+        "api_access": true,
+        "formation": false,
+        "mobile_app": false,
+        "multi_marketplaces": 6,
+        "ia_integration": false,
+        "prix_abordable": false
+      },
+      "scores": {
+        "global": 76,
+        "features": 80,
+        "prix": 70,
+        "facilite": 78,
+        "support": 75
+      },
+      "strengths": [
+        "Analytics avancés",
+        "PPC automation",
+        "Version gratuite limitée"
+      ],
+      "weaknesses": [
+        "Interface complexe",
+        "Prix élevé",
+        "Peu connu",
+        "Support moyen"
+      ],
+      "best_for": "Vendeurs data-driven"
+    }
+  ],
+  "comparison_criteria": [
+    {
+      "id": "features",
+      "name": "Fonctionnalités",
+      "weight": 30
+    },
+    {
+      "id": "prix",
+      "name": "Rapport Qualité/Prix",
+      "weight": 25
+    },
+    {
+      "id": "facilite",
+      "name": "Facilité d'utilisation",
+      "weight": 20
+    },
+    {
+      "id": "support",
+      "name": "Support Client",
+      "weight": 15
+    },
+    {
+      "id": "innovation",
+      "name": "Innovation",
+      "weight": 10
+    }
+  ]
+}

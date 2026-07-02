@@ -805,6 +805,7 @@ import Pricing from "./components/Pricing";
 import FBAAcademy from "./components/FBAAcademy";
 import FBACalculators from "./components/FBACalculators";
 import AiPriceTool from "./components/AiPriceTool";
+import CompetitiveAnalysis from "./components/CompetitiveAnalysis";
 import FormationsShop from "./components/FormationsShop";
 
 
@@ -1205,6 +1206,11 @@ function CompetitivePanel() {
 
 
 
+
+
+function CompetitiveAnalysisPanel() {
+  return <CompetitiveAnalysis />;
+}
 
 function AiPriceToolPanel() {
   return <AiPriceTool />;
