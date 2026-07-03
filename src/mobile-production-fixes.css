@@ -1,0 +1,184 @@
+/*
+ * TradeAI Global v7
+ * Correctifs responsive mobile de production
+ * Patch isolé et réversible
+ */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+/* Empêche les enfants flex/grid de provoquer un overflow */
+main,
+section,
+article,
+div {
+  min-width: 0;
+}
+
+/* Mobile réel */
+@media (max-width: 768px) {
+  /*
+   * La navigation principale mobile passe par le burger.
+   * Cible les barres horizontales usuelles sans toucher au menu overlay.
+   */
+  .tabs,
+  .tab-bar,
+  .tabs-bar,
+  .desktop-tabs,
+  .desktop-nav,
+  .top-tabs,
+  .nav-tabs,
+  .horizontal-nav,
+  .navigation-tabs {
+    display: none !important;
+  }
+
+  /*
+   * Les conteneurs de contenu doivent occuper la largeur disponible.
+   */
+  main,
+  .main,
+  .main-content,
+  .content,
+  .page,
+  .page-content,
+  .dashboard,
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /*
+   * Conversion des grilles desktop en une colonne.
+   * Corrige notamment les panneaux type Connect Hub.
+   */
+  .grid,
+  .cards-grid,
+  .stats-grid,
+  .dashboard-grid,
+  .connect-grid,
+  .api-grid,
+  .modules-grid,
+  .features-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /*
+   * Cartes : aucun débordement horizontal.
+   */
+  .card,
+  .panel,
+  .module-card,
+  .stat-card,
+  .api-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere;
+  }
+
+  /*
+   * Formulaires mobiles.
+   */
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
+
+  /*
+   * Tables larges : scroll local au lieu de casser toute la page.
+   */
+  table {
+    max-width: 100%;
+  }
+
+  .table-wrapper,
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /*
+   * Chatbot flottant :
+   * position basse normale hors menu.
+   */
+  .chatbot,
+  .chatbot-button,
+  .chatbot-toggle,
+  .chat-toggle,
+  .floating-chat,
+  .floating-chatbot {
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  /*
+   * Quand un menu mobile est ouvert,
+   * le menu doit rester au-dessus du chatbot.
+   */
+  .mobile-menu,
+  .mobile-nav,
+  .mobile-menu-overlay,
+  .menu-overlay,
+  .drawer,
+  .nav-drawer {
+    z-index: 10000 !important;
+  }
+
+  .mobile-menu .chatbot,
+  .mobile-nav .chatbot,
+  .mobile-menu-overlay .chatbot,
+  .menu-overlay .chatbot {
+    z-index: 1 !important;
+  }
+}
+
+/* Samsung / petits écrans */
+@media (max-width: 480px) {
+  .grid,
+  .cards-grid,
+  .stats-grid,
+  .dashboard-grid,
+  .connect-grid,
+  .api-grid,
+  .modules-grid,
+  .features-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .card,
+  .panel,
+  .module-card,
+  .stat-card,
+  .api-card {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
