@@ -49,7 +49,7 @@ export default function V7Roadmap() {
   return (
     <div className="v7-roadmap-page" style={{ padding: 20, display: "grid", gap: 18 }}>
       <section className="v7-roadmap-section" style={card}>
-        <h1>🚀 TradeAI Global v7</h1>
+        <h1>TradeAI Global v7</h1>
         <p style={muted}>
           Feuille de route production : architecture modulaire, données vérifiables,
           connecteurs gratuits et évolutions sans dépendance obligatoire à une API payante.
@@ -62,7 +62,7 @@ export default function V7Roadmap() {
           {PLUGINS.map(plugin => (
             <div key={plugin.id} style={pluginCard}>
               <strong>{plugin.name}</strong>
-              <p>{plugin.enabled ? "✅ Activé" : "⏸️ Désactivé"}</p>
+              <p>{plugin.enabled ? "Actif" : "Inactif"}</p>
             </div>
           ))}
         </div>
