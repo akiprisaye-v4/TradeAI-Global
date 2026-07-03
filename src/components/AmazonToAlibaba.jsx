@@ -116,7 +116,7 @@ const AmazonToAlibaba = () => {
           marginBottom: 12,
           color: "#FF9900"
         }}>
-          🔍 Amazon → Alibaba Sourcing
+          🔍 Marketplace → Fournisseur Sourcing
         </h2>
         
         <p style={{ 

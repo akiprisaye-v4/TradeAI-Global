@@ -30,7 +30,7 @@ const About = () => {
             🎯 Notre Mission
           </h2>
           <p style={{ color: "#E6EDF3", lineHeight: 1.8, marginBottom: "16px" }}>
-            TradeAI Global est un outil gratuit conçu pour aider les vendeurs Amazon FBA
+            TradeAI Global est une plateforme conçue pour aider les vendeurs e-commerce
             et les dropshippers à trouver des produits rentables en comparant les prix entre
             Amazon et Alibaba.
           </p>
@@ -51,7 +51,7 @@ const About = () => {
             ⭐ Fonctionnalités Principales
           </h2>
           <ul style={{ color: "#E6EDF3", lineHeight: 2, paddingLeft: "20px" }}>
-            <li>✅ Comparaison Amazon → Alibaba en 2 clics</li>
+            <li>✅ Comparaison marketplace → fournisseur en 2 clics</li>
             <li>✅ Calcul automatique des marges avec frais Amazon</li>
             <li>✅ 10 visualisations exclusives (projections, risques, etc.)</li>
             <li>✅ Export PDF professionnel des analyses</li>

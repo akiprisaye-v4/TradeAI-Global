@@ -7,7 +7,7 @@ export default function TradeAIEcosystem() {
     <div style={{ padding: 20 }}>
       <h1>🌐 TradeAI Global Ecosystem</h1>
       <p style={{ color: "var(--text-secondary)" }}>
-        Mode actuel : <b>{TRADEAI_CONFIG.mode}</b> — aucune API Amazon requise.
+        Mode actuel : <b>{TRADEAI_CONFIG.mode}</b> — aucune API marketplace payante requise.
       </p>
 
       <div style={{

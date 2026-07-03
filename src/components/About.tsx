@@ -55,7 +55,7 @@ const About: React.FC = () => {
         }}>
           {[
             {
-              title: 'Vendeurs Amazon',
+              title: 'Vendeurs e-commerce',
               desc: 'Débutants ou confirmés voulant maximiser leurs profits',
               icon: '📦'
             },
@@ -293,7 +293,7 @@ const About: React.FC = () => {
       }}>
         <p>© 2024 TradeAI Global Élite - Tous droits réservés</p>
         <p style={{ marginTop: '8px' }}>
-          Développé avec ❤️ pour les vendeurs Amazon
+          Développé avec ❤️ pour les vendeurs e-commerce
         </p>
       </div>
     </div>

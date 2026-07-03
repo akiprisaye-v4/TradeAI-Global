@@ -6,7 +6,7 @@ const Tutorial = ({ onClose }) => {
   const steps = [
     {
       title: "👋 Bienvenue sur TradeAI Global",
-      content: "Calculez vos marges Amazon FBA/FBM en quelques clics. Cet outil vous aide à trouver des produits rentables et à optimiser vos profits.",
+      content: "Calculez vos marges e-commerce en quelques clics. Cet outil vous aide à trouver des produits rentables et à optimiser vos profits.",
       icon: "🎯",
       color: "#FF9900"
     },

@@ -183,7 +183,7 @@ const FormationsShop = () => {
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            Formations Amazon FBA
+            Formations e-commerce
           </h1>
           <p style={{ 
             color: '#8B949E', 
