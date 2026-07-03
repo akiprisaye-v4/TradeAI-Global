@@ -211,7 +211,7 @@ const FormationsShop = () => {
             Garantie 30 jours satisfait ou remboursé
           </h3>
           <p style={{ color: '#E6EDF3', fontSize: 14, margin: 0 }}>
-            Testez nos formations sans risque. Si vous n'êtes pas 100% satisfait, nous vous remboursons intégralement.
+            Les conditions d’accès, d’essai et de support seront précisées avant toute activation commerciale.
           </p>
         </div>
 
