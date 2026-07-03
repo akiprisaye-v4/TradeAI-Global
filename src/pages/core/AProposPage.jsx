@@ -17,7 +17,12 @@ const BENCHMARK = [
   { name: "Keepa", zone: "Europe / Global", strength: "Historique prix Amazon", gap: "Nécessite accès API payant pour automatisation", tradeai: "Prépare l’import manuel vérifiable avant connexion premium." },
   { name: "SellerAmp", zone: "UK / Europe", strength: "Arbitrage Amazon et analyse rapide", gap: "Spécialisé Amazon", tradeai: "Plus large : FX, sourcing, stock, PWA et modules v7." },
   { name: "AMZScout", zone: "Global", strength: "Recherche niche et extension", gap: "Principalement Amazon", tradeai: "Positionnement plus modulaire et gratuit par défaut." },
-  { name: "ZonGuru", zone: "Global", strength: "Listing, mots-clés, suivi vendeur", gap: "Suite SaaS payante", tradeai: "Structure évolutive avec modules gratuits et connecteurs ouverts." }
+  { name: "ZonGuru", zone: "Global", strength: "Listing, mots-clés, suivi vendeur", gap: "Suite SaaS payante", tradeai: "Structure évolutive avec modules gratuits et connecteurs ouverts." },
+  { name: "DataHawk", zone: "Global", strength: "Analytics marketplace et reporting", gap: "Orienté pilotage data avancé", tradeai: "Priorité aux calculs locaux, provenance et préparation opérationnelle." },
+  { name: "RepricerExpress", zone: "Global", strength: "Repricing automatisé", gap: "Spécialisé prix et marketplace", tradeai: "Approche plus large : coût, marge, stock, sourcing et décision." },
+  { name: "Sellerboard", zone: "Europe / Global", strength: "Profit dashboard Amazon", gap: "Dépendance à la connexion seller", tradeai: "Lecture gratuite et locale avant branchements payants." },
+  { name: "Algopix", zone: "Global", strength: "Études produits multi-marketplaces", gap: "Service orienté données externes", tradeai: "Socle gratuit, transparent et modulaire avant données premium." },
+  { name: "InventoryLab", zone: "US", strength: "Comptabilité, stock et listing", gap: "Principalement opérations Amazon", tradeai: "Combine calcul, sourcing, PWA et roadmap d’imports vérifiables." }
 ];
 
 const QUICK_START = [
@@ -83,7 +88,7 @@ export default function AProposPage() {
   };
 
   return (
-    <div style={{ display: "grid", gap: 22 }}>
+    <div className="apropos-presentation" style={{ display: "grid", gap: 18 }}>
       <section style={hero}>
         <div style={badge}>TradeAI Global v7 · API-first gratuite · PWA mobile</div>
         <h1 style={h1}>Analysez avant d’investir. Comparez avant de décider.</h1>
@@ -293,9 +298,9 @@ function Kpi({ value, label }) {
   );
 }
 
-const hero = { padding: "clamp(20px,4vw,34px)", borderRadius: 22, background: "radial-gradient(circle at 85% 15%, rgba(255,184,0,.16), transparent 34%), linear-gradient(135deg, rgba(255,153,0,.18), rgba(13,17,23,.98))", border: "1px solid rgba(255,153,0,.45)", boxShadow: "0 20px 60px rgba(0,0,0,.22)" };
+const hero = { padding: "clamp(16px,4vw,28px)", borderRadius: 22, background: "radial-gradient(circle at 85% 15%, rgba(255,184,0,.16), transparent 34%), linear-gradient(135deg, rgba(255,153,0,.18), rgba(13,17,23,.98))", border: "1px solid rgba(255,153,0,.45)", boxShadow: "0 20px 60px rgba(0,0,0,.22)" };
 const badge = { display: "inline-block", padding: "8px 12px", borderRadius: 999, background: "rgba(255,153,0,.12)", color: "#FF9900", fontWeight: 800, marginBottom: 18 };
-const h1 = { fontSize: "clamp(32px,7vw,68px)", lineHeight: 1.04, margin: "0 0 16px", color: "#E6EDF3" };
+const h1 = { fontSize: "clamp(28px,7vw,58px)", lineHeight: 1.04, margin: "0 0 16px", color: "#E6EDF3" };
 const lead = { fontSize: 18, lineHeight: 1.65, color: "#C9D1D9", maxWidth: 920 };
 const ctaRow = { display: "flex", gap: 10, flexWrap: "wrap", marginTop: 20 };
 const primaryCta = { padding: "12px 16px", borderRadius: 12, border: "1px solid #FFB800", background: "linear-gradient(135deg,#FF9900,#FFB800)", color: "#0D1117", fontWeight: 900, cursor: "pointer" };
@@ -311,9 +316,9 @@ const eyebrowGreen = { ...eyebrow, color: "#00C853" };
 const tabsWrap = { display: "flex", gap: 10, flexWrap: "wrap" };
 const tab = { padding: "12px 14px", borderRadius: 12, border: "1px solid #30363D", background: "#1C2128", color: "#E6EDF3", fontWeight: 800, cursor: "pointer" };
 const tabActive = { ...tab, background: "linear-gradient(135deg,#FF9900,#FFB800)", color: "#0D1117", border: "1px solid #FFB800" };
-const card = { padding: 20, borderRadius: 18, background: "#161B22", border: "1px solid #30363D" };
+const card = { padding: 16, borderRadius: 18, background: "#161B22", border: "1px solid #30363D" };
 const grid = { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 14 };
-const featureCard = { padding: 18, borderRadius: 18, background: "#161B22", border: "1px solid #30363D" };
+const featureCard = { padding: 14, borderRadius: 18, background: "#161B22", border: "1px solid #30363D" };
 const iconStyle = { fontSize: 34, marginBottom: 10 };
 const h2 = { color: "#FF9900", marginTop: 0 };
 const h3 = { color: "#E6EDF3", margin: "0 0 8px" };
@@ -322,13 +327,13 @@ const small = { color: "#C9D1D9", lineHeight: 1.6 };
 const muted = { color: "#8B949E", fontSize: 13 };
 const notice = { padding: 14, borderLeft: "4px solid #FF9900", borderRadius: 12, background: "rgba(255,153,0,.10)", color: "#E6EDF3" };
 const stepGrid = { display: "grid", gap: 12, marginTop: 18 };
-const stepCard = { display: "grid", gridTemplateColumns: "48px 1fr", gap: 14, alignItems: "start", padding: 16, borderRadius: 14, background: "#0D1117", border: "1px solid #30363D" };
+const stepCard = { display: "grid", gridTemplateColumns: "42px 1fr", gap: 14, alignItems: "start", padding: 16, borderRadius: 14, background: "#0D1117", border: "1px solid #30363D" };
 const stepNumber = { width: 42, height: 42, borderRadius: 14, display: "grid", placeItems: "center", background: "linear-gradient(135deg,#FF9900,#FFB800)", color: "#0D1117", fontWeight: 900 };
 const ctaPanel = { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", marginTop: 18, padding: 16, borderRadius: 14, background: "rgba(255,153,0,.08)", border: "1px solid rgba(255,153,0,.25)", color: "#C9D1D9" };
-const trustRow = { display: "grid", gridTemplateColumns: "12px minmax(70px,110px) 1fr auto", gap: 10, alignItems: "center", padding: 12, borderRadius: 12, background: "#0D1117", border: "1px solid #30363D" };
+const trustRow = { display: "grid", gridTemplateColumns: "10px minmax(64px,96px) 1fr", gap: 10, alignItems: "center", padding: 12, borderRadius: 12, background: "#0D1117", border: "1px solid #30363D" };
 const statusDot = { width: 10, height: 10, borderRadius: 999 };
-const statusPill = { padding: "5px 8px", borderRadius: 999, border: "1px solid", fontSize: 11, fontWeight: 800 };
-const benchCard = { display: "grid", gap: 8, padding: 16, borderRadius: 14, background: "#0D1117", border: "1px solid #30363D" };
+const statusPill = { padding: "4px 7px", borderRadius: 999, border: "1px solid", fontSize: 11, fontWeight: 800 };
+const benchCard = { display: "grid", gap: 8, padding: 14, borderRadius: 14, background: "#0D1117", border: "1px solid #30363D" };
 const benchText = { color: "#C9D1D9", lineHeight: 1.5 };
 const tradeaiBox = { padding: 12, borderRadius: 10, background: "rgba(0,200,83,.10)", color: "#E6EDF3", border: "1px solid rgba(0,200,83,.35)" };
 const timeline = { display: "grid", gap: 0, marginTop: 18 };

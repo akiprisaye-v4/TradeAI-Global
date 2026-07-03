@@ -318,12 +318,12 @@ function SelectField({ label, value, onChange, options, parseAs = "index" }) {
  onChange(index);
  }
  };
- 
+
  // Trouver l'index actuel basé sur la valeur
- const currentIndex = parseAs === "string" 
+ const currentIndex = parseAs === "string"
  ? options.findIndex(o => o.value === value)
  : value;
- 
+
  return (
  <div style={{ marginBottom: 12 }}>
  <label htmlFor={id} style={{ display:"block", fontSize: 11, color:"#8B949E", marginBottom: 4, fontWeight: 700 }}>{label}</label>
@@ -591,13 +591,13 @@ return (
 <div key={i} style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: 12, overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.3)" }}>
   {/* Image du produit */}
   <div style={{ width: "100%", height: 200, overflow: "hidden", position: "relative", background: "#1C2128" }}>
-    <img 
-      src={item.image} 
+    <img
+      src={item.image}
       alt={item.name}
       loading="lazy"
-      style={{ 
-        width: "100%", 
-        height: "100%", 
+      style={{
+        width: "100%",
+        height: "100%",
         objectFit: "cover",
         transition: "transform 0.3s"
       }}
@@ -614,11 +614,11 @@ return (
       }}
     />
   </div>
-  
+
   <div style={{ padding: "16px" }}>
     <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8, color: "#E6EDF3" }}>{item.icon} {item.name}</div>
     <div style={{ fontSize: 11, color: "#8B949E", marginBottom: 12 }}>{item.category}</div>
-    
+
     <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
       <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
         <div style={{ fontSize: 9, color: "#8B949E" }}>Prix marketplace indicatif</div>
@@ -629,7 +629,7 @@ return (
         <div style={{ fontSize: 13, fontWeight: 700, color: "#00C853" }}>{fmt(item.alibabaPriceRange[0])}-{fmt(item.alibabaPriceRange[1])}</div>
       </div>
     </div>
-    
+
     <div style={{ padding: "8px", background: `${item.color}15`, borderRadius: 6, marginBottom: 12 }}>
       <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>
          Signal indicatif: {item.growth}
@@ -638,7 +638,7 @@ return (
         {item.note}
       </div>
     </div>
-    
+
     <button onClick={() => {
 setProducts(prev => prev.map((prod, idx) => idx === activeProduct ? { ...prod, name: item.name, sellingPrice: (item.amazonPriceRange[0] + item.amazonPriceRange[1]) / 2, costPrice: (item.alibabaPriceRange[0] + item.alibabaPriceRange[1]) / 2, categoryIdx: item.categoryIdx } : prod));
 setTab("calculateur");
@@ -745,7 +745,7 @@ const [globalSourcing, setGlobalSourcing] = useState([]);
 function AProposPanel() {
  return (
  <div style={{ background:"#161B22", border:"1px solid #21262D", borderRadius: 11, padding:"20px"}}>
- <h2 style={{ color:"#FF9900", marginBottom: 10 }}>Amazon Profit Pro Élite</h2>
+ <h2 style={{ color:"#FF9900", marginBottom: 10 }}>TradeAI Global Élite</h2>
 
   {/* Recherche par Image */}
   <div style={{ background: 'var(--bg-card)', borderRadius: 12, padding: 20, marginBottom: 20 }}>
@@ -947,7 +947,7 @@ function ExtensionDataPanel() {
 }
 
 export default function AmazonPro() {
-  
+
   const {
   uploadedImage,
   imageResults,
@@ -1063,7 +1063,7 @@ setActiveProduct(products.length);
  return newHistory;
  };
 
- 
+
   // Vérifier si c'est le premier lancement
   useEffect(() => {
     (async () => {
@@ -1173,14 +1173,14 @@ setActiveProduct(products.length);
 
  </div>
  </div>
- 
+
       {showTutorial && <Tutorial onClose={closeTutorial} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
- 
+
       <FloatingChatButton onClick={() => setChatOpen(true)} />
 
-{chatOpen && <ChatAssistant 
-        isOpen={chatOpen} 
+{chatOpen && <ChatAssistant
+        isOpen={chatOpen}
         onClose={() => setChatOpen(false)}
         products={products}
         activeProduct={activeProduct}

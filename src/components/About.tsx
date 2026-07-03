@@ -25,7 +25,7 @@ const About: React.FC = () => {
           WebkitTextFillColor: 'transparent',
           marginBottom: '16px'
         }}>
-          Amazon Profit Pro Élite
+          TradeAI Global Élite
         </h1>
         <p style={{
           fontSize: '20px',
@@ -102,7 +102,7 @@ const About: React.FC = () => {
           marginBottom: '30px',
           color: '#FF9900'
         }}>
-          💡 Pourquoi Utiliser Amazon Profit Pro ?
+          💡 Pourquoi Utiliser TradeAI Global ?
         </h2>
         <div style={{
           background: 'rgba(255,255,255,0.03)',
@@ -279,7 +279,7 @@ const About: React.FC = () => {
           color: '#94a3b8',
           marginBottom: '32px'
         }}>
-          Rejoignez des centaines de vendeurs qui font confiance à Amazon Profit Pro
+          Rejoignez des centaines de vendeurs qui font confiance à TradeAI Global
         </p>
       </div>
 
@@ -291,7 +291,7 @@ const About: React.FC = () => {
         color: '#64748b',
         fontSize: '14px'
       }}>
-        <p>© 2024 Amazon Profit Pro Élite - Tous droits réservés</p>
+        <p>© 2024 TradeAI Global Élite - Tous droits réservés</p>
         <p style={{ marginTop: '8px' }}>
           Développé avec ❤️ pour les vendeurs Amazon
         </p>

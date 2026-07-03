@@ -28,13 +28,13 @@ export default function Header({
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
             <img
               src="/images/logo.svg"
-              alt="Amazon Profit Pro"
+              alt="TradeAI Global"
               style={{ width:32, height:32 }}
             />
 
             <div>
               <div style={{ fontSize:16, fontWeight:800 }}>
-                Amazon Profit <span style={{ color:"#FF9900" }}>Pro</span>
+                TradeAI <span style={{ color:"#FF9900" }}>Global</span>
               </div>
 
               <div style={{ fontSize:10, color:"#00C853" }}>

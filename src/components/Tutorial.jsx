@@ -5,7 +5,7 @@ const Tutorial = ({ onClose }) => {
 
   const steps = [
     {
-      title: "👋 Bienvenue sur Amazon Profit Pro",
+      title: "👋 Bienvenue sur TradeAI Global",
       content: "Calculez vos marges Amazon FBA/FBM en quelques clics. Cet outil vous aide à trouver des produits rentables et à optimiser vos profits.",
       icon: "🎯",
       color: "#FF9900"
@@ -54,7 +54,7 @@ const Tutorial = ({ onClose }) => {
     },
     {
       title: "🚀 Prêt à commencer ?",
-      content: "Vous êtes maintenant prêt à utiliser Amazon Profit Pro comme un pro ! Commencez par calculer votre premier produit ou explorez les produits tendance.",
+      content: "Vous êtes maintenant prêt à utiliser TradeAI Global comme un pro ! Commencez par calculer votre premier produit ou explorez les produits tendance.",
       icon: "🚀",
       color: "#FF9900"
     }

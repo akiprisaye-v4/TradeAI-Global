@@ -1,7 +1,7 @@
 export const translations = {
   fr: {
     app: {
-      title: "Amazon Profit Pro",
+      title: "TradeAI Global",
       subtitle: "Élite",
       saving: "enregistrement…",
       saved: "✓ enregistré"
@@ -21,10 +21,10 @@ export const translations = {
       history: "🕐 Historique"
     },
     about: {
-      title: "Amazon Profit Pro Élite",
+      title: "TradeAI Global Élite",
       subtitle: "La plateforme d'intelligence commerciale la plus avancée pour les vendeurs Amazon FBA/FBM",
       forWho: "Pour Qui ?",
-      why: "Pourquoi Utiliser Amazon Profit Pro ?",
+      why: "Pourquoi Utiliser TradeAI Global ?",
       features: "Fonctionnalités Clés",
       vendors: "Vendeurs Amazon",
       vendorsDesc: "Débutants ou confirmés voulant maximiser leurs profits",
@@ -46,7 +46,7 @@ export const translations = {
   },
   en: {
     app: {
-      title: "Amazon Profit Pro",
+      title: "TradeAI Global",
       subtitle: "Elite",
       saving: "saving…",
       saved: "✓ saved"
@@ -66,10 +66,10 @@ export const translations = {
       history: "🕐 History"
     },
     about: {
-      title: "Amazon Profit Pro Elite",
+      title: "TradeAI Global Elite",
       subtitle: "The most advanced business intelligence platform for Amazon FBA/FBM sellers",
       forWho: "For Who?",
-      why: "Why Use Amazon Profit Pro?",
+      why: "Why Use TradeAI Global?",
       features: "Key Features",
       vendors: "Amazon Sellers",
       vendorsDesc: "Beginners or experts wanting to maximize their profits",

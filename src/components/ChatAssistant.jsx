@@ -4,7 +4,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "👋 Bonjour ! Je suis votre assistant Amazon Profit Pro. Comment puis-je vous aider aujourd'hui ?",
+      content: "👋 Bonjour ! Je suis votre assistant TradeAI Global. Comment puis-je vous aider aujourd'hui ?",
       timestamp: new Date()
     }
   ]);

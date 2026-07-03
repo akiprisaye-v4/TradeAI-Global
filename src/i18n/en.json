@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Amazon Profit Pro",
+    "name": "TradeAI Global",
     "elite": "Elite"
   },
   "tabs": {
@@ -18,10 +18,10 @@
     "history": "History"
   },
   "about": {
-    "title": "Amazon Profit Pro Elite",
+    "title": "TradeAI Global Elite",
     "subtitle": "The most advanced business intelligence platform for Amazon FBA/FBM sellers",
     "forWho": "For Who?",
-    "why": "Why Use Amazon Profit Pro?",
+    "why": "Why Use TradeAI Global?",
     "features": "Key Features",
     "sellers": "Amazon Sellers",
     "sellersDesc": "Beginners or experts wanting to maximize profits",

@@ -695,3 +695,72 @@
     max-height: 72px !important;
   }
 }
+
+/* TRADEAI_FLOATING_CONTROLS_FINAL_20260703
+   Corrige les superpositions des contrôles flottants sur mobile.
+   Ne modifie pas le burger. */
+@media (max-width: 768px) {
+  .apropos-presentation {
+    gap: 14px !important;
+    padding-bottom: 110px !important;
+  }
+
+  .apropos-presentation button {
+    min-height: 42px !important;
+  }
+
+  .apropos-presentation [aria-expanded] {
+    padding-right: 18px !important;
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  button[aria-label*="chat" i],
+  button[aria-label*="assistant" i] {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    right: 16px !important;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 900 !important;
+  }
+
+  .theme-toggle,
+  .floating-theme-toggle,
+  button[aria-label*="theme" i],
+  button[aria-label*="thème" i],
+  button[aria-label*="mode" i] {
+    right: 16px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 899 !important;
+  }
+
+  main,
+  .app-main,
+  .content,
+  #root {
+    padding-bottom: calc(128px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .apropos-presentation h1 {
+    font-size: 30px !important;
+  }
+
+  .apropos-presentation h2 {
+    font-size: 21px !important;
+  }
+
+  .apropos-presentation h3 {
+    font-size: 16px !important;
+  }
+
+  .apropos-presentation p,
+  .apropos-presentation span,
+  .apropos-presentation div {
+    line-height: 1.45;
+  }
+}

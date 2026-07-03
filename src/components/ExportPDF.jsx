@@ -36,7 +36,7 @@ const ExportPDF = ({ margin, productTitle }) => {
       // Ajouter le titre
       pdf.setFontSize(16);
       pdf.setTextColor(255, 153, 0);
-      pdf.text('Amazon Profit Pro - Analyse de Rentabilité', 10, 15);
+      pdf.text('TradeAI Global - Analyse de Rentabilité', 10, 15);
       
       pdf.setFontSize(12);
       pdf.setTextColor(100, 100, 100);
