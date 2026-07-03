@@ -1040,3 +1040,93 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 12px rgba(255,153,0,0.3);
   animation: scaleIn 0.4s ease-out;
 }
+
+/* === V7 ROADMAP MOBILE POLISH === */
+.v7-roadmap-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.v7-roadmap-section {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.v7-roadmap-phase {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.v7-roadmap-phase ul {
+  margin: 14px 0 0;
+  padding-left: 22px;
+}
+
+.v7-roadmap-phase li {
+  margin: 8px 0;
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .v7-roadmap-page {
+    padding: 14px !important;
+    gap: 14px !important;
+    padding-bottom: 120px !important;
+  }
+
+  .v7-roadmap-section {
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .v7-roadmap-page h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.05;
+  }
+
+  .v7-roadmap-page h2 {
+    font-size: clamp(1.65rem, 8vw, 2.35rem);
+    line-height: 1.12;
+  }
+
+  .v7-roadmap-page h3 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+    line-height: 1.2;
+  }
+
+  .v7-roadmap-phase {
+    padding: 18px !important;
+  }
+
+  .v7-roadmap-phase li {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Chat IA : reste accessible sans masquer la roadmap */
+  .chat-button,
+  .chat-toggle,
+  .chat-fab,
+  [class*="chat-button"],
+  [class*="chat-toggle"],
+  [class*="chat-fab"] {
+    position: fixed !important;
+    right: 14px !important;
+    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    z-index: 90 !important;
+    transform: scale(0.88);
+    transform-origin: bottom right;
+    opacity: 0.82;
+  }
+
+  .chat-button:hover,
+  .chat-toggle:hover,
+  .chat-fab:hover,
+  [class*="chat-button"]:hover,
+  [class*="chat-toggle"]:hover,
+  [class*="chat-fab"]:hover {
+    opacity: 1;
+  }
+}

@@ -47,8 +47,8 @@ const ROADMAP = [
 
 export default function V7Roadmap() {
   return (
-    <div style={{ padding: 20, display: "grid", gap: 18 }}>
-      <section style={card}>
+    <div className="v7-roadmap-page" style={{ padding: 20, display: "grid", gap: 18 }}>
+      <section className="v7-roadmap-section" style={card}>
         <h1>🚀 TradeAI Global v7</h1>
         <p style={muted}>
           Feuille de route production : architecture modulaire, données vérifiables,
@@ -56,7 +56,7 @@ export default function V7Roadmap() {
         </p>
       </section>
 
-      <section style={card}>
+      <section className="v7-roadmap-section" style={card}>
         <h2>Plugins actifs</h2>
         <div style={grid}>
           {PLUGINS.map(plugin => (
@@ -68,11 +68,11 @@ export default function V7Roadmap() {
         </div>
       </section>
 
-      <section style={card}>
+      <section className="v7-roadmap-section" style={card}>
         <h2>Feuille de route</h2>
         <div style={grid}>
           {ROADMAP.map(block => (
-            <article key={block.phase} style={pluginCard}>
+            <article key={block.phase} className="v7-roadmap-phase" style={pluginCard}>
               <h3>{block.phase}</h3>
               <p style={badge}>{block.status}</p>
               <ul>
