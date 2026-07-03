@@ -831,3 +831,44 @@
     z-index: 900 !important;
   }
 }
+
+/* FINAL MOBILE COMMERCIAL POLISH */
+@media (max-width: 768px) {
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  button[aria-label*="chat" i],
+  button[aria-label*="assistant" i] {
+    right: 16px !important;
+    bottom: calc(118px + env(safe-area-inset-bottom)) !important;
+    width: 52px !important;
+    height: 52px !important;
+    transform: none !important;
+    opacity: 0.92 !important;
+  }
+
+  [class*="pricing"] button,
+  [class*="Pricing"] button {
+    min-height: 52px !important;
+    border-radius: 18px !important;
+  }
+
+  [class*="pricing"],
+  [class*="Pricing"] {
+    overflow: visible !important;
+  }
+
+  .pricing-card,
+  [class*="card"],
+  section {
+    scroll-margin-bottom: 160px !important;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p, li {
+    line-height: 1.55 !important;
+  }
+}

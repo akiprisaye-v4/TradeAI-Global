@@ -40,7 +40,7 @@ const Pricing = () => {
     },
     {
       name: "Elite",
-      price: "214.99€",
+      price: "49.99€",
       period: "/mois",
       features: [
         "✅ Tout du Pro",
@@ -231,7 +231,7 @@ const Pricing = () => {
             marginBottom: 32,
             fontSize: 16
           }}>
-            Accédez à des formations vidéo exclusives pour maîtriser Amazon FBA
+            Accédez à des formations vidéo exclusives pour maîtriser le sourcing, la rentabilité et les opérations e-commerce
           </p>
           
           <div style={{ 
@@ -306,9 +306,9 @@ const Pricing = () => {
           
           <div style={{ display: 'grid', gap: 16 }}>
             {[
-              { q: "Puis-je changer de plan à tout moment ?", a: "Oui, vous pouvez upgrader ou downgrader votre plan à tout moment. Le changement prend effet immédiatement." },
-              { q: "Y a-t-il une période d'engagement ?", a: "Non, tous nos plans sont sans engagement. Vous pouvez annuler à tout moment." },
-              { q: "Comment fonctionne la garantie satisfait ou remboursé ?", a: "Nous offrons une garantie de 30 jours. Si vous n'êtes pas satisfait, nous vous remboursons intégralement." },
+              { q: "Puis-je changer de plan à tout moment ?", a: "Oui, vous pourrez faire évoluer votre formule selon les options disponibles dans votre espace client." },
+              { q: "Y a-t-il une période d'engagement ?", a: "Les modalités d’abonnement seront affichées clairement avant toute souscription." },
+              { q: "Comment fonctionne la garantie satisfait ou remboursé ?", a: "Les conditions commerciales seront précisées lors de l’activation du paiement sécurisé." },
               { q: "Les formations sont-elles incluses dans le plan Gratuit ?", a: "Non, les formations sont réservées aux plans Pro et Elite. Le plan Gratuit donne accès aux fonctionnalités de base." }
             ].map((faq, i) => (
               <div key={i} style={{
