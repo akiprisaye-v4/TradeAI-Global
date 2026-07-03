@@ -10,49 +10,151 @@ export default function FreeApiLab() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  async function run(label, fn) {
+  async function run(label, source, fn) {
     try {
       setLoading(true);
       const data = await fn();
-      setResult({ label, data });
-    } catch (e) {
-      setResult({ label: "Erreur", data: e.message });
+      setResult({ label, provenance: "LIVE_API", source, data });
+    } catch (error) {
+      setResult({
+        label,
+        provenance: "ERROR",
+        source,
+        error: error?.message || "Erreur inconnue"
+      });
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div style={{ display: "grid", gap: 14 }}>
-      <h2>🧪 Laboratoire APIs gratuites</h2>
+    <section style={styles.card}>
+      <div style={styles.header}>
+        <h2 style={{ margin: 0 }}>🧪 Laboratoire APIs gratuites</h2>
+        <Badge tone="live">Tests directs LIVE API</Badge>
+      </div>
 
-      <div style={{ display: "grid", gap: 10, background: "#1C2128", padding: 14, borderRadius: 10 }}>
-        <input value={barcode} onChange={e => setBarcode(e.target.value)} placeholder="Code EAN" />
-        <button onClick={() => run("Open Food Facts", () => searchProductByBarcode(barcode))}>
+      <div style={styles.muted}>
+        Ces boutons appellent des APIs gratuites réelles. Les erreurs réseau sont affichées explicitement.
+      </div>
+
+      <div style={styles.form}>
+        <input style={styles.input} value={barcode} onChange={e => setBarcode(e.target.value)} placeholder="Code EAN" />
+        <button style={styles.button} onClick={() => run("Open Food Facts", "world.openfoodfacts.org", () => searchProductByBarcode(barcode))}>
           🍎 Tester EAN
         </button>
 
-        <input value={place} onChange={e => setPlace(e.target.value)} placeholder="Ville / pays / port" />
-        <button onClick={() => run("Nominatim", () => geocodePlace(place))}>
+        <input style={styles.input} value={place} onChange={e => setPlace(e.target.value)} placeholder="Ville / pays / port" />
+        <button style={styles.button} onClick={() => run("Nominatim", "nominatim.openstreetmap.org", () => geocodePlace(place))}>
           🗺️ Géocoder
         </button>
 
-        <button onClick={() => run("REST Countries", () => getAllCountries())}>
+        <button style={styles.button} onClick={() => run("REST Countries", "restcountries.com", () => getAllCountries())}>
           🌍 Charger pays
         </button>
 
-        <button onClick={() => run("Open-Meteo Paris", () => getWeatherForecast(48.8566, 2.3522))}>
+        <button style={styles.button} onClick={() => run("Open-Meteo Paris", "api.open-meteo.com", () => getWeatherForecast(48.8566, 2.3522))}>
           🌤️ Météo Paris
         </button>
       </div>
 
-      {loading && <div>Chargement…</div>}
+      {loading && <div style={styles.muted}>Chargement…</div>}
 
       {result && (
-        <pre style={{ background: "#0D1117", padding: 12, borderRadius: 10, overflow: "auto", maxHeight: 420 }}>
-{JSON.stringify(result, null, 2)}
-        </pre>
+        <div style={styles.resultWrap}>
+          <div style={styles.resultHeader}>
+            <strong>{result.label}</strong>
+            <Badge tone={result.provenance === "LIVE_API" ? "live" : "error"}>
+              {result.provenance}
+            </Badge>
+          </div>
+          <div style={styles.muted}>Source : {result.source}</div>
+          <pre style={styles.pre}>{JSON.stringify(result, null, 2)}</pre>
+        </div>
       )}
-    </div>
+    </section>
   );
 }
+
+function Badge({ tone = "live", children }) {
+  const style = tone === "error" ? styles.errorBadge : styles.liveBadge;
+  return <span style={{ ...styles.badge, ...style }}>{children}</span>;
+}
+
+const styles = {
+  card: {
+    display: "grid",
+    gap: 14,
+    background: "#1C2128",
+    border: "1px solid #30363D",
+    borderRadius: 10,
+    padding: 14
+  },
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    gap: 10,
+    alignItems: "center",
+    flexWrap: "wrap"
+  },
+  muted: {
+    color: "#8B949E",
+    fontSize: 13,
+    lineHeight: 1.5
+  },
+  form: {
+    display: "grid",
+    gap: 10
+  },
+  input: {
+    width: "100%",
+    boxSizing: "border-box",
+    padding: 10,
+    borderRadius: 8,
+    border: "1px solid #30363D"
+  },
+  button: {
+    width: "100%",
+    padding: 10,
+    borderRadius: 8,
+    border: "1px solid #30363D",
+    cursor: "pointer"
+  },
+  resultWrap: {
+    background: "#0D1117",
+    border: "1px solid #30363D",
+    borderRadius: 10,
+    padding: 12
+  },
+  resultHeader: {
+    display: "flex",
+    justifyContent: "space-between",
+    gap: 10,
+    alignItems: "center"
+  },
+  pre: {
+    background: "#0D1117",
+    padding: 12,
+    borderRadius: 10,
+    overflow: "auto",
+    maxHeight: 420,
+    border: "1px solid #30363D"
+  },
+  badge: {
+    border: "1px solid",
+    borderRadius: 999,
+    padding: "4px 8px",
+    fontSize: 11,
+    fontWeight: 800
+  },
+  liveBadge: {
+    color: "#00C853",
+    borderColor: "#00C85355",
+    background: "#00C85312"
+  },
+  errorBadge: {
+    color: "#FF3D00",
+    borderColor: "#FF3D0055",
+    background: "#FF3D0012"
+  }
+};

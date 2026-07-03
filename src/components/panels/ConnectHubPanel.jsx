@@ -1,6 +1,6 @@
+import React from "react";
 import FreeApiLab from "./FreeApiLab";
 import CurrencyCenter from "./CurrencyCenter";
-import React from "react";
 import { FREE_CONNECTORS, getFreeConnectorsSummary } from "../../connectors/free/freeConnectorsRegistry";
 import { IMPORT_CONNECTORS, getImportConnectorsSummary } from "../../connectors/imports/importConnectorsRegistry";
 
@@ -10,14 +10,19 @@ export default function ConnectHubPanel() {
 
   return (
     <div style={{ display: "grid", gap: 14 }}>
-      <div style={{ background: "#1C2128", padding: 16, borderRadius: 10, border: "1px solid #30363D" }}>
+      <div style={styles.hero}>
         <h2 style={{ margin: 0 }}>🔌 TradeAI Connect Hub</h2>
-        <div style={{ marginTop: 8, color: "#8B949E" }}>
-          Centre des connecteurs gratuits, imports manuels et futures API premium.
+        <div style={styles.muted}>
+          Centre des connecteurs gratuits, des données vérifiables et des imports manuels.
+        </div>
+        <div style={styles.badgeRow}>
+          <Badge tone="live">LIVE API quand disponible</Badge>
+          <Badge tone="fallback">Fallback local signalé</Badge>
+          <Badge tone="planned">Aucune API payante</Badge>
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 10 }}>
+      <div style={styles.metricsGrid}>
         <Metric label="APIs gratuites" value={freeSummary.total} />
         <Metric label="Actives" value={freeSummary.active} />
         <Metric label="Imports prévus" value={importSummary.total} />
@@ -25,79 +30,166 @@ export default function ConnectHubPanel() {
       </div>
 
       <Section title="🌍 APIs gratuites disponibles">
-        {FREE_CONNECTORS.map(c => (
-          <ConnectorCard key={c.id} connector={c} />
+        {FREE_CONNECTORS.map(connector => (
+          <ConnectorCard key={connector.id} connector={connector} sourceType="LIVE_API" />
         ))}
       </Section>
 
       <Section title="📥 Imports manuels prévus">
-        {IMPORT_CONNECTORS.map(c => (
-          <ConnectorCard key={c.id} connector={c} />
+        {IMPORT_CONNECTORS.map(connector => (
+          <ConnectorCard key={connector.id} connector={connector} sourceType="PLANNED_IMPORT" />
         ))}
       </Section>
-    
+
       <CurrencyCenter />
-
       <FreeApiLab />
-
-</div>
+    </div>
   );
-
 }
 
 function Metric({ label, value }) {
   return (
-    <div style={{ background: "#1C2128", border: "1px solid #30363D", padding: 12, borderRadius: 10 }}>
-      <div style={{ fontSize: 10, color: "#8B949E", marginBottom: 4 }}>{label}</div>
-      <div style={{ fontSize: 20, fontWeight: 800, color: "#FF9900" }}>{value}</div>
-    
-      <CurrencyCenter />
-
-      <FreeApiLab />
-
-</div>
+    <div style={styles.metric}>
+      <div style={styles.metricLabel}>{label}</div>
+      <div style={styles.metricValue}>{value}</div>
+    </div>
   );
-
 }
 
 function Section({ title, children }) {
   return (
-    <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: 10, padding: 14 }}>
+    <section style={styles.section}>
       <h3 style={{ marginTop: 0 }}>{title}</h3>
-      <div style={{ display: "grid", gap: 10 }}>{children}</div>
-    
-      <CurrencyCenter />
-
-      <FreeApiLab />
-
-</div>
+      <div style={styles.cardGrid}>{children}</div>
+    </section>
   );
-
 }
 
-function ConnectorCard({ connector }) {
+function ConnectorCard({ connector, sourceType }) {
   const active = connector.status === "active";
 
   return (
-    <div style={{ background: "#1C2128", border: "1px solid #30363D", borderRadius: 8, padding: 12 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
-        <div style={{ fontWeight: 800 }}>{connector.name}</div>
-        <div style={{ color: active ? "#00C853" : "#FF9800", fontWeight: 700 }}>
-          {active ? "Actif" : "Prévu"}
+    <div style={styles.connectorCard}>
+      <div style={styles.connectorTop}>
+        <strong>{connector.name}</strong>
+        <Badge tone={active ? "live" : "planned"}>{active ? "Actif" : "Prévu"}</Badge>
+      </div>
+
+      <p style={styles.muted}>{connector.description}</p>
+
+      <div style={styles.metaGrid}>
+        <span>Type</span><strong>{connector.type}</strong>
+        <span>Coût</span><strong>{connector.free ? "0 €" : "À vérifier"}</strong>
+        <span>Source</span><strong>{sourceType}</strong>
+      </div>
+
+      {connector.endpoint && (
+        <div style={styles.endpoint}>
+          Endpoint : <code>{connector.endpoint}</code>
         </div>
-      </div>
-      <div style={{ marginTop: 6, fontSize: 12, color: "#8B949E" }}>
-        {connector.description}
-      </div>
-      <div style={{ marginTop: 6, fontSize: 11, color: "#6E7681" }}>
-        Type : {connector.type}
-      </div>
-    
-      <CurrencyCenter />
-
-      <FreeApiLab />
-
-</div>
+      )}
+    </div>
   );
-
 }
+
+function Badge({ tone = "planned", children }) {
+  const colors = {
+    live: { color: "#00C853", border: "#00C85355", background: "#00C85312" },
+    fallback: { color: "#FFB020", border: "#FFB02055", background: "#FFB02012" },
+    planned: { color: "#8B949E", border: "#8B949E55", background: "#8B949E12" }
+  };
+
+  return (
+    <span style={{ ...styles.badge, ...colors[tone] }}>
+      {children}
+    </span>
+  );
+}
+
+const styles = {
+  hero: {
+    background: "#1C2128",
+    padding: 16,
+    borderRadius: 10,
+    border: "1px solid #30363D"
+  },
+  muted: {
+    marginTop: 8,
+    color: "#8B949E",
+    lineHeight: 1.5
+  },
+  badgeRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 8,
+    marginTop: 12
+  },
+  badge: {
+    display: "inline-flex",
+    alignItems: "center",
+    width: "fit-content",
+    border: "1px solid",
+    borderRadius: 999,
+    padding: "4px 8px",
+    fontSize: 11,
+    fontWeight: 700
+  },
+  metricsGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gap: 10
+  },
+  metric: {
+    background: "#1C2128",
+    border: "1px solid #30363D",
+    padding: 12,
+    borderRadius: 10
+  },
+  metricLabel: {
+    fontSize: 10,
+    color: "#8B949E",
+    marginBottom: 4
+  },
+  metricValue: {
+    fontSize: 20,
+    fontWeight: 800,
+    color: "#FF9900"
+  },
+  section: {
+    background: "#1C2128",
+    border: "1px solid #30363D",
+    padding: 14,
+    borderRadius: 10
+  },
+  cardGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: 10
+  },
+  connectorCard: {
+    background: "#0D1117",
+    border: "1px solid #30363D",
+    borderRadius: 10,
+    padding: 12
+  },
+  connectorTop: {
+    display: "flex",
+    justifyContent: "space-between",
+    gap: 10,
+    alignItems: "center"
+  },
+  metaGrid: {
+    display: "grid",
+    gridTemplateColumns: "90px 1fr",
+    gap: "6px 10px",
+    marginTop: 10,
+    fontSize: 13,
+    color: "#C9D1D9"
+  },
+  endpoint: {
+    marginTop: 10,
+    color: "#8B949E",
+    fontSize: 11,
+    wordBreak: "break-word"
+  }
+};
