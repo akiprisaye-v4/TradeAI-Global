@@ -579,3 +579,58 @@
     bottom: max(76px, env(safe-area-inset-bottom)) !important;
   }
 }
+
+/* =========================================================
+   FIX BURGER MOBILE V4
+   Affiche le menu burger sur smartphone
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle,
+  .hamburger,
+  .hamburger-button,
+  .menu-toggle,
+  button[aria-label*="menu" i],
+  button[aria-label*="navigation" i],
+  button[aria-label*="burger" i] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    z-index: 999 !important;
+    pointer-events: auto !important;
+  }
+
+  .desktop-tabs,
+  .desktop-nav,
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .header-content,
+  .app-header,
+  header {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .header-content {
+    justify-content: space-between !important;
+    gap: 12px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-toggle,
+  .hamburger,
+  .hamburger-button,
+  .menu-toggle {
+    display: none !important;
+  }
+}
