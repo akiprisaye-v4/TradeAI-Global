@@ -198,3 +198,309 @@
     display: none !important;
   }
 }
+
+/* =========================================================
+   MOBILE PRODUCTION FIX V2
+   Smartphones 320px -> 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body,
+  #root {
+    width: 100%;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  body {
+    margin: 0 !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  /* ---------- CONTENEURS ---------- */
+
+  main,
+  .main,
+  .main-content,
+  .content,
+  .content-wrapper,
+  .page,
+  .page-content,
+  .container,
+  .dashboard,
+  .dashboard-content,
+  section {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  main,
+  .main,
+  .main-content,
+  .content,
+  .content-wrapper,
+  .page-content,
+  .dashboard-content {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  header,
+  .header,
+  .app-header,
+  .topbar,
+  .navbar {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .header,
+  .app-header,
+  .topbar {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* ---------- NAVIGATION HORIZONTALE ---------- */
+
+  nav,
+  .nav,
+  .navigation,
+  .tabs,
+  .tab-list,
+  .menu-tabs,
+  .nav-tabs {
+    max-width: 100% !important;
+  }
+
+  .tabs,
+  .tab-list,
+  .menu-tabs,
+  .nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar,
+  .tab-list::-webkit-scrollbar,
+  .menu-tabs::-webkit-scrollbar,
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ---------- GRILLES ---------- */
+
+  .grid,
+  .cards-grid,
+  .pricing-grid,
+  .features-grid,
+  .results-grid,
+  .stats-grid,
+  .form-grid,
+  .academy-grid,
+  .ecosystem-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 16px !important;
+  }
+
+  /* ---------- FLEX DESKTOP -> MOBILE ---------- */
+
+  .row,
+  .form-row,
+  .results-row,
+  .stats-row {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* ---------- CARTES ---------- */
+
+  .card,
+  .pricing-card,
+  .result-card,
+  .feature-card,
+  .academy-card,
+  .ecosystem-card,
+  .panel,
+  .box {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* ---------- TYPOGRAPHIE ---------- */
+
+  h1 {
+    font-size: clamp(1.9rem, 9vw, 2.7rem) !important;
+    line-height: 1.08 !important;
+    overflow-wrap: anywhere;
+  }
+
+  h2 {
+    font-size: clamp(1.55rem, 7vw, 2.15rem) !important;
+    line-height: 1.15 !important;
+    overflow-wrap: anywhere;
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 5.5vw, 1.65rem) !important;
+    line-height: 1.2 !important;
+    overflow-wrap: anywhere;
+  }
+
+  p,
+  label,
+  li,
+  span {
+    overflow-wrap: break-word;
+  }
+
+  /* ---------- FORMULAIRES ---------- */
+
+  form,
+  fieldset {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100% !important;
+    font-size: 16px;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  /* ---------- BOUTONS ---------- */
+
+  button,
+  .btn,
+  .button {
+    min-height: 44px;
+  }
+
+  /* ---------- TABLEAUX ---------- */
+
+  table {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ---------- RESULTATS / STATS ---------- */
+
+  .results,
+  .result-box,
+  .results-box,
+  .summary,
+  .summary-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* ---------- CHATBOT ---------- */
+
+  .chatbot,
+  .chat-widget,
+  .chat-button,
+  .chatbot-button,
+  .floating-chat,
+  [class*="chatbot"],
+  [class*="chat-widget"] {
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  .chat-button,
+  .chatbot-button,
+  .floating-chat {
+    right: 12px !important;
+    bottom: 16px !important;
+  }
+}
+
+/* Très petits smartphones */
+@media (max-width: 390px) {
+
+  main,
+  .main,
+  .main-content,
+  .content,
+  .content-wrapper,
+  .page-content,
+  .dashboard-content {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  h1 {
+    font-size: clamp(1.7rem, 8.5vw, 2.2rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 7vw, 1.9rem) !important;
+  }
+
+  .card,
+  .pricing-card,
+  .result-card,
+  .feature-card,
+  .academy-card,
+  .ecosystem-card,
+  .panel,
+  .box {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
