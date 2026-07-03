@@ -66,3 +66,107 @@
     overflow-x: auto;
   }
 }
+
+/* v7 mobile polish */
+@media (max-width: 768px) {
+  .product-list,
+  .top-products,
+  .ranking-list,
+  .history-list {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .product-list > *,
+  .top-products > *,
+  .ranking-list > *,
+  .history-list > * {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .product-list strong,
+  .top-products strong,
+  .ranking-list strong,
+  .history-list strong {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .chatbot,
+  .chat-bubble,
+  .ai-chat,
+  .floating-chat,
+  [aria-label*="chat" i],
+  [class*="chat" i] {
+    width: 52px !important;
+    height: 52px !important;
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(18px, env(safe-area-inset-bottom)) !important;
+    z-index: 30 !important;
+  }
+
+  .pricing-grid,
+  .plans-grid,
+  .subscription-grid,
+  .pricing-cards,
+  .plans,
+  .subscriptions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .pricing-grid > *,
+  .plans-grid > *,
+  .subscription-grid > *,
+  .pricing-cards > *,
+  .plans > *,
+  .subscriptions > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .tabs,
+  .tabbar,
+  .nav-tabs,
+  .chip-row,
+  .menu-tabs {
+    scroll-snap-type: x proximity;
+  }
+
+  .tabs button,
+  .tabbar button,
+  .nav-tabs button,
+  .chip-row button,
+  .menu-tabs button {
+    scroll-snap-align: start;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tabs button[aria-selected="true"],
+  .tabbar button[aria-selected="true"],
+  .nav-tabs button[aria-selected="true"],
+  .chip-row button[aria-selected="true"],
+  .menu-tabs button[aria-selected="true"],
+  .tabs button.active,
+  .tabbar button.active,
+  .nav-tabs button.active,
+  .chip-row button.active,
+  .menu-tabs button.active {
+    position: sticky;
+    left: 8px;
+    z-index: 5;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
