@@ -1107,6 +1107,8 @@ setActiveProduct(products.length);
   tabs={TABS}
   tabLabels={TAB_LABELS}
   activeTab={activeTab}
+  mobileMenuOpen={mobileMenuOpen}
+  setMobileMenuOpen={setMobileMenuOpen}
   automationAlerts={automationAlerts}
   predictiveInsights={predictiveInsights}
   globalSourcing={globalSourcing}
