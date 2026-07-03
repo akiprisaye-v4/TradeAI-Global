@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const FALLBACK_RATES = {
+export const FALLBACK_RATES = {
   EUR: 1,
   USD: 1.08,
   GBP: 0.86,
@@ -12,33 +12,6 @@ const FALLBACK_RATES = {
 
 export default function useFxRates(setFxRates) {
   useEffect(() => {
-    let cancelled = false;
-
-    async function loadRates() {
-      try {
-        const res = await fetch("https://api.frankfurter.app/latest?from=EUR");
-        if (!res.ok) throw new Error("Frankfurter unavailable");
-
-        const data = await res.json();
-
-        if (!cancelled) {
-          setFxRates({
-            ...FALLBACK_RATES,
-            ...data.rates,
-            EUR: 1
-          });
-        }
-      } catch {
-        if (!cancelled) {
-          setFxRates(FALLBACK_RATES);
-        }
-      }
-    }
-
-    loadRates();
-
-    return () => {
-      cancelled = true;
-    };
+    setFxRates(FALLBACK_RATES);
   }, [setFxRates]);
 }
