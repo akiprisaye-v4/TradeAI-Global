@@ -883,6 +883,7 @@ import AutomationCenter from "./components/panels/AutomationCenter";
 import useToast from "./hooks/useToast";
 import useAutoDismissToast from "./hooks/useAutoDismissToast";
 import useAutoClearSaveStatus from "./hooks/useAutoClearSaveStatus";
+import "./styles/mobile-navigation-fix.css";
 
 
 
