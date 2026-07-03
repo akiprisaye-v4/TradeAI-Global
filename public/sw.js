@@ -1,49 +1,61 @@
-const CACHE_NAME = 'amazon-profit-pro-v2';
-const urlsToCache = [
+const CACHE_VERSION = 'tradeai-v7-e44c745';
+const STATIC_CACHE = `${CACHE_VERSION}-static`;
+
+const ASSETS = [
   '/',
-  '/index.html',
-  '/manifest.json'
+  '/manifest.json',
+  '/images/logo.svg'
 ];
 
-// Installation
 self.addEventListener('install', event => {
+  self.skipWaiting();
+
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Cache ouvert');
-        return cache.addAll(urlsToCache);
-      })
-      .catch(err => console.log('Erreur cache:', err))
+    caches.open(STATIC_CACHE)
+      .then(cache => cache.addAll(ASSETS))
+      .catch(() => undefined)
   );
 });
 
-// Fetch
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request).catch(() => {
-          // Retourner une page offline si disponible
-          return caches.match('/index.html');
-        });
-      })
-  );
-});
-
-// Activation
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
+    caches.keys()
+      .then(keys =>
+        Promise.all(
+          keys
+            .filter(key => !key.startsWith(CACHE_VERSION))
+            .map(key => caches.delete(key))
+        )
+      )
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  const request = event.request;
+
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+
+  if (url.origin !== self.location.origin) return;
+
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then(response => response)
+        .catch(() => caches.match('/'))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(request).then(cached => {
+      return cached || fetch(request).then(response => {
+        const copy = response.clone();
+        caches.open(STATIC_CACHE).then(cache => cache.put(request, copy));
+        return response;
+      });
     })
   );
 });
