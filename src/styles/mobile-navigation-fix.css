@@ -675,3 +675,23 @@
     display: flex !important;
   }
 }
+
+/* TRADEAI_FLOATING_SAFE_AREA_20260703
+   Réserve mobile minimale pour éviter que les boutons flottants masquent les cartes.
+   Ne touche pas au burger mobile. */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  [aria-label*="chat" i],
+  [aria-label*="assistant" i] {
+    bottom: calc(22px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 18px !important;
+    max-width: 72px !important;
+    max-height: 72px !important;
+  }
+}

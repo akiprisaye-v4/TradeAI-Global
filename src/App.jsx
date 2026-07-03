@@ -66,12 +66,14 @@ const FBA_SIZES = [
  { label:"Très grand (> 12kg)", pick: 12.0, storage: 4.5, longStorage: 7.0, maxL: 999, maxW: 999, maxH: 999, maxWeight: 999 },
 ];
 
+const TENDANCES_PROVENANCE_NOTICE = "Données indicatives locales : non récupérées en temps réel depuis Amazon, Alibaba ou TikTok.";
+
 const TRENDING_PRODUCTS = [
-{ name: "Patchs anti-imperfections", category: "Beauté & Santé", categoryIdx: 5, growth: "+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note: "Viral TikTok. Marge 85-90%.", icon: "✨", color: "#FFD54F", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
-{ name: "Bandes LED RGB", category: "Maison & Cuisine", categoryIdx: 2, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note: "Déco gaming. Marge 70-85%.", icon: "💡", color: "#FFA726", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" },
-{ name: "Powerbank magnétique", category: "Électronique", categoryIdx: 1, growth: "+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note: "Tech gadget. Marge 60-75%.", icon: "🔋", color: "#5C6BC0", image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop" },
-{ name: "Masque soie naturelle", category: "Beauté & Santé", categoryIdx: 5, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note: "Beauty sleep. Marge 85-95%.", icon: "😴", color: "#7E57C2", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
-{ name: "Harnais chien", category: "Autre", categoryIdx: 10, growth: "+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note: "Pet market. Marge 70-85%.", icon: "🦮", color: "#FF5722", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" },
+{ name: "Patchs anti-imperfections", category: "Beauté & Santé", categoryIdx: 5, growth: "+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "✨", color: "#FFD54F", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Bandes LED RGB", category: "Maison & Cuisine", categoryIdx: 2, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "💡", color: "#FFA726", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" },
+{ name: "Powerbank magnétique", category: "Électronique", categoryIdx: 1, growth: "+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🔋", color: "#5C6BC0", image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop" },
+{ name: "Masque soie naturelle", category: "Beauté & Santé", categoryIdx: 5, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "😴", color: "#7E57C2", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Harnais chien", category: "Autre", categoryIdx: 10, growth: "+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🦮", color: "#FF5722", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" },
 ];
 
 // Noms de produits réalistes par catégorie
@@ -619,18 +621,18 @@ return (
     
     <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
       <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
-        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix Amazon</div>
+        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix marketplace indicatif</div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#FF9900" }}>{fmt(item.amazonPriceRange[0])}-{fmt(item.amazonPriceRange[1])}</div>
       </div>
       <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
-        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix Alibaba</div>
+        <div style={{ fontSize: 9, color: "#8B949E" }}>Coût fournisseur indicatif</div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#00C853" }}>{fmt(item.alibabaPriceRange[0])}-{fmt(item.alibabaPriceRange[1])}</div>
       </div>
     </div>
     
     <div style={{ padding: "8px", background: `${item.color}15`, borderRadius: 6, marginBottom: 12 }}>
       <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>
-         Croissance: {item.growth}
+         Signal indicatif: {item.growth}
       </div>
       <div style={{ fontSize: 10, color: "#8B949E", marginTop: 2 }}>
         {item.note}
