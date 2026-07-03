@@ -1,4 +1,4 @@
-const UPSTREAM = "https://api.frankfurter.app";
+const UPSTREAM = "https://api.frankfurter.dev/v1";
 
 function isCurrency(value) {
   return typeof value === "string" && /^[A-Z]{3}$/.test(value);
