@@ -1,51 +1,371 @@
-/* PROFESSIONAL UI POLISH */
+/* =========================================================
+   TRADEAI GLOBAL — PROFESSIONAL B2B SAAS UI
+   Visual-only override. No business logic.
+   ========================================================= */
+
 :root {
-  --professional-radius: 14px;
+  --b2b-bg: #0b0f15;
+  --b2b-surface: #121821;
+  --b2b-surface-2: #171e29;
+  --b2b-surface-3: #1c2430;
+  --b2b-border: rgba(148, 163, 184, 0.14);
+  --b2b-border-strong: rgba(148, 163, 184, 0.22);
+  --b2b-text: #f3f4f6;
+  --b2b-muted: #9ca3af;
+  --b2b-subtle: #6b7280;
+  --b2b-accent: #f59e0b;
+  --b2b-accent-soft: rgba(245, 158, 11, 0.12);
+  --b2b-success: #22c55e;
+  --b2b-danger: #ef4444;
+  --b2b-radius-sm: 8px;
+  --b2b-radius-md: 10px;
+  --b2b-radius-lg: 12px;
+  --b2b-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+html {
+  background: var(--b2b-bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  background: var(--b2b-bg);
+  color: var(--b2b-text);
+  letter-spacing: -0.008em;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+}
+
+p {
+  line-height: 1.58;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ---------- Surfaces ---------- */
+
+section,
+article {
+  border-radius: var(--b2b-radius-lg);
+}
+
+.card,
+.panel,
+.widget,
+.metric-card,
+.stat-card,
+.dashboard-card,
+.analytics-card {
+  border-radius: var(--b2b-radius-md) !important;
+  border-color: var(--b2b-border) !important;
+  box-shadow: none !important;
+}
+
+/* Avoid nested toy-like cards */
+.card .card,
+.panel .panel,
+section section,
+article article {
+  border-radius: var(--b2b-radius-sm) !important;
+}
+
+/* ---------- Buttons ---------- */
+
+button {
+  border-radius: var(--b2b-radius-sm);
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-h1, h2, h3 {
-  letter-spacing: -0.035em;
+button:hover {
+  filter: brightness(1.04);
 }
 
-button {
-  font-weight: 700;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(245, 158, 11, 0.7);
+  outline-offset: 2px;
 }
+
+/* ---------- Reduce excessive orange glow ---------- */
+
+[style*="box-shadow"][style*="orange"],
+[style*="box-shadow"][style*="#ff"],
+[style*="box-shadow"][style*="#f5"] {
+  box-shadow: var(--b2b-shadow) !important;
+}
+
+/* ---------- Floating assistant ---------- */
 
 .floating-chat-button,
 .chat-floating-button,
 .chatbot-floating-button,
+.chatbot-button,
+.ai-chat-button,
 button[aria-label*="chat" i],
 button[aria-label*="assistant" i] {
-  box-shadow: 0 10px 28px rgba(0,0,0,.35) !important;
-  filter: saturate(.85) !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 12px !important;
+  background: var(--b2b-surface-3) !important;
+  border: 1px solid var(--b2b-border-strong) !important;
+  box-shadow: var(--b2b-shadow) !important;
+  filter: saturate(0.7) !important;
+  opacity: 0.94 !important;
 }
 
+/* ---------- Navigation ---------- */
+
+nav,
+[role="navigation"] {
+  scrollbar-width: none;
+}
+
+nav::-webkit-scrollbar,
+[role="navigation"]::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Desktop refinement ---------- */
+
+@media (min-width: 769px) {
+  main {
+    min-width: 0;
+  }
+
+  .card,
+  .panel,
+  .widget {
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .card:hover,
+  .panel:hover,
+  .widget:hover {
+    border-color: var(--b2b-border-strong) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE — SAMSUNG / ANDROID / PWA
+   ========================================================= */
+
 @media (max-width: 768px) {
-  .floating-chat-button,
-  .chat-floating-button,
-  .chatbot-floating-button,
-  button[aria-label*="chat" i],
-  button[aria-label*="assistant" i] {
-    width: 46px !important;
-    height: 46px !important;
-    right: 14px !important;
-    bottom: calc(110px + env(safe-area-inset-bottom)) !important;
-    opacity: .82 !important;
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-size: 15px;
   }
 
   h1 {
-    font-size: clamp(2rem, 10vw, 3rem) !important;
+    font-size: clamp(1.8rem, 8vw, 2.45rem) !important;
+    line-height: 1.08 !important;
   }
 
   h2 {
-    font-size: clamp(1.55rem, 7vw, 2.25rem) !important;
+    font-size: clamp(1.35rem, 6vw, 1.85rem) !important;
   }
 
-  section, article {
-    border-radius: var(--professional-radius) !important;
+  h3 {
+    font-size: clamp(1.05rem, 4.5vw, 1.3rem) !important;
+  }
+
+  /* Main content must use mobile width correctly */
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Cards: tighter, enterprise density */
+  .card,
+  .panel,
+  .widget,
+  .metric-card,
+  .stat-card,
+  .dashboard-card,
+  .analytics-card {
+    border-radius: 10px !important;
+    box-shadow: none !important;
+  }
+
+  /* Horizontal top navigation:
+     readable touch targets instead of desktop UI shrunk down */
+  nav {
+    max-width: 100%;
+  }
+
+  nav button,
+  nav a,
+  [role="navigation"] button,
+  [role="navigation"] a {
+    min-height: 36px;
+    white-space: nowrap;
+  }
+
+  /* Generic mobile drawer/sidebar normalization */
+  [class*="drawer" i],
+  [class*="mobile-menu" i],
+  [class*="mobileMenu"],
+  [class*="sidebar" i] {
+    max-width: min(88vw, 360px) !important;
+  }
+
+  [class*="drawer" i] button,
+  [class*="mobile-menu" i] button,
+  [class*="mobileMenu"] button,
+  [class*="sidebar" i] button {
+    min-height: 46px !important;
+    height: auto !important;
+    padding: 11px 14px !important;
+    border-radius: 9px !important;
+    font-size: 0.96rem !important;
+    line-height: 1.25 !important;
+    box-shadow: none !important;
+  }
+
+  [class*="drawer" i] a,
+  [class*="mobile-menu" i] a,
+  [class*="mobileMenu"] a,
+  [class*="sidebar" i] a {
+    min-height: 46px !important;
+    padding: 11px 14px !important;
+    border-radius: 9px !important;
+    font-size: 0.96rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Reduce giant vertical gaps in navigation lists */
+  [class*="drawer" i] ul,
+  [class*="mobile-menu" i] ul,
+  [class*="mobileMenu"] ul,
+  [class*="sidebar" i] ul {
+    gap: 6px !important;
+  }
+
+  [class*="drawer" i] li,
+  [class*="mobile-menu" i] li,
+  [class*="mobileMenu"] li,
+  [class*="sidebar" i] li {
+    margin-block: 3px !important;
+  }
+
+  /* Assistant: discreet and clear of Android safe area */
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i],
+  button[aria-label*="assistant" i] {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    right: 14px !important;
+    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    border-radius: 11px !important;
+  }
+
+  /* Tables must not destroy mobile viewport */
+  table {
+    max-width: 100%;
+  }
+
+  .table-wrapper,
+  [class*="table-container" i] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Inputs: professional mobile sizing */
+  input,
+  select,
+  textarea {
+    min-height: 42px;
+    border-radius: 8px !important;
+  }
+
+  /* Prevent oversized pills */
+  [class*="badge" i],
+  [class*="chip" i],
+  [class*="pill" i] {
+    max-width: 100%;
+    border-radius: 7px !important;
+  }
+
+  /* Images remain controlled */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------- Small phones ---------- */
+
+@media (max-width: 430px) {
+  body {
+    font-size: 14px;
+  }
+
+  [class*="drawer" i],
+  [class*="mobile-menu" i],
+  [class*="mobileMenu"],
+  [class*="sidebar" i] {
+    max-width: 92vw !important;
+  }
+
+  [class*="drawer" i] button,
+  [class*="mobile-menu" i] button,
+  [class*="mobileMenu"] button,
+  [class*="sidebar" i] button,
+  [class*="drawer" i] a,
+  [class*="mobile-menu" i] a,
+  [class*="mobileMenu"] a,
+  [class*="sidebar" i] a {
+    min-height: 44px !important;
+    padding: 10px 12px !important;
+    font-size: 0.92rem !important;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
