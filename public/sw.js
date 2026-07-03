@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tradeai-v7-e44c745';
+const CACHE_VERSION = 'tradeai-v7-87cc207';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 
 const ASSETS = [
