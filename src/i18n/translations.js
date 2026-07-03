@@ -22,7 +22,7 @@ export const translations = {
     },
     about: {
       title: "TradeAI Global Élite",
-      subtitle: "La plateforme d'intelligence commerciale la plus avancée pour les vendeurs Amazon FBA/FBM",
+      subtitle: "La plateforme d'intelligence commerciale pour piloter rentabilité, sourcing et décisions e-commerce",
       forWho: "Pour Qui ?",
       why: "Pourquoi Utiliser TradeAI Global ?",
       features: "Fonctionnalités Clés",
@@ -67,7 +67,7 @@ export const translations = {
     },
     about: {
       title: "TradeAI Global Elite",
-      subtitle: "The most advanced business intelligence platform for Amazon FBA/FBM sellers",
+      subtitle: "Business intelligence platform for ecommerce profitability, sourcing and operational decisions",
       forWho: "For Who?",
       why: "Why Use TradeAI Global?",
       features: "Key Features",

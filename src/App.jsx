@@ -766,7 +766,7 @@ function AProposPanel() {
     )}
   </div>
 
- <p style={{ color:"#8B949E", lineHeight: 1.6, marginBottom: 16 }}>Calculateur de profit expert pour vendeurs Amazon FBA/FBM avec 40+ fonctionnalités.</p>
+ <p style={{ color:"#8B949E", lineHeight: 1.6, marginBottom: 16 }}>Plateforme modulaire pour analyser rentabilité, sourcing, stock, devises, automatisation et décisions e-commerce.</p>
  </div>
  );
 }

@@ -34,7 +34,7 @@ const About: React.FC = () => {
           margin: '0 auto',
           lineHeight: '1.6'
         }}>
-          La plateforme d'intelligence commerciale la plus avancée pour les vendeurs Amazon FBA/FBM
+          La plateforme d'intelligence commerciale pour piloter rentabilité, sourcing et décisions e-commerce
         </p>
       </div>
 
