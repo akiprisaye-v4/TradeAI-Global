@@ -36,6 +36,7 @@ import ExtensionData from "../ExtensionData";
 import TradeAIEcosystem from "../TradeAIEcosystem";
 import V7Roadmap from "../../pages/V7Roadmap";
 import AutomationCenter from "../panels/AutomationCenter";
+import AffiliateCenter from "../panels/AffiliateCenter";
 import PredictiveDashboard from "../panels/PredictiveDashboard";
 import GlobalSourcingPanel from "../panels/GlobalSourcingPanel";
 import ConnectHubPanel from "../panels/ConnectHubPanel";
@@ -83,6 +84,7 @@ export default function AppRouter(props) {
       {activeTab === "sourcing" && <GlobalSourcingPanel sources={props.globalSourcing} fmt={fmt} />}
       {activeTab === "predictive" && <PredictiveDashboard predictions={props.predictiveInsights} fmt={fmt} />}
       {activeTab === "automation" && <AutomationCenter alerts={props.automationAlerts} />}
+      {activeTab === "affiliate" && <AffiliateCenter />}
       {activeTab === "v7roadmap" && <V7RoadmapPage><V7Roadmap /></V7RoadmapPage>}
     </>
   );
