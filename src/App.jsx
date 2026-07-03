@@ -60,8 +60,7 @@ const MONTH_LABELS = ["Jan","Fév","Mar","Avr","Mai","Jun","Juil","Aoû","Sep","
 
 const FBA_SIZES = [
  { label:"Petit standard (< 300g)", pick: 2.7, storage: 0.9, longStorage: 1.5, maxL: 35, maxW: 25, maxH: 3.0, maxWeight: 0.3 },
- { labeimport "./styles/professional-polish.css";
-l:"Standard (300g–1kg)", pick: 3.5, storage: 1.2, longStorage: 2.0, maxL: 45, maxW: 34, maxH: 26, maxWeight: 1.0 },
+ { label:"Standard (300g–1kg)", pick: 3.5, storage: 1.2, longStorage: 2.0, maxL: 45, maxW: 34, maxH: 26, maxWeight: 1.0 },
  { label:"Moyen (1–3kg)", pick: 5.0, storage: 1.8, longStorage: 3.0, maxL: 61, maxW: 46, maxH: 46, maxWeight: 3.0 },
  { label:"Grand (3–12kg)", pick: 7.5, storage: 2.8, longStorage: 4.5, maxL: 120, maxW: 60, maxH: 60, maxWeight: 12.0 },
  { label:"Très grand (> 12kg)", pick: 12.0, storage: 4.5, longStorage: 7.0, maxL: 999, maxW: 999, maxH: 999, maxWeight: 999 },
@@ -887,6 +886,7 @@ import useToast from "./hooks/useToast";
 import useAutoDismissToast from "./hooks/useAutoDismissToast";
 import useAutoClearSaveStatus from "./hooks/useAutoClearSaveStatus";
 import "./styles/mobile-navigation-fix.css";
+import "./styles/professional-polish.css";
 
 
 
