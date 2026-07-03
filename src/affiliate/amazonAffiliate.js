@@ -10,7 +10,7 @@ const AMAZON_DOMAINS = {
 };
 
 export function getAmazonAffiliateTag() {
-  return localStorage.getItem("tradeai_amazon_affiliate_tag") || "TON-ID-AFFILIE-21";
+  return localStorage.getItem("tradeai_amazon_affiliate_tag") || "";
 }
 
 export function setAmazonAffiliateTag(tag) {

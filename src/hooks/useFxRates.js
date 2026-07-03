@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-
-export const FALLBACK_RATES = {
-  EUR: 1,
+const FALLBACK_RATES = {
   USD: 1.08,
   GBP: 0.86,
   CAD: 1.47,
@@ -11,7 +8,9 @@ export const FALLBACK_RATES = {
 };
 
 export default function useFxRates(setFxRates) {
-  useEffect(() => {
-    setFxRates(FALLBACK_RATES);
-  }, [setFxRates]);
+  import("react").then(({ useEffect }) => {});
+}
+
+export function getFallbackFxRates() {
+  return FALLBACK_RATES;
 }
