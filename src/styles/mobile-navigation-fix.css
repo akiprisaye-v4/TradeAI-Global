@@ -170,3 +170,164 @@
     overflow-x: hidden;
   }
 }
+
+/* v7 subscriptions mobile production pass */
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: clamp(34px, 10vw, 48px) !important;
+    line-height: 1.08 !important;
+    margin: 22px 0 12px !important;
+  }
+
+  h2 {
+    font-size: clamp(22px, 7vw, 34px) !important;
+    line-height: 1.14 !important;
+  }
+
+  h3 {
+    font-size: clamp(18px, 5vw, 24px) !important;
+    line-height: 1.2 !important;
+  }
+
+  p {
+    line-height: 1.45 !important;
+  }
+
+  /* Pricing / abonnement compact */
+  .pricing-grid,
+  .plans-grid,
+  .subscription-grid,
+  .pricing-cards,
+  .plans,
+  .subscriptions {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 0 14px !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+
+  .pricing-grid > *,
+  .plans-grid > *,
+  .subscription-grid > *,
+  .pricing-cards > *,
+  .plans > *,
+  .subscriptions > * {
+    padding: 26px 22px !important;
+    border-radius: 24px !important;
+    min-height: auto !important;
+  }
+
+  .pricing-grid ul,
+  .plans-grid ul,
+  .subscription-grid ul,
+  .pricing-cards ul,
+  .plans ul,
+  .subscriptions ul {
+    display: grid !important;
+    gap: 10px !important;
+    margin: 18px 0 !important;
+    padding: 0 !important;
+  }
+
+  .pricing-grid li,
+  .plans-grid li,
+  .subscription-grid li,
+  .pricing-cards li,
+  .plans li,
+  .subscriptions li {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    padding: 6px 0 !important;
+  }
+
+  .pricing-grid button,
+  .plans-grid button,
+  .subscription-grid button,
+  .pricing-cards button,
+  .plans button,
+  .subscriptions button {
+    min-height: 48px !important;
+    border-radius: 14px !important;
+    font-size: 15px !important;
+  }
+
+  /* Formations plus compactes */
+  .course-card,
+  .training-card,
+  .formation-card,
+  [class*="course" i],
+  [class*="training" i],
+  [class*="formation" i] {
+    min-height: auto !important;
+    padding: 22px !important;
+    border-radius: 22px !important;
+  }
+
+  /* FAQ compacte */
+  .faq,
+  .faq-section,
+  [class*="faq" i] {
+    gap: 12px !important;
+  }
+
+  .faq > *,
+  .faq-section > *,
+  [class*="faq" i] > * {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Chatbot moins intrusif */
+  .floating-chat,
+  .chat-bubble,
+  .ai-chat,
+  .chatbot {
+    width: 46px !important;
+    height: 46px !important;
+    right: 12px !important;
+    bottom: 72px !important;
+    z-index: 20 !important;
+    box-shadow: 0 0 18px rgba(255, 153, 0, .35) !important;
+  }
+
+  /* Évite que le bot cache les derniers blocs */
+  main,
+  .page,
+  .content,
+  .dashboard,
+  .panel {
+    padding-bottom: 96px !important;
+  }
+
+  /* Onglets : aucun texte coupé brutalement */
+  .tabs,
+  .tabbar,
+  .nav-tabs,
+  .chip-row,
+  .menu-tabs {
+    padding-inline: 12px !important;
+    scroll-padding-inline: 12px !important;
+  }
+
+  .tabs button,
+  .tabbar button,
+  .nav-tabs button,
+  .chip-row button,
+  .menu-tabs button {
+    max-width: none !important;
+    min-width: max-content !important;
+  }
+}
