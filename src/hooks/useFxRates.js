@@ -1,16 +1,23 @@
-const FALLBACK_RATES = {
-  USD: 1.08,
-  GBP: 0.86,
-  CAD: 1.47,
-  JPY: 170,
-  CHF: 0.96,
-  AUD: 1.63
-};
+import { useEffect } from "react";
+import { fetchFrankfurterRates, getLocalFxFallback } from "../connectors/free/frankfurterApi";
 
 export default function useFxRates(setFxRates) {
-  import("react").then(({ useEffect }) => {});
-}
+  useEffect(() => {
+    let cancelled = false;
 
-export function getFallbackFxRates() {
-  return FALLBACK_RATES;
+    fetchFrankfurterRates()
+      .then((data) => {
+        if (cancelled) return;
+        setFxRates(data?.rates || getLocalFxFallback().rates);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setFxRates(getLocalFxFallback().rates);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [setFxRates]);
 }
