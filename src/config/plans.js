@@ -48,5 +48,18 @@ export const PLANS = [
   }
 ];
 
+export const PAYMENT_CONFIG = {
+  mode: "paypal_manual",
+  provider: "paypal",
+  enabled: false,
+  automaticSubscription: false,
+  manualActivation: true,
+  paymentUrl: "",
+  status: "configuration_required"
+};
+
+export const PAYMENT_NOTICE =
+  "Paiement PayPal prévu en mode manuel. Aucun paiement ni abonnement automatique n’est actif tant qu’un lien PayPal officiel n’est pas configuré.";
+
 export const BILLING_NOTICE =
   "Le paiement sécurisé et l’espace client seront activés dans une prochaine étape. Aucun prélèvement n’est effectué actuellement.";
