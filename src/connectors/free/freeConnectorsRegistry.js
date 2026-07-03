@@ -6,7 +6,7 @@ export const FREE_CONNECTORS = [
     status: "active",
     free: true,
     description: "Taux de change gratuits basés sur l'euro.",
-    endpoint: "https://api.frankfurter.app/latest"
+    endpoint: "/api/fx"
   },
   {
     id: "rest-countries",

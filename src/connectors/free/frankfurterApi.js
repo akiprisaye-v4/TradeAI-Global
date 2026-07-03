@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.frankfurter.app";
+const BASE_URL = "/api/fx";
 
 export const FX_FALLBACK_RATES = Object.freeze({
   EUR: 1,
