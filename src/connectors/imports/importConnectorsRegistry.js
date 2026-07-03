@@ -1,10 +1,10 @@
 export const IMPORT_CONNECTORS = [
   {
     id: "amazon-csv",
-    name: "Amazon Seller CSV",
+    name: "Rapport marketplace CSV",
     type: "csv",
     status: "planned",
-    description: "Import manuel des rapports Amazon Seller Central."
+    description: "Import manuel des rapports marketplace et ventes."
   },
   {
     id: "supplier-csv",

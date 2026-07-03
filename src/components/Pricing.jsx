@@ -22,7 +22,7 @@ const Pricing = () => {
     },
     {
       name: "Pro",
-      price: "9.99€",
+      price: "14.99€",
       period: "/mois",
       features: [
         "✅ Tout du gratuit",
@@ -40,16 +40,16 @@ const Pricing = () => {
     },
     {
       name: "Elite",
-      price: "29.99€",
+      price: "214.99€",
       period: "/mois",
       features: [
         "✅ Tout du Pro",
-        "✅ API Amazon intégrée",
+        "✅ Connecteurs marketplace avancés",
         "✅ Alertes automatiques",
-        "✅ Formation vidéo exclusive",
+        "✅ Formation e-commerce exclusive",
         "✅ Consultation mensuelle (30min)",
         "✅ Fonctionnalités beta",
-        "✅ Support WhatsApp",
+        "✅ Support prioritaire",
         "✅ Accès communauté privée"
       ],
       cta: "Choisir Elite",
@@ -59,9 +59,9 @@ const Pricing = () => {
   ];
 
   const formations = [
-    { title: "Débuter sur Amazon FBA", duration: "4h30", level: "Débutant", icon: "🎓" },
-    { title: "Optimisation SEO Amazon", duration: "3h15", level: "Intermédiaire", icon: "🔍" },
-    { title: "Publicité PPC Avancée", duration: "5h00", level: "Avancé", icon: "📢" },
+    { title: "Débuter en e-commerce rentable", duration: "4h30", level: "Débutant", icon: "🎓" },
+    { title: "Optimisation SEO marketplace", duration: "3h15", level: "Intermédiaire", icon: "🔍" },
+    { title: "Publicité marketplace avancée", duration: "5h00", level: "Avancé", icon: "📢" },
     { title: "Scaling & Automatisation", duration: "4h00", level: "Expert", icon: "🚀" }
   ];
 

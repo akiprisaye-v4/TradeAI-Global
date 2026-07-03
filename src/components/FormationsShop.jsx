@@ -6,7 +6,7 @@ const FormationsShop = () => {
   const formations = [
     {
       id: 1,
-      title: "Débuter sur Amazon FBA",
+      title: "Débuter en e-commerce rentable",
       subtitle: "Lancez votre business en 30 jours",
       duration: "4h30",
       level: "Débutant",
@@ -37,7 +37,7 @@ const FormationsShop = () => {
     },
     {
       id: 2,
-      title: "Optimisation SEO Amazon",
+      title: "Optimisation SEO marketplace",
       subtitle: "Dominez les résultats de recherche",
       duration: "3h15",
       level: "Intermédiaire",
@@ -68,7 +68,7 @@ const FormationsShop = () => {
     },
     {
       id: 3,
-      title: "Publicité PPC Avancée",
+      title: "Publicité marketplace avancée",
       subtitle: "Maximisez votre ROI publicitaire",
       duration: "5h00",
       level: "Avancé",

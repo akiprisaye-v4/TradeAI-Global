@@ -800,3 +800,34 @@
     z-index: 900 !important;
   }
 }
+
+/* GLOBAL UX PATCH - pricing/mobile polish */
+@media (max-width: 768px) {
+  body, #root {
+    overflow-x: hidden !important;
+  }
+
+  .pricing-card,
+  [class*="pricing"],
+  [class*="Pricing"] {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  button,
+  a {
+    touch-action: manipulation;
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  button[aria-label*="chat" i],
+  button[aria-label*="assistant" i] {
+    right: 18px !important;
+    bottom: calc(86px + env(safe-area-inset-bottom)) !important;
+    width: 56px !important;
+    height: 56px !important;
+    z-index: 900 !important;
+  }
+}

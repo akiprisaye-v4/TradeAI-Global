@@ -2,7 +2,7 @@
   "categories": [
     {
       "id": "recherche-produits",
-      "title": "Recherche de Produits Rentables",
+      "title": "Recherche d'opportunités rentables",
       "icon": "🎯",
       "description": "Identifiez des produits à forte demande et faible concurrence",
       "steps": [
@@ -104,7 +104,7 @@
     },
     {
       "id": "logistique-fba",
-      "title": "Gérer la Logistique FBA",
+      "title": "Gérer la logistique e-commerce",
       "icon": "📦",
       "description": "Envoyez votre stock à Amazon étape par étape",
       "steps": [
