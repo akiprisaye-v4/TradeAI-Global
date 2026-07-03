@@ -1,10 +1,12 @@
-const CACHE_VERSION = 'tradeai-v7-87cc207';
+const CACHE_VERSION = 'tradeai-v7-ae720cb-pwa';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 
 const ASSETS = [
   '/',
   '/manifest.json',
-  '/images/logo.svg'
+  '/images/logo.svg',
+  '/icons/icon-192.svg',
+  '/icons/icon-512.svg'
 ];
 
 self.addEventListener('install', event => {
