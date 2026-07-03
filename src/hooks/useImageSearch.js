@@ -1,34 +1,32 @@
 import { useState } from "react";
 
 export default function useImageSearch() {
-  const [uploadedImage, setUploadedImage] = useState(null);
-  const [imageResults, setImageResults] = useState(false);
-  const [amazonResults, setAmazonResults] = useState([]);
-  const [alibabaResults, setAlibabaResults] = useState([]);
+  const [imageFile, setImageFile] = useState(null);
+  const [status, setStatus] = useState("idle");
+  const [results, setResults] = useState([]);
 
-  const handleImageUpload = async (file) => {
-    setUploadedImage(file);
+  function handleImageUpload(file) {
+    setImageFile(file || null);
+    setResults([]);
+    setStatus(file ? "ready_for_real_connector" : "idle");
+  }
 
-    if (!file) return;
-
-    setAmazonResults([
-      { name: "Produit Amazon 1", price: "€29.99", image: file },
-      { name: "Produit Amazon 2", price: "€34.99", image: file }
-    ]);
-
-    setAlibabaResults([
-      { name: "Produit Alibaba 1", price: "€5.50", image: file },
-      { name: "Produit Alibaba 2", price: "€4.20", image: file }
-    ]);
-
-    setImageResults(true);
-  };
+  async function searchByImage() {
+    setResults([]);
+    setStatus("connector_required");
+    return {
+      ok: false,
+      reason: "IMAGE_SEARCH_CONNECTOR_REQUIRED",
+      message:
+        "La recherche image nécessite un connecteur réel ou un import catalogue vérifiable. Aucun résultat simulé n’est généré."
+    };
+  }
 
   return {
-    uploadedImage,
-    imageResults,
-    amazonResults,
-    alibabaResults,
-    handleImageUpload
+    imageFile,
+    status,
+    results,
+    handleImageUpload,
+    searchByImage
   };
 }
