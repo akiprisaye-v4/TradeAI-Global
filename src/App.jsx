@@ -93,8 +93,8 @@ const REALISTIC_PRODUCT_NAMES = {
 
 const getRandomProductName = (categoryIdx) => {
   const names = REALISTIC_PRODUCT_NAMES[categoryIdx] || REALISTIC_PRODUCT_NAMES[2];
-  const randomName = names[Math.floor(Math.random() * names.length)];
-  const suffix = Math.floor(Math.random() * 900) + 100;
+  const randomName = names[Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296 * names.length)];
+  const suffix = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296 * 900) + 100;
   return `${randomName} ${suffix}`;
 };
 
@@ -1037,7 +1037,7 @@ useEffect(() => {
  }, []);
 
  const addProduct = () => {
-const randomCategory = Math.floor(Math.random() * 11);
+const randomCategory = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296 * 11);
 const randomName = getRandomProductName(randomCategory);
 setProducts(prev => [...prev, defaultProduct(randomName)]);
 setActiveProduct(products.length);

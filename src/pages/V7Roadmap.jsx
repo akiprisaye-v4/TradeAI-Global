@@ -33,8 +33,8 @@ const PHASES = [
     status: "À finaliser",
     tone: "pending",
     items: [
-      "Sourcing global multi-pays",
-      "Analyse prédictive fondée sur des données vérifiables",
+      "Sourcing global multi-pays avec provenance STATIC_REFERENCE",
+      "Analyse prédictive fondée sur LOCAL_ESTIMATE + données vérifiables",
       "Centre d’automatisation",
       "Connect Hub et état réel des intégrations",
       "Affiliation configurable",
