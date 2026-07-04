@@ -180,7 +180,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
             color: '#0D1117',
             fontWeight: 700
           }}
-        >
+         aria-label="Fermer l’assistant">
           ✕
         </button>
       </div>
