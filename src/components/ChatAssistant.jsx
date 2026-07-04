@@ -43,7 +43,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Frais Amazon
     if (lowerMsg.includes('frais') || lowerMsg.includes('commission') || lowerMsg.includes('amazon')) {
       return {
-        content: "📦 **Frais Amazon FBA principaux :**\n\n• **Commission** : 8-17% selon la catégorie\n• **Frais FBA** : 2.70€ - 12€ selon la taille/poids\n• **Stockage** : 0.90€ - 4.50€/m³/mois\n• **Stockage longue durée** : +6.90€/m³ (> 365 jours)\n• **Publicité PPC** : Variable (budget recommandé : 1-3€/unité)\n\n💡 **Astuce** : Utilisez l'onglet 📊 Calcul pour tester différents scénarios locaux et voir l'impact des frais sur votre marge.",
+        content: "**Frais Amazon FBA principaux :**\n\n• **Commission** : 8-17% selon la catégorie\n• **Frais FBA** : 2.70€ - 12€ selon la taille/poids\n• **Stockage** : 0.90€ - 4.50€/m³/mois\n• **Stockage longue durée** : +6.90€/m³ (> 365 jours)\n• **Publicité PPC** : Variable (budget recommandé : 1-3€/unité)\n\n**Recommandation :** Utilisez l'onglet 📊 Calcul pour tester différents scénarios locaux et voir l'impact des frais sur votre marge.",
         suggestions: ['Comment réduire les frais ?', 'Quelle catégorie choisir ?', 'Optimiser le stockage']
       };
     }
@@ -51,7 +51,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Produits tendance
     if (lowerMsg.includes('idée') || lowerMsg.includes('produit') || lowerMsg.includes('tendance') || lowerMsg.includes('trouver')) {
       return {
-        content: "💡 **Comment trouver des produits rentables :**\n\n1. **Allez dans l'onglet 💡 Idées** : Découvrez 5 produits tendance avec marges 60-95%\n2. **Utilisez Amazon→Alibaba** : Comparez les prix pour calculer votre marge d'arbitrage\n3. **Vérifiez la concurrence** : Onglet 🎯 Concurrents pour analyser le marché\n4. **Testez avec le calculateur** : Simulez différents scénarios\n\n🎯 **Critères d'un bon produit :**\n• Marge nette > 20%\n• ROI > 50%\n• Score > 7/10\n• Peu de concurrence directe",
+        content: "**Méthode d’analyse des produits rentables :**\n\n1. **Allez dans l'onglet 💡 Idées** : Découvrez 5 produits tendance avec marges 60-95%\n2. **Utilisez Amazon→Alibaba** : Comparez les prix pour calculer votre marge d'arbitrage\n3. **Vérifiez la concurrence** : Onglet 🎯 Concurrents pour analyser le marché\n4. **Testez avec le calculateur** : Simulez différents scénarios\n\n**Critères de rentabilité :**\n• Marge nette > 20%\n• ROI > 50%\n• Score > 7/10\n• Peu de concurrence directe",
         suggestions: ['Voir les produits tendance', 'Comment analyser la concurrence ?', 'Calculer ma marge']
       };
     }
@@ -59,7 +59,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Export
     if (lowerMsg.includes('export') || lowerMsg.includes('pdf') || lowerMsg.includes('excel') || lowerMsg.includes('télécharger')) {
       return {
-        content: "📥 **Options d'export disponibles :**\n\n• **📊 Export Excel** : Dans l'onglet ⚖️ Portfolio, cliquez sur \"Export Excel\"\n• **📄 Export PDF** : Utilisez le bouton \"Export PDF\" dans le calculateur\n• **💾 Sauvegarde locale** : Vos données sont automatiquement sauvegardées\n• **🕐 Historique** : Onglet Historique pour retrouver vos anciens calculs\n\n💡 **Astuce** : Exportez régulièrement votre portfolio pour suivre vos performances dans le temps !",
+        content: "📥 **Options d'export disponibles :**\n\n• **📊 Export Excel** : Dans l'onglet ⚖️ Portfolio, cliquez sur \"Export Excel\"\n• **📄 Export PDF** : Utilisez le bouton \"Export PDF\" dans le calculateur\n• **💾 Sauvegarde locale** : Vos données sont automatiquement sauvegardées\n• **🕐 Historique** : Onglet Historique pour retrouver vos anciens calculs\n\n**Recommandation :** Exportez régulièrement votre portfolio pour suivre vos performances dans le temps !",
         suggestions: ['Comment exporter en PDF ?', 'Voir mon historique', 'Sauvegarder mes données']
       };
     }
@@ -76,7 +76,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     if (lowerMsg.includes('optimis') || lowerMsg.includes('améliorer') || lowerMsg.includes('augmenter')) {
       const currentMargin = calcP?.netMargin || 0;
       return {
-        content: `🚀 **Stratégies d'optimisation pour ${p?.name || 'votre produit'} :**\n\n**Marge actuelle : ${currentMargin.toFixed(1)}%**\n\n${currentMargin < 15 ? '⚠️ Votre marge est faible. Voici comment l\'améliorer :\n' : '✅ Bonne marge ! Voici comment aller plus loin :\n'}\n• **Prix** : Testez +5-10% si la concurrence le permet\n• **Coûts** : Négociez avec vos fournisseurs\n• **Publicité** : Optimisez votre ACoS (Advertising Cost of Sales)\n• **Catégorie** : Choisissez une catégorie avec commissions réduites\n• **Taille FBA** : Réduisez dimensions/poids pour baisser les frais\n\n💡 Utilisez 💲 Pricing pour simuler différents prix !`,
+        content: `**Stratégies d’optimisation pour ${p?.name || 'votre produit'} :**\n\n**Marge actuelle : ${currentMargin.toFixed(1)}%**\n\n${currentMargin < 15 ? '⚠️ Votre marge est faible. Voici comment l\'améliorer :\n' : 'La marge actuelle est satisfaisante. Axes d’optimisation :\n'}\n• **Prix** : Testez +5-10% si la concurrence le permet\n• **Coûts** : Négociez avec vos fournisseurs\n• **Publicité** : Optimisez votre ACoS (Advertising Cost of Sales)\n• **Catégorie** : Choisissez une catégorie avec commissions réduites\n• **Taille FBA** : Réduisez dimensions/poids pour baisser les frais\n\nUtilisez le module Pricing pour évaluer différents scénarios de prix.`,
         suggestions: ['Optimiser mon prix', 'Réduire mes coûts', 'Voir les frais Amazon']
       };
     }
@@ -84,7 +84,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Stock
     if (lowerMsg.includes('stock') || lowerMsg.includes('réapprovision') || lowerMsg.includes('rupture')) {
       return {
-        content: "📦 **Gestion des stocks :**\n\n• **Onglet 📦 Stocks** : Vue détaillée de tous vos produits\n• **Alertes automatiques** : Vous êtes notifié quand le stock est bas\n• **Calcul de réapprovisionnement** : Basé sur vos ventes et délais fournisseur\n\n💡 **Bonnes pratiques :**\n• Maintenez 60-90 jours de stock\n• Commandez 30-45 jours avant la rupture\n• Surveillez les pics saisonniers (Q4 = x3 stockage)\n• Utilisez l'onglet 📊 Calcul pour estimer vos besoins localement\n\n🎯 **Astuce** : Activez les alertes dans les paramètres pour ne jamais manquer de stock !",
+        content: "**Gestion des stocks :**\n\n• **Onglet 📦 Stocks** : Vue détaillée de tous vos produits\n• **Alertes automatiques** : Vous êtes notifié quand le stock est bas\n• **Calcul de réapprovisionnement** : Basé sur vos ventes et délais fournisseur\n\n**Bonnes pratiques :**\n• Maintenez 60-90 jours de stock\n• Commandez 30-45 jours avant la rupture\n• Surveillez les pics saisonniers (Q4 = x3 stockage)\n• Utilisez l'onglet 📊 Calcul pour estimer vos besoins localement\n\n**Recommandation :** Activez les alertes dans les paramètres pour ne jamais manquer de stock !",
         suggestions: ['Comment calculer mes besoins ?', 'Gérer les pics saisonniers', 'Voir mes alertes']
       };
     }
@@ -99,7 +99,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
 
     // Par défaut
     return {
-      content: "🤔 Je ne suis pas sûr de comprendre. Voici ce que je peux faire :\n\n• 💰 **Calculer votre marge** et profit\n• 📦 **Expliquer les frais Amazon**\n• 💡 **Trouver des produits tendance**\n• 📥 **Exporter vos données** (PDF, Excel)\n• 🎓 **Vous guider dans l'application**\n• 🚀 **Optimiser vos performances**\n• 📦 **Gérer vos stocks**\n• 🎯 **Analyser la concurrence**\n\nPosez-moi une question ou cliquez sur une suggestion ci-dessous !",
+      content: "🤔 Je ne suis pas sûr de comprendre. Voici ce que je peux faire :\n\n• **Calculer votre marge** et profit\n• **Expliquer les frais Amazon**\n• **Analyser des opportunités produit**\n• 📥 **Exporter vos données** (PDF, Excel)\n• 🎓 **Vous guider dans l'application**\n• 🚀 **Optimiser vos performances**\n• **Gérer vos stocks**\n• **Analyser la concurrence**\n\nPosez-moi une question ou cliquez sur une suggestion ci-dessous !",
       suggestions: ['Comment calculer ma marge ?', 'Voir les produits tendance', 'Guide de démarrage', 'Optimiser mon profit']
     };
   };
