@@ -55,7 +55,7 @@ export function runAmazonAssistant({
     return {
       role: "assistant",
       answer:
-        `Le meilleur fournisseur actuel est ${best.marketplace} (${best.country}) avec un score de ${best.score}/100 et un ROI estimé de ${best.roi.toFixed(1)} %.`
+        `Selon les critères et données actuellement disponibles dans cette analyse, l’option la mieux classée est ${best.marketplace} (${best.country}) avec un score calculé de ${best.score}/100 et un ROI estimé de ${best.roi.toFixed(1)} %.`
     };
   }
 

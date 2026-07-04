@@ -124,10 +124,10 @@ function AIInsights({ products, fxRates, calcProduct, setToast }) {
         </div>
       )}
 
-      {/* Meilleures opportunités */}
+      {/* Opportunités les mieux classées selon le modèle local */}
       {predictions.bestOpportunities.length > 0 && (
         <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: 12, padding: 16 }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: "#00C853", marginBottom: 12 }}>🚀 Meilleures opportunités</div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#00C853", marginBottom: 12 }}>🚀 Opportunités les mieux classées</div>
           <div style={{ display: "grid", gap: 10 }}>
             {predictions.bestOpportunities.slice(0, 5).map((opp, i) => (
               <div key={i} style={{ padding: "12px 14px", background: "#00C85310", border: "1px solid #00C85333", borderLeft: "3px solid #00C853", borderRadius: 8 }}>

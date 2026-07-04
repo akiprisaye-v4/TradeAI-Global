@@ -131,7 +131,7 @@
           "content": "Méthodes : Laissez votre fournisseur expédier directement (DDP) ou utilisez UPS/FedEx. Suivi : Monitorizez dans 'File d'attente des expéditions'.",
           "checklist": [
             "Choisir le transporteur",
-            "Suivre l'envoi en temps réel",
+            "Suivre l’envoi selon les mises à jour disponibles du transporteur",
             "Confirmer la réception par Amazon"
           ]
         }
@@ -215,7 +215,7 @@
         },
         {
           "title": "Optimisation",
-          "content": "Mots-clés négatifs : Excluez les recherches inutiles. Analyse régulière : Ajustez les enchères chaque semaine. Fiches produits : Optimisez pour maximiser la conversion.",
+          "content": "Mots-clés négatifs : Excluez les recherches inutiles. Analyse régulière : Ajustez les enchères chaque semaine. Fiches produits : Testez et améliorez les éléments susceptibles d’influencer la conversion.",
           "checklist": [
             "Ajouter des mots-clés négatifs",
             "Analyser les performances hebdomadaires",

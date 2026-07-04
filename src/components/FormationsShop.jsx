@@ -502,7 +502,7 @@ const FormationsShop = () => {
                     fontWeight: 800,
                     boxShadow: `0 4px 12px ${pack.color}66`
                   }}>
-                    ⭐ MEILLEURE OFFRE
+                    ⭐ OFFRE MISE EN AVANT
                   </div>
                 )}
 
@@ -646,7 +646,7 @@ const FormationsShop = () => {
               { q: "Y a-t-il un support en cas de question ?", a: "Oui, tous nos étudiants bénéficient d'un support par email. Le Pack Complet et l'Abonnement incluent un accès à notre communauté privée et un support prioritaire." },
               { q: "Les formations sont-elles mises à jour ?", a: "Absolument ! Amazon évolue constamment et nous mettons à jour nos formations régulièrement. Toutes les mises à jour sont gratuites pour les étudiants." },
               { q: "Puis-je suivre les formations à mon rythme ?", a: "Oui, toutes nos formations sont 100% en ligne et accessibles 24h/24. Vous pouvez les suivre à votre rythme, depuis n'importe quel appareil." },
-              { q: "Comment fonctionne la garantie ?", a: "Vous avez 30 jours pour tester nos formations. Si vous n'êtes pas satisfait pour quelque raison que ce soit, contactez-nous et nous vous rembourserons intégralement, sans question." }
+              { q: "Comment fonctionne la politique de remboursement ?", a: "Les conditions, délais et modalités applicables seront précisés dans les conditions commerciales lors de l’activation du paiement sécurisé." }
             ].map((faq, i) => (
               <div key={i} style={{
                 padding: 20,

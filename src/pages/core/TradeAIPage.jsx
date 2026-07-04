@@ -64,7 +64,7 @@ export default function TradeAIPage({
             💡 {suggestions.length} suggestion{suggestions.length > 1 ? "s" : ""} pour {p.name}
           </div>
           <div style={{ fontSize: 11, color: "#8B949E" }}>
-            Analyse basée sur vos données actuelles et les meilleures pratiques e-commerce.
+            Analyse basée sur vos données actuelles et des pratiques e-commerce générales à valider selon votre contexte.
           </div>
         </div>
 
