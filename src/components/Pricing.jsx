@@ -22,7 +22,7 @@ const Pricing = () => {
     },
     {
       name: "Pro",
-      price: "14.99€",
+      price: "19.99€",
       period: "/mois",
       features: [
         "✅ Tout du gratuit",

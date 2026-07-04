@@ -17,7 +17,7 @@ export const PLANS = [
   {
     id: "pro",
     name: "Pro",
-    price: "14.99€",
+    price: "19.99€",
     cadence: "/mois",
     status: "coming_soon",
     cta: "Bientôt disponible",
