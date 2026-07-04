@@ -48,7 +48,7 @@ export default function IdeasPage({
             </div>
 
             <div style={{ padding: "8px", background: `${item.color}15`, borderRadius: 6, marginBottom: 12 }}>
-              <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>Croissance: {item.estimatedGrowthSignal}</div>
+              <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>Signal estimé: {item.estimatedGrowthSignal}</div>
               <div style={{ fontSize: 10, color: "#8B949E", marginTop: 2 }}>{item.note}</div>
             </div>
 
