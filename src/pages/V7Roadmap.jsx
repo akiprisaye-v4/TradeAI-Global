@@ -1,80 +1,176 @@
 import React from "react";
 import { PLUGINS } from "../plugins/pluginRegistry";
 
-const ROADMAP = [
+const PHASES = [
   {
     phase: "Phase 1 — Stabilisation production",
-    status: "En cours",
+    status: "Validée",
+    tone: "success",
     items: [
-      "Nettoyage final du branding hérité",
-      "Contrôle mobile S24+",
-      "SEO unique et cohérent",
-      "PWA installable avec cache propre"
+      "Build Vite de production validé",
+      "Branche v7-dev synchronisée avec le dépôt distant",
+      "Nettoyage du branding historique critique",
+      "Interface mobile et présentation B2B renforcées",
+      "PWA et contrôles de production maintenus"
     ]
   },
   {
     phase: "Phase 2 — Données vérifiables",
-    status: "Prioritaire",
+    status: "En cours",
+    tone: "progress",
     items: [
-      "Connecteurs gratuits : Frankfurter, Open Food Facts, REST Countries, Open-Meteo, Nominatim",
-      "Imports manuels CSV/XLSX/PDF",
-      "Suppression des résultats simulés",
-      "Traçabilité claire : live API, import utilisateur ou fallback local"
+      "Connecteur de taux de change Frankfurter",
+      "Open Food Facts pour les données produit disponibles",
+      "REST Countries pour les données pays",
+      "Open-Meteo pour les données météorologiques",
+      "Nominatim pour la recherche géographique",
+      "Suppression des résultats de recherche image simulés",
+      "Traçabilité à consolider entre API, imports et données locales"
     ]
   },
   {
     phase: "Phase 3 — Modules métier",
-    status: "À faire",
+    status: "À finaliser",
+    tone: "pending",
     items: [
       "Sourcing global multi-pays",
-      "Analyse prédictive basée sur données internes",
+      "Analyse prédictive fondée sur des données vérifiables",
       "Centre d’automatisation",
+      "Connect Hub et état réel des intégrations",
       "Affiliation configurable",
-      "Tableau de bord opportunités"
+      "Opportunités et alertes métier"
     ]
   },
   {
     phase: "Phase 4 — Monétisation",
-    status: "À cadrer",
+    status: "Préparée",
+    tone: "progress",
     items: [
-      "Offres Gratuit / Pro / Elite",
-      "Paiement sécurisé",
-      "Conditions commerciales claires",
-      "Limites par plan et accès premium"
+      "Offre gratuite disponible",
+      "Offre Pro à 19,99 € par mois",
+      "Offre Elite à 49,99 € par mois",
+      "Configuration PayPal manuelle préparée mais inactive",
+      "Activation du paiement uniquement avant ouverture publique",
+      "Authentification et droits d’accès à finaliser avant facturation"
+    ]
+  },
+  {
+    phase: "Phase 5 — Ouverture publique",
+    status: "Bloquée jusqu’aux validations finales",
+    tone: "blocked",
+    items: [
+      "Finaliser l’authentification utilisateur",
+      "Brancher le paiement réel et sécurisé",
+      "Tester les parcours Gratuit, Pro et Elite",
+      "Valider les modules annoncés comme opérationnels",
+      "Effectuer les tests mobile, desktop et PWA",
+      "Réaliser l’audit sécurité et le contrôle préproduction final"
     ]
   }
 ];
 
+const STATUS_STYLES = {
+  success: {
+    color: "#9FE3B0",
+    background: "rgba(46, 160, 67, 0.14)",
+    border: "1px solid rgba(46, 160, 67, 0.35)"
+  },
+  progress: {
+    color: "#F0C36A",
+    background: "rgba(210, 153, 34, 0.12)",
+    border: "1px solid rgba(210, 153, 34, 0.32)"
+  },
+  pending: {
+    color: "var(--text-secondary)",
+    background: "rgba(139, 148, 158, 0.10)",
+    border: "1px solid var(--border-color)"
+  },
+  blocked: {
+    color: "#FFB4A8",
+    background: "rgba(248, 81, 73, 0.10)",
+    border: "1px solid rgba(248, 81, 73, 0.28)"
+  }
+};
+
 export default function V7Roadmap() {
+  const activePlugins = PLUGINS.filter(plugin => plugin.enabled).length;
+
   return (
-    <div className="v7-roadmap-page" style={{ padding: 20, display: "grid", gap: 18 }}>
-      <section className="v7-roadmap-section" style={card}>
+    <main className="v7-roadmap-page">
+      <section className="v7-roadmap-hero">
+        <p className="v7-roadmap-kicker">PRODUCT ROADMAP</p>
         <h1>TradeAI Global v7</h1>
-        <p style={muted}>
-          Feuille de route production : architecture modulaire, données vérifiables,
-          connecteurs gratuits et évolutions sans dépendance obligatoire à une API payante.
+        <p className="v7-roadmap-lead">
+          État d’avancement consolidé vers une plateforme SaaS B2B exploitable,
+          fondée sur des données traçables et des modules progressivement validés.
         </p>
+
+        <div className="v7-roadmap-summary">
+          <div>
+            <span>Build production</span>
+            <strong>Validé</strong>
+          </div>
+          <div>
+            <span>Plugins actifs</span>
+            <strong>{activePlugins}/{PLUGINS.length}</strong>
+          </div>
+          <div>
+            <span>Offre Pro</span>
+            <strong>19,99 €/mois</strong>
+          </div>
+          <div>
+            <span>Offre Elite</span>
+            <strong>49,99 €/mois</strong>
+          </div>
+        </div>
       </section>
 
-      <section className="v7-roadmap-section" style={card}>
-        <h2>Plugins actifs</h2>
-        <div style={grid}>
+      <section className="v7-roadmap-section">
+        <div className="v7-roadmap-heading">
+          <div>
+            <p className="v7-roadmap-kicker">ARCHITECTURE</p>
+            <h2>Plugins enregistrés</h2>
+          </div>
+          <p>
+            Le statut ci-dessous reflète le registre applicatif. Un plugin actif
+            ne signifie pas automatiquement qu’un service externe payant est configuré.
+          </p>
+        </div>
+
+        <div className="v7-plugin-grid">
           {PLUGINS.map(plugin => (
-            <div key={plugin.id} style={pluginCard}>
+            <article className="v7-plugin-card" key={plugin.id}>
               <strong>{plugin.name}</strong>
-              <p>{plugin.enabled ? "Actif" : "Inactif"}</p>
-            </div>
+              <span className={plugin.enabled ? "is-active" : "is-inactive"}>
+                {plugin.enabled ? "Actif" : "Inactif"}
+              </span>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="v7-roadmap-section" style={card}>
-        <h2>Feuille de route</h2>
-        <div style={grid}>
-          {ROADMAP.map(block => (
-            <article key={block.phase} className="v7-roadmap-phase" style={pluginCard}>
-              <h3>{block.phase}</h3>
-              <p style={badge}>{block.status}</p>
+      <section className="v7-roadmap-section">
+        <div className="v7-roadmap-heading">
+          <div>
+            <p className="v7-roadmap-kicker">EXECUTION</p>
+            <h2>Feuille de route consolidée</h2>
+          </div>
+          <p>
+            Les statuts distinguent ce qui est validé, en cours, préparé ou encore
+            bloquant avant l’ouverture publique.
+          </p>
+        </div>
+
+        <div className="v7-phase-grid">
+          {PHASES.map(block => (
+            <article className="v7-phase-card" key={block.phase}>
+              <div className="v7-phase-header">
+                <h3>{block.phase}</h3>
+                <span style={STATUS_STYLES[block.tone]}>
+                  {block.status}
+                </span>
+              </div>
+
               <ul>
                 {block.items.map(item => (
                   <li key={item}>{item}</li>
@@ -84,37 +180,15 @@ export default function V7Roadmap() {
           ))}
         </div>
       </section>
-    </div>
+
+      <section className="v7-roadmap-note">
+        <strong>Principe de mise en production</strong>
+        <p>
+          Aucun paiement automatique ne doit être activé avant validation de
+          l’authentification, des droits d’accès, des parcours d’abonnement,
+          des conditions commerciales et des contrôles de sécurité.
+        </p>
+      </section>
+    </main>
   );
 }
-
-const card = {
-  background: "var(--bg-card)",
-  border: "1px solid var(--border-color)",
-  borderRadius: 16,
-  padding: 20
-};
-
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
-  gap: 14
-};
-
-const pluginCard = {
-  padding: 16,
-  borderRadius: 14,
-  background: "var(--bg-secondary)",
-  border: "1px solid var(--border-color)"
-};
-
-const muted = { color: "var(--text-secondary)", lineHeight: 1.6 };
-
-const badge = {
-  display: "inline-block",
-  color: "#0D1117",
-  background: "#FF9900",
-  borderRadius: 999,
-  padding: "4px 10px",
-  fontWeight: 800
-};
