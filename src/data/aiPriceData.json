@@ -65,7 +65,7 @@
     "currency_converter": {
       "name": "Conversion Devises",
       "icon": "💱",
-      "description": "Convertissez les prix en temps réel",
+      "description": "Convertissez les prix selon les taux disponibles et le mode de provenance affiché",
       "enabled": true
     },
     "bulk_export": {

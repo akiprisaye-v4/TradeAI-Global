@@ -56,12 +56,12 @@ const About: React.FC = () => {
           {[
             {
               title: 'Vendeurs e-commerce',
-              desc: 'Débutants ou confirmés voulant maximiser leurs profits',
+              desc: 'Débutants ou confirmés voulant analyser et améliorer leur rentabilité',
               icon: '📦'
             },
             {
               title: 'Arbitragistes',
-              desc: 'Professionnels du retail/online arbitrage cherchant les meilleures opportunités',
+              desc: 'Professionnels du retail/online arbitrage comparant des opportunités selon leurs critères',
               icon: '🎯'
             },
             {
@@ -115,7 +115,7 @@ const About: React.FC = () => {
             'Analyse de la concurrence et du marché selon les données disponibles',
             'Gestion intelligente des stocks avec alertes de réapprovisionnement',
             'Prévisions de cash-flow sur 12 mois',
-            'Optimisation automatique des prix pour maximiser les profits',
+            'Comparaison automatique de scénarios de prix selon les hypothèses saisies',
             'Suivi des performances et analytics avancés',
             'Support multi-marketplaces (FR, DE, UK, IT, ES, US, etc.)',
             'Export de données pour vos présentations et reporting'
@@ -272,7 +272,7 @@ const About: React.FC = () => {
           marginBottom: '16px',
           color: '#fff'
         }}>
-          Prêt à maximiser vos profits Amazon ?
+          Prêt à mieux analyser votre rentabilité Amazon ?
         </h2>
         <p style={{
           fontSize: '16px',
