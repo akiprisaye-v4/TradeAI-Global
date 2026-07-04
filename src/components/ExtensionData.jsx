@@ -5,7 +5,7 @@ export default function ExtensionData() {
       <div style={{ fontSize: 64, marginBottom: 16 }}>🚀</div>
       <h1 style={{ fontSize: 28, marginBottom: 12 }}>Chrome Extension</h1>
       <p style={{ color: 'var(--text-secondary)', marginBottom: 24 }}>
-        Installez l'extension pour analyser les produits Amazon en temps réel
+        Installez l’extension pour analyser les données produit disponibles dans votre navigateur
       </p>
       <div style={{ background: 'var(--bg-secondary)', borderRadius: 12, padding: 24, textAlign: 'left' }}>
         <h3 style={{ marginBottom: 12 }}>📥 Installation</h3>

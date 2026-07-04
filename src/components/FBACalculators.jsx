@@ -77,7 +77,7 @@ export default function FBACalculators() {
            Calculateurs FBA
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: 16 }}>
-          Calculez vos marges, frais et rentabilité en temps réel
+          Calculez instantanément vos marges, frais et scénarios de rentabilité
         </p>
       </div>
 

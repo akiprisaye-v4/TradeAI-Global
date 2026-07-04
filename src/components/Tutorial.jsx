@@ -18,7 +18,7 @@ const Tutorial = ({ onClose }) => {
     },
     {
       title: "💡 Produits Tendance",
-      content: "Découvrez 5 produits tendance avec des marges de 60-95%. Cliquez sur 'Utiliser ce produit' pour pré-remplir le calculateur avec les données optimales.",
+      content: "Explorez 5 scénarios produit indicatifs. Cliquez sur 'Utiliser ce produit' pour pré-remplir le calculateur avec des hypothèses locales modifiables.",
       icon: "✨",
       color: "#FFD54F"
     },

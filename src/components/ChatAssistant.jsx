@@ -51,7 +51,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Produits tendance
     if (lowerMsg.includes('idée') || lowerMsg.includes('produit') || lowerMsg.includes('tendance') || lowerMsg.includes('trouver')) {
       return {
-        content: "**Méthode d’analyse des produits rentables :**\n\n1. **Allez dans l'onglet 💡 Idées** : Découvrez 5 produits tendance avec marges 60-95%\n2. **Utilisez Amazon→Alibaba** : Comparez les prix pour calculer votre marge d'arbitrage\n3. **Vérifiez la concurrence** : Onglet 🎯 Concurrents pour analyser le marché\n4. **Testez avec le calculateur** : Simulez différents scénarios\n\n**Critères de rentabilité :**\n• Marge nette > 20%\n• ROI > 50%\n• Score > 7/10\n• Peu de concurrence directe",
+        content: "**Méthode d’analyse des produits rentables :**\n\n1. **Allez dans l'onglet 💡 Idées** : Explorez 5 scénarios produit indicatifs avec hypothèses locales de prix et de coûts\n2. **Utilisez Amazon→Alibaba** : Comparez les prix pour calculer votre marge d'arbitrage\n3. **Vérifiez la concurrence** : Onglet 🎯 Concurrents pour analyser le marché\n4. **Testez avec le calculateur** : Simulez différents scénarios\n\n**Critères de rentabilité :**\n• Marge nette > 20%\n• ROI > 50%\n• Score > 7/10\n• Peu de concurrence directe",
         suggestions: ['Voir les produits tendance', 'Comment analyser la concurrence ?', 'Calculer ma marge']
       };
     }
@@ -67,7 +67,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Aide générale
     if (lowerMsg.includes('aide') || lowerMsg.includes('comment') || lowerMsg.includes('tutorial') || lowerMsg.includes('tutoriel')) {
       return {
-        content: "🎓 **Guide de démarrage rapide :**\n\n**1️⃣ Premier calcul :**\n• Allez dans 📊 Calcul\n• Entrez le prix de vente Amazon\n• Entrez le coût d'achat\n• Le profit et la marge se calculent automatiquement\n\n**2️⃣ Ajouter plusieurs produits :**\n• Cliquez sur \"+ Ajouter\" en haut\n• Chaque produit a ses propres paramètres\n• Comparez-les dans ⚖️ Portfolio\n\n**3️⃣ Optimiser vos prix :**\n• Utilisez 💲 Pricing pour voir 50 scénarios\n• Trouvez le prix optimal pour maximiser le profit\n\n**4️⃣ Suivre vos performances :**\n• 📊 Dashboard : Vue d'ensemble\n• 📈 Analytics : Statistiques détaillées\n• 🕐 Historique : Retrouvez vos calculs",
+        content: "🎓 **Guide de démarrage rapide :**\n\n**1️⃣ Premier calcul :**\n• Allez dans 📊 Calcul\n• Entrez le prix de vente Amazon\n• Entrez le coût d'achat\n• Le profit et la marge se calculent automatiquement\n\n**2️⃣ Ajouter plusieurs produits :**\n• Cliquez sur \"+ Ajouter\" en haut\n• Chaque produit a ses propres paramètres\n• Comparez-les dans ⚖️ Portfolio\n\n**3️⃣ Optimiser vos prix :**\n• Utilisez 💲 Pricing pour voir 50 scénarios\n• Comparez les scénarios de prix pour identifier le meilleur résultat selon vos hypothèses\n\n**4️⃣ Suivre vos performances :**\n• 📊 Dashboard : Vue d'ensemble\n• 📈 Analytics : Statistiques détaillées\n• 🕐 Historique : Retrouvez vos calculs",
         suggestions: ['Comment calculer ma marge ?', 'Voir les produits tendance', 'Exporter mes données']
       };
     }

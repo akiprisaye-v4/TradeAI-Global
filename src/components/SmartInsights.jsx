@@ -281,7 +281,7 @@ export default function SmartInsights() {
                     fontSize: 14,
                     fontWeight: "bold"
                   }}>
-                    Signal estimé Signal estimé {trend.estimatedGrowthSignal}
+                    Signal estimé : {trend.estimatedGrowthSignal}
                   </span>
                 </div>
 

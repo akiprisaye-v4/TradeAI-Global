@@ -112,7 +112,7 @@ const About: React.FC = () => {
         }}>
           {[
             'Calculs précis de rentabilité incluant TOUS les frais Amazon (FBA, FBM, TVA, commissions)',
-            'Analyse en temps réel de la concurrence et du marché',
+            'Analyse de la concurrence et du marché selon les données disponibles',
             'Gestion intelligente des stocks avec alertes de réapprovisionnement',
             'Prévisions de cash-flow sur 12 mois',
             'Optimisation automatique des prix pour maximiser les profits',
@@ -192,7 +192,7 @@ const About: React.FC = () => {
             },
             {
               title: 'Gestion des Stocks',
-              desc: 'Suivi en temps réel et alertes intelligentes',
+              desc: 'Suivi selon les données disponibles et alertes intelligentes',
               icon: '📦',
               color: '#ef4444'
             },
