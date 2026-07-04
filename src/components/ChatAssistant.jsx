@@ -84,7 +84,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Stock
     if (lowerMsg.includes('stock') || lowerMsg.includes('réapprovision') || lowerMsg.includes('rupture')) {
       return {
-        content: "**Gestion des stocks :**\n\n• **Onglet 📦 Stocks** : Vue détaillée de tous vos produits\n• **Alertes automatiques** : Vous êtes notifié quand le stock est bas\n• **Calcul de réapprovisionnement** : Basé sur vos ventes et délais fournisseur\n\n**Bonnes pratiques :**\n• Maintenez 60-90 jours de stock\n• Commandez 30-45 jours avant la rupture\n• Surveillez les pics saisonniers (Q4 = x3 stockage)\n• Utilisez l'onglet 📊 Calcul pour estimer vos besoins localement\n\n**Recommandation :** Activez les alertes dans les paramètres pour ne jamais manquer de stock !",
+        content: "**Gestion des stocks :**\n\n• **Onglet 📦 Stocks** : Vue détaillée de tous vos produits\n• **Alertes automatiques** : Vous êtes notifié quand le stock est bas\n• **Calcul de réapprovisionnement** : Basé sur vos ventes et délais fournisseur\n\n**Bonnes pratiques :**\n• Repère indicatif : évaluez une couverture de 60-90 jours selon vos ventes, délais et saisonnalité\n• Scénario indicatif : anticipez le réassort selon votre délai fournisseur réel et votre vitesse de vente\n• Surveillez les pics saisonniers ; leur impact doit être estimé à partir de vos données historiques\n• Utilisez l'onglet 📊 Calcul pour estimer vos besoins localement\n\n**Recommandation :** Activez les alertes dans les paramètres pour ne jamais manquer de stock !",
         suggestions: ['Comment calculer mes besoins ?', 'Gérer les pics saisonniers', 'Voir mes alertes']
       };
     }
@@ -92,7 +92,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Concurrence
     if (lowerMsg.includes('concurrent') || lowerMsg.includes('concurrence') || lowerMsg.includes('marché')) {
       return {
-        content: "🎯 **Analyse concurrentielle :**\n\n• **Onglet 🎯 Concurrents** : Comparez votre positionnement\n• **Prix** : Positionnez-vous stratégiquement\n• **Avis** : Visez 50-100 avis rapidement\n• **Publicité** : Ciblez les mots-clés de vos concurrents\n\n💡 **Stratégies gagnantes :**\n1. **Prix d'appel** : 5-10% sous le leader\n2. **Différenciation** : Mettez en avant vos avantages\n3. **Qualité** : Produits supérieurs = meilleurs avis\n4. **Service** : Livraison rapide, garantie, support\n\n📊 Utilisez 📈 Analytics pour voir votre position vs le marché !",
+        content: "🎯 **Analyse concurrentielle :**\n\n• **Onglet 🎯 Concurrents** : Comparez votre positionnement\n• **Prix** : Positionnez-vous stratégiquement\n• **Avis** : Définissez un objectif d’avis conforme aux règles de la marketplace et fondé sur vos données réelles\n• **Publicité** : Ciblez les mots-clés de vos concurrents\n\n💡 **Stratégies gagnantes :**\n1. **Prix d'appel** : testez un écart de prix comme scénario local, puis validez-le avec des données concurrentielles vérifiables\n2. **Différenciation** : Mettez en avant vos avantages\n3. **Qualité** : Une meilleure qualité peut contribuer à de meilleurs avis, sans garantie de résultat\n4. **Service** : Livraison rapide, garantie, support\n\n📊 Utilisez 📈 Analytics pour voir votre position vs le marché !",
         suggestions: ['Comment me positionner ?', 'Analyser mes concurrents', 'Optimiser ma publicité']
       };
     }
