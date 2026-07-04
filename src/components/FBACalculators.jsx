@@ -52,7 +52,7 @@ export default function FBACalculators() {
   };
 
   // Simulateur de rentabilité
-  const simulerRentabilite = () => {
+  const estimerRentabiliteLocale = () => {
     const marge = calculerMarge();
     const profitMensuel = parseFloat(marge.margeBrute) * simInputs.ventesMois;
     const profitAnnuel = profitMensuel * 12;
@@ -62,7 +62,7 @@ export default function FBACalculators() {
 
   const margeResult = calculerMarge();
   const fbaResult = calculerFraisFBA();
-  const simResult = simulerRentabilite();
+  const localEstimateResult = estimerRentabiliteLocale();
 
   const calculators = [
     { id: "marge", name: "Marge Nette", icon: "💰" },
@@ -555,33 +555,33 @@ export default function FBACalculators() {
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Profit mensuel</div>
                 <div style={{ color: "#3B82F6", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.profitMensuel}€
+                  {localEstimateResult.profitMensuel}€
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Profit annuel</div>
                 <div style={{ color: "#3B82F6", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.profitAnnuel}€
+                  {localEstimateResult.profitAnnuel}€
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>ROI</div>
-                <div style={{ color: parseFloat(simResult.roi) > 0 ? "#00C853" : "#FF3D00", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.roi}%
+                <div style={{ color: parseFloat(localEstimateResult.roi) > 0 ? "#00C853" : "#FF3D00", fontSize: 24, fontWeight: "bold" }}>
+                  {localEstimateResult.roi}%
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Coût total stock</div>
                 <div style={{ color: "#3B82F6", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.coutTotal}€
+                  {localEstimateResult.coutTotal}€
                 </div>
               </div>
             </div>
-            {parseFloat(simResult.roi) > 20 ? (
+            {parseFloat(localEstimateResult.roi) > 20 ? (
               <div style={{ marginTop: 15, padding: 10, background: "rgba(0, 200, 83, 0.2)", borderRadius: 6, textAlign: "center", color: "#00C853" }}>
                 🚀 Excellent ROI ! Ce produit est très rentable.
               </div>
-            ) : parseFloat(simResult.roi) > 0 ? (
+            ) : parseFloat(localEstimateResult.roi) > 0 ? (
               <div style={{ marginTop: 15, padding: 10, background: "rgba(255, 184, 0, 0.2)", borderRadius: 6, textAlign: "center", color: "#FFB800" }}>
                 ⚠️ ROI positif mais modéré. Optimisez vos coûts pour améliorer la rentabilité.
               </div>

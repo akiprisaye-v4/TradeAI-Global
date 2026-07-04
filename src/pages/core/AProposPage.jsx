@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const FEATURES = [
   ["📊", "Calcul rentabilité", "Marge nette, ROI, profit mensuel, cash-flow 12 mois et score interne."],
-  ["📦", "Stock & réassort", "Couverture stock, alertes de rupture et simulation de délai fournisseur."],
+  ["📦", "Stock & réassort", "Couverture stock, alertes de rupture et estimation locale de délai fournisseur."],
   ["🌍", "Sourcing global", "Comparaison locale d’options fournisseurs sans prétendre à une donnée temps réel."],
   ["🧠", "Prédictif local", "Projection prudente basée sur vos paramètres produit, coûts, ventes et saisonnalité."],
   ["🔌", "APIs gratuites", "Open Food Facts, REST Countries, Open-Meteo, Nominatim et FX via proxy Vercel."],
@@ -208,7 +208,7 @@ export default function AProposPage() {
               ))}
             </div>
             <div style={{ ...notice, marginTop: 18 }}>
-              <strong>Règle :</strong> aucune simulation ne doit être présentée comme une donnée marketplace réelle.
+              <strong>Règle :</strong> aucune estimation locale ne doit être présentée comme une donnée marketplace réelle.
             </div>
           </section>
         )}

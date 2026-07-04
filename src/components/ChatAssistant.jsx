@@ -43,7 +43,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Frais Amazon
     if (lowerMsg.includes('frais') || lowerMsg.includes('commission') || lowerMsg.includes('amazon')) {
       return {
-        content: "📦 **Frais Amazon FBA principaux :**\n\n• **Commission** : 8-17% selon la catégorie\n• **Frais FBA** : 2.70€ - 12€ selon la taille/poids\n• **Stockage** : 0.90€ - 4.50€/m³/mois\n• **Stockage longue durée** : +6.90€/m³ (> 365 jours)\n• **Publicité PPC** : Variable (budget recommandé : 1-3€/unité)\n\n💡 **Astuce** : Utilisez l'onglet 📊 Calcul pour simuler différents scénarios et voir l'impact des frais sur votre marge.",
+        content: "📦 **Frais Amazon FBA principaux :**\n\n• **Commission** : 8-17% selon la catégorie\n• **Frais FBA** : 2.70€ - 12€ selon la taille/poids\n• **Stockage** : 0.90€ - 4.50€/m³/mois\n• **Stockage longue durée** : +6.90€/m³ (> 365 jours)\n• **Publicité PPC** : Variable (budget recommandé : 1-3€/unité)\n\n💡 **Astuce** : Utilisez l'onglet 📊 Calcul pour tester différents scénarios locaux et voir l'impact des frais sur votre marge.",
         suggestions: ['Comment réduire les frais ?', 'Quelle catégorie choisir ?', 'Optimiser le stockage']
       };
     }
@@ -84,7 +84,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Stock
     if (lowerMsg.includes('stock') || lowerMsg.includes('réapprovision') || lowerMsg.includes('rupture')) {
       return {
-        content: "📦 **Gestion des stocks :**\n\n• **Onglet 📦 Stocks** : Vue détaillée de tous vos produits\n• **Alertes automatiques** : Vous êtes notifié quand le stock est bas\n• **Calcul de réapprovisionnement** : Basé sur vos ventes et délais fournisseur\n\n💡 **Bonnes pratiques :**\n• Maintenez 60-90 jours de stock\n• Commandez 30-45 jours avant la rupture\n• Surveillez les pics saisonniers (Q4 = x3 stockage)\n• Utilisez l'onglet 📊 Calcul pour simuler vos besoins\n\n🎯 **Astuce** : Activez les alertes dans les paramètres pour ne jamais manquer de stock !",
+        content: "📦 **Gestion des stocks :**\n\n• **Onglet 📦 Stocks** : Vue détaillée de tous vos produits\n• **Alertes automatiques** : Vous êtes notifié quand le stock est bas\n• **Calcul de réapprovisionnement** : Basé sur vos ventes et délais fournisseur\n\n💡 **Bonnes pratiques :**\n• Maintenez 60-90 jours de stock\n• Commandez 30-45 jours avant la rupture\n• Surveillez les pics saisonniers (Q4 = x3 stockage)\n• Utilisez l'onglet 📊 Calcul pour estimer vos besoins localement\n\n🎯 **Astuce** : Activez les alertes dans les paramètres pour ne jamais manquer de stock !",
         suggestions: ['Comment calculer mes besoins ?', 'Gérer les pics saisonniers', 'Voir mes alertes']
       };
     }
@@ -116,7 +116,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     setMessages(prev => [...prev, userMessage]);
     setInput('');
 
-    // Simuler un délai de réponse
+    // Délai de réponse local
     setTimeout(() => {
       const response = generateResponse(input);
       const assistantMessage = {

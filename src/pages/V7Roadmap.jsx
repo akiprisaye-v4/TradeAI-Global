@@ -24,7 +24,7 @@ const PHASES = [
       "REST Countries pour les données pays",
       "Open-Meteo pour les données météorologiques",
       "Nominatim pour la recherche géographique",
-      "Suppression des résultats de recherche image simulés",
+      "Suppression des résultats non vérifiables en recherche image",
       "Traçabilité à consolider entre API, imports et données locales"
     ]
   },
