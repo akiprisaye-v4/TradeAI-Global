@@ -11,7 +11,7 @@ export default function ConnectHubPanel() {
   return (
     <div style={{ display: "grid", gap: 14 }}>
       <div style={styles.hero}>
-        <h2 style={{ margin: 0 }}>🔌 TradeAI Connect Hub</h2>
+        <h2 style={{ margin: 0 }}>TradeAI Connect Hub</h2>
         <div style={styles.muted}>
           Centre des connecteurs gratuits, des données vérifiables et des imports manuels.
         </div>
@@ -29,13 +29,13 @@ export default function ConnectHubPanel() {
         <Metric label="Coût actuel" value="0 €" />
       </div>
 
-      <Section title="🌍 APIs gratuites disponibles">
+      <Section title="APIs gratuites disponibles">
         {FREE_CONNECTORS.map(connector => (
           <ConnectorCard key={connector.id} connector={connector} sourceType="LIVE_API" />
         ))}
       </Section>
 
-      <Section title="📥 Imports manuels prévus">
+      <Section title="Imports manuels prévus">
         {IMPORT_CONNECTORS.map(connector => (
           <ConnectorCard key={connector.id} connector={connector} sourceType="PLANNED_IMPORT" />
         ))}

@@ -30,7 +30,7 @@ export default function FreeApiLab() {
   return (
     <section style={styles.card}>
       <div style={styles.header}>
-        <h2 style={{ margin: 0 }}>🧪 Laboratoire APIs gratuites</h2>
+        <h2 style={{ margin: 0 }}>Laboratoire APIs gratuites</h2>
         <Badge tone="live">Tests directs LIVE API</Badge>
       </div>
 
@@ -41,7 +41,7 @@ export default function FreeApiLab() {
       <div style={styles.form}>
         <input style={styles.input} value={barcode} onChange={e => setBarcode(e.target.value)} placeholder="Code EAN" />
         <button style={styles.button} onClick={() => run("Open Food Facts", "world.openfoodfacts.org", () => searchProductByBarcode(barcode))}>
-          🍎 Tester EAN
+          Tester EAN
         </button>
 
         <input style={styles.input} value={place} onChange={e => setPlace(e.target.value)} placeholder="Ville / pays / port" />
@@ -54,7 +54,7 @@ export default function FreeApiLab() {
         </button>
 
         <button style={styles.button} onClick={() => run("Open-Meteo Paris", "api.open-meteo.com", () => getWeatherForecast(48.8566, 2.3522))}>
-          🌤️ Météo Paris
+          Tester météo Paris
         </button>
       </div>
 
