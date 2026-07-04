@@ -208,7 +208,7 @@ const FormationsShop = () => {
         }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>🛡️</div>
           <h3 style={{ color: '#00C853', fontSize: 20, marginBottom: 8 }}>
-            Garantie 30 jours satisfait ou remboursé
+            Politique de remboursement selon conditions commerciales
           </h3>
           <p style={{ color: '#E6EDF3', fontSize: 14, margin: 0 }}>
             Les conditions d’accès, d’essai et de support seront précisées avant toute activation commerciale.
