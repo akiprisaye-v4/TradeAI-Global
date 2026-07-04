@@ -15,13 +15,13 @@ export default function PredictiveDashboard({
 }) {
 
   const signalTone = {
-    growth: "success",
+    estimatedGrowthSignal: "success",
     watch: "warning",
     danger: "danger"
   };
 
   const signalColor = {
-    growth: colors.success,
+    estimatedGrowthSignal: colors.success,
     watch: colors.warning,
     danger: colors.danger
   };

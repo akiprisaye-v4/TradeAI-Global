@@ -274,14 +274,14 @@ export default function SmartInsights() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 15 }}>
                   <h3 style={{ color: "var(--text-primary)", margin: 0 }}>{trend.category}</h3>
                   <span style={{
-                    background: trend.growth.startsWith("+") ? "rgba(0, 200, 83, 0.2)" : "rgba(255, 61, 0, 0.2)",
-                    color: trend.growth.startsWith("+") ? "#00C853" : "#FF3D00",
+                    background: trend.estimatedGrowthSignal.startsWith("+") ? "rgba(0, 200, 83, 0.2)" : "rgba(255, 61, 0, 0.2)",
+                    color: trend.estimatedGrowthSignal.startsWith("+") ? "#00C853" : "#FF3D00",
                     padding: "4px 12px",
                     borderRadius: 20,
                     fontSize: 14,
                     fontWeight: "bold"
                   }}>
-                    {trend.growth}
+                    {trend.estimatedGrowthSignal}
                   </span>
                 </div>
 

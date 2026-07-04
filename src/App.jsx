@@ -69,11 +69,11 @@ const FBA_SIZES = [
 const TENDANCES_PROVENANCE_NOTICE = "Données indicatives locales : non récupérées en temps réel depuis Amazon, Alibaba ou TikTok.";
 
 const TRENDING_PRODUCTS = [
-{ name: "Patchs anti-imperfections", category: "Beauté & Santé", categoryIdx: 5, growth: "+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "✨", color: "#FFD54F", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
-{ name: "Bandes LED RGB", category: "Maison & Cuisine", categoryIdx: 2, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "💡", color: "#FFA726", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" },
-{ name: "Powerbank magnétique", category: "Électronique", categoryIdx: 1, growth: "+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🔋", color: "#5C6BC0", image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop" },
-{ name: "Masque soie naturelle", category: "Beauté & Santé", categoryIdx: 5, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "😴", color: "#7E57C2", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
-{ name: "Harnais chien", category: "Autre", categoryIdx: 10, growth: "+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🦮", color: "#FF5722", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" },
+{ name: "Patchs anti-imperfections", category: "Beauté & Santé", categoryIdx: 5, estimatedGrowthSignal: "+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "✨", color: "#FFD54F", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Bandes LED RGB", category: "Maison & Cuisine", categoryIdx: 2, estimatedGrowthSignal: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "💡", color: "#FFA726", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" },
+{ name: "Powerbank magnétique", category: "Électronique", categoryIdx: 1, estimatedGrowthSignal: "+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🔋", color: "#5C6BC0", image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop" },
+{ name: "Masque soie naturelle", category: "Beauté & Santé", categoryIdx: 5, estimatedGrowthSignal: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "😴", color: "#7E57C2", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Harnais chien", category: "Autre", categoryIdx: 10, estimatedGrowthSignal: "+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🦮", color: "#FF5722", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" },
 ];
 
 // Noms de produits réalistes par catégorie
@@ -632,7 +632,7 @@ return (
 
     <div style={{ padding: "8px", background: `${item.color}15`, borderRadius: 6, marginBottom: 12 }}>
       <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>
-         Signal indicatif: {item.growth}
+         Signal indicatif: {item.estimatedGrowthSignal}
       </div>
       <div style={{ fontSize: 10, color: "#8B949E", marginTop: 2 }}>
         {item.note}
