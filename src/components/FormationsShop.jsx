@@ -30,7 +30,7 @@ const FormationsShop = () => {
         "✅ Liste de 50 fournisseurs vérifiés"
       ],
       testimonial: {
-        text: "J'ai lancé mon premier produit en 3 semaines grâce à cette formation. ROI de 150% en 2 mois !",
+        text: "La formation m’a aidé à structurer le lancement de mon premier produit et à mieux suivre mes coûts.",
         author: "Marie L.",
         role: "Vendeuse FBA depuis 6 mois"
       }
@@ -61,7 +61,7 @@ const FormationsShop = () => {
         "✅ Guide A+ Content complet"
       ],
       testimonial: {
-        text: "Mes ventes ont augmenté de 340% après avoir appliqué les techniques SEO. Incroyable !",
+        text: "Les techniques SEO présentées m’ont aidé à mieux structurer mes fiches produit et mon suivi.",
         author: "Thomas D.",
         role: "Vendeur FBA depuis 2 ans"
       }

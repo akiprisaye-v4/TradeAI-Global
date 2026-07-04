@@ -76,7 +76,7 @@ export default function SmartInsights() {
           🧠 Smart Insights - 100% Gratuit
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: 16 }}>
-          Algorithmes prédictifs, tendances et opportunités sans API payante
+          Estimations locales, tendances indicatives et scénarios sans API payante
         </p>
       </div>
 
@@ -191,7 +191,7 @@ export default function SmartInsights() {
                 borderRadius: 12,
                 padding: 20
               }}>
-                <h3 style={{ color: "#FF9900", marginBottom: 15 }}> Résultats de la Prédiction</h3>
+                <h3 style={{ color: "#FF9900", marginBottom: 15 }}> Résultats de l’estimation locale</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 15 }}>
                   <div style={{ textAlign: "center" }}>
                     <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Ventes Mensuelles</div>
@@ -247,7 +247,7 @@ export default function SmartInsights() {
               ventes_mensuelles = {predictiveData.bsr_to_sales.categories[categoryInput]?.a || 0} × BSR^{predictiveData.bsr_to_sales.categories[categoryInput]?.b || 0}
             </code>
             <p style={{ color: "var(--text-secondary)", fontSize: 14, marginTop: 10 }}>
-              Précision estimée : ±20% | Basé sur des données historiques open source
+              Estimation indicative locale | À valider avec vos données historiques ou une source vérifiable
             </p>
           </div>
         </div>
