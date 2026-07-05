@@ -1029,12 +1029,6 @@ div {
     gap: 16px !important;
   }
 
-  /* ---------- Floating assistant collision ---------- */
-
-  body > button[style*="position: fixed"],
-  body > div[style*="position: fixed"] {
-    max-width: calc(100vw - 24px) !important;
-  }
 }
 
 @media (max-width: 430px) {
@@ -1120,12 +1114,6 @@ div {
     max-height: 380px !important;
   }
 
-  /* ---------- Remove unsafe generic fixed-element override ---------- */
-
-  body > button[style*="position: fixed"],
-  body > div[style*="position: fixed"] {
-    max-width: none !important;
-  }
 }
 
 @media (max-width: 430px) {
