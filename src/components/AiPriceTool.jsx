@@ -148,7 +148,7 @@ export default function AiPriceTool() {
           </div>
 
           {searchImage && (
-            <div style={{ background: "var(--bg-tertiary)", padding: 15, borderRadius: 8 }}>
+            <div className="tradeai-aiprice-preview" style={{ background: "var(--bg-tertiary)", padding: 15, borderRadius: 8 }}>
               <img src={searchImage} alt="Recherche locale" style={{ maxWidth: 300, borderRadius: 8 }} />
               <div style={{ marginTop: 12, color: "var(--text-secondary)", fontSize: 13 }}>
                 Image chargée localement. Résultats externes non connectés.
