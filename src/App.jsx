@@ -212,6 +212,7 @@ function Toast({ message, type, onClose }) {
  borderRadius: 9, padding:"12px 16px", color: c.text,
  fontSize: 12, fontWeight: 600, zIndex: 1000, maxWidth: 320
  }}>
+      <NotificationCenter />
  {message}
  </div>
  );
@@ -892,6 +893,7 @@ import "./styles/professional-polish.css";
 
 
 
+import NotificationCenter from "./components/NotificationCenter.jsx";
 // DashboardPanel extrait dans src/components/panels/DashboardPanel.jsx
 
 // AnalyticsPanel extrait dans src/components/panels/AnalyticsPanel.jsx
