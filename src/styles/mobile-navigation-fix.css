@@ -646,7 +646,7 @@
     top: 70px !important;
     left: 12px !important;
     right: 12px !important;
-    max-height: calc(100vh - 96px) !important;
+    max-height: calc(100dvh - 96px) !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     grid-template-columns: 1fr !important;
