@@ -40,7 +40,7 @@ export default function CommunityHub() {
       }
       setUserBadges(newBadges);
       
-      alert(`+${reward.points} points ! Badge: ${reward.badge}`);
+      window.dispatchEvent(new CustomEvent('tradeai:notify', { detail: { type: 'success', message: `+${reward.points} points ! Badge: ${reward.badge}` } }));
     }
   };
 
@@ -52,7 +52,7 @@ export default function CommunityHub() {
       setNewProduct({ asin: "", title: "", category: "Home & Kitchen", bsr: "", price: "" });
       setShowAddProduct(false);
     } else {
-      alert("Veuillez remplir tous les champs");
+      window.dispatchEvent(new CustomEvent('tradeai:notify', { detail: { type: 'warning', message: 'Veuillez remplir tous les champs' } }));
     }
   };
 
