@@ -389,7 +389,7 @@ export default function FBACalculators() {
           </div>
 
           {/* Résultats */}
-          <div style={{
+          <div className="tradeai-fba-result-card tradeai-fba-fees-result" style={{
             background: "linear-gradient(135deg, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0.05) 100%)",
             border: "2px solid #00C853",
             borderRadius: 12,
