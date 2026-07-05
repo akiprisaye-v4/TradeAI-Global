@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FloatingChatButton({ onClick }) {
   return (
-    <button
+    <button className="tradeai-floating-chat-button"
       onClick={onClick}
       style={{
         position: "fixed",

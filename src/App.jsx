@@ -888,6 +888,7 @@ import useAutoDismissToast from "./hooks/useAutoDismissToast";
 import useAutoClearSaveStatus from "./hooks/useAutoClearSaveStatus";
 import "./styles/mobile-navigation-fix.css";
 import "./styles/professional-polish.css";
+import "./mobile-production-fixes.css";
 
 
 
@@ -1180,7 +1181,7 @@ setActiveProduct(products.length);
       {showTutorial && <Tutorial onClose={closeTutorial} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
-      <FloatingChatButton onClick={() => setChatOpen(true)} />
+      {activeTab !== "aiprice" && <FloatingChatButton onClick={() => setChatOpen(true)} />}
 
 {chatOpen && <ChatAssistant
         isOpen={chatOpen}
