@@ -11,7 +11,7 @@ export default function AffiliateCenter() {
 
   function save() {
     setAmazonAffiliateTag(tag);
-    alert("ID affilié Amazon sauvegardé.");
+    window.dispatchEvent(new CustomEvent('tradeai:notify', { detail: { type: 'success', message: 'ID affilié Amazon sauvegardé.' } }));
   }
 
   return (

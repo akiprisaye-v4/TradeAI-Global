@@ -6,7 +6,7 @@ const ExportPDF = ({ margin, productTitle }) => {
   const exportToPDF = async () => {
     const element = document.getElementById('analyses-section');
     if (!element) {
-      alert('Aucune analyse à exporter');
+      window.dispatchEvent(new CustomEvent('tradeai:notify', { detail: { type: 'warning', message: 'Aucune analyse à exporter' } }));
       return;
     }
 
@@ -49,10 +49,10 @@ const ExportPDF = ({ margin, productTitle }) => {
       // Sauvegarder le PDF
       pdf.save(`analyse-${productTitle?.substring(0, 30) || 'produit'}-${Date.now()}.pdf`);
       
-      alert('✅ PDF exporté avec succès !');
+      window.dispatchEvent(new CustomEvent('tradeai:notify', { detail: { type: 'success', message: 'PDF exporté avec succès !' } }));
     } catch (error) {
       console.error('Erreur export PDF:', error);
-      alert('❌ Erreur lors de l\'export PDF');
+      window.dispatchEvent(new CustomEvent('tradeai:notify', { detail: { type: 'error', message: "Erreur lors de l'export PDF" } }));
     } finally {
       setLoading(false);
     }
