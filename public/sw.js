@@ -41,6 +41,8 @@ self.addEventListener('fetch', event => {
   const url = new URL(request.url);
 
   if (url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith('/api/')) return;
+  if (request.headers.has('range')) return;
 
   if (request.mode === 'navigate') {
     event.respondWith(
@@ -54,8 +56,20 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(request).then(cached => {
       return cached || fetch(request).then(response => {
-        const copy = response.clone();
-        caches.open(STATIC_CACHE).then(cache => cache.put(request, copy));
+        const isCacheable =
+          response.ok &&
+          response.status === 200 &&
+          response.type === 'basic';
+
+        if (isCacheable) {
+          const copy = response.clone();
+
+          event.waitUntil(
+            caches.open(STATIC_CACHE)
+              .then(cache => cache.put(request, copy))
+          );
+        }
+
         return response;
       });
     })
