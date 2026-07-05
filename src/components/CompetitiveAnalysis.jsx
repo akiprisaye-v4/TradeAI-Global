@@ -361,6 +361,13 @@ export default function CompetitiveAnalysis() {
 
               {tool.our_tool && (
                 <button
+                  type="button"
+                                    onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                      detail: {
+                                        type: 'info',
+                                        message: 'TradeAI Global est déjà disponible : explorez les modules depuis le menu principal.'
+                                      }
+                                    }))}
                   style={{
                     width: "100%",
                     padding: 15,

@@ -553,6 +553,13 @@ export default function SmartInsights() {
               Ajoutez vos propres produits pour enrichir la base de données communautaire
             </p>
             <button
+              type="button"
+                              onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                detail: {
+                                  type: 'info',
+                                  message: 'Ajout communautaire disponible depuis le module Communauté.'
+                                }
+                              }))}
               style={{
                 padding: "12px 24px",
                 background: "#00C853",

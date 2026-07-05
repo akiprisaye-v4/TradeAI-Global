@@ -398,7 +398,14 @@ const FormationsShop = () => {
                 </div>
 
                 {/* Bouton */}
-                <button style={{
+                <button
+                  type="button"
+                                    onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                      detail: {
+                                        type: 'info',
+                                        message: `Formation « ${formation.title || formation.name || 'sélectionnée'} » : accès en préparation.`
+                                      }
+                                    }))} style={{
                   width: '100%',
                   padding: '14px',
                   background: `linear-gradient(135deg, ${formation.color} 0%, ${formation.color}CC 100%)`,
@@ -594,7 +601,14 @@ const FormationsShop = () => {
                 </ul>
 
                 {/* Bouton */}
-                <button style={{
+                <button
+                  type="button"
+                                    onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                      detail: {
+                                        type: 'info',
+                                        message: `Offre « ${pack.name || pack.title || 'sélectionnée'} » : parcours de souscription en préparation.`
+                                      }
+                                    }))} style={{
                   width: '100%',
                   padding: '16px',
                   background: `linear-gradient(135deg, ${pack.color} 0%, ${pack.color}CC 100%)`,

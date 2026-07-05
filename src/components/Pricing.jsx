@@ -181,7 +181,14 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button style={{
+              <button
+                type="button"
+                                onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                  detail: {
+                                    type: 'info',
+                                    message: `Offre « ${plan.name || plan.title || 'sélectionnée'} » : activation en préparation.`
+                                  }
+                                }))} style={{
                 width: '100%',
                 padding: '16px',
                 background: plan.popular ? 'linear-gradient(135deg, #FF9900 0%, #FFB800 100%)' : '#21262D',
