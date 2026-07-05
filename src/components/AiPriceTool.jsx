@@ -127,7 +127,7 @@ export default function AiPriceTool() {
             </div>
           </div>
 
-          <div style={{
+          <div className="tradeai-aiprice-upload-zone" style={{
             border: "2px dashed var(--border-color)",
             borderRadius: 8,
             padding: 40,
