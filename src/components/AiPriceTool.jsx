@@ -83,7 +83,7 @@ export default function AiPriceTool() {
       </div>
 
       {activeTab === "image-search" && (
-        <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: 12, padding: 25 }}>
+        <div className="tradeai-aiprice-image-search-panel" style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: 12, padding: 25 }}>
           <h2 style={{ color: "var(--text-primary)", marginBottom: 20 }}>📸 Recherche par Image</h2>
 
           <Notice title="Statut des données : analyse locale uniquement">
