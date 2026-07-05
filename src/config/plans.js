@@ -20,7 +20,7 @@ export const PLANS = [
     price: "19.99€",
     cadence: "/mois",
     status: "coming_soon",
-    cta: "Bientôt disponible",
+    cta: "Accès en préparation",
     features: [
       "Tout du gratuit",
       "Export PDF illimité",
@@ -36,7 +36,7 @@ export const PLANS = [
     price: "49.99€",
     cadence: "/mois",
     status: "coming_soon",
-    cta: "Bientôt disponible",
+    cta: "Accès en préparation",
     features: [
       "Tout du Pro",
       "Connecteurs marketplace avancés",

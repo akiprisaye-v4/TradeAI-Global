@@ -41,7 +41,7 @@ export const getUnsplashImage = (category) => {
   };
   
   const keyword = keywords[category] || keywords["Autre"];
-  return `https://source.unsplash.com/400x300/?${keyword}`;
+  return '/placeholder.svg';
 };
 
 export const getCategoryStyle = (category) => {
