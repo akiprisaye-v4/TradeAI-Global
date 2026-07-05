@@ -78,7 +78,7 @@ const AmazonToAlibaba = () => {
   const openAlibaba = () => {
     const url = generateAlibabaUrl();
     if (url) {
-      window.open(url, '_blank');
+      window.open(url, '_blank', 'noopener,noreferrer');
       setAlibabaUrl(url);
       setToast({ message: "🔍 Recherche Alibaba ouverte !", type: "success" });
     }
