@@ -74,23 +74,23 @@ const Tutorial = ({ onClose }) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 20,
+      padding: 16,
       backdropFilter: 'blur(8px)'
     }}>
       <div style={{
         background: '#161B22',
         borderRadius: 20,
-        padding: 40,
-        maxWidth: 600,
+        padding: 28,
+        maxWidth: 560,
         width: '100%',
         border: `2px solid ${currentStep.color}`,
         boxShadow: `0 20px 60px rgba(0,0,0,0.5), 0 0 40px ${currentStep.color}33`
       }}>
         {/* Icône */}
         <div style={{ 
-          fontSize: 80, 
+          fontSize: 58, 
           textAlign: 'center', 
-          marginBottom: 24,
+          marginBottom: 18,
           filter: `drop-shadow(0 4px 12px ${currentStep.color}66)`
         }}>
           {currentStep.icon}
@@ -99,9 +99,9 @@ const Tutorial = ({ onClose }) => {
         {/* Titre */}
         <h2 style={{ 
           color: currentStep.color, 
-          marginBottom: 20, 
+          marginBottom: 16, 
           textAlign: 'center',
-          fontSize: 28,
+          fontSize: 24,
           fontWeight: 800
         }}>
           {currentStep.title}
@@ -110,8 +110,8 @@ const Tutorial = ({ onClose }) => {
         {/* Contenu */}
         <p style={{ 
           color: '#E6EDF3', 
-          lineHeight: 1.8, 
-          marginBottom: 32, 
+          lineHeight: 1.55, 
+          marginBottom: 24, 
           textAlign: 'center',
           fontSize: 16
         }}>
@@ -119,7 +119,7 @@ const Tutorial = ({ onClose }) => {
         </p>
         
         {/* Boutons */}
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           {step > 0 && (
             <button
               onClick={() => setStep(step - 1)}
@@ -184,7 +184,7 @@ const Tutorial = ({ onClose }) => {
         </div>
         
         {/* Indicateurs de progression */}
-        <div style={{ display: 'flex', gap: 6, justifyContent: 'center', marginTop: 28 }}>
+        <div style={{ display: 'flex', gap: 6, justifyContent: 'center', marginTop: 22 }}>
           {steps.map((_, i) => (
             <div
               key={i}
