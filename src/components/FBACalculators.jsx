@@ -224,7 +224,7 @@ export default function FBACalculators() {
           </div>
 
           {/* Résultats */}
-          <div style={{
+          <div className="tradeai-fba-result-card tradeai-fba-margin-result" style={{
             background: "linear-gradient(135deg, rgba(255, 153, 0, 0.1) 0%, rgba(255, 184, 0, 0.1) 100%)",
             border: "2px solid #FF9900",
             borderRadius: 12,
