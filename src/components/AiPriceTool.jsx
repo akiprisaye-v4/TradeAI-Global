@@ -51,7 +51,7 @@ export default function AiPriceTool() {
         </p>
       </div>
 
-      <div style={{
+      <div className="tradeai-aiprice-tabs" style={{
         display: "flex",
         gap: 10,
         marginBottom: 30,
@@ -65,6 +65,7 @@ export default function AiPriceTool() {
         {tabs.map(tab => (
           <button
             key={tab.id}
+            className={activeTab === tab.id ? "is-active" : ""}
             onClick={() => setActiveTab(tab.id)}
             style={{
               padding: "12px 20px",

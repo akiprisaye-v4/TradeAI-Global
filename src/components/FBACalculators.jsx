@@ -82,7 +82,7 @@ export default function FBACalculators() {
       </div>
 
       {/* Sélecteur de calculateur */}
-      <div style={{
+      <div className="tradeai-fba-tabs" style={{
         display: "flex",
         gap: 10,
         marginBottom: 30,
@@ -92,6 +92,7 @@ export default function FBACalculators() {
         {calculators.map(calc => (
           <button
             key={calc.id}
+            className={activeCalc === calc.id ? "is-active" : ""}
             onClick={() => setActiveCalc(calc.id)}
             style={{
               padding: "12px 24px",
