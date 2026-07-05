@@ -231,7 +231,7 @@ export default function FBACalculators() {
             padding: 20
           }}>
             <h3 style={{ color: "#FF9900", marginBottom: 15 }}> Résultats</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
+            <div className="tradeai-fba-result-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Marge Nette</div>
                 <div style={{ color: "#FF9900", fontSize: 24, fontWeight: "bold" }}>
@@ -396,7 +396,7 @@ export default function FBACalculators() {
             padding: 20
           }}>
             <h3 style={{ color: "#00C853", marginBottom: 15 }}> Estimation des Frais FBA</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
+            <div className="tradeai-fba-result-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Frais de base</div>
                 <div style={{ color: "#00C853", fontSize: 24, fontWeight: "bold" }}>
@@ -551,7 +551,7 @@ export default function FBACalculators() {
             padding: 20
           }}>
             <h3 style={{ color: "#3B82F6", marginBottom: 15 }}>📊 Projection de Rentabilité</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
+            <div className="tradeai-fba-result-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Profit mensuel</div>
                 <div style={{ color: "#3B82F6", fontSize: 24, fontWeight: "bold" }}>
