@@ -41,7 +41,7 @@ export default function AiPriceTool() {
   );
 
   return (
-    <div style={{ padding: 20, maxWidth: 1200, margin: "0 auto" }}>
+    <div className="tradeai-aiprice-root" style={{ padding: 20, maxWidth: 1200, margin: "0 auto" }}>
       <div style={{ textAlign: "center", marginBottom: 30 }}>
         <h1 style={{ color: "var(--text-primary)", marginBottom: 10 }}>
           🎯 AiPrice - Sourcing Intelligence

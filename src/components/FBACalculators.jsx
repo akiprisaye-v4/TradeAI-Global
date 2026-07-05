@@ -71,7 +71,7 @@ export default function FBACalculators() {
   ];
 
   return (
-    <div style={{ padding: 20, maxWidth: 900, margin: "0 auto" }}>
+    <div className="tradeai-fba-root" style={{ padding: 20, maxWidth: 900, margin: "0 auto" }}>
       <div style={{ textAlign: "center", marginBottom: 30 }}>
         <h1 style={{ color: "var(--text-primary)", marginBottom: 10 }}>
            Calculateurs FBA
