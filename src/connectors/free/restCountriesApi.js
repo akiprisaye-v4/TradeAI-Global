@@ -1,43 +1,16 @@
-const BASE_URL = "https://restcountries.com/v3.1";
+const BLOCKED_REASON =
+  "REST Countries est bloqué : l’API publique v3 est dépréciée et la v5 nécessite une clé API.";
 
-async function fetchJson(url, errorMessage, timeoutMs = 7000) {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Accept: "application/json"
-      },
-      signal: controller.signal
-    });
-
-    if (!res.ok) {
-      throw new Error(`${errorMessage} HTTP ${res.status}`);
-    }
-
-    return await res.json();
-  } catch (error) {
-    if (error?.name === "AbortError") {
-      throw new Error(`${errorMessage} Délai dépassé.`);
-    }
-
-    throw error;
-  } finally {
-    clearTimeout(timeoutId);
-  }
+function createBlockedError() {
+  const error = new Error(BLOCKED_REASON);
+  error.code = "REST_COUNTRIES_REQUIRES_API_KEY";
+  return error;
 }
 
 export async function getAllCountries() {
-  return fetchJson(
-    `${BASE_URL}/all?fields=name,cca2,flags,currencies,languages,region,capital,population`,
-    "Impossible de récupérer les pays."
-  );
+  throw createBlockedError();
 }
 
-export async function searchCountry(name) {
-  return fetchJson(
-    `${BASE_URL}/name/${encodeURIComponent(name)}`,
-    "Pays introuvable."
-  );
+export async function searchCountry() {
+  throw createBlockedError();
 }
