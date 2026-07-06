@@ -25,7 +25,7 @@ export async function fetchFrankfurterRates({
 
   try {
     const response = await fetch(
-      `${BASE_URL}/latest?from=${encodeURIComponent(safeBase)}`,
+      `${BASE_URL}?from=${encodeURIComponent(safeBase)}`,
       {
         method: "GET",
         headers: {

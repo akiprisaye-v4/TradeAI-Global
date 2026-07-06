@@ -48,13 +48,16 @@ export default function FreeApiLab() {
         checks.map(async ([label, source, fn]) => {
           try {
             const data = await fn();
+            const ok = data?.ok !== false;
+
             return {
               label,
               source,
-              provenance: "LIVE_API",
-              ok: true,
+              provenance: ok ? "LIVE_API" : "ERROR",
+              ok,
               checkedAt: new Date().toISOString(),
-              sample: summarizePayload(data)
+              sample: summarizePayload(data),
+              error: ok ? undefined : data?.error || "Fallback ou API indisponible"
             };
           } catch (error) {
             return {
