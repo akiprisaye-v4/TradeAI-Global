@@ -16,5 +16,3 @@ function startApp() {
     </React.StrictMode>
   )
 }
-
-import "./mobile-production-fixes.css";
