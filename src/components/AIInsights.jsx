@@ -84,14 +84,14 @@ function AIInsights({ products, fxRates, calcProduct, setToast }) {
 
   return (
     <div style={{ display: "grid", gap: 16 }}>
-      {/* Prédictions globales */}
+      {/* Projections locales */}
       <div style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", borderRadius: 12, padding: 20, color: "white" }}>
-        <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, opacity: 0.9 }}>🤖 Prédictions IA (Mois prochain)</div>
+        <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, opacity: 0.9 }}>📊 Scénarios locaux (mois prochain)</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
           <div>
             <div style={{ fontSize: 11, opacity: 0.8, marginBottom: 4 }}>Chiffre d'affaires prévu</div>
             <div style={{ fontSize: 28, fontWeight: 900 }}>€{predictions.totalPredictedRevenue.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}</div>
-            <div style={{ fontSize: 11, opacity: 0.7, marginTop: 4 }}>+15% vs mois actuel</div>
+            <div style={{ fontSize: 11, opacity: 0.7, marginTop: 4 }}>Hypothèse locale de saisonnalité : +15%</div>
           </div>
           <div>
             <div style={{ fontSize: 11, opacity: 0.8, marginBottom: 4 }}>Profit prévu</div>
@@ -124,10 +124,10 @@ function AIInsights({ products, fxRates, calcProduct, setToast }) {
         </div>
       )}
 
-      {/* Meilleures opportunités */}
+      {/* Opportunités les mieux classées selon le modèle local */}
       {predictions.bestOpportunities.length > 0 && (
         <div style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: 12, padding: 16 }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: "#00C853", marginBottom: 12 }}>🚀 Meilleures opportunités</div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#00C853", marginBottom: 12 }}>🚀 Opportunités les mieux classées</div>
           <div style={{ display: "grid", gap: 10 }}>
             {predictions.bestOpportunities.slice(0, 5).map((opp, i) => (
               <div key={i} style={{ padding: "12px 14px", background: "#00C85310", border: "1px solid #00C85333", borderLeft: "3px solid #00C853", borderRadius: 8 }}>

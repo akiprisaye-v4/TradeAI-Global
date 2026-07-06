@@ -5,8 +5,8 @@ const Tutorial = ({ onClose }) => {
 
   const steps = [
     {
-      title: "👋 Bienvenue sur Amazon Profit Pro",
-      content: "Calculez vos marges Amazon FBA/FBM en quelques clics. Cet outil vous aide à trouver des produits rentables et à optimiser vos profits.",
+      title: "👋 Bienvenue sur TradeAI Global",
+      content: "Calculez vos marges e-commerce en quelques clics. Cet outil vous aide à trouver des produits rentables et à optimiser vos profits.",
       icon: "🎯",
       color: "#FF9900"
     },
@@ -18,7 +18,7 @@ const Tutorial = ({ onClose }) => {
     },
     {
       title: "💡 Produits Tendance",
-      content: "Découvrez 5 produits tendance avec des marges de 60-95%. Cliquez sur 'Utiliser ce produit' pour pré-remplir le calculateur avec les données optimales.",
+      content: "Explorez 5 scénarios produit indicatifs. Cliquez sur 'Utiliser ce produit' pour pré-remplir le calculateur avec des hypothèses locales modifiables.",
       icon: "✨",
       color: "#FFD54F"
     },
@@ -54,7 +54,7 @@ const Tutorial = ({ onClose }) => {
     },
     {
       title: "🚀 Prêt à commencer ?",
-      content: "Vous êtes maintenant prêt à utiliser Amazon Profit Pro comme un pro ! Commencez par calculer votre premier produit ou explorez les produits tendance.",
+      content: "Vous êtes maintenant prêt à utiliser TradeAI Global comme un pro ! Commencez par calculer votre premier produit ou explorez les produits tendance.",
       icon: "🚀",
       color: "#FF9900"
     }
@@ -74,52 +74,52 @@ const Tutorial = ({ onClose }) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 20,
+      padding: 16,
       backdropFilter: 'blur(8px)'
     }}>
       <div style={{
         background: '#161B22',
         borderRadius: 20,
-        padding: 40,
-        maxWidth: 600,
+        padding: 28,
+        maxWidth: 560,
         width: '100%',
         border: `2px solid ${currentStep.color}`,
         boxShadow: `0 20px 60px rgba(0,0,0,0.5), 0 0 40px ${currentStep.color}33`
       }}>
         {/* Icône */}
-        <div style={{ 
-          fontSize: 80, 
-          textAlign: 'center', 
-          marginBottom: 24,
+        <div style={{
+          fontSize: 58,
+          textAlign: 'center',
+          marginBottom: 18,
           filter: `drop-shadow(0 4px 12px ${currentStep.color}66)`
         }}>
           {currentStep.icon}
         </div>
 
         {/* Titre */}
-        <h2 style={{ 
-          color: currentStep.color, 
-          marginBottom: 20, 
+        <h2 style={{
+          color: currentStep.color,
+          marginBottom: 16,
           textAlign: 'center',
-          fontSize: 28,
+          fontSize: 24,
           fontWeight: 800
         }}>
           {currentStep.title}
         </h2>
 
         {/* Contenu */}
-        <p style={{ 
-          color: '#E6EDF3', 
-          lineHeight: 1.8, 
-          marginBottom: 32, 
+        <p style={{
+          color: '#E6EDF3',
+          lineHeight: 1.55,
+          marginBottom: 24,
           textAlign: 'center',
           fontSize: 16
         }}>
           {currentStep.content}
         </p>
-        
+
         {/* Boutons */}
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           {step > 0 && (
             <button
               onClick={() => setStep(step - 1)}
@@ -182,9 +182,9 @@ const Tutorial = ({ onClose }) => {
             </button>
           )}
         </div>
-        
+
         {/* Indicateurs de progression */}
-        <div style={{ display: 'flex', gap: 6, justifyContent: 'center', marginTop: 28 }}>
+        <div style={{ display: 'flex', gap: 6, justifyContent: 'center', marginTop: 22 }}>
           {steps.map((_, i) => (
             <div
               key={i}
@@ -200,8 +200,8 @@ const Tutorial = ({ onClose }) => {
         </div>
 
         {/* Numéro d'étape */}
-        <div style={{ 
-          textAlign: 'center', 
+        <div style={{
+          textAlign: 'center',
           marginTop: 16,
           fontSize: 12,
           color: '#8B949E'

@@ -18,7 +18,7 @@ const LoadingScreen = () => (
         📦
       </div>
       <div style={{ fontSize: 18, fontWeight: 700 }}>
-        Amazon Profit Pro
+        TradeAI Global
       </div>
       <div style={{ 
         fontSize: 12, 

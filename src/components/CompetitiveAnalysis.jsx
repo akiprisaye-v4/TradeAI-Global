@@ -28,7 +28,7 @@ export default function CompetitiveAnalysis() {
           🏆 Podium Comparatif Mondial
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: 16 }}>
-          Comparatif des meilleurs outils Amazon FBA en {competitiveData.last_update}
+          Comparatif indicatif d’outils Amazon FBA en {competitiveData.last_update}
         </p>
       </div>
 
@@ -119,7 +119,7 @@ export default function CompetitiveAnalysis() {
                 fontWeight: "bold",
                 fontSize: 14
               }}>
-                🥇 MEILLEUR RAPPORT QUALITÉ/PRIX
+                🥇 RAPPORT FONCTIONNALITÉS/PRIX INDICATIF
               </div>
               <div style={{ fontSize: 64, marginBottom: 10 }}>{top3[2].logo}</div>
               <h3 style={{ color: "#FFD700", marginBottom: 10 }}>1ère Place</h3>
@@ -169,7 +169,7 @@ export default function CompetitiveAnalysis() {
               marginBottom: 30
             }}>
               <h2 style={{ color: "#FF9900", marginBottom: 20, textAlign: "center" }}>
-                🌟 Pourquoi {ourTool.name} est N°1 ?
+                🌟 Positionnement de {ourTool.name}
               </h2>
               <div style={{
                 display: "grid",
@@ -361,6 +361,13 @@ export default function CompetitiveAnalysis() {
 
               {tool.our_tool && (
                 <button
+                  type="button"
+                                    onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                      detail: {
+                                        type: 'info',
+                                        message: 'TradeAI Global est déjà disponible : explorez les modules depuis le menu principal.'
+                                      }
+                                    }))}
                   style={{
                     width: "100%",
                     padding: 15,

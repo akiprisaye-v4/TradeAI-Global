@@ -20,7 +20,7 @@ export const getProductImage = (category, productName) => {
   return {
     gradient: `linear-gradient(135deg, ${colors.from} 0%, ${colors.to} 100%)`,
     emoji: colors.emoji,
-    placeholder: `https://placehold.co/400x300/${colors.from.replace('#', '')}/${colors.to.replace('#', '')}?text=${encodeURIComponent(initial)}`,
+    placeholder: '/placeholder.svg',
     unsplash: getUnsplashImage(category)
   };
 };
@@ -41,7 +41,7 @@ export const getUnsplashImage = (category) => {
   };
   
   const keyword = keywords[category] || keywords["Autre"];
-  return `https://source.unsplash.com/400x300/?${keyword}`;
+  return '/placeholder.svg';
 };
 
 export const getCategoryStyle = (category) => {

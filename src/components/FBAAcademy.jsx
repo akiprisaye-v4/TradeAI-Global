@@ -172,10 +172,10 @@ export default function FBAAcademy() {
     <div style={{ padding: 20, maxWidth: 1200, margin: "0 auto" }}>
       <div style={{ textAlign: "center", marginBottom: 40 }}>
         <h1 style={{ color: "var(--text-primary)", marginBottom: 10 }}>
-          📚 Académie FBA
+          📚 Académie e-commerce
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: 16 }}>
-          Maîtrisez Amazon FBA étape par étape avec nos guides complets
+          Maîtrisez le sourcing et la rentabilité e-commerce étape par étape avec nos guides complets
         </p>
       </div>
 

@@ -25,7 +25,7 @@ const About: React.FC = () => {
           WebkitTextFillColor: 'transparent',
           marginBottom: '16px'
         }}>
-          Amazon Profit Pro Élite
+          TradeAI Global Élite
         </h1>
         <p style={{
           fontSize: '20px',
@@ -34,7 +34,7 @@ const About: React.FC = () => {
           margin: '0 auto',
           lineHeight: '1.6'
         }}>
-          La plateforme d'intelligence commerciale la plus avancée pour les vendeurs Amazon FBA/FBM
+          La plateforme d'intelligence commerciale pour piloter rentabilité, sourcing et décisions e-commerce
         </p>
       </div>
 
@@ -55,13 +55,13 @@ const About: React.FC = () => {
         }}>
           {[
             {
-              title: 'Vendeurs Amazon',
-              desc: 'Débutants ou confirmés voulant maximiser leurs profits',
+              title: 'Vendeurs e-commerce',
+              desc: 'Débutants ou confirmés voulant analyser et améliorer leur rentabilité',
               icon: '📦'
             },
             {
               title: 'Arbitragistes',
-              desc: 'Professionnels du retail/online arbitrage cherchant les meilleures opportunités',
+              desc: 'Professionnels du retail/online arbitrage comparant des opportunités selon leurs critères',
               icon: '🎯'
             },
             {
@@ -102,7 +102,7 @@ const About: React.FC = () => {
           marginBottom: '30px',
           color: '#FF9900'
         }}>
-          💡 Pourquoi Utiliser Amazon Profit Pro ?
+          💡 Pourquoi Utiliser TradeAI Global ?
         </h2>
         <div style={{
           background: 'rgba(255,255,255,0.03)',
@@ -112,10 +112,10 @@ const About: React.FC = () => {
         }}>
           {[
             'Calculs précis de rentabilité incluant TOUS les frais Amazon (FBA, FBM, TVA, commissions)',
-            'Analyse en temps réel de la concurrence et du marché',
+            'Analyse de la concurrence et du marché selon les données disponibles',
             'Gestion intelligente des stocks avec alertes de réapprovisionnement',
             'Prévisions de cash-flow sur 12 mois',
-            'Optimisation automatique des prix pour maximiser les profits',
+            'Comparaison automatique de scénarios de prix selon les hypothèses saisies',
             'Suivi des performances et analytics avancés',
             'Support multi-marketplaces (FR, DE, UK, IT, ES, US, etc.)',
             'Export de données pour vos présentations et reporting'
@@ -192,7 +192,7 @@ const About: React.FC = () => {
             },
             {
               title: 'Gestion des Stocks',
-              desc: 'Suivi en temps réel et alertes intelligentes',
+              desc: 'Suivi selon les données disponibles et alertes intelligentes',
               icon: '📦',
               color: '#ef4444'
             },
@@ -272,14 +272,14 @@ const About: React.FC = () => {
           marginBottom: '16px',
           color: '#fff'
         }}>
-          Prêt à maximiser vos profits Amazon ?
+          Prêt à mieux analyser votre rentabilité Amazon ?
         </h2>
         <p style={{
           fontSize: '16px',
           color: '#94a3b8',
           marginBottom: '32px'
         }}>
-          Rejoignez des centaines de vendeurs qui font confiance à Amazon Profit Pro
+          Rejoignez des centaines de vendeurs qui font confiance à TradeAI Global
         </p>
       </div>
 
@@ -291,9 +291,9 @@ const About: React.FC = () => {
         color: '#64748b',
         fontSize: '14px'
       }}>
-        <p>© 2024 Amazon Profit Pro Élite - Tous droits réservés</p>
+        <p>© 2024 TradeAI Global Élite - Tous droits réservés</p>
         <p style={{ marginTop: '8px' }}>
-          Développé avec ❤️ pour les vendeurs Amazon
+          Développé avec ❤️ pour les vendeurs e-commerce
         </p>
       </div>
     </div>

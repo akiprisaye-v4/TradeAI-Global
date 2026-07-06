@@ -2,54 +2,54 @@
   "trending_categories_2026": [
     {
       "category": "Produits écologiques",
-      "growth": "+45%",
       "bsr_opportunity": "high",
       "keywords": [
         "eco-friendly",
         "sustainable",
         "bamboo",
         "recyclable"
-      ]
+      ],
+      "estimatedGrowthSignal": "+45%"
     },
     {
       "category": "Gadgets IA domestiques",
-      "growth": "+120%",
       "bsr_opportunity": "very_high",
       "keywords": [
         "smart home",
         "AI assistant",
         "automation"
-      ]
+      ],
+      "estimatedGrowthSignal": "+120%"
     },
     {
       "category": "Bien-être mental",
-      "growth": "+65%",
       "bsr_opportunity": "high",
       "keywords": [
         "meditation",
         "stress relief",
         "mindfulness"
-      ]
+      ],
+      "estimatedGrowthSignal": "+65%"
     },
     {
       "category": "Fitness à domicile",
-      "growth": "+35%",
       "bsr_opportunity": "medium",
       "keywords": [
         "home gym",
         "resistance bands",
         "yoga"
-      ]
+      ],
+      "estimatedGrowthSignal": "+35%"
     },
     {
       "category": "Accessoires télétravail",
-      "growth": "+28%",
       "bsr_opportunity": "medium",
       "keywords": [
         "ergonomic",
         "standing desk",
         "webcam"
-      ]
+      ],
+      "estimatedGrowthSignal": "+28%"
     }
   ],
   "seasonal_calendar": [
@@ -145,27 +145,27 @@
     {
       "keyword": "sustainable packaging",
       "volume": 45000,
-      "growth": "+89%"
+      "estimatedGrowthSignal": "+89%"
     },
     {
       "keyword": "smart home devices",
       "volume": 120000,
-      "growth": "+67%"
+      "estimatedGrowthSignal": "+67%"
     },
     {
       "keyword": "ergonomic office",
       "volume": 78000,
-      "growth": "+45%"
+      "estimatedGrowthSignal": "+45%"
     },
     {
       "keyword": "pet tech",
       "volume": 34000,
-      "growth": "+112%"
+      "estimatedGrowthSignal": "+112%"
     },
     {
       "keyword": "minimalist design",
       "volume": 56000,
-      "growth": "+38%"
+      "estimatedGrowthSignal": "+38%"
     }
   ]
 }

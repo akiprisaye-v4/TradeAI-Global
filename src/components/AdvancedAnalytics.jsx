@@ -3,7 +3,7 @@ import { useAppContext } from '../App';
 
 const fmt = (n, sym = "€") => `${sym}${Math.abs(n).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
 
-const Originalfunction AdvancedAnalytics() {
+function Original() {
   const { products, fxRates } = useAppContext();
   
   const totalRevenue = products.reduce((sum, p) => {

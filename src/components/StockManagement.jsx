@@ -41,7 +41,7 @@ function StockManagement({ products, setProducts, setToast }) {
     setToast({ message: `✅ Commande créée pour ${product.name}`, type: "success" });
   };
 
-  // Historique des stocks (simulation)
+  // Historique des stocks estimé localement
   const updateStockHistory = (product, quantity) => {
     const key = product.name;
     const entry = {

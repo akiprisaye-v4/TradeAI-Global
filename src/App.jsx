@@ -66,12 +66,14 @@ const FBA_SIZES = [
  { label:"Très grand (> 12kg)", pick: 12.0, storage: 4.5, longStorage: 7.0, maxL: 999, maxW: 999, maxH: 999, maxWeight: 999 },
 ];
 
+const TENDANCES_PROVENANCE_NOTICE = "Données indicatives locales : non récupérées en temps réel depuis Amazon, Alibaba ou TikTok.";
+
 const TRENDING_PRODUCTS = [
-{ name: "Patchs anti-imperfections", category: "Beauté & Santé", categoryIdx: 5, growth: "+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note: "Viral TikTok. Marge 85-90%.", icon: "✨", color: "#FFD54F", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
-{ name: "Bandes LED RGB", category: "Maison & Cuisine", categoryIdx: 2, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note: "Déco gaming. Marge 70-85%.", icon: "💡", color: "#FFA726", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" },
-{ name: "Powerbank magnétique", category: "Électronique", categoryIdx: 1, growth: "+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note: "Tech gadget. Marge 60-75%.", icon: "🔋", color: "#5C6BC0", image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop" },
-{ name: "Masque soie naturelle", category: "Beauté & Santé", categoryIdx: 5, growth: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note: "Beauty sleep. Marge 85-95%.", icon: "😴", color: "#7E57C2", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
-{ name: "Harnais chien", category: "Autre", categoryIdx: 10, growth: "+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note: "Pet market. Marge 70-85%.", icon: "🦮", color: "#FF5722", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" },
+{ name: "Patchs anti-imperfections", category: "Beauté & Santé", categoryIdx: 5, estimatedGrowthSignal: "+85%", amazonPriceRange: [8.99, 14.99], alibabaPriceRange: [0.30, 0.80], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "✨", color: "#FFD54F", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Bandes LED RGB", category: "Maison & Cuisine", categoryIdx: 2, estimatedGrowthSignal: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.40, 5.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "💡", color: "#FFA726", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" },
+{ name: "Powerbank magnétique", category: "Électronique", categoryIdx: 1, estimatedGrowthSignal: "+55%", amazonPriceRange: [24.99, 39.99], alibabaPriceRange: [5.70, 10.00], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🔋", color: "#5C6BC0", image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop" },
+{ name: "Masque soie naturelle", category: "Beauté & Santé", categoryIdx: 5, estimatedGrowthSignal: "+65%", amazonPriceRange: [15.99, 29.99], alibabaPriceRange: [0.41, 2.00], fbaSizeIdx: 0, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "😴", color: "#7E57C2", image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
+{ name: "Harnais chien", category: "Autre", categoryIdx: 10, estimatedGrowthSignal: "+60%", amazonPriceRange: [16.99, 34.99], alibabaPriceRange: [1.80, 4.50], fbaSizeIdx: 1, note: "Signal tendance non temps réel. Vérifier via source/import avant décision.", icon: "🦮", color: "#FF5722", image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" },
 ];
 
 // Noms de produits réalistes par catégorie
@@ -91,8 +93,8 @@ const REALISTIC_PRODUCT_NAMES = {
 
 const getRandomProductName = (categoryIdx) => {
   const names = REALISTIC_PRODUCT_NAMES[categoryIdx] || REALISTIC_PRODUCT_NAMES[2];
-  const randomName = names[Math.floor(Math.random() * names.length)];
-  const suffix = Math.floor(Math.random() * 900) + 100;
+  const randomName = names[Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296 * names.length)];
+  const suffix = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296 * 900) + 100;
   return `${randomName} ${suffix}`;
 };
 
@@ -210,6 +212,7 @@ function Toast({ message, type, onClose }) {
  borderRadius: 9, padding:"12px 16px", color: c.text,
  fontSize: 12, fontWeight: 600, zIndex: 1000, maxWidth: 320
  }}>
+      <NotificationCenter />
  {message}
  </div>
  );
@@ -316,10 +319,12 @@ function SelectField({ label, value, onChange, options, parseAs = "index" }) {
  onChange(index);
  }
  };
+
  // Trouver l'index actuel basé sur la valeur
- const currentIndex = parseAs === "string" 
+ const currentIndex = parseAs === "string"
  ? options.findIndex(o => o.value === value)
  : value;
+
  return (
  <div style={{ marginBottom: 12 }}>
  <label htmlFor={id} style={{ display:"block", fontSize: 11, color:"#8B949E", marginBottom: 4, fontWeight: 700 }}>{label}</label>
@@ -587,43 +592,54 @@ return (
 <div key={i} style={{ background: "#161B22", border: "1px solid #21262D", borderRadius: 12, overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.3)" }}>
   {/* Image du produit */}
   <div style={{ width: "100%", height: 200, overflow: "hidden", position: "relative", background: "#1C2128" }}>
-    <img 
-      src={item.image} 
+    <img
+      src={item.image}
       alt={item.name}
       loading="lazy"
-      style={{ 
-        width: "100%", 
-        height: "100%", 
+      style={{
+        width: "100%",
+        height: "100%",
         objectFit: "cover",
         transition: "transform 0.3s"
       }}
       onError={(e) => {
         e.target.style.display = "none";
-        e.target.parentElement.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:60px;">' + item.icon + '</div>';
+        const fallback = document.createElement("div");
+        fallback.style.display = "flex";
+        fallback.style.alignItems = "center";
+        fallback.style.justifyContent = "center";
+        fallback.style.height = "100%";
+        fallback.style.fontSize = "60px";
+        fallback.textContent = item.icon;
+        e.target.parentElement.replaceChildren(fallback);
       }}
     />
   </div>
+
   <div style={{ padding: "16px" }}>
     <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8, color: "#E6EDF3" }}>{item.icon} {item.name}</div>
     <div style={{ fontSize: 11, color: "#8B949E", marginBottom: 12 }}>{item.category}</div>
+
     <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
       <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
-        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix Amazon</div>
+        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix marketplace indicatif</div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#FF9900" }}>{fmt(item.amazonPriceRange[0])}-{fmt(item.amazonPriceRange[1])}</div>
       </div>
       <div style={{ flex: 1, padding: "8px", background: "#1C2128", borderRadius: 6 }}>
-        <div style={{ fontSize: 9, color: "#8B949E" }}>Prix Alibaba</div>
+        <div style={{ fontSize: 9, color: "#8B949E" }}>Coût fournisseur indicatif</div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#00C853" }}>{fmt(item.alibabaPriceRange[0])}-{fmt(item.alibabaPriceRange[1])}</div>
       </div>
     </div>
+
     <div style={{ padding: "8px", background: `${item.color}15`, borderRadius: 6, marginBottom: 12 }}>
       <div style={{ fontSize: 10, color: item.color, fontWeight: 700 }}>
-         Croissance: {item.growth}
+         Signal indicatif: {item.estimatedGrowthSignal}
       </div>
       <div style={{ fontSize: 10, color: "#8B949E", marginTop: 2 }}>
         {item.note}
       </div>
     </div>
+
     <button onClick={() => {
 setProducts(prev => prev.map((prod, idx) => idx === activeProduct ? { ...prod, name: item.name, sellingPrice: (item.amazonPriceRange[0] + item.amazonPriceRange[1]) / 2, costPrice: (item.alibabaPriceRange[0] + item.alibabaPriceRange[1]) / 2, categoryIdx: item.categoryIdx } : prod));
 setTab("calculateur");
@@ -671,6 +687,9 @@ function HistoriquePanel() {
  const { saveCurrentToHistory } = useAppContext();
  const [history, setHistory] = useState([]);
  const [loaded, setLoaded] = useState(false);
+const [automationAlerts, setAutomationAlerts] = useState([]);
+const [predictiveInsights, setPredictiveInsights] = useState([]);
+const [globalSourcing, setGlobalSourcing] = useState([]);
 
  useEffect(() => {
  (async () => {
@@ -727,7 +746,7 @@ function HistoriquePanel() {
 function AProposPanel() {
  return (
  <div style={{ background:"#161B22", border:"1px solid #21262D", borderRadius: 11, padding:"20px"}}>
- <h2 style={{ color:"#FF9900", marginBottom: 10 }}>Amazon Profit Pro Élite</h2>
+ <h2 style={{ color:"#FF9900", marginBottom: 10 }}>TradeAI Global Élite</h2>
 
   {/* Recherche par Image */}
   <div style={{ background: 'var(--bg-card)', borderRadius: 12, padding: 20, marginBottom: 20 }}>
@@ -748,7 +767,7 @@ function AProposPanel() {
     )}
   </div>
 
- <p style={{ color:"#8B949E", lineHeight: 1.6, marginBottom: 16 }}>Calculateur de profit expert pour vendeurs Amazon FBA/FBM avec 40+ fonctionnalités.</p>
+ <p style={{ color:"#8B949E", lineHeight: 1.6, marginBottom: 16 }}>Plateforme modulaire pour analyser rentabilité, sourcing, stock, devises, automatisation et décisions e-commerce.</p>
  </div>
  );
 }
@@ -770,22 +789,32 @@ const defaultProduct = (name = "Produit 1") => ({
  supplierFinancing: false, capitalCostRate: 0,
 });
 
-const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations"];
+const TABS = ["dashboard","analytics","tradeai","stock","competitive","apropos","idees","calculateur","cogs","pricing","comparateur","historique","abonnements","formations","academy","calculators","aiprice","insights","community","listing","keywords","extension","ecosystem","connect","sourcing","predictive","automation","affiliate","v7roadmap"];
+
+const TAB_TO_ACTIVE = {
+  stock: "stocks",
+  competitive: "concurrents",
+  apropos: "about",
+  idees: "ideas",
+  calculateur: "calcul",
+  comparateur: "portfolio"
+};
+
 const TAB_LABELS = {
  dashboard: "📊 Dashboard",
  analytics: "📈 Analytics",
  tradeai: "🤖 TradeAI",
  stock: "📦 Stocks",
  competitive: "🎯 Concurrents",
- apropos:"ℹ️ À propos",
- idees:"💡 Idées",
+ apropos:"À propos",
+ idees:"Idées",
  calculateur:"📊 Calcul",
  cogs:"📦 COGS",
  pricing:"💲 Pricing",
  comparateur:"⚖️ Portfolio",
  historique:"🕐 Historique",
   abonnements:"💎 Abonnements",
-  formations:"🎓 Formations",
+  formations:"Formations", academy:"Academy", calculators:"FBA", aiprice:"AiPrice", insights:"Insights", community:"Community", listing:"Listing", keywords:"Keywords", extension:"Extension", ecosystem:"Ecosystem", connect:"Connect Hub", sourcing:"Sourcing", predictive:"Prédictif", automation:"Automation", affiliate:"Affiliation", v7roadmap:"v7",
 };
 
 import InstallPWA from "./components/InstallPWA.jsx";
@@ -803,385 +832,78 @@ import CompetitiveAnalysis from "./components/CompetitiveAnalysis";
 import SmartInsights from "./components/SmartInsights";
 import CommunityHub from "./components/CommunityHub";
 import FormationsShop from "./components/FormationsShop";
+
 import ListingBuilder from "./components/ListingBuilder";
 import KeywordResearch from "./components/KeywordResearch";
 import ExtensionData from "./components/ExtensionData";
+import TradeAIEcosystem from "./components/TradeAIEcosystem";
+import V7Roadmap from "./pages/V7Roadmap";
+import DashboardPage from "./pages/core/DashboardPage";
+import AnalyticsPage from "./pages/core/AnalyticsPage";
 
+import TradeAIPage from "./pages/core/TradeAIPage";
+import StockPage from "./pages/core/StockPage";
+import CompetitivePage from "./pages/core/CompetitivePage";
+import IdeasPage from "./pages/core/IdeasPage";
+import CalculateurPage from "./pages/core/CalculateurPage";
+import COGSPage from "./pages/core/COGSPage";
+import PricingPage from "./pages/core/PricingPage";
+import PortfolioPage from "./pages/core/PortfolioPage";
+import HistoriquePage from "./pages/core/HistoriquePage";
 
-function DashboardPanel() {
- const { products, fxRates, calcP, p, mk } = useAppContext();
- const totalMonthlyProfit = products.reduce((sum, prod) => {
- const c = calcProduct(prod, fxRates);
- return sum + c.monthlyProfit;
- }, 0);
- const avgMargin = products.length > 0 
- ? products.reduce((sum, prod) => sum + calcProduct(prod, fxRates).netMargin, 0) / products.length 
- : 0;
- const bestProduct = products.reduce((best, prod) => {
- const c = calcProduct(prod, fxRates);
- const bestC = calcProduct(best, fxRates);
- return c.monthlyProfit > bestC.monthlyProfit ? prod : best;
- }, products[0]);
- const bestCalc = bestProduct ? calcProduct(bestProduct, fxRates) : null;
-
- return (
- <div>
- <Section title="📊 Vue d'ensemble">
- <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12, marginBottom: 16 }}>
- <StatCard label="Produits actifs" value={products.length} color="#FF9900" />
- <StatCard label="Profit mensuel total" value={fmt(totalMonthlyProfit)} color={totalMonthlyProfit >= 0 ? "#00C853" : "#FF3D00"} />
- <StatCard label="Marge moyenne" value={fmtPct(avgMargin)} color={avgMargin >= 15 ? "#00C853" : "#FF9900"} />
- <StatCard label="Meilleur produit" value={bestProduct?.name || "-"} color="#FFD600" sub={bestCalc ? fmt(bestCalc.monthlyProfit) + "/mois" : ""} />
- </div>
- </Section>
- <Section title="🏆 Top 3 Produits">
- {products.slice().sort((a, b) => calcProduct(b, fxRates).monthlyProfit - calcProduct(a, fxRates).monthlyProfit).slice(0, 3).map((prod, i) => {
- const c = calcProduct(prod, fxRates);
- return (
- <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "10px 12px", background: "#1C2128", borderRadius: 8, marginBottom: 8, border: "1px solid #30363D" }}>
- <div>
- <div style={{ fontSize: 13, fontWeight: 700 }}>{i + 1}. {prod.name}</div>
- <div style={{ fontSize: 10, color: "#8B949E" }}>{MARKETPLACES[prod.marketplace]?.label} · Marge {c.netMargin.toFixed(1)}%</div>
- </div>
- <div style={{ fontSize: 16, fontWeight: 800, color: c.monthlyProfit >= 0 ? "#00C853" : "#FF3D00" }}>
- {fmt(c.monthlyProfit, c.sym)}
- </div>
- </div>
- );
- })}
- </Section>
- <Section title="📈 Répartition par marketplace">
- {Object.keys(MARKETPLACES).slice(0, 6).map(mk => {
- const count = products.filter(p => p.marketplace === mk).length;
- const profit = products.filter(p => p.marketplace === mk).reduce((sum, p) => sum + calcProduct(p, fxRates).monthlyProfit, 0);
- return (
- <div key={mk} style={{ display: "flex", justifyContent: "space-between", padding: "8px 12px", background: "#1C2128", borderRadius: 6, marginBottom: 6, fontSize: 12 }}>
- <span>{MARKETPLACES[mk].label}</span>
- <span style={{ color: "#8B949E" }}>{count} produit{count > 1 ? 's' : ''} · <strong style={{ color: profit >= 0 ? "#00C853" : "#FF3D00" }}>{fmt(profit)}</strong></span>
- </div>
- );
- })}
- </Section>
- </div>
- );
-}
-
-function AnalyticsPanel() {
- const { products, fxRates } = useAppContext();
- const categoryStats = {};
- products.forEach(p => {
- const cat = CATEGORIES[p.categoryIdx]?.label || "Autre";
- if (!categoryStats[cat]) categoryStats[cat] = { count: 0, profit: 0 };
- categoryStats[cat].count++;
- categoryStats[cat].profit += calcProduct(p, fxRates).monthlyProfit;
- });
- const totalProfit = products.reduce((sum, p) => sum + calcProduct(p, fxRates).monthlyProfit, 0);
- const totalROI = products.length > 0 
- ? products.reduce((sum, p) => sum + calcProduct(p, fxRates).roi, 0) / products.length 
- : 0;
-
- return (
- <div>
- <Section title="📈 Analytics Globales">
- <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12 }}>
- <StatCard label="Profit total" value={fmt(totalProfit)} color={totalProfit >= 0 ? "#00C853" : "#FF3D00"} />
- <StatCard label="ROI moyen" value={fmtPct(totalROI)} color={totalROI >= 50 ? "#00C853" : "#FF9900"} />
- <StatCard label="Produits rentables" value={products.filter(p => calcProduct(p, fxRates).profit > 0).length + "/" + products.length} color="#00C853" />
- <StatCard label="Score moyen" value={(products.reduce((s, p) => s + calcProduct(p, fxRates).score, 0) / products.length).toFixed(1) + "/10"} color="#FFD600" />
- </div>
- </Section>
- <Section title="🏷️ Par catégorie">
- {Object.entries(categoryStats).map(([cat, data]) => (
- <div key={cat} style={{ marginBottom: 10 }}>
- <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4, fontSize: 12 }}>
- <span style={{ fontWeight: 700 }}>{cat}</span>
- <span style={{ color: data.profit >= 0 ? "#00C853" : "#FF3D00" }}>{fmt(data.profit)} · {data.count} prod.</span>
- </div>
- <div style={{ background: "#1C2128", height: 6, borderRadius: 3, overflow: "hidden" }}>
- <div style={{ 
- height: "100%", 
- width: Math.min(100, Math.abs(data.profit / Math.max(Math.abs(totalProfit), 1)) * 100) + "%",
- background: data.profit >= 0 ? "#00C853" : "#FF3D00"
- }} />
- </div>
- </div>
- ))}
- </Section>
- <Section title="📊 Distribution des scores">
- <div style={{ display: "flex", gap: 8, height: 80, alignItems: "flex-end" }}>
- {[...Array(11)].map((_, i) => {
- const count = products.filter(p => calcProduct(p, fxRates).score === i).length;
- const maxCount = Math.max(...[...Array(11)].map((_, j) => products.filter(p => calcProduct(p, fxRates).score === j).length), 1);
- return (
- <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
- <div style={{ 
- width: "100%", 
- height: (count / maxCount * 70) + "px", 
- background: scoreColor(i),
- borderRadius: "2px 2px 0 0",
- minHeight: count > 0 ? 4 : 0
- }} />
- <span style={{ fontSize: 9, color: "#8B949E" }}>{i}</span>
- </div>
- );
- })}
- </div>
- </Section>
- </div>
- );
-}
-
-function TradeAIPanel() {
- const { products, fxRates, p, calcP } = useAppContext();
- const suggestions = [];
- // Suggestion 1 : Optimisation prix
- if (calcP.netMargin < 15) {
- suggestions.push({
- icon: "💰",
- title: "Augmentez votre prix",
- desc: `Votre marge nette est de ${calcP.netMargin.toFixed(1)}%. Visez au moins 15% pour être rentable.`,
- color: "#FF9900"
- });
- }
- // Suggestion 2 : Publicité
- if (p.ads < 1 && p.units > 50) {
- suggestions.push({
- icon: "📢",
- title: "Activez la publicité PPC",
- desc: `Avec ${p.units} ventes/mois, un budget pub de 1-2€/unité boosterait votre visibilité.`,
- color: "#3B82F6"
- });
- }
- // Suggestion 3 : Arbitrage FBA
- if (calcP.arbitrageFBA) {
- suggestions.push({
- icon: "📦",
- title: "Optimisez votre taille FBA",
- desc: `Passez à "${calcP.arbitrageFBA.label}" pour économiser ${fmt(calcP.arbitrageFBA.saving)}/unité.`,
- color: "#00C853"
- });
- }
- // Suggestion 4 : Q4
- if (!p.isQ4) {
- suggestions.push({
- icon: "🎄",
- title: "Préparez Q4",
- desc: "Activez le mode Q4 pour anticiper les frais de stockage multipliés par 3 en fin d'année.",
- color: "#8B5CF6"
- });
- }
- // Suggestion 5 : Multi-marketplace
- const uniqueMk = new Set(products.map(p => p.marketplace)).size;
- if (uniqueMk < 3) {
- suggestions.push({
- icon: "🌍",
- title: "Étendez-vous à d'autres marketplaces",
- desc: `Vous n'êtes que sur ${uniqueMk} marketplace(s). DE, UK et IT offrent de belles opportunités.`,
- color: "#06B6D4"
- });
- }
-
- return (
- <div>
- <Section title="🤖 Assistant IA - Recommandations">
- <div style={{ padding: 16, background: "rgba(255,153,0,0.1)", border: "1px solid #FF990033", borderRadius: 9, marginBottom: 16 }}>
- <div style={{ fontSize: 14, fontWeight: 700, color: "#FF9900", marginBottom: 6 }}>
- 💡 {suggestions.length} suggestion{ suggestions.length > 1 ? 's' : '' } pour {p.name}
- </div>
- <div style={{ fontSize: 11, color: "#8B949E" }}>
- Analyse basée sur vos données actuelles et les meilleures pratiques Amazon FBA.
- </div>
- </div>
- {suggestions.map((s, i) => (
- <div key={i} style={{ 
- padding: 16, 
- background: "#1C2128", 
- border: `1px solid ${s.color}33`,
- borderLeft: `4px solid ${s.color}`,
- borderRadius: 9, 
- marginBottom: 10 
- }}>
- <div style={{ fontSize: 24, marginBottom: 8 }}>{s.icon}</div>
- <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 6, color: s.color }}>{s.title}</div>
- <div style={{ fontSize: 12, color: "#E6EDF3", lineHeight: 1.5 }}>{s.desc}</div>
- </div>
- ))}
- </Section>
- <Section title="📊 Benchmark du marché">
- <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
- <div style={{ padding: 12, background: "#1C2128", borderRadius: 8 }}>
- <div style={{ fontSize: 10, color: "#8B949E", marginBottom: 4 }}>Marge moyenne FBA</div>
- <div style={{ fontSize: 20, fontWeight: 800, color: "#FF9900" }}>18.5%</div>
- <div style={{ fontSize: 10, color: calcP.netMargin >= 18.5 ? "#00C853" : "#FF3D00", marginTop: 4 }}>
- {calcP.netMargin >= 18.5 ? "✓ Au-dessus" : "⚠ En-dessous"}
- </div>
- </div>
- <div style={{ padding: 12, background: "#1C2128", borderRadius: 8 }}>
- <div style={{ fontSize: 10, color: "#8B949E", marginBottom: 4 }}>ROI moyen FBA</div>
- <div style={{ fontSize: 20, fontWeight: 800, color: "#FF9900" }}>75%</div>
- <div style={{ fontSize: 10, color: calcP.roi >= 75 ? "#00C853" : "#FF3D00", marginTop: 4 }}>
- {calcP.roi >= 75 ? "✓ Au-dessus" : "⚠ En-dessous"}
- </div>
- </div>
- </div>
- </Section>
- </div>
- );
-}
-
-function StockPanel() {
- const { products, fxRates } = useAppContext();
- return (
- <div>
- <Section title="📦 Gestion des Stocks">
- <div style={{ display: "grid", gap: 10 }}>
- {products.map((prod, i) => {
- const c = calcProduct(prod, fxRates);
- const daysOfStock = prod.units > 0 ? (prod.initialOrderUnits / prod.units) * 30 : 0;
- const leadDays = prod.supplierLeadDays || 30;
- const status = daysOfStock <= leadDays * 0.5 ? "critical" : daysOfStock <= leadDays ? "warning" : "ok";
- const color = status === "critical" ? "#FF3D00" : status === "warning" ? "#FF9900" : "#00C853";
- return (
- <div key={i} style={{ 
- padding: 14, 
- background: "#1C2128", 
- border: `1px solid ${color}33`,
- borderLeft: `4px solid ${color}`,
- borderRadius: 9 
- }}>
- <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
- <div style={{ fontSize: 14, fontWeight: 700 }}>{prod.name}</div>
- <div style={{ fontSize: 11, fontWeight: 700, color }}>
- {status === "critical" ? "🚨 Critique" : status === "warning" ? "⚠️ Attention" : "✅ OK"}
- </div>
- </div>
- <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8, fontSize: 11 }}>
- <div>
- <div style={{ color: "#8B949E" }}>Stock</div>
- <div style={{ fontWeight: 700 }}>{prod.initialOrderUnits} u</div>
- </div>
- <div>
- <div style={{ color: "#8B949E" }}>Ventes/mois</div>
- <div style={{ fontWeight: 700 }}>{prod.units}</div>
- </div>
- <div>
- <div style={{ color: "#8B949E" }}>Couverture</div>
- <div style={{ fontWeight: 700, color }}>{daysOfStock.toFixed(0)} j</div>
- </div>
- <div>
- <div style={{ color: "#8B949E" }}>Délai</div>
- <div style={{ fontWeight: 700 }}>{leadDays} j</div>
- </div>
- </div>
- {status !== "ok" && (
- <div style={{ marginTop: 10, padding: 8, background: `${color}15`, borderRadius: 6, fontSize: 11, color }}>
- 💰 Perte estimée si rupture: <strong>{fmt((c.profit * prod.units / 30) * Math.max(0, leadDays - daysOfStock), c.sym)}</strong>
- </div>
- )}
- </div>
- );
- })}
- </div>
- </Section>
- <Section title="📊 Métriques globales">
- <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10 }}>
- <StatCard 
- label="Stock total" 
- value={products.reduce((s, p) => s + p.initialOrderUnits, 0) + " u"} 
- color="#FF9900" 
- />
- <StatCard 
- label="Valeur stock" 
- value={fmt(products.reduce((s, p) => s + (p.initialOrderUnits * p.costPrice), 0))} 
- color="#FFD600" 
- />
- <StatCard 
- label="Rotation/mois" 
- value={(products.reduce((s, p) => s + p.units, 0) / Math.max(1, products.reduce((s, p) => s + p.initialOrderUnits, 0)) * 100).toFixed(1) + "%"} 
- color="#00C853" 
- />
- </div>
- </Section>
- </div>
- );
-}
-
-function CompetitivePanel() {
- const { p, calcP, products, fxRates } = useAppContext();
- const competitors = [
- { name: "Concurrent A", price: p.sellingPrice * 0.95, rating: 4.2, reviews: 1240, fba: true },
- { name: "Concurrent B", price: p.sellingPrice * 1.10, rating: 4.5, reviews: 890, fba: true },
- { name: "Concurrent C", price: p.sellingPrice * 0.85, rating: 3.8, reviews: 320, fba: false },
- { name: "Marque Amazon", price: p.sellingPrice * 0.80, rating: 4.6, reviews: 5400, fba: true },
- ];
-
- return (
- <div>
- <Section title="🎯 Analyse Concurrentielle">
- <div style={{ padding: 14, background: "#1C2128", borderRadius: 9, marginBottom: 12 }}>
- <div style={{ fontSize: 12, color: "#8B949E", marginBottom: 8 }}>Votre positionnement</div>
- <div style={{ fontSize: 16, fontWeight: 800, color: "#FF9900", marginBottom: 4 }}>{p.name}</div>
- <div style={{ display: "flex", gap: 14, fontSize: 12 }}>
- <span>Prix: <strong>{fmt(p.sellingPrice, calcP.sym)}</strong></span>
- <span>Marge: <strong style={{ color: calcP.netMargin >= 15 ? "#00C853" : "#FF9900" }}>{calcP.netMargin.toFixed(1)}%</strong></span>
- <span>Score: <strong>{calcP.score}/10</strong></span>
- </div>
- </div>
- </Section>
- <Section title="👥 Concurrents Simulés">
- {competitors.map((c, i) => {
- const priceDiff = ((c.price - p.sellingPrice) / p.sellingPrice) * 100;
- return (
- <div key={i} style={{ 
- padding: 14, 
- background: "#1C2128", 
- borderRadius: 9, 
- marginBottom: 8,
- border: "1px solid #30363D"
- }}>
- <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
- <div style={{ fontSize: 13, fontWeight: 700 }}>{c.name} {c.fba && <span style={{ fontSize: 10, color: "#00C853" }}>FBA</span>}</div>
- <div style={{ fontSize: 14, fontWeight: 800, color: priceDiff < 0 ? "#FF3D00" : "#00C853" }}>
- {fmt(c.price, calcP.sym)} <span style={{ fontSize: 10, color: "#8B949E" }}>({priceDiff >= 0 ? "+" : ""}{priceDiff.toFixed(1)}%)</span>
- </div>
- </div>
- <div style={{ display: "flex", gap: 14, fontSize: 11, color: "#8B949E" }}>
- <span>⭐ {c.rating}</span>
- <span>💬 {c.reviews} avis</span>
- </div>
- </div>
- );
- })}
- </Section>
- <Section title="💡 Stratégies Recommandées">
- {[
- { title: "Prix d'appel", desc: "Positionnez-vous 5-10% sous le concurrent principal pour gagner en visibilité", color: "#00C853" },
- { title: "Différenciation", desc: "Mettez en avant vos avantages (livraison rapide, garantie, bundle)", color: "#3B82F6" },
- { title: "Avis clients", desc: `Avec ${competitors[0].reviews} avis chez le leader, visez 50-100 avis rapidement`, color: "#FF9900" },
- { title: "Publicité ciblée", desc: "Ciblez les mots-clés de vos concurrents avec un budget PPC agressif", color: "#8B5CF6" },
- ].map((s, i) => (
- <div key={i} style={{ 
- padding: 12, 
- background: "#1C2128", 
- borderLeft: `3px solid ${s.color}`,
- borderRadius: 6, 
- marginBottom: 8 
- }}>
- <div style={{ fontSize: 13, fontWeight: 700, color: s.color, marginBottom: 4 }}>{s.title}</div>
- <div style={{ fontSize: 11, color: "#E6EDF3", lineHeight: 1.5 }}>{s.desc}</div>
- </div>
- ))}
- </Section>
- </div>
- );
-}
+import AcademyPage from "./pages/core/AcademyPage";
+import FBACalculatorsPage from "./pages/core/FBACalculatorsPage";
+import AiPricePage from "./pages/core/AiPricePage";
+import SmartInsightsPage from "./pages/core/SmartInsightsPage";
+import CommunityPage from "./pages/core/CommunityPage";
+import ListingPage from "./pages/core/ListingPage";
+import KeywordPage from "./pages/core/KeywordPage";
+import ExtensionPage from "./pages/core/ExtensionPage";
+import EcosystemPage from "./pages/core/EcosystemPage";
+import V7RoadmapPage from "./pages/core/V7RoadmapPage";
+import AProposPage from "./pages/core/AProposPage";
+import NavigationTabs from "./components/layout/NavigationTabs";
+import ProductSelector from "./components/layout/ProductSelector";
+import Header from "./components/layout/Header";
+import AppRouter from "./components/layout/AppRouter";
+import FloatingChatButton from "./components/layout/FloatingChatButton";
+import useAppState from "./hooks/useAppState";
+import usePersistence from "./hooks/usePersistence";
+import useFxRates from "./hooks/useFxRates";
+import useImageSearch from "./hooks/useImageSearch";
+import DashboardPanel from "./components/panels/DashboardPanel";
+import AnalyticsPanel from "./components/panels/AnalyticsPanel";
+import TradeAIPanel from "./components/panels/TradeAIPanel";
+import StockPanel from "./components/panels/StockPanel";
+import CompetitivePanel from "./components/panels/CompetitivePanel";
+import { runAutomationEngine } from "./automation/automationEngine";
+import { runPredictiveEngine } from "./prediction/predictiveEngine";
+import { runGlobalSourcingEngine } from "./sourcing/globalSourcingEngine";
+import GlobalSourcingPanel from "./components/panels/GlobalSourcingPanel";
+import ConnectHubPanel from "./components/panels/ConnectHubPanel";
+import PredictiveDashboard from "./components/panels/PredictiveDashboard";
+import AutomationCenter from "./components/panels/AutomationCenter";
+import useToast from "./hooks/useToast";
+import useAutoDismissToast from "./hooks/useAutoDismissToast";
+import useAutoClearSaveStatus from "./hooks/useAutoClearSaveStatus";
+import "./styles/mobile-navigation-fix.css";
+import "./styles/professional-polish.css";
+import "./mobile-production-fixes.css";
 
 
 
 
 
+import NotificationCenter from "./components/NotificationCenter.jsx";
+// DashboardPanel extrait dans src/components/panels/DashboardPanel.jsx
 
+// AnalyticsPanel extrait dans src/components/panels/AnalyticsPanel.jsx
 
+// TradeAIPanel extrait dans src/components/panels/TradeAIPanel.jsx
+
+// StockPanel extrait dans src/components/panels/StockPanel.jsx
+
+// CompetitivePanel extrait dans src/components/panels/CompetitivePanel.jsx
 
 function CommunityHubPanel() {
   return <CommunityHub />;
@@ -1216,6 +938,10 @@ function FormationsShopPanel() {
   return <FormationsShop />;
 }
 
+function ListingBuilderPanel() {
+  return <ListingBuilder />;
+}
+
 function KeywordResearchPanel() {
   return <KeywordResearch />;
 }
@@ -1224,110 +950,97 @@ function ExtensionDataPanel() {
   return <ExtensionData />;
 }
 
-function ListingBuilderPanel() {
-  return <ListingBuilder />;
-}
-
 export default function AmazonPro() {
-  // États pour la recherche par image
-  const [uploadedImage, setUploadedImage] = React.useState(null);
 
-  const [activeTab, setActiveTab] = React.useState('dashboard');
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const {
+  uploadedImage,
+  imageResults,
+  amazonResults,
+  alibabaResults,
+  handleImageUpload,
+  searchOnAmazonAlibaba
+} = useImageSearch();
 
-  const [imageResults, setImageResults] = React.useState(false);
-  const [amazonResults, setAmazonResults] = React.useState([]);
-  const [alibabaResults, setAlibabaResults] = React.useState([]);
+ const {
+  tab, setTab,
+  activeTab, setActiveTab,
+  mobileMenuOpen, setMobileMenuOpen,
+  products, setProducts,
+  activeProduct, setActiveProduct,
+  fxRates, setFxRates,
+  loaded, setLoaded,
+  saveStatus, setSaveStatus,
+  toast, setToast,
+  chatOpen, setChatOpen,
+  showTutorial, setShowTutorial
+} = useAppState(defaultProduct);
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => setUploadedImage(reader.result);
-      reader.readAsDataURL(file);
-    }
-  };
+const [automationAlerts, setAutomationAlerts] = useState([]);
+const [predictiveInsights, setPredictiveInsights] = useState([]);
+const [globalSourcing, setGlobalSourcing] = useState([]);
 
-  const searchOnAmazonAlibaba = () => {
-    if (!uploadedImage) {
-      alert('Veuillez importer une image');
-      return;
-    }
-    setAmazonResults([
-      { name: 'Produit Amazon 1', price: '€29.99', image: uploadedImage },
-      { name: 'Produit Amazon 2', price: '€34.99', image: uploadedImage }
-    ]);
-    setAlibabaResults([
-      { name: 'Produit Alibaba 1', price: '€5.50', image: uploadedImage },
-      { name: 'Produit Alibaba 2', price: '€4.20', image: uploadedImage }
-    ]);
-    setImageResults(true);
-  };
+ useFxRates(setFxRates);
 
- const [tab, setTab] = useState("calculateur");
- const [products, setProducts] = useState([defaultProduct("Coque iPhone 17 Transparente 456")]);
- const [activeProduct, setActiveProduct] = useState(0);
- const [fxRates, setFxRates] = useState(null);
- const [loaded, setLoaded] = useState(false);
- const [saveStatus, setSaveStatus] = useState("");
- const [toast, setToast] = useState(null);
-  const [chatOpen, setChatOpen] = useState(false);
-  const [showTutorial, setShowTutorial] = useState(false);
+ usePersistence({
+  loaded,
+  products,
+  setProducts,
+  safeStorageGet,
+  safeStorageSet,
+  setLoaded,
+  setSaveStatus
+});
 
- useEffect(() => {
- fetch("https://open.er-api.com/v6/latest/EUR")
- .then(res => res.json())
- .then(data => setFxRates(data.rates))
- .catch(e => console.log("FX API unavailable", e));
- }, []);
+useAutoClearSaveStatus({
+  saveStatus,
+  setSaveStatus
+});
 
- useEffect(() => {
- (async () => {
- try {
- const saved = await safeStorageGet("products");
- if (saved) {
- const parsed = JSON.parse(saved);
- if (Array.isArray(parsed) && parsed.length > 0) setProducts(parsed);
- }
- } catch (e) {}
- finally { setLoaded(true); }
- })();
- }, []);
+useEffect(() => {
+  if (!products?.length) return;
 
- useEffect(() => {
- if (!loaded) return;
- setSaveStatus("saving");
- const t = setTimeout(async () => {
- const ok = await safeStorageSet("products", JSON.stringify(products));
- setSaveStatus(ok ?"saved":"error");
- }, 600);
+  const alerts = runAutomationEngine({
+    products,
+    fxRates,
+    calcProduct
+  });
 
-  // Rendu des nouveaux onglets
-  if (activeTab === 'academy') return <FBAAcademyPanel />;
-  if (activeTab === 'calculators') return <FBACalculatorsPanel />;
-  if (activeTab === 'aiprice') return <AiPriceToolPanel />;
-  if (activeTab === 'insights') return <SmartInsightsPanel />;
-  if (activeTab === 'community') return <CommunityHubPanel />;
-  if (activeTab === 'keywords') return <KeywordResearchPanel />;
-  if (activeTab === 'extension') return <ExtensionDataPanel />;
-  if (activeTab === 'listing') return <ListingBuilderPanel />;
+  setAutomationAlerts(alerts);
+}, [products, fxRates]);
 
- return () => clearTimeout(t);
- }, [products, loaded]);
+useEffect(() => {
+  if (!products?.length) return;
 
- useEffect(() => {
- if (saveStatus ==="saved") {
- const t = setTimeout(() => setSaveStatus(""), 1800);
- return () => clearTimeout(t);
- }
- }, [saveStatus]);
+  const predictions = runPredictiveEngine({
+    products,
+    fxRates,
+    calcProduct
+  });
+
+  setPredictiveInsights(predictions);
+}, [products, fxRates]);
+
+
+useEffect(() => {
+  if (!products?.length) return;
+
+  const sourcing = runGlobalSourcingEngine({
+    product: products[0],
+    products,
+    fxRates,
+    calcProduct
+  });
+
+  setGlobalSourcing(sourcing);
+}, [products, fxRates]);
+
 
  const updateProduct = useCallback((idx, key, val) => {
  setProducts(prev => prev.map((p, i) => i === idx ? { ...p, [key]: val } : p));
  }, []);
 
  const addProduct = () => {
-const randomCategory = Math.floor(Math.random() * 11);
+const randomCategory = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296 * 11);
 const randomName = getRandomProductName(randomCategory);
 setProducts(prev => [...prev, defaultProduct(randomName)]);
 setActiveProduct(products.length);
@@ -1353,6 +1066,7 @@ setActiveProduct(products.length);
  setToast({ message:"💾 Historique sauvegardé", type:"success"});
  return newHistory;
  };
+
 
   // Vérifier si c'est le premier lancement
   useEffect(() => {
@@ -1389,169 +1103,88 @@ setActiveProduct(products.length);
  <ThemeProvider>
       <AppContext.Provider value={contextValue}>
  <div style={{ minHeight:"100vh", background:"#0D1117", color:"#E6EDF3", fontFamily:"'Inter', system-ui, sans-serif", paddingBottom: 60 }}>
- <div style={{ background:"#161B22", borderBottom:"1px solid #21262D", padding:"14px 16px", position:"sticky", top: 0, zIndex: 100 }}>
- <div style={{ maxWidth: 1100, margin:"0 auto"}}>
- <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom: 10 }}>
- <div style={{ display:"flex", alignItems:"center", gap: 10 }}>
- <img src="/images/logo.svg" alt="Amazon Profit Pro" style={{ width: 32, height: 32 }} />
-<span style={{ fontSize: 12, color: "var(--text-secondary)", marginLeft: 10 }}>v6.0.0</span>
-{/* Burger Menu Button */}
-<button
-  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  style={{
-    display: 'block',
-    background: 'none',
-    border: 'none',
-    color: 'var(--text-primary)',
-    fontSize: 28,
-    cursor: 'pointer',
-    padding: '4px 8px',
-    marginLeft: 'auto'
-  }}
-  aria-label="Menu"
->
-  {mobileMenuOpen ? '✕' : '☰'}
-</button>
+ <Header
+  saveStatus={saveStatus}
+  mobileMenuOpen={mobileMenuOpen}
+  setMobileMenuOpen={setMobileMenuOpen}
+/>
 
-  {/* Menu Mobile Déroulant */}
-  {mobileMenuOpen && (
-    <div style={{
-      display: 'block',
-      position: 'fixed',
-      top: 70,
-      left: 10,
-      right: 10,
-      background: 'var(--bg-secondary)',
-      borderRadius: 12,
-      padding: 15,
-      boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-      zIndex: 1000,
-      maxHeight: '70vh',
-      overflowY: 'auto'
-    }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <button onClick={() => { setActiveTab('dashboard'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📊 Dashboard</button>
-        <button onClick={() => { setActiveTab('analytics'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📈 Analytics</button>
-        <button onClick={() => { setActiveTab('tradeai'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🤖 TradeAI</button>
-        <button onClick={() => { setActiveTab('stocks'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📦 Stocks</button>
-        <button onClick={() => { setActiveTab('concurrents'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎯 Concurrents</button>
-        <button onClick={() => { setActiveTab('about'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>️ À propos</button>
-        <button onClick={() => { setActiveTab('ideas'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💡 Idées</button>
-        <button onClick={() => { setActiveTab('calcul'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧮 Calcul</button>
-        <button onClick={() => { setActiveTab('cogs'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}> COGS</button>
-        <button onClick={() => { setActiveTab('pricing'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💵 Pricing</button>
-        <button onClick={() => { setActiveTab('portfolio'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📊 Portfolio</button>
-        <button onClick={() => { setActiveTab('historique'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🕐 Historique</button>
-        <button onClick={() => { setActiveTab('abonnements'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>💎 Abonnements</button>
-        <button onClick={() => { setActiveTab('formations'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎓 Formations</button>
-        <button onClick={() => { setActiveTab('academy'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📚 Académie</button>
-        <button onClick={() => { setActiveTab('calculators'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧮 Calculateurs</button>
-        <button onClick={() => { setActiveTab('aiprice'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🎯 AiPrice</button>
-        <button onClick={() => { setActiveTab('insights'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🧠 Smart Insights</button>
-        <button onClick={() => { setActiveTab('community'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🌱 Communauté</button>
-        <button onClick={() => { setActiveTab('listing'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>📝 Listing</button>
-        <button onClick={() => { setActiveTab('keywords'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🔍 Keywords</button>
-        <button onClick={() => { setActiveTab('extension'); setMobileMenuOpen(false); }} style={{ padding: 12, background: 'var(--bg-tertiary)', border: 'none', borderRadius: 8, color: 'var(--text-primary)', textAlign: 'left', cursor: 'pointer' }}>🚀 Extension</button>
+<NavigationTabs
+  tabs={TABS}
+  tabLabels={TAB_LABELS}
+  activeTab={activeTab}
+  mobileMenuOpen={mobileMenuOpen}
+  setMobileMenuOpen={setMobileMenuOpen}
+  automationAlerts={automationAlerts}
+  predictiveInsights={predictiveInsights}
+  globalSourcing={globalSourcing}
+  setTab={setTab}
+  setActiveTab={setActiveTab}
+  tabToActive={TAB_TO_ACTIVE}
+/>
 
-      </div>
-    </div>
-  )}
+<div style={{ maxWidth: 1100, margin:"0 auto", padding:"20px 14px 0"}}>
+ <ProductSelector
+  products={products}
+  activeProduct={activeProduct}
+  setActiveProduct={setActiveProduct}
+  addProduct={addProduct}
+  removeProduct={removeProduct}
+/>
 
-
-<ThemeToggle />
-
- <div>
- <div style={{ fontSize: 16, fontWeight: 800 }}>Amazon Profit <span style={{ color:"#FF9900"}}>Pro</span></div>
- <div style={{ fontSize: 10, color:"#00C853"}}>
- {saveStatus ==="saving"&&"· enregistrement…"}
- {saveStatus ==="saved"&&"· ✓ enregistré"}
- </div>
- </div>
- </div>
- </div>
- <div style={{ display:"flex", gap: 4, overflowX:"auto", paddingBottom: 2 }}>
- {TABS.map(t => (
- <button key={t} onClick={() => { setTab(t); setActiveTab(t); }} tabIndex={0} aria-label={TAB_LABELS[t]} style={{
- padding:"6px 12px", borderRadius: 20, border:"none", cursor:"pointer", fontSize: 11, fontWeight: 600,
- background: tab === t ?"#FF9900":"#21262D", color: tab === t ?"#0D1117":"#8B949E", transition:"all 0.2s",
- }}>{TAB_LABELS[t]}</button>
- ))}
- </div>
- </div>
- </div>
-
- <div style={{ maxWidth: 1100, margin:"0 auto", padding:"20px 14px 0"}}>
- <div style={{ display:"flex", gap: 6, marginBottom: 16, flexWrap:"wrap"}}>
- {products.map((prod, idx) => (
- <button key={idx} onClick={() => setActiveProduct(idx)} tabIndex={0} aria-label={`Produit ${prod.name}`} style={{
- padding:"6px 12px", borderRadius: 20, border:`1px solid ${activeProduct === idx ?"#FF9900":"#30363D"}`,
- background: activeProduct === idx ?"#FF990020":"#161B22",
- color: activeProduct === idx ?"#FF9900":"#8B949E",
- fontSize: 11, cursor:"pointer", fontWeight: 600,
- }}>
- {prod.name}
- </button>
- ))}
- <button onClick={addProduct} tabIndex={0} aria-label="Ajouter un produit"style={{ padding:"6px 12px", borderRadius: 20, border:"1px dashed #30363D", background:"transparent", color:"#8B949E", fontSize: 11, cursor:"pointer"}}>
- + Ajouter
- </button>
- {products.length > 1 && <button onClick={() => removeProduct(activeProduct)} tabIndex={0} style={{ padding:"6px 10px", borderRadius: 20, border:"1px solid #FF3D0033", background:"#FF3D0010", color:"#FF3D00", fontSize: 11, cursor:"pointer"}}>✕</button>}
- </div>
-
- {activeTab === "dashboard" && <DashboardPanel />}
-        {activeTab === "analytics" && <AnalyticsPanel />}
-        {activeTab === "tradeai" && <TradeAIPanel />}
-        {activeTab === "stocks" && <StockPanel />}
-        {activeTab === "concurrents" && <CompetitivePanel />}
-        {activeTab === "about" && <About />}
-        {activeTab === "ideas" && <IdeesPanel />}
-        {activeTab === "calcul" && <CalculateurPanel />}
-        {activeTab === "cogs" && <COGSPanel p={p} u={u} sym={sym} />}
-        {activeTab === "pricing" && <PricingPanel />}
-        {activeTab === "portfolio" && <PortfolioPanel />}
-        {activeTab === "historique" && <HistoriquePanel />}
-            {activeTab === "abonnements" && <Pricing />}
-            {activeTab === "formations" && <FormationsShop />}
-
-        {activeTab === "academy" && <FBAAcademyPanel />}
-        {activeTab === "calculators" && <FBACalculatorsPanel />}
-        {activeTab === "aiprice" && <AiPriceToolPanel />}
-        {activeTab === "insights" && <SmartInsightsPanel />}
-        {activeTab === "community" && <CommunityHubPanel />}
-        {activeTab === "listing" && <ListingBuilderPanel />}
-        {activeTab === "keywords" && <KeywordResearchPanel />}
-        {activeTab === "extension" && <ExtensionDataPanel />}
+<AppRouter
+  activeTab={activeTab}
+  products={products}
+  activeProduct={activeProduct}
+  p={p}
+  u={u}
+  mk={mk}
+  sym={sym}
+  calcP={calcP}
+  cashFlow={cashFlow}
+  pCol={pCol}
+  fxRates={fxRates}
+  setProducts={setProducts}
+  setTab={setTab}
+  setToast={setToast}
+  saveCurrentToHistory={saveCurrentToHistory}
+  safeStorageGet={safeStorageGet}
+  handleImageUpload={handleImageUpload}
+  searchOnAmazonAlibaba={searchOnAmazonAlibaba}
+  imageResults={imageResults}
+  amazonResults={amazonResults}
+  alibabaResults={alibabaResults}
+  MARKETPLACES={MARKETPLACES}
+  CATEGORIES={CATEGORIES}
+  TRENDING_PRODUCTS={TRENDING_PRODUCTS}
+  calcProduct={calcProduct}
+  profitColor={profitColor}
+  scoreColor={scoreColor}
+  Section={Section}
+  StatCard={StatCard}
+  SelectField={SelectField}
+  InputField={InputField}
+  ScoreGauge={ScoreGauge}
+  ProfitMeter={ProfitMeter}
+  CashFlowChart={CashFlowChart}
+  MultiProductCashFlow={MultiProductCashFlow}
+  PriceComparisonChart={PriceComparisonChart}
+  PortfolioExportButton={PortfolioExportButton}
+  RestockAlert={RestockAlert}
+  fmt={fmt}
+  fmtPct={fmtPct}
+/>
 
  </div>
  </div>
+
       {showTutorial && <Tutorial onClose={closeTutorial} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
-      {/* Bouton Assistant IA flottant */}
-      <button
-        onClick={() => setChatOpen(true)}
-        style={{
-          position: 'fixed',
-          bottom: 20,
-          right: 20,
-          width: 60,
-          height: 60,
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #FF9900 0%, #FFB800 100%)',
-          border: 'none',
-          boxShadow: '0 4px 16px rgba(255,153,0,0.4)',
-          cursor: 'pointer',
-          fontSize: 28,
-          zIndex: 1000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-        aria-label="Ouvrir l'assistant IA"
-      >
-        🤖
-      </button>
-      {chatOpen && <ChatAssistant 
-        isOpen={chatOpen} 
+
+      {activeTab !== "aiprice" && <FloatingChatButton onClick={() => setChatOpen(true)} />}
+
+{chatOpen && <ChatAssistant
+        isOpen={chatOpen}
         onClose={() => setChatOpen(false)}
         products={products}
         activeProduct={activeProduct}

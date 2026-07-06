@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Calculateur de profit Amazon FBA/FBM - Calculez vos marges, ROI et cash-flow en quelques clics" />
-    <meta name="keywords" content="Amazon FBA, calculateur profit, marge Amazon, ROI, seller central, FBA calculator" />
-    <meta property="og:title" content="Amazon Profit Pro Élite" />
-    <meta property="og:description" content="Le calculateur de profit le plus complet pour vendeurs Amazon" />
+
+    <meta name="keywords" content="TradeAI Global, e-commerce, rentabilité, sourcing, stock, devises, automatisation, business intelligence" />
+
     <meta property="og:type" content="website" />
-    <title>Amazon Profit Pro Élite - Calculateur FBA/FBM</title>
-  
+    <title>TradeAI Global - Plateforme e-commerce intelligence</title>
+
   <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#FF9900">
   <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Profit Pro">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  
+  <meta name="apple-mobile-web-app-title" content="TradeAI Global">
+  <link rel="apple-touch-icon" href="/icons/icon-192.svg">
+
   <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .then(registration => console.log('✅ SW enregistré:', registration))
-          .catch(error => console.log('❌ SW échec:', error));
+          .then(() => {})
+          .catch(() => {});
       });
     }
   </script>
@@ -33,26 +33,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://vercel.com" />
-  <link rel="preconnect" href="https://api.knock.app" />
-  
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Amazon Profit Pro - Outil gratuit d'analyse de rentabilité Amazon FBA. Calculez vos marges, comparez avec Alibaba, exportez en PDF.">
-  <meta name="keywords" content="Amazon FBA, rentabilité, marge, Alibaba, arbitrage, e-commerce">
-  <meta name="author" content="Amazon Profit Pro">
-  
+  <meta name="description" content="TradeAI Global centralise l'analyse de rentabilité, le sourcing, le stock, les devises et l'aide à la décision e-commerce.">
+  <meta name="keywords" content="TradeAI Global, rentabilité e-commerce, sourcing, marketplace, marge, stock, devises, automatisation">
+  <meta name="author" content="TradeAI Global">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://trade-ai-global.vercel.app/">
-  <meta property="og:title" content="Amazon Profit Pro - Analyse de Rentabilité Amazon">
-  <meta property="og:description" content="Trouvez des produits rentables sur Amazon. Calcul automatique des marges, export PDF, 10 visualisations exclusives.">
+  <meta property="og:title" content="TradeAI Global - Intelligence e-commerce, sourcing et rentabilité">
+  <meta property="og:description" content="Analysez vos opportunités e-commerce, vos marges, votre sourcing et vos indicateurs de décision depuis une plateforme unifiée.">
   <meta property="og:image" content="/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://trade-ai-global.vercel.app/">
-  <meta property="twitter:title" content="Amazon Profit Pro - Analyse de Rentabilité Amazon">
-  <meta property="twitter:description" content="Trouvez des produits rentables sur Amazon. Calcul automatique des marges, export PDF.">
+  <meta property="twitter:title" content="TradeAI Global - Intelligence e-commerce, sourcing et rentabilité">
+  <meta property="twitter:description" content="Analysez vos opportunités e-commerce, vos marges, votre sourcing et vos indicateurs de décision.">
   <meta property="twitter:image" content="/og-image.png">
 
   <!-- Structured Data -->
@@ -60,7 +58,7 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Amazon Profit Pro",
+    "name": "TradeAI Global",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -68,13 +66,13 @@
       "price": "0",
       "priceCurrency": "EUR"
     },
-    "description": "Outil gratuit d'analyse de rentabilité pour Amazon FBA"
+    "description": "Plateforme d'intelligence e-commerce pour la rentabilité, le sourcing et l'aide à la décision"
   }
   </script>
   <link rel="canonical" href="https://trade-ai-global.vercel.app/">
 </head>
   <body>
-  <h1 style="position:absolute;left:-9999px;">Amazon Profit Pro - Calculateur de Rentabilité FBA/FBM</h1>
+  <h1 style="position:absolute;left:-9999px;">TradeAI Global - Plateforme e-commerce intelligence, sourcing et rentabilité</h1>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

@@ -4,6 +4,6 @@ import App from '../App';
 describe('App', () => {
   test('renders without crashing', () => {
     render(<App />);
-    expect(screen.getByText(/Amazon Profit Pro/i)).toBeInTheDocument();
+    expect(screen.getByText(/TradeAI Global/i)).toBeInTheDocument();
   });
 });

@@ -22,7 +22,7 @@ const Pricing = () => {
     },
     {
       name: "Pro",
-      price: "9.99€",
+      price: "19.99€",
       period: "/mois",
       features: [
         "✅ Tout du gratuit",
@@ -40,16 +40,16 @@ const Pricing = () => {
     },
     {
       name: "Elite",
-      price: "29.99€",
+      price: "49.99€",
       period: "/mois",
       features: [
         "✅ Tout du Pro",
-        "✅ API Amazon intégrée",
+        "✅ Connecteurs marketplace avancés",
         "✅ Alertes automatiques",
-        "✅ Formation vidéo exclusive",
+        "✅ Formation e-commerce exclusive",
         "✅ Consultation mensuelle (30min)",
         "✅ Fonctionnalités beta",
-        "✅ Support WhatsApp",
+        "✅ Support prioritaire",
         "✅ Accès communauté privée"
       ],
       cta: "Choisir Elite",
@@ -59,9 +59,9 @@ const Pricing = () => {
   ];
 
   const formations = [
-    { title: "Débuter sur Amazon FBA", duration: "4h30", level: "Débutant", icon: "🎓" },
-    { title: "Optimisation SEO Amazon", duration: "3h15", level: "Intermédiaire", icon: "🔍" },
-    { title: "Publicité PPC Avancée", duration: "5h00", level: "Avancé", icon: "📢" },
+    { title: "Débuter en e-commerce rentable", duration: "4h30", level: "Débutant", icon: "🎓" },
+    { title: "Optimisation SEO marketplace", duration: "3h15", level: "Intermédiaire", icon: "🔍" },
+    { title: "Publicité marketplace avancée", duration: "5h00", level: "Avancé", icon: "📢" },
     { title: "Scaling & Automatisation", duration: "4h00", level: "Expert", icon: "🚀" }
   ];
 
@@ -181,7 +181,14 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button style={{
+              <button
+                type="button"
+                                onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                  detail: {
+                                    type: 'info',
+                                    message: `Offre « ${plan.name || plan.title || 'sélectionnée'} » : activation en préparation.`
+                                  }
+                                }))} style={{
                 width: '100%',
                 padding: '16px',
                 background: plan.popular ? 'linear-gradient(135deg, #FF9900 0%, #FFB800 100%)' : '#21262D',
@@ -231,7 +238,7 @@ const Pricing = () => {
             marginBottom: 32,
             fontSize: 16
           }}>
-            Accédez à des formations vidéo exclusives pour maîtriser Amazon FBA
+            Accédez à des formations vidéo exclusives pour maîtriser le sourcing, la rentabilité et les opérations e-commerce
           </p>
           
           <div style={{ 
@@ -306,9 +313,9 @@ const Pricing = () => {
           
           <div style={{ display: 'grid', gap: 16 }}>
             {[
-              { q: "Puis-je changer de plan à tout moment ?", a: "Oui, vous pouvez upgrader ou downgrader votre plan à tout moment. Le changement prend effet immédiatement." },
-              { q: "Y a-t-il une période d'engagement ?", a: "Non, tous nos plans sont sans engagement. Vous pouvez annuler à tout moment." },
-              { q: "Comment fonctionne la garantie satisfait ou remboursé ?", a: "Nous offrons une garantie de 30 jours. Si vous n'êtes pas satisfait, nous vous remboursons intégralement." },
+              { q: "Puis-je changer de plan à tout moment ?", a: "Oui, vous pourrez faire évoluer votre formule selon les options disponibles dans votre espace client." },
+              { q: "Y a-t-il une période d'engagement ?", a: "Les modalités d’abonnement seront affichées clairement avant toute souscription." },
+              { q: "Comment fonctionne la garantie satisfait ou remboursé ?", a: "Les conditions commerciales seront précisées lors de l’activation du paiement sécurisé." },
               { q: "Les formations sont-elles incluses dans le plan Gratuit ?", a: "Non, les formations sont réservées aux plans Pro et Elite. Le plan Gratuit donne accès aux fonctionnalités de base." }
             ].map((faq, i) => (
               <div key={i} style={{

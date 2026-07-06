@@ -1,0 +1,591 @@
+/* =========================================================
+   TRADEAI GLOBAL — PROFESSIONAL B2B SAAS UI
+   Visual-only override. No business logic.
+   ========================================================= */
+
+:root {
+  --b2b-bg: #0b0f15;
+  --b2b-surface: #121821;
+  --b2b-surface-2: #171e29;
+  --b2b-surface-3: #1c2430;
+  --b2b-border: rgba(148, 163, 184, 0.14);
+  --b2b-border-strong: rgba(148, 163, 184, 0.22);
+  --b2b-text: #f3f4f6;
+  --b2b-muted: #9ca3af;
+  --b2b-subtle: #6b7280;
+  --b2b-accent: #f59e0b;
+  --b2b-accent-soft: rgba(245, 158, 11, 0.12);
+  --b2b-success: #22c55e;
+  --b2b-danger: #ef4444;
+  --b2b-radius-sm: 8px;
+  --b2b-radius-md: 10px;
+  --b2b-radius-lg: 12px;
+  --b2b-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+html {
+  background: var(--b2b-bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--b2b-bg);
+  color: var(--b2b-text);
+  letter-spacing: -0.008em;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+}
+
+p {
+  line-height: 1.58;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ---------- Surfaces ---------- */
+
+section,
+article {
+  border-radius: var(--b2b-radius-lg);
+}
+
+.card,
+.panel,
+.widget,
+.metric-card,
+.stat-card,
+.dashboard-card,
+.analytics-card {
+  border-radius: var(--b2b-radius-md) !important;
+  border-color: var(--b2b-border) !important;
+  box-shadow: none !important;
+}
+
+/* Avoid nested toy-like cards */
+.card .card,
+.panel .panel,
+section section,
+article article {
+  border-radius: var(--b2b-radius-sm) !important;
+}
+
+/* ---------- Buttons ---------- */
+
+button {
+  border-radius: var(--b2b-radius-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+button:hover {
+  filter: brightness(1.04);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(245, 158, 11, 0.7);
+  outline-offset: 2px;
+}
+
+/* ---------- Reduce excessive orange glow ---------- */
+
+[style*="box-shadow"][style*="orange"],
+[style*="box-shadow"][style*="#ff"],
+[style*="box-shadow"][style*="#f5"] {
+  box-shadow: var(--b2b-shadow) !important;
+}
+
+/* ---------- Floating assistant ---------- */
+
+.floating-chat-button,
+.chat-floating-button,
+.chatbot-floating-button,
+.chatbot-button,
+.ai-chat-button,
+button[aria-label*="chat" i],
+button[aria-label*="assistant" i] {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 12px !important;
+  background: var(--b2b-surface-3) !important;
+  border: 1px solid var(--b2b-border-strong) !important;
+  box-shadow: var(--b2b-shadow) !important;
+  filter: saturate(0.7) !important;
+  opacity: 0.94 !important;
+}
+
+/* ---------- Navigation ---------- */
+
+nav,
+[role="navigation"] {
+  scrollbar-width: none;
+}
+
+nav::-webkit-scrollbar,
+[role="navigation"]::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Desktop refinement ---------- */
+
+@media (min-width: 769px) {
+  main {
+    min-width: 0;
+  }
+
+  .card,
+  .panel,
+  .widget {
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .card:hover,
+  .panel:hover,
+  .widget:hover {
+    border-color: var(--b2b-border-strong) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE — SAMSUNG / ANDROID / PWA
+   ========================================================= */
+
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 8vw, 2.45rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 6vw, 1.85rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1.05rem, 4.5vw, 1.3rem) !important;
+  }
+
+  /* Main content must use mobile width correctly */
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Cards: tighter, enterprise density */
+  .card,
+  .panel,
+  .widget,
+  .metric-card,
+  .stat-card,
+  .dashboard-card,
+  .analytics-card {
+    border-radius: 10px !important;
+    box-shadow: none !important;
+  }
+
+  /* Horizontal top navigation:
+     readable touch targets instead of desktop UI shrunk down */
+  nav {
+    max-width: 100%;
+  }
+
+  nav button,
+  nav a,
+  [role="navigation"] button,
+  [role="navigation"] a {
+    min-height: 36px;
+    white-space: nowrap;
+  }
+
+  /* Generic mobile drawer/sidebar normalization */
+  [class*="drawer" i],
+  [class*="mobile-menu" i],
+  [class*="mobileMenu"],
+  [class*="sidebar" i] {
+    max-width: min(88vw, 360px) !important;
+  }
+
+  [class*="drawer" i] button,
+  [class*="mobile-menu" i] button,
+  [class*="mobileMenu"] button,
+  [class*="sidebar" i] button {
+    min-height: 46px !important;
+    height: auto !important;
+    padding: 11px 14px !important;
+    border-radius: 9px !important;
+    font-size: 0.96rem !important;
+    line-height: 1.25 !important;
+    box-shadow: none !important;
+  }
+
+  [class*="drawer" i] a,
+  [class*="mobile-menu" i] a,
+  [class*="mobileMenu"] a,
+  [class*="sidebar" i] a {
+    min-height: 46px !important;
+    padding: 11px 14px !important;
+    border-radius: 9px !important;
+    font-size: 0.96rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Reduce giant vertical gaps in navigation lists */
+  [class*="drawer" i] ul,
+  [class*="mobile-menu" i] ul,
+  [class*="mobileMenu"] ul,
+  [class*="sidebar" i] ul {
+    gap: 6px !important;
+  }
+
+  [class*="drawer" i] li,
+  [class*="mobile-menu" i] li,
+  [class*="mobileMenu"] li,
+  [class*="sidebar" i] li {
+    margin-block: 3px !important;
+  }
+
+  /* Assistant: discreet and clear of Android safe area */
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i],
+  button[aria-label*="assistant" i] {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    right: 14px !important;
+    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    border-radius: 11px !important;
+  }
+
+  /* Tables must not destroy mobile viewport */
+  table {
+    max-width: 100%;
+  }
+
+  .table-wrapper,
+  [class*="table-container" i] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Inputs: professional mobile sizing */
+  input,
+  select,
+  textarea {
+    min-height: 42px;
+    border-radius: 8px !important;
+  }
+
+  /* Prevent oversized pills */
+  [class*="badge" i],
+  [class*="chip" i],
+  [class*="pill" i] {
+    max-width: 100%;
+    border-radius: 7px !important;
+  }
+
+  /* Images remain controlled */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------- Small phones ---------- */
+
+@media (max-width: 430px) {
+  body {
+    font-size: 14px;
+  }
+
+  [class*="drawer" i],
+  [class*="mobile-menu" i],
+  [class*="mobileMenu"],
+  [class*="sidebar" i] {
+    max-width: 92vw !important;
+  }
+
+  [class*="drawer" i] button,
+  [class*="mobile-menu" i] button,
+  [class*="mobileMenu"] button,
+  [class*="sidebar" i] button,
+  [class*="drawer" i] a,
+  [class*="mobile-menu" i] a,
+  [class*="mobileMenu"] a,
+  [class*="sidebar" i] a {
+    min-height: 44px !important;
+    padding: 10px 12px !important;
+    font-size: 0.92rem !important;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* V7 ROADMAP — PROFESSIONAL B2B */
+.v7-roadmap-page {
+  display: grid;
+  gap: 22px;
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: clamp(16px, 2.5vw, 32px);
+}
+
+.v7-roadmap-hero,
+.v7-roadmap-section,
+.v7-roadmap-note {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: var(--bg-card);
+}
+
+.v7-roadmap-hero {
+  padding: clamp(22px, 4vw, 48px);
+}
+
+.v7-roadmap-kicker {
+  margin: 0 0 8px;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.v7-roadmap-hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.v7-roadmap-lead {
+  max-width: 820px;
+  margin: 18px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.v7-roadmap-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.v7-roadmap-summary > div {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+}
+
+.v7-roadmap-summary span {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.v7-roadmap-summary strong {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+}
+
+.v7-roadmap-section {
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.v7-roadmap-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.v7-roadmap-heading h2 {
+  margin: 0;
+}
+
+.v7-roadmap-heading > p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.v7-plugin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.v7-plugin-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 15px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+}
+
+.v7-plugin-card span {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.v7-plugin-card .is-active {
+  color: #9FE3B0;
+  background: rgba(46, 160, 67, 0.14);
+}
+
+.v7-plugin-card .is-inactive {
+  color: var(--text-secondary);
+  background: rgba(139, 148, 158, 0.10);
+}
+
+.v7-phase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.v7-phase-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--bg-secondary);
+}
+
+.v7-phase-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.v7-phase-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.v7-phase-header span {
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.v7-phase-card ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: var(--text-secondary);
+}
+
+.v7-phase-card li {
+  margin: 8px 0;
+  line-height: 1.45;
+}
+
+.v7-roadmap-note {
+  padding: 20px;
+}
+
+.v7-roadmap-note p {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .v7-roadmap-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .v7-phase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v7-roadmap-heading {
+    display: grid;
+  }
+}
+
+@media (max-width: 560px) {
+  .v7-roadmap-page {
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .v7-roadmap-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .v7-plugin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v7-phase-header {
+    display: grid;
+  }
+
+  .v7-phase-header span {
+    justify-self: start;
+  }
+}

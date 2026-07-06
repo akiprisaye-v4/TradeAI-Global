@@ -14,8 +14,13 @@ export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     // Vérifier localStorage ou préférence système
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved) return saved === 'dark';
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved === 'dark';
+      } catch {
+        // Stockage indisponible : fallback sur la préférence système.
+      }
+
       return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     return true; // Par défaut : sombre
@@ -24,7 +29,12 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     // Appliquer le thème au body
     document.body.className = isDark ? 'theme-dark' : 'theme-light';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    try {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch {
+      // Stockage indisponible : le thème reste appliqué pour la session.
+    }
   }, [isDark]);
 
   const toggleTheme = () => setIsDark(!isDark);

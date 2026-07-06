@@ -1,0 +1,1174 @@
+/*
+ * TradeAI Global v7
+ * Correctifs responsive mobile de production
+ * Patch isolé et réversible
+ */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+/* Empêche les enfants flex/grid de provoquer un overflow */
+main,
+section,
+article,
+div {
+  min-width: 0;
+}
+
+/* Mobile réel */
+@media (max-width: 768px) {
+  /*
+   * La navigation principale mobile passe par le burger.
+   * Cible les barres horizontales usuelles sans toucher au menu overlay.
+   */
+  .tabs,
+  .tab-bar,
+  .tabs-bar,
+  .desktop-tabs,
+  .desktop-nav,
+  .top-tabs,
+  .nav-tabs,
+  .horizontal-nav,
+  .navigation-tabs {
+    display: none !important;
+  }
+
+  /*
+   * Les conteneurs de contenu doivent occuper la largeur disponible.
+   */
+  main,
+  .main,
+  .main-content,
+  .content,
+  .page,
+  .page-content,
+  .dashboard,
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /*
+   * Conversion des grilles desktop en une colonne.
+   * Corrige notamment les panneaux type Connect Hub.
+   */
+  .grid,
+  .cards-grid,
+  .stats-grid,
+  .dashboard-grid,
+  .connect-grid,
+  .api-grid,
+  .modules-grid,
+  .features-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /*
+   * Cartes : aucun débordement horizontal.
+   */
+  .card,
+  .panel,
+  .module-card,
+  .stat-card,
+  .api-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere;
+  }
+
+  /*
+   * Formulaires mobiles.
+   */
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
+
+  /*
+   * Tables larges : scroll local au lieu de casser toute la page.
+   */
+  table {
+    max-width: 100%;
+  }
+
+  .table-wrapper,
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /*
+   * Chatbot flottant :
+   * position basse normale hors menu.
+   */
+  .chatbot,
+  .chatbot-button,
+  .chatbot-toggle,
+  .chat-toggle,
+  .floating-chat,
+  .floating-chatbot {
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  /*
+   * Quand un menu mobile est ouvert,
+   * le menu doit rester au-dessus du chatbot.
+   */
+  .mobile-menu,
+  .mobile-nav,
+  .mobile-menu-overlay,
+  .menu-overlay,
+  .drawer,
+  .nav-drawer {
+    z-index: 10000 !important;
+  }
+
+  .mobile-menu .chatbot,
+  .mobile-nav .chatbot,
+  .mobile-menu-overlay .chatbot,
+  .menu-overlay .chatbot {
+    z-index: 1 !important;
+  }
+}
+
+/* Samsung / petits écrans */
+@media (max-width: 480px) {
+  .grid,
+  .cards-grid,
+  .stats-grid,
+  .dashboard-grid,
+  .connect-grid,
+  .api-grid,
+  .modules-grid,
+  .features-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .card,
+  .panel,
+  .module-card,
+  .stat-card,
+  .api-card {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* PHASE 4F3B - Mobile UX hardening */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .nav-tabs.nav-tabs-open {
+    position: fixed !important;
+    top: 88px !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: calc(100dvh - 112px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 14px !important;
+    border-radius: 22px !important;
+    background: rgba(13, 17, 23, 0.97) !important;
+    border: 1px solid rgba(255, 153, 0, 0.28) !important;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55) !important;
+    z-index: 9990 !important;
+    backdrop-filter: blur(18px) !important;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    width: 100% !important;
+    min-height: 52px !important;
+    justify-content: flex-start !important;
+    border-radius: 14px !important;
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  .product-selector,
+  [class*="product-selector" i],
+  [class*="ProductSelector"] {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px !important;
+  }
+
+  .product-selector button,
+  [class*="product-selector" i] button {
+    max-width: min(72vw, 360px) !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex-shrink: 1 !important;
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    width: 56px !important;
+    height: 56px !important;
+    right: 14px !important;
+    bottom: calc(74px + env(safe-area-inset-bottom)) !important;
+    z-index: 8500 !important;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 46px !important;
+    border-radius: 12px !important;
+    background: #0D1117 !important;
+    border: 1px solid rgba(139, 148, 158, 0.35) !important;
+    padding: 12px 14px !important;
+  }
+
+  [class*="calculator" i],
+  [class*="aiprice" i],
+  [class*="keyword" i],
+  [class*="upload" i] {
+    max-width: 100% !important;
+  }
+
+  [class*="result" i],
+  [class*="metric" i] {
+    overflow-wrap: anywhere !important;
+  }
+
+  h1 {
+    font-size: clamp(32px, 9vw, 48px) !important;
+    line-height: 1.08 !important;
+  }
+
+  h2 {
+    font-size: clamp(26px, 7vw, 36px) !important;
+    line-height: 1.12 !important;
+  }
+
+  p {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .nav-tabs.nav-tabs-open {
+    top: 82px !important;
+    left: 10px !important;
+    right: 10px !important;
+    max-height: calc(100dvh - 104px) !important;
+    padding: 12px !important;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    min-height: 50px !important;
+    padding: 12px 14px !important;
+  }
+
+  .product-selector button,
+  [class*="product-selector" i] button {
+    max-width: 68vw !important;
+  }
+}
+
+
+/* PHASE 4F3C - Targeted mobile visual hardening */
+@media (max-width: 768px) {
+
+  /* Drawer mobile : hauteur maîtrisée + scroll interne */
+  .nav-tabs.nav-tabs-open {
+    top: 96px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 12px !important;
+    gap: 8px !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    width: 100% !important;
+    min-height: 48px !important;
+    flex: 0 0 auto !important;
+    padding: 11px 14px !important;
+    margin: 0 !important;
+    border-radius: 13px !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Onglets internes Calculateurs / FBA / AiPrice */
+  [class*="calculator" i] nav,
+  [class*="calculator" i] [class*="tabs" i],
+  [class*="fba" i] nav,
+  [class*="fba" i] [class*="tabs" i],
+  [class*="aiprice" i] nav,
+  [class*="aiprice" i] [class*="tabs" i] {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 6px 2px 10px !important;
+    margin: 0 0 18px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x proximity !important;
+  }
+
+  [class*="calculator" i] nav button,
+  [class*="calculator" i] [class*="tabs" i] button,
+  [class*="fba" i] nav button,
+  [class*="fba" i] [class*="tabs" i] button,
+  [class*="aiprice" i] nav button,
+  [class*="aiprice" i] [class*="tabs" i] button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* Support des composants accessibles avec role=tablist */
+  [class*="calculator" i] [role="tablist"],
+  [class*="fba" i] [role="tablist"],
+  [class*="aiprice" i] [role="tablist"] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 4px 0 10px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  [class*="calculator" i] [role="tab"],
+  [class*="fba" i] [role="tab"],
+  [class*="aiprice" i] [role="tab"] {
+    flex: 0 0 auto !important;
+    min-width: max-content !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Chat flottant : réduire les chevauchements */
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    position: fixed !important;
+    width: 50px !important;
+    height: 50px !important;
+    right: 10px !important;
+    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    margin: 0 !important;
+    z-index: 8400 !important;
+  }
+
+  /* Réserver une zone basse pour le bouton flottant */
+  main,
+  [role="main"] {
+    padding-bottom: calc(90px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 430px) {
+
+  .nav-tabs.nav-tabs-open {
+    top: 92px !important;
+    bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+    left: 10px !important;
+    right: 10px !important;
+    padding: 10px !important;
+    gap: 7px !important;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    min-height: 46px !important;
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    width: 50px !important;
+    height: 50px !important;
+    right: 10px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* PHASE 4F3D - Burger drawer isolation */
+@media (max-width: 768px) {
+  .nav-tabs.nav-tabs-open {
+    position: fixed !important;
+    top: 92px !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    z-index: 2147483000 !important;
+    background: #0D1117 !important;
+    border: 1px solid rgba(255, 153, 0, 0.42) !important;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.72), 0 24px 80px rgba(0, 0, 0, 0.65) !important;
+  }
+
+  .nav-tabs.nav-tabs-open::before,
+  .nav-tabs.nav-tabs-open::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  body:has(.nav-tabs.nav-tabs-open) {
+    overflow: hidden !important;
+  }
+
+  .nav-tabs.nav-tabs-open + *,
+  .nav-tabs.nav-tabs-open ~ * {
+    pointer-events: none !important;
+  }
+
+  .mobile-menu-toggle {
+    z-index: 2147483001 !important;
+  }
+}
+
+/* PHASE 4G1I - Targeted mobile UX compaction
+ * Scope:
+ * - preserve existing burger behavior
+ * - compact opened mobile navigation
+ * - reduce excessive vertical whitespace in AiPrice/FBA views
+ * - keep floating chat non-intrusive
+ */
+@media (max-width: 768px) {
+  /* Opened burger drawer: same behavior, denser presentation */
+  .nav-tabs.nav-tabs-open {
+    top: 78px !important;
+    left: 10px !important;
+    right: 10px !important;
+    max-width: calc(100vw - 20px) !important;
+    max-height: calc(100dvh - 94px) !important;
+    gap: 6px !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    min-height: 44px !important;
+    padding: 10px 13px !important;
+    border-radius: 11px !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Generic page shells used by AiPrice/FBA */
+  .app-main {
+    padding-top: 20px !important;
+    padding-bottom: 88px !important;
+  }
+
+  /* Compact common section/card spacing without changing calculations */
+  [class*="aiprice" i] section,
+  [class*="calculator" i] section,
+  [class*="aiprice" i] article,
+  [class*="calculator" i] article {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  [class*="aiprice" i] h1,
+  [class*="calculator" i] h1 {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+  }
+
+  [class*="aiprice" i] h2,
+  [class*="calculator" i] h2 {
+    margin-top: 16px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Upload/search surfaces */
+  [class*="upload" i] {
+    min-height: 0 !important;
+    margin-top: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  [class*="upload" i] > * {
+    max-width: 100% !important;
+  }
+
+  /* Results remain readable but avoid giant empty blocks */
+  [class*="result" i]:empty {
+    display: none !important;
+  }
+
+  [class*="results" i]:empty {
+    display: none !important;
+  }
+
+  /* Floating assistant: reachable, but outside primary controls */
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    width: 52px !important;
+    height: 52px !important;
+    right: 12px !important;
+    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    z-index: 8400 !important;
+  }
+
+  /* When burger is open, navigation stays above chat */
+  .nav-tabs.nav-tabs-open {
+    z-index: 9990 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .nav-tabs.nav-tabs-open {
+    top: 74px !important;
+    max-height: calc(100dvh - 86px) !important;
+    padding: 8px !important;
+    gap: 5px !important;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    min-height: 42px !important;
+    padding: 9px 12px !important;
+    font-size: 13px !important;
+  }
+
+  .app-main {
+    padding-top: 16px !important;
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    width: 50px !important;
+    height: 50px !important;
+    right: 10px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* PHASE 4G1K - Final mobile UX override */
+@media (max-width: 768px) {
+  .nav-tabs.nav-tabs-open {
+    top: 72px !important;
+    left: 8px !important;
+    right: 8px !important;
+    bottom: calc(8px + env(safe-area-inset-bottom)) !important;
+    max-height: none !important;
+    height: auto !important;
+    padding: 8px !important;
+    gap: 5px !important;
+    border-radius: 16px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    min-height: 40px !important;
+    padding: 8px 12px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+  }
+
+  .app-main {
+    padding-top: 14px !important;
+    padding-bottom: 76px !important;
+  }
+
+  [class*="aiprice" i],
+  [class*="calculator" i],
+  [class*="fba" i] {
+    gap: 12px !important;
+  }
+
+  [class*="aiprice" i] h1,
+  [class*="calculator" i] h1,
+  [class*="fba" i] h1 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    font-size: clamp(32px, 8.5vw, 42px) !important;
+    line-height: 1.05 !important;
+  }
+
+  [class*="aiprice" i] h2,
+  [class*="calculator" i] h2,
+  [class*="fba" i] h2 {
+    margin-top: 14px !important;
+    margin-bottom: 8px !important;
+    font-size: clamp(28px, 7vw, 36px) !important;
+    line-height: 1.08 !important;
+  }
+
+  [class*="aiprice" i] div,
+  [class*="calculator" i] div,
+  [class*="fba" i] div {
+    max-width: 100% !important;
+  }
+
+  [class*="upload" i],
+  label[for*="upload" i],
+  input[type="file"] + * {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    min-height: 0 !important;
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    width: 46px !important;
+    height: 46px !important;
+    right: 8px !important;
+    bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+    z-index: 8300 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .nav-tabs.nav-tabs-open {
+    top: 70px !important;
+    left: 6px !important;
+    right: 6px !important;
+    bottom: calc(6px + env(safe-area-inset-bottom)) !important;
+    padding: 7px !important;
+    gap: 4px !important;
+  }
+
+  .nav-tabs.nav-tabs-open button {
+    min-height: 38px !important;
+    padding: 7px 10px !important;
+    font-size: 12.5px !important;
+  }
+
+  .app-main {
+    padding-top: 12px !important;
+  }
+
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    width: 44px !important;
+    height: 44px !important;
+    right: 7px !important;
+  }
+}
+
+/* PHASE 4G1L - Samsung mobile UX audit override */
+@media (max-width: 768px) {
+  [class*="aiprice" i] h1,
+  [class*="calculator" i] h1,
+  [class*="fba" i] h1,
+  [class*="upload" i] h1,
+  [class*="recherche" i] h1,
+  [class*="image" i] h1,
+  [class*="aiprice" i] [class*="title" i],
+  [class*="calculator" i] [class*="title" i] {
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+    line-height: 1.08 !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  [class*="aiprice" i] h2,
+  [class*="calculator" i] h2,
+  [class*="fba" i] h2,
+  [class*="upload" i] h2,
+  [class*="recherche" i] h2,
+  [class*="image" i] h2 {
+    font-size: clamp(20px, 5.5vw, 26px) !important;
+    line-height: 1.12 !important;
+    margin-top: 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  [class*="aiprice" i] p,
+  [class*="calculator" i] p,
+  [class*="fba" i] p,
+  [class*="upload" i] p,
+  [class*="recherche" i] p {
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  [class*="upload" i],
+  [class*="dropzone" i],
+  [class*="upload-zone" i],
+  [class*="image-search" i] [class*="upload" i] {
+    min-height: 0 !important;
+    max-height: 35vh !important;
+    padding: 12px !important;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    overflow: hidden !important;
+  }
+
+  [class*="calculator" i] input[type="number"],
+  [class*="fba" i] input[type="number"],
+  [class*="aiprice" i] input[type="number"] {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    float: none !important;
+    margin: 6px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  [class*="result" i],
+  [class*="results" i],
+  [class*="metric" i],
+  [class*="card" i][class*="result" i] {
+    padding: 14px !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  [class*="plateforme" i],
+  [class*="platform" i],
+  [class*="marketplace" i] {
+    gap: 10px !important;
+    row-gap: 10px !important;
+    column-gap: 10px !important;
+  }
+
+  [class*="product-selector" i] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 430px) {
+  [class*="aiprice" i] h1,
+  [class*="calculator" i] h1,
+  [class*="fba" i] h1,
+  [class*="upload" i] h1,
+  [class*="recherche" i] h1 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    margin-bottom: 6px !important;
+  }
+
+  [class*="upload" i],
+  [class*="dropzone" i] {
+    max-height: 30vh !important;
+    padding: 10px !important;
+  }
+
+  [class*="result" i],
+  [class*="results" i] {
+    padding: 12px !important;
+  }
+}
+
+/* PHASE 4G1M14 - Professional scoped mobile tab cards */
+@media (max-width: 768px) {
+  .tradeai-fba-root .tradeai-fba-tabs,
+  .tradeai-aiprice-root .tradeai-aiprice-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: min(100%, 520px) !important;
+    max-width: 100% !important;
+    margin: 0 auto 28px auto !important;
+    padding: 10px !important;
+    gap: 10px !important;
+    border-radius: 18px !important;
+    background: rgba(13, 17, 23, 0.72) !important;
+    border: 1px solid rgba(255, 153, 0, 0.22) !important;
+  }
+
+  .tradeai-fba-root .tradeai-fba-tabs > button,
+  .tradeai-aiprice-root .tradeai-aiprice-tabs > button {
+    display: flex !important;
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 52px !important;
+    margin: 0 !important;
+    padding: 12px 14px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(139, 148, 158, 0.22) !important;
+    background: rgba(31, 36, 46, 0.95) !important;
+    color: var(--text-primary) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    box-shadow: none !important;
+  }
+
+  .tradeai-fba-root .tradeai-fba-tabs > button.is-active,
+  .tradeai-aiprice-root .tradeai-aiprice-tabs > button.is-active {
+    background: linear-gradient(135deg, #ff9900, #ffb84d) !important;
+    color: #0d1117 !important;
+    border-color: rgba(255, 184, 77, 0.95) !important;
+    box-shadow: 0 10px 26px rgba(255, 153, 0, 0.18) !important;
+  }
+}
+
+/* PHASE 4G1M15 - AiPrice professional mobile polish */
+@media (max-width: 768px) {
+  .tradeai-aiprice-image-search-panel {
+    border-radius: 18px !important;
+    padding: 18px !important;
+    background: rgba(13, 17, 23, 0.78) !important;
+    border: 1px solid rgba(255, 153, 0, 0.2) !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 12px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div > button {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+    background: rgba(31, 36, 46, 0.95) !important;
+    border: 1px solid rgba(139, 148, 158, 0.22) !important;
+    font-weight: 800 !important;
+  }
+
+  .tradeai-aiprice-upload-zone {
+    margin-top: 18px !important;
+    padding: 24px 16px !important;
+    border-radius: 18px !important;
+    border: 1px dashed rgba(255, 153, 0, 0.55) !important;
+    background: rgba(31, 36, 46, 0.72) !important;
+  }
+}
+
+/* =========================================================
+   PHASE 4G1M16 - Premium mobile density + collision hardening
+   CSS only - scoped - no business logic changes
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- AiPrice image search panel ---------- */
+
+  .tradeai-aiprice-image-search-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  /* Marketplace selector: compact professional grid */
+  .tradeai-aiprice-image-search-panel label + div {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+    width: 100% !important;
+    margin-top: 12px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div > button {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 52px !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    border-radius: 13px !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* First marketplace option = primary "Toutes" */
+  .tradeai-aiprice-image-search-panel label + div > button:first-child {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* ---------- Upload zone ---------- */
+
+  .tradeai-aiprice-upload-zone {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 190px !important;
+    margin: 18px 0 0 !important;
+    padding: 22px 16px !important;
+    border-radius: 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ---------- Uploaded image ---------- */
+
+  .tradeai-aiprice-image-search-panel img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 420px !important;
+    margin: 18px auto 0 !important;
+    object-fit: contain !important;
+    border-radius: 14px !important;
+  }
+
+  /* ---------- FBA mobile density ---------- */
+
+  .tradeai-fba-root input,
+  .tradeai-fba-root select {
+    min-height: 54px !important;
+  }
+
+  .tradeai-fba-root label {
+    margin-bottom: 7px !important;
+  }
+
+  /* Reduce excessive vertical rhythm inside calculator forms */
+  .tradeai-fba-root form {
+    gap: 16px !important;
+  }
+
+}
+
+@media (max-width: 430px) {
+
+  .tradeai-aiprice-image-search-panel {
+    padding: 14px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div > button {
+    min-height: 50px !important;
+    padding: 9px 10px !important;
+    font-size: 13px !important;
+  }
+
+  .tradeai-aiprice-upload-zone {
+    min-height: 180px !important;
+    padding: 20px 14px !important;
+  }
+}
+
+/* =========================================================
+   PHASE 4G1M17 - AiPrice mobile density finalization
+   CSS only - scoped - no business logic changes
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- AiPrice navigation density ---------- */
+
+  .tradeai-aiprice-root [role="tablist"] {
+    gap: 10px !important;
+  }
+
+  .tradeai-aiprice-root [role="tab"] {
+    min-height: 58px !important;
+    padding: 12px 16px !important;
+    border-radius: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* ---------- AiPrice content rhythm ---------- */
+
+  .tradeai-aiprice-root h2 {
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .tradeai-aiprice-root section {
+    max-width: 100% !important;
+  }
+
+  /* ---------- Image search panel ---------- */
+
+  .tradeai-aiprice-image-search-panel {
+    margin-top: 0 !important;
+    padding: 16px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div {
+    gap: 8px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div > button {
+    min-height: 48px !important;
+    padding: 9px 11px !important;
+  }
+
+  /* ---------- Upload preview rhythm ---------- */
+
+  .tradeai-aiprice-upload-zone {
+    min-height: 170px !important;
+    margin-top: 16px !important;
+    padding: 18px 14px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel img {
+    margin-top: 16px !important;
+    max-height: 380px !important;
+  }
+
+}
+
+@media (max-width: 430px) {
+
+  .tradeai-aiprice-root [role="tab"] {
+    min-height: 56px !important;
+    padding: 11px 14px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel {
+    padding: 14px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel label + div > button {
+    min-height: 46px !important;
+    padding: 8px 10px !important;
+  }
+
+  .tradeai-aiprice-upload-zone {
+    min-height: 165px !important;
+    padding: 18px 12px !important;
+  }
+
+  .tradeai-aiprice-image-search-panel img {
+    max-height: 360px !important;
+  }
+}
+
+/* PHASE 4G1M18 - Floating assistant scoped mobile position */
+@media (max-width: 768px) {
+  .tradeai-floating-chat-button {
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(78px, calc(env(safe-area-inset-bottom) + 78px)) !important;
+    width: 52px !important;
+    height: 52px !important;
+    z-index: 40 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .tradeai-floating-chat-button {
+    right: 14px !important;
+    bottom: 82px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* =========================================================
+   PHASE 4G1M19 - AiPrice floating assistant collision guard
+   Mobile only - CSS only - no business logic changes
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .tradeai-aiprice-root ~ .tradeai-floating-chat-button,
+  body:has(.tradeai-aiprice-root) .tradeai-floating-chat-button {
+    display: none !important;
+  }
+}

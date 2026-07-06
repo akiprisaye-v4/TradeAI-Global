@@ -4,16 +4,16 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Marie L.",
-      role: "Vendeuse Amazon FBA",
+      role: "Vendeuse e-commerce",
       image: "https://i.pravatar.cc/150?img=1",
-      text: "Amazon Profit Pro a transformé ma façon de travailler. J'ai augmenté mes marges de 40% en seulement 2 mois !",
+      text: "TradeAI Global a transformé ma façon de travailler. J'ai augmenté mes marges de 40% en seulement 2 mois !",
       rating: 5
     },
     {
       name: "Thomas D.",
       role: "Dropshipper",
       image: "https://i.pravatar.cc/150?img=3",
-      text: "L'analyse Amazon → Alibaba est incroyable. Je trouve des produits rentables en quelques minutes.",
+      text: "L’analyse marketplace → fournisseur est très efficace. Je trouve des produits rentables en quelques minutes.",
       rating: 5
     },
     {
@@ -54,7 +54,7 @@ const Testimonials = () => {
           maxWidth: "600px",
           margin: "0 auto 60px"
         }}>
-          Découvrez les témoignages de vendeurs Amazon qui utilisent Amazon Profit Pro au quotidien
+          Découvrez les témoignages de vendeurs e-commerce qui utilisent TradeAI Global au quotidien
         </p>
 
         <div style={{ 
@@ -124,7 +124,7 @@ const Testimonials = () => {
             🚀 Rejoignez plus de 1000+ vendeurs satisfaits
           </h2>
           <p style={{ color: "#8B949E", marginBottom: "24px", fontSize: "16px" }}>
-            Commencez à utiliser Amazon Profit Pro gratuitement dès maintenant
+            Commencez à utiliser TradeAI Global gratuitement dès maintenant
           </p>
           <button 
             onClick={() => window.location.href = '/'}

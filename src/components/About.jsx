@@ -16,9 +16,9 @@ const About = () => {
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent"
         }}>
-          🚀 À propos d'Amazon Profit Pro
+          🚀 À propos d'TradeAI Global
         </h1>
-        
+
         <div style={{
           padding: "30px",
           background: "#161B22",
@@ -30,12 +30,12 @@ const About = () => {
             🎯 Notre Mission
           </h2>
           <p style={{ color: "#E6EDF3", lineHeight: 1.8, marginBottom: "16px" }}>
-            Amazon Profit Pro est un outil gratuit conçu pour aider les vendeurs Amazon FBA 
-            et les dropshippers à trouver des produits rentables en comparant les prix entre 
+            TradeAI Global est une plateforme conçue pour aider les vendeurs e-commerce
+            et les dropshippers à trouver des produits rentables en comparant les prix entre
             Amazon et Alibaba.
           </p>
           <p style={{ color: "#E6EDF3", lineHeight: 1.8 }}>
-            Notre objectif est de démocratiser l'accès à l'analyse de rentabilité pour 
+            Notre objectif est de démocratiser l'accès à l'analyse de rentabilité pour
             tous les entrepreneurs e-commerce, sans frais ni abonnement.
           </p>
         </div>
@@ -51,7 +51,7 @@ const About = () => {
             ⭐ Fonctionnalités Principales
           </h2>
           <ul style={{ color: "#E6EDF3", lineHeight: 2, paddingLeft: "20px" }}>
-            <li>✅ Comparaison Amazon → Alibaba en 2 clics</li>
+            <li>✅ Comparaison marketplace → fournisseur en 2 clics</li>
             <li>✅ Calcul automatique des marges avec frais Amazon</li>
             <li>✅ 10 visualisations exclusives (projections, risques, etc.)</li>
             <li>✅ Export PDF professionnel des analyses</li>
@@ -106,7 +106,7 @@ const About = () => {
             💡 Freemium & Transparent
           </h2>
           <p style={{ color: "#E6EDF3", lineHeight: 1.8, marginBottom: "16px" }}>
-            Amazon Profit Pro offre une version de base gratuite avec des fonctionnalités essentielles. Les plans Pro et Elite débloquent des fonctionnalités avancées.
+            TradeAI Global offre une version de base gratuite avec des fonctionnalités essentielles. Les plans Pro et Elite débloquent des fonctionnalités avancées.
             Vos données restent sur votre appareil (localStorage).
           </p>
           <p style={{ color: "#8B949E", fontSize: "14px" }}>

@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Amazon Profit Pro",
+    "name": "TradeAI Global",
     "elite": "Élite"
   },
   "tabs": {
@@ -18,13 +18,13 @@
     "history": "Historique"
   },
   "about": {
-    "title": "Amazon Profit Pro Élite",
-    "subtitle": "La plateforme d'intelligence commerciale la plus avancée pour les vendeurs Amazon FBA/FBM",
+    "title": "TradeAI Global Élite",
+    "subtitle": "La plateforme d'intelligence commerciale pour piloter rentabilité, sourcing et décisions e-commerce",
     "forWho": "Pour Qui ?",
-    "why": "Pourquoi Utiliser Amazon Profit Pro ?",
+    "why": "Pourquoi Utiliser TradeAI Global ?",
     "features": "Fonctionnalités Clés",
-    "sellers": "Vendeurs Amazon",
-    "sellersDesc": "Débutants ou confirmés voulant maximiser leurs profits",
+    "sellers": "Vendeurs e-commerce",
+    "sellersDesc": "Débutants ou confirmés voulant analyser et améliorer leur rentabilité",
     "arbitrage": "Arbitragistes",
     "arbitrageDesc": "Professionnels du retail/online arbitrage",
     "brands": "Marques Privées",

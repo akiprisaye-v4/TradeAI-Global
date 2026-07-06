@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const OptimizedImage = ({ src, alt, className, fallback = '/placeholder.png' }) => {
+const OptimizedImage = ({ src, alt, className, fallback = '/placeholder.svg' }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 

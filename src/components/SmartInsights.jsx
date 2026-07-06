@@ -76,7 +76,7 @@ export default function SmartInsights() {
           🧠 Smart Insights - 100% Gratuit
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: 16 }}>
-          Algorithmes prédictifs, tendances et opportunités sans API payante
+          Estimations locales, tendances indicatives et scénarios sans API payante
         </p>
       </div>
 
@@ -191,7 +191,7 @@ export default function SmartInsights() {
                 borderRadius: 12,
                 padding: 20
               }}>
-                <h3 style={{ color: "#FF9900", marginBottom: 15 }}> Résultats de la Prédiction</h3>
+                <h3 style={{ color: "#FF9900", marginBottom: 15 }}> Résultats de l’estimation locale</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 15 }}>
                   <div style={{ textAlign: "center" }}>
                     <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Ventes Mensuelles</div>
@@ -247,7 +247,7 @@ export default function SmartInsights() {
               ventes_mensuelles = {predictiveData.bsr_to_sales.categories[categoryInput]?.a || 0} × BSR^{predictiveData.bsr_to_sales.categories[categoryInput]?.b || 0}
             </code>
             <p style={{ color: "var(--text-secondary)", fontSize: 14, marginTop: 10 }}>
-              Précision estimée : ±20% | Basé sur des données historiques open source
+              Estimation indicative locale | À valider avec vos données historiques ou une source vérifiable
             </p>
           </div>
         </div>
@@ -274,14 +274,14 @@ export default function SmartInsights() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 15 }}>
                   <h3 style={{ color: "var(--text-primary)", margin: 0 }}>{trend.category}</h3>
                   <span style={{
-                    background: trend.growth.startsWith("+") ? "rgba(0, 200, 83, 0.2)" : "rgba(255, 61, 0, 0.2)",
-                    color: trend.growth.startsWith("+") ? "#00C853" : "#FF3D00",
+                    background: trend.estimatedGrowthSignal.startsWith("+") ? "rgba(0, 200, 83, 0.2)" : "rgba(255, 61, 0, 0.2)",
+                    color: trend.estimatedGrowthSignal.startsWith("+") ? "#00C853" : "#FF3D00",
                     padding: "4px 12px",
                     borderRadius: 20,
                     fontSize: 14,
                     fontWeight: "bold"
                   }}>
-                    {trend.growth}
+                    Signal estimé : {trend.estimatedGrowthSignal}
                   </span>
                 </div>
 
@@ -553,6 +553,13 @@ export default function SmartInsights() {
               Ajoutez vos propres produits pour enrichir la base de données communautaire
             </p>
             <button
+              type="button"
+                              onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                detail: {
+                                  type: 'info',
+                                  message: 'Ajout communautaire disponible depuis le module Communauté.'
+                                }
+                              }))}
               style={{
                 padding: "12px 24px",
                 background: "#00C853",

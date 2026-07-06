@@ -1,7 +1,7 @@
 export const translations = {
   fr: {
     app: {
-      title: "Amazon Profit Pro",
+      title: "TradeAI Global",
       subtitle: "Élite",
       saving: "enregistrement…",
       saved: "✓ enregistré"
@@ -21,15 +21,15 @@ export const translations = {
       history: "🕐 Historique"
     },
     about: {
-      title: "Amazon Profit Pro Élite",
-      subtitle: "La plateforme d'intelligence commerciale la plus avancée pour les vendeurs Amazon FBA/FBM",
+      title: "TradeAI Global Élite",
+      subtitle: "La plateforme d'intelligence commerciale pour piloter rentabilité, sourcing et décisions e-commerce",
       forWho: "Pour Qui ?",
-      why: "Pourquoi Utiliser Amazon Profit Pro ?",
+      why: "Pourquoi Utiliser TradeAI Global ?",
       features: "Fonctionnalités Clés",
-      vendors: "Vendeurs Amazon",
-      vendorsDesc: "Débutants ou confirmés voulant maximiser leurs profits",
+      vendors: "Vendeurs e-commerce",
+      vendorsDesc: "Débutants ou confirmés voulant analyser et améliorer leur rentabilité",
       arbitrage: "Arbitragistes",
-      arbitrageDesc: "Professionnels du retail/online arbitrage cherchant les meilleures opportunités",
+      arbitrageDesc: "Professionnels du retail/online arbitrage comparant des opportunités selon leurs critères",
       brands: "Marques Privées",
       brandsDesc: "Créateurs de marques voulant optimiser leur rentabilité",
       agencies: "Agences E-commerce",
@@ -46,7 +46,7 @@ export const translations = {
   },
   en: {
     app: {
-      title: "Amazon Profit Pro",
+      title: "TradeAI Global",
       subtitle: "Elite",
       saving: "saving…",
       saved: "✓ saved"
@@ -66,12 +66,12 @@ export const translations = {
       history: "🕐 History"
     },
     about: {
-      title: "Amazon Profit Pro Elite",
-      subtitle: "The most advanced business intelligence platform for Amazon FBA/FBM sellers",
+      title: "TradeAI Global Elite",
+      subtitle: "Business intelligence platform for ecommerce profitability, sourcing and operational decisions",
       forWho: "For Who?",
-      why: "Why Use Amazon Profit Pro?",
+      why: "Why Use TradeAI Global?",
       features: "Key Features",
-      vendors: "Amazon Sellers",
+      vendors: "Ecommerce Sellers",
       vendorsDesc: "Beginners or experts wanting to maximize their profits",
       arbitrage: "Arbitrageurs",
       arbitrageDesc: "Retail/online arbitrage professionals seeking the best opportunities",

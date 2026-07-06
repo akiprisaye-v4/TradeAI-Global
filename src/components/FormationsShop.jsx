@@ -6,7 +6,7 @@ const FormationsShop = () => {
   const formations = [
     {
       id: 1,
-      title: "Débuter sur Amazon FBA",
+      title: "Débuter en e-commerce rentable",
       subtitle: "Lancez votre business en 30 jours",
       duration: "4h30",
       level: "Débutant",
@@ -30,14 +30,14 @@ const FormationsShop = () => {
         "✅ Liste de 50 fournisseurs vérifiés"
       ],
       testimonial: {
-        text: "J'ai lancé mon premier produit en 3 semaines grâce à cette formation. ROI de 150% en 2 mois !",
+        text: "La formation m’a aidé à structurer le lancement de mon premier produit et à mieux suivre mes coûts.",
         author: "Marie L.",
         role: "Vendeuse FBA depuis 6 mois"
       }
     },
     {
       id: 2,
-      title: "Optimisation SEO Amazon",
+      title: "Optimisation SEO marketplace",
       subtitle: "Dominez les résultats de recherche",
       duration: "3h15",
       level: "Intermédiaire",
@@ -61,14 +61,14 @@ const FormationsShop = () => {
         "✅ Guide A+ Content complet"
       ],
       testimonial: {
-        text: "Mes ventes ont augmenté de 340% après avoir appliqué les techniques SEO. Incroyable !",
+        text: "Les techniques SEO présentées m’ont aidé à mieux structurer mes fiches produit et mon suivi.",
         author: "Thomas D.",
         role: "Vendeur FBA depuis 2 ans"
       }
     },
     {
       id: 3,
-      title: "Publicité PPC Avancée",
+      title: "Publicité marketplace avancée",
       subtitle: "Maximisez votre ROI publicitaire",
       duration: "5h00",
       level: "Avancé",
@@ -183,7 +183,7 @@ const FormationsShop = () => {
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            Formations Amazon FBA
+            Formations e-commerce
           </h1>
           <p style={{ 
             color: '#8B949E', 
@@ -208,10 +208,10 @@ const FormationsShop = () => {
         }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>🛡️</div>
           <h3 style={{ color: '#00C853', fontSize: 20, marginBottom: 8 }}>
-            Garantie 30 jours satisfait ou remboursé
+            Politique de remboursement selon conditions commerciales
           </h3>
           <p style={{ color: '#E6EDF3', fontSize: 14, margin: 0 }}>
-            Testez nos formations sans risque. Si vous n'êtes pas 100% satisfait, nous vous remboursons intégralement.
+            Les conditions d’accès, d’essai et de support seront précisées avant toute activation commerciale.
           </p>
         </div>
 
@@ -398,7 +398,14 @@ const FormationsShop = () => {
                 </div>
 
                 {/* Bouton */}
-                <button style={{
+                <button
+                  type="button"
+                                    onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                      detail: {
+                                        type: 'info',
+                                        message: `Formation « ${formation.title || formation.name || 'sélectionnée'} » : accès en préparation.`
+                                      }
+                                    }))} style={{
                   width: '100%',
                   padding: '14px',
                   background: `linear-gradient(135deg, ${formation.color} 0%, ${formation.color}CC 100%)`,
@@ -502,7 +509,7 @@ const FormationsShop = () => {
                     fontWeight: 800,
                     boxShadow: `0 4px 12px ${pack.color}66`
                   }}>
-                    ⭐ MEILLEURE OFFRE
+                    ⭐ OFFRE MISE EN AVANT
                   </div>
                 )}
 
@@ -594,7 +601,14 @@ const FormationsShop = () => {
                 </ul>
 
                 {/* Bouton */}
-                <button style={{
+                <button
+                  type="button"
+                                    onClick={() => window.dispatchEvent(new CustomEvent('tradeai:notify', {
+                                      detail: {
+                                        type: 'info',
+                                        message: `Offre « ${pack.name || pack.title || 'sélectionnée'} » : parcours de souscription en préparation.`
+                                      }
+                                    }))} style={{
                   width: '100%',
                   padding: '16px',
                   background: `linear-gradient(135deg, ${pack.color} 0%, ${pack.color}CC 100%)`,
@@ -646,7 +660,7 @@ const FormationsShop = () => {
               { q: "Y a-t-il un support en cas de question ?", a: "Oui, tous nos étudiants bénéficient d'un support par email. Le Pack Complet et l'Abonnement incluent un accès à notre communauté privée et un support prioritaire." },
               { q: "Les formations sont-elles mises à jour ?", a: "Absolument ! Amazon évolue constamment et nous mettons à jour nos formations régulièrement. Toutes les mises à jour sont gratuites pour les étudiants." },
               { q: "Puis-je suivre les formations à mon rythme ?", a: "Oui, toutes nos formations sont 100% en ligne et accessibles 24h/24. Vous pouvez les suivre à votre rythme, depuis n'importe quel appareil." },
-              { q: "Comment fonctionne la garantie ?", a: "Vous avez 30 jours pour tester nos formations. Si vous n'êtes pas satisfait pour quelque raison que ce soit, contactez-nous et nous vous rembourserons intégralement, sans question." }
+              { q: "Comment fonctionne la politique de remboursement ?", a: "Les conditions, délais et modalités applicables seront précisés dans les conditions commerciales lors de l’activation du paiement sécurisé." }
             ].map((faq, i) => (
               <div key={i} style={{
                 padding: 20,

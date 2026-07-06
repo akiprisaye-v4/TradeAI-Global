@@ -52,7 +52,7 @@ export default function FBACalculators() {
   };
 
   // Simulateur de rentabilité
-  const simulerRentabilite = () => {
+  const estimerRentabiliteLocale = () => {
     const marge = calculerMarge();
     const profitMensuel = parseFloat(marge.margeBrute) * simInputs.ventesMois;
     const profitAnnuel = profitMensuel * 12;
@@ -62,7 +62,7 @@ export default function FBACalculators() {
 
   const margeResult = calculerMarge();
   const fbaResult = calculerFraisFBA();
-  const simResult = simulerRentabilite();
+  const localEstimateResult = estimerRentabiliteLocale();
 
   const calculators = [
     { id: "marge", name: "Marge Nette", icon: "💰" },
@@ -71,18 +71,18 @@ export default function FBACalculators() {
   ];
 
   return (
-    <div style={{ padding: 20, maxWidth: 900, margin: "0 auto" }}>
+    <div className="tradeai-fba-root" style={{ padding: 20, maxWidth: 900, margin: "0 auto" }}>
       <div style={{ textAlign: "center", marginBottom: 30 }}>
         <h1 style={{ color: "var(--text-primary)", marginBottom: 10 }}>
            Calculateurs FBA
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: 16 }}>
-          Calculez vos marges, frais et rentabilité en temps réel
+          Calculez instantanément vos marges, frais et scénarios de rentabilité
         </p>
       </div>
 
       {/* Sélecteur de calculateur */}
-      <div style={{
+      <div className="tradeai-fba-tabs" style={{
         display: "flex",
         gap: 10,
         marginBottom: 30,
@@ -92,6 +92,7 @@ export default function FBACalculators() {
         {calculators.map(calc => (
           <button
             key={calc.id}
+            className={activeCalc === calc.id ? "is-active" : ""}
             onClick={() => setActiveCalc(calc.id)}
             style={{
               padding: "12px 24px",
@@ -224,14 +225,14 @@ export default function FBACalculators() {
           </div>
 
           {/* Résultats */}
-          <div style={{
+          <div className="tradeai-fba-result-card tradeai-fba-margin-result" style={{
             background: "linear-gradient(135deg, rgba(255, 153, 0, 0.1) 0%, rgba(255, 184, 0, 0.1) 100%)",
             border: "2px solid #FF9900",
             borderRadius: 12,
             padding: 20
           }}>
             <h3 style={{ color: "#FF9900", marginBottom: 15 }}> Résultats</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
+            <div className="tradeai-fba-result-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Marge Nette</div>
                 <div style={{ color: "#FF9900", fontSize: 24, fontWeight: "bold" }}>
@@ -389,14 +390,14 @@ export default function FBACalculators() {
           </div>
 
           {/* Résultats */}
-          <div style={{
+          <div className="tradeai-fba-result-card tradeai-fba-fees-result" style={{
             background: "linear-gradient(135deg, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0.05) 100%)",
             border: "2px solid #00C853",
             borderRadius: 12,
             padding: 20
           }}>
             <h3 style={{ color: "#00C853", marginBottom: 15 }}> Estimation des Frais FBA</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
+            <div className="tradeai-fba-result-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Frais de base</div>
                 <div style={{ color: "#00C853", fontSize: 24, fontWeight: "bold" }}>
@@ -544,44 +545,44 @@ export default function FBACalculators() {
           </div>
 
           {/* Résultats */}
-          <div style={{
+          <div className="tradeai-fba-result-card tradeai-fba-profitability-result" style={{
             background: "linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)",
             border: "2px solid #3B82F6",
             borderRadius: 12,
             padding: 20
           }}>
             <h3 style={{ color: "#3B82F6", marginBottom: 15 }}>📊 Projection de Rentabilité</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
+            <div className="tradeai-fba-result-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 15 }}>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Profit mensuel</div>
                 <div style={{ color: "#3B82F6", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.profitMensuel}€
+                  {localEstimateResult.profitMensuel}€
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Profit annuel</div>
                 <div style={{ color: "#3B82F6", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.profitAnnuel}€
+                  {localEstimateResult.profitAnnuel}€
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>ROI</div>
-                <div style={{ color: parseFloat(simResult.roi) > 0 ? "#00C853" : "#FF3D00", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.roi}%
+                <div style={{ color: parseFloat(localEstimateResult.roi) > 0 ? "#00C853" : "#FF3D00", fontSize: 24, fontWeight: "bold" }}>
+                  {localEstimateResult.roi}%
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ color: "var(--text-secondary)", fontSize: 12 }}>Coût total stock</div>
                 <div style={{ color: "#3B82F6", fontSize: 24, fontWeight: "bold" }}>
-                  {simResult.coutTotal}€
+                  {localEstimateResult.coutTotal}€
                 </div>
               </div>
             </div>
-            {parseFloat(simResult.roi) > 20 ? (
+            {parseFloat(localEstimateResult.roi) > 20 ? (
               <div style={{ marginTop: 15, padding: 10, background: "rgba(0, 200, 83, 0.2)", borderRadius: 6, textAlign: "center", color: "#00C853" }}>
                 🚀 Excellent ROI ! Ce produit est très rentable.
               </div>
-            ) : parseFloat(simResult.roi) > 0 ? (
+            ) : parseFloat(localEstimateResult.roi) > 0 ? (
               <div style={{ marginTop: 15, padding: 10, background: "rgba(255, 184, 0, 0.2)", borderRadius: 6, textAlign: "center", color: "#FFB800" }}>
                 ⚠️ ROI positif mais modéré. Optimisez vos coûts pour améliorer la rentabilité.
               </div>
