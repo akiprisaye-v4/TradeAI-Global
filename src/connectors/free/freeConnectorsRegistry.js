@@ -12,10 +12,10 @@ export const FREE_CONNECTORS = [
     id: "rest-countries",
     name: "REST Countries",
     type: "countries",
-    status: "active",
-    free: true,
-    description: "Pays, devises, langues et régions.",
-    endpoint: "https://restcountries.com/v3.1/all"
+    status: "blocked_requires_api_key",
+    free: false,
+    description: "Pays, devises, langues et régions. API publique v3 dépréciée ; v5 nécessite une clé API.",
+    endpoint: "https://restcountries.com/v5/all"
   },
   {
     id: "open-food-facts",
