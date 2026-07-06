@@ -10,11 +10,19 @@ const AMAZON_DOMAINS = {
 };
 
 export function getAmazonAffiliateTag() {
-  return localStorage.getItem("tradeai_amazon_affiliate_tag") || "";
+  try {
+    return localStorage.getItem("tradeai_amazon_affiliate_tag") || "";
+  } catch {
+    return "";
+  }
 }
 
 export function setAmazonAffiliateTag(tag) {
-  localStorage.setItem("tradeai_amazon_affiliate_tag", tag.trim());
+  try {
+    localStorage.setItem("tradeai_amazon_affiliate_tag", tag.trim());
+  } catch {
+    // Stockage indisponible : l'application reste fonctionnelle sans persistance.
+  }
 }
 
 export function buildAmazonAffiliateLink({ marketplace = "FR", keyword = "", asin = "" }) {

@@ -7,13 +7,21 @@ const translations = { fr, en };
 export const useI18n = () => {
   const [lang, setLang] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('lang') || 'fr';
+      try {
+        return localStorage.getItem('lang') || 'fr';
+      } catch {
+        return 'fr';
+      }
     }
     return 'fr';
   });
 
   useEffect(() => {
-    localStorage.setItem('lang', lang);
+    try {
+      localStorage.setItem('lang', lang);
+    } catch {
+      // Stockage indisponible : la langue reste active pour la session.
+    }
   }, [lang]);
 
   const t = (key) => {
