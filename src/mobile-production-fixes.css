@@ -1192,9 +1192,14 @@ div {
   .chatbot-floating-button,
   .chatbot-button,
   .ai-chat-button,
-  button[aria-label*="chat" i] {
+  button[aria-label*="chat" i],
+  button[aria-label*="assistant" i] {
     right: var(--tradeai-v7-floating-right) !important;
     bottom: calc(var(--tradeai-v7-safe-bottom) + 72px) !important;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
     z-index: 840 !important;
     max-width: calc(100vw - 32px) !important;
   }
