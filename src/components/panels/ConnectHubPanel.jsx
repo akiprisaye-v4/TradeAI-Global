@@ -67,20 +67,24 @@ function Section({ title, children }) {
 
 function ConnectorCard({ connector, sourceType }) {
   const active = connector.status === "active";
+  const blocked = connector.status === "blocked_requires_api_key";
+  const resolvedSourceType = sourceType || (active ? "LIVE_API" : blocked ? "BLOCKED_API_KEY" : "PLANNED_IMPORT");
+  const statusLabel = active ? "Actif" : blocked ? "Clé API requise" : "Prévu";
+  const statusTone = active ? "live" : blocked ? "blocked" : "planned";
 
   return (
     <div style={styles.connectorCard}>
       <div style={styles.connectorTop}>
         <strong>{connector.name}</strong>
-        <Badge tone={active ? "live" : "planned"}>{active ? "Actif" : "Prévu"}</Badge>
+        <Badge tone={statusTone}>{statusLabel}</Badge>
       </div>
 
       <p style={styles.muted}>{connector.description}</p>
 
       <div style={styles.metaGrid}>
         <span>Type</span><strong>{connector.type}</strong>
-        <span>Coût</span><strong>{connector.free ? "0 €" : "À vérifier"}</strong>
-        <span>Source</span><strong>{sourceType}</strong>
+        <span>Coût</span><strong>{connector.free ? "0 €" : blocked ? "Clé requise" : "À vérifier"}</strong>
+        <span>Source</span><strong>{resolvedSourceType}</strong>
       </div>
 
       {connector.endpoint && (
@@ -96,6 +100,7 @@ function Badge({ tone = "planned", children }) {
   const colors = {
     live: { color: "#00C853", border: "#00C85355", background: "#00C85312" },
     fallback: { color: "#FFB020", border: "#FFB02055", background: "#FFB02012" },
+    blocked: { color: "#FFB020", border: "#FFB02055", background: "#FFB02012" },
     planned: { color: "#8B949E", border: "#8B949E55", background: "#8B949E12" }
   };
 
