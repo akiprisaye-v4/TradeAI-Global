@@ -1,9 +1,9 @@
-const CACHE_VERSION = 'tradeai-v7-ae720cb-pwa';
+const CACHE_VERSION = 'tradeai-v7-ae720cb-pwa-manifest-safe';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 
 const ASSETS = [
   '/',
-  '/manifest.json',
+  '/manifest.webmanifest',
   '/images/logo.svg',
   '/icons/icon-192.svg',
   '/icons/icon-512.svg'
@@ -34,6 +34,14 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  // TRADEAI_MANIFEST_BYPASS: never intercept manifests; let the browser fetch them normally.
+  const tradeAIManifestUrl = new URL(event.request.url);
+  if (
+    tradeAIManifestUrl.pathname === '/manifest.json' ||
+    tradeAIManifestUrl.pathname === '/manifest.webmanifest'
+  ) {
+    return;
+  }
   const request = event.request;
 
   if (request.method !== 'GET') return;

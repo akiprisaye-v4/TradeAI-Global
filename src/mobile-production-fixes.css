@@ -1172,3 +1172,55 @@ div {
     display: none !important;
   }
 }
+
+/* TRADEAI_V7_FLOATING_COLLISION_FINAL
+   Final mobile guard for floating chat/robot/accessibility controls. */
+@media (max-width: 768px) {
+  :root {
+    --tradeai-v7-safe-bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    --tradeai-v7-floating-right: max(12px, env(safe-area-inset-right, 0px));
+  }
+
+  body,
+  main {
+    padding-bottom: calc(var(--tradeai-v7-safe-bottom) + 128px) !important;
+  }
+
+  .tradeai-floating-chat-button,
+  .floating-chat-button,
+  .chat-floating-button,
+  .chatbot-floating-button,
+  .chatbot-button,
+  .ai-chat-button,
+  button[aria-label*="chat" i] {
+    right: var(--tradeai-v7-floating-right) !important;
+    bottom: calc(var(--tradeai-v7-safe-bottom) + 72px) !important;
+    z-index: 840 !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  .floating-accessibility,
+  .accessibility-floating,
+  .accessibility-button,
+  .accessibility-widget,
+  [class*="accessib"][class*="floating"],
+  [class*="floating"][class*="accessib"],
+  [aria-label*="accessibilité" i],
+  [aria-label*="accessibility" i] {
+    right: var(--tradeai-v7-floating-right) !important;
+    bottom: var(--tradeai-v7-safe-bottom) !important;
+    z-index: 850 !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  .floating-robot,
+  .robot-floating,
+  [class*="floating"][class*="robot"],
+  [class*="robot"][class*="floating"],
+  [aria-label*="robot" i] {
+    right: var(--tradeai-v7-floating-right) !important;
+    bottom: calc(var(--tradeai-v7-safe-bottom) + 144px) !important;
+    z-index: 830 !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+}
