@@ -3,6 +3,7 @@ import { searchProductByBarcode } from "../../connectors/free/openFoodFactsApi";
 import { getAllCountries } from "../../connectors/free/restCountriesApi";
 import { geocodePlace } from "../../connectors/free/nominatimApi";
 import { getWeatherForecast } from "../../connectors/free/openMeteoApi";
+import { makeConnectorError, makeLiveApiResult, summarizePayload } from "../../connectors/free/provenance";
 
 export default function FreeApiLab() {
   const [barcode, setBarcode] = useState("3256222234564");
@@ -14,13 +15,17 @@ export default function FreeApiLab() {
     try {
       setLoading(true);
       const data = await fn();
-      setResult({ label, provenance: "LIVE_API", source, data });
+      setResult(makeLiveApiResult({
+        label,
+        source,
+        endpoint: source,
+        data,
+        meta: { sample: summarizePayload(data) }
+      }));
     } catch (error) {
       setResult({
         label,
-        provenance: "ERROR",
-        source,
-        error: error?.message || "Erreur inconnue"
+        ...makeConnectorError({ source, endpoint: source, error })
       });
     } finally {
       setLoading(false);
@@ -48,10 +53,7 @@ export default function FreeApiLab() {
               provenance: "LIVE_API",
               ok: true,
               checkedAt: new Date().toISOString(),
-              sample:
-                Array.isArray(data) ? { type: "array", count: data.length } :
-                data && typeof data === "object" ? { type: "object", keys: Object.keys(data).slice(0, 8) } :
-                { type: typeof data }
+              sample: summarizePayload(data)
             };
           } catch (error) {
             return {
