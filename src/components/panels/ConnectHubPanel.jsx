@@ -23,7 +23,7 @@ export default function ConnectHubPanel() {
       </div>
 
       <div style={styles.metricsGrid}>
-        <Metric label="APIs gratuites" value={freeSummary.total} />
+        <Metric label="APIs gratuites actives" value={freeSummary.free} />
         <Metric label="Actives" value={freeSummary.active} />
         <Metric label="Imports prévus" value={importSummary.total} />
         <Metric label="Coût actuel" value="0 €" />
@@ -31,7 +31,7 @@ export default function ConnectHubPanel() {
 
       <Section title="APIs gratuites disponibles">
         {FREE_CONNECTORS.map(connector => (
-          <ConnectorCard key={connector.id} connector={connector} sourceType="LIVE_API" />
+          <ConnectorCard key={connector.id} connector={connector} />
         ))}
       </Section>
 
