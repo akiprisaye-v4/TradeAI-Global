@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { searchProductByBarcode, searchProducts } from "../../connectors/free/openFoodFactsApi";
 import { geocodePlace } from "../../connectors/free/nominatimApi";
 import { getWeatherForecast } from "../../connectors/free/openMeteoApi";
+import { fetchFrankfurterRates } from "../../connectors/free/frankfurterApi";
 import { makeConnectorError, makeLiveApiResult, summarizePayload } from "../../connectors/free/provenance";
 
 export default function FreeApiLab() {
@@ -34,6 +35,7 @@ export default function FreeApiLab() {
 
   async function runHealthCheck() {
     const checks = [
+      ["Frankfurter", "/api/fx", () => fetchFrankfurterRates()],
       ["Open Food Facts", "world.openfoodfacts.org", () => searchProductByBarcode(barcode)],
       ["Nominatim", "nominatim.openstreetmap.org", () => geocodePlace(place)],
       ["Open-Meteo", "api.open-meteo.com", () => getWeatherForecast(48.8566, 2.3522)]
