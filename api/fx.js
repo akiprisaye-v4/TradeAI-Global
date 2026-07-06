@@ -8,8 +8,8 @@ export default async function handler(req, res) {
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
 
-  if (req.method !== "GET") {
-    res.setHeader("Allow", "GET");
+  if (!["GET", "HEAD"].includes(req.method)) {
+    res.setHeader("Allow", "GET, HEAD");
     return res.status(405).json({ ok: false, error: "METHOD_NOT_ALLOWED" });
   }
 
