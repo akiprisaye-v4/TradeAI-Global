@@ -5,7 +5,7 @@ const FEATURES = [
   ["📦", "Stock & réassort", "Couverture stock, alertes de rupture et estimation locale de délai fournisseur."],
   ["🌍", "Sourcing global", "Comparaison locale d’options fournisseurs sans prétendre à une donnée temps réel."],
   ["🧠", "Prédictif local", "Projection prudente basée sur vos paramètres produit, coûts, ventes et saisonnalité."],
-  ["🔌", "APIs gratuites", "Open Food Facts, REST Countries, Open-Meteo, Nominatim et FX via proxy Vercel."],
+  ["🔌", "APIs gratuites", "Open Food Facts, Open-Meteo, Nominatim et FX via proxy Vercel ; REST Countries est bloqué sans clé API."],
   ["🤝", "Affiliation", "Génération de liens affiliés configurables, sans dépendance à une API marketplace payante."],
   ["🧾", "Exports & historique", "Sauvegarde locale, historique de calculs, export portfolio et suivi des scénarios."],
   ["📱", "PWA mobile", "Interface installable, responsive, optimisée pour smartphone et usage terrain."]

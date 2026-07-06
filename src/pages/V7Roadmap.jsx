@@ -21,7 +21,7 @@ const PHASES = [
     items: [
       "Connecteur de taux de change Frankfurter",
       "Open Food Facts pour les données produit disponibles",
-      "REST Countries pour les données pays",
+      "REST Countries identifié comme bloqué : v5 avec clé API requise",
       "Open-Meteo pour les données météorologiques",
       "Nominatim pour la recherche géographique",
       "Suppression des résultats non vérifiables en recherche image",
