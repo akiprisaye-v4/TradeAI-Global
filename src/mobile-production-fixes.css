@@ -644,7 +644,6 @@ div {
     overflow-y: auto !important;
     overflow-x: hidden !important;
     overscroll-behavior: contain !important;
-    z-index: 2147483000 !important;
   }
 
   .nav-tabs.nav-tabs-open button {
