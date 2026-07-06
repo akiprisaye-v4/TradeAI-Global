@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { searchProductByBarcode } from "../../connectors/free/openFoodFactsApi";
+import { searchProductByBarcode, searchProducts } from "../../connectors/free/openFoodFactsApi";
 import { geocodePlace } from "../../connectors/free/nominatimApi";
 import { getWeatherForecast } from "../../connectors/free/openMeteoApi";
 import { makeConnectorError, makeLiveApiResult, summarizePayload } from "../../connectors/free/provenance";
 
 export default function FreeApiLab() {
   const [barcode, setBarcode] = useState("3256222234564");
+  const [productQuery, setProductQuery] = useState("chocolat");
   const [place, setPlace] = useState("Paris");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -97,6 +98,25 @@ export default function FreeApiLab() {
         <input style={styles.input} value={barcode} onChange={e => setBarcode(e.target.value)} placeholder="Code EAN" />
         <button style={styles.button} onClick={() => run("Open Food Facts", "world.openfoodfacts.org", () => searchProductByBarcode(barcode))}>
           Tester EAN
+        </button>
+
+        <input
+          style={styles.input}
+          value={productQuery}
+          onChange={e => setProductQuery(e.target.value)}
+          placeholder="Recherche produit"
+        />
+        <button
+          style={styles.button}
+          onClick={() =>
+            run(
+              "Open Food Facts Search",
+              "world.openfoodfacts.org",
+              () => searchProducts(productQuery)
+            )
+          }
+        >
+          Rechercher produit
         </button>
 
         <input style={styles.input} value={place} onChange={e => setPlace(e.target.value)} placeholder="Ville / pays / port" />
