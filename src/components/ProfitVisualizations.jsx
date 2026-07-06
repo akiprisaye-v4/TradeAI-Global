@@ -129,7 +129,7 @@ export const ScenarioSimulator = ({ margin }) => {
       borderRadius: 8
     }}>
       <div style={{ fontSize: 14, fontWeight: 700, color: "#8B5CF6", marginBottom: 12, textAlign: "center" }}>
-        🎲 Simulateur de scénarios
+        🎲 Simulateur de scénarios (hypothèses locales)
       </div>
 
       <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>

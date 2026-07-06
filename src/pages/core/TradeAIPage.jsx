@@ -84,7 +84,7 @@ export default function TradeAIPage({
         ))}
       </Section>
 
-      <Section title="📊 Benchmark du marché">
+      <Section title="📊 Benchmark du marché (indicatif)">
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           <div style={{ padding: 12, background: "#1C2128", borderRadius: 8 }}>
             <div style={{ fontSize: 10, color: "#8B949E", marginBottom: 4 }}>Marge moyenne FBA</div>

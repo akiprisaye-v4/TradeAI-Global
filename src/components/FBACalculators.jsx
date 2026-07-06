@@ -439,7 +439,7 @@ export default function FBACalculators() {
           padding: 25
         }}>
           <h2 style={{ color: "var(--text-primary)", marginBottom: 20 }}>
-            📊 Simulateur de Rentabilité
+            📊 Simulateur de Rentabilité (hypothèses locales)
           </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 15, marginBottom: 25 }}>

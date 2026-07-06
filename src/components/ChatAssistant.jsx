@@ -51,7 +51,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
     // Produits tendance
     if (lowerMsg.includes('idée') || lowerMsg.includes('produit') || lowerMsg.includes('tendance') || lowerMsg.includes('trouver')) {
       return {
-        content: "**Méthode d’analyse des produits rentables :**\n\n1. **Allez dans l'onglet 💡 Idées** : Explorez 5 scénarios produit indicatifs avec hypothèses locales de prix et de coûts\n2. **Utilisez Amazon→Alibaba** : Comparez les prix pour calculer votre marge d'arbitrage\n3. **Vérifiez la concurrence** : Onglet 🎯 Concurrents pour analyser le marché\n4. **Testez avec le calculateur** : Simulez différents scénarios\n\n**Critères de rentabilité :**\n• Marge nette > 20%\n• ROI > 50%\n• Score > 7/10\n• Peu de concurrence directe",
+        content: "**Méthode d’analyse des produits rentables :**\n\n1. **Allez dans l'onglet 💡 Idées** : Explorez 5 scénarios produit indicatifs, non temps réel, avec hypothèses locales de prix et de coûts\n2. **Utilisez Amazon→Alibaba** : Comparez les prix pour calculer votre marge d'arbitrage\n3. **Vérifiez la concurrence** : Onglet 🎯 Concurrents pour analyser le marché\n4. **Testez avec le calculateur** : Simulez différents scénarios\n\n**Critères de rentabilité :**\n• Marge nette > 20%\n• ROI > 50%\n• Score > 7/10\n• Peu de concurrence directe",
         suggestions: ['Voir les produits tendance', 'Comment analyser la concurrence ?', 'Calculer ma marge']
       };
     }

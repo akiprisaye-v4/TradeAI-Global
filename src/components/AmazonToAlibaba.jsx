@@ -318,7 +318,7 @@ const AmazonToAlibaba = () => {
               Une fois le prix Alibaba entré, tu verras apparaître :
               <div style={{ marginTop: 8, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, textAlign: "left" }}>
                 <div>📈 Projection sur volume</div>
-                <div>🎲 Simulateur de scénarios</div>
+                <div>🎲 Simulateur de scénarios (hypothèses locales)</div>
                 <div>📊 Analyse de sensibilité</div>
                 <div>⚠️ Analyse de risque</div>
                 <div>📅 Projection temporelle</div>

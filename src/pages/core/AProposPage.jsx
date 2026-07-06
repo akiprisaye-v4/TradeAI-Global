@@ -217,7 +217,7 @@ export default function AProposPage() {
           <section style={card}>
             <h2 style={h2}>🏆 Benchmark concurrence mondiale</h2>
             <p style={small}>
-              Benchmark indicatif non temps réel, basé sur le positionnement public connu
+              Benchmark indicatif non temps réel, basé sur le positionnement public connu. Les données ne constituent pas des métriques live et doivent être vérifiées avant décision commerciale
               des grandes suites Amazon/e-commerce. Objectif : situer TradeAI Global sans inventer de données live.
             </p>
             <div style={{ display: "grid", gap: 12, marginTop: 16 }}>
