@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { searchProductByBarcode } from "../../connectors/free/openFoodFactsApi";
-import { getAllCountries } from "../../connectors/free/restCountriesApi";
 import { geocodePlace } from "../../connectors/free/nominatimApi";
 import { getWeatherForecast } from "../../connectors/free/openMeteoApi";
 import { makeConnectorError, makeLiveApiResult, summarizePayload } from "../../connectors/free/provenance";
@@ -36,7 +35,6 @@ export default function FreeApiLab() {
     const checks = [
       ["Open Food Facts", "world.openfoodfacts.org", () => searchProductByBarcode(barcode)],
       ["Nominatim", "nominatim.openstreetmap.org", () => geocodePlace(place)],
-      ["REST Countries", "restcountries.com", () => getAllCountries()],
       ["Open-Meteo", "api.open-meteo.com", () => getWeatherForecast(48.8566, 2.3522)]
     ];
 
@@ -106,9 +104,9 @@ export default function FreeApiLab() {
           🗺️ Géocoder
         </button>
 
-        <button style={styles.button} onClick={() => run("REST Countries", "restcountries.com", () => getAllCountries())}>
-          🌍 Charger pays
-        </button>
+        <div style={styles.blockedConnector}>
+          🌍 REST Countries — bloqué : la version publique v3 est dépréciée et la v5 nécessite une clé API.
+        </div>
 
         <button style={styles.button} onClick={() => run("Open-Meteo Paris", "api.open-meteo.com", () => getWeatherForecast(48.8566, 2.3522))}>
           Tester météo Paris
@@ -186,6 +184,17 @@ const styles = {
     color: "#0D1117",
     borderColor: "#FF9900",
     fontWeight: 800
+  },
+  blockedConnector: {
+    width: "100%",
+    boxSizing: "border-box",
+    padding: 10,
+    borderRadius: 8,
+    border: "1px solid #FFB02055",
+    background: "#FFB02012",
+    color: "#FFB020",
+    fontSize: 13,
+    lineHeight: 1.45
   },
   resultWrap: {
     background: "#0D1117",
