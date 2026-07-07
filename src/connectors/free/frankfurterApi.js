@@ -1,6 +1,7 @@
 const BASE_URL = "/api/fx";
 const FX_CACHE_KEY = "tradeai:fx-rates:v1";
 const FX_CACHE_TTL_MS = 1000 * 60 * 60 * 6;
+const inFlightRequests = new Map();
 
 export const FX_FALLBACK_RATES = Object.freeze({
   EUR: 1,
@@ -61,10 +62,16 @@ export async function fetchFrankfurterRates({
     };
   }
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  const existingRequest = inFlightRequests.get(safeBase);
+  if (existingRequest) {
+    return existingRequest;
+  }
 
-  try {
+  const request = (async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
     const response = await fetch(
       `${BASE_URL}?from=${encodeURIComponent(safeBase)}`,
       {
@@ -113,8 +120,19 @@ export async function fetchFrankfurterRates({
           ? "timeout"
           : "network-unavailable"
     };
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  })();
+
+  inFlightRequests.set(safeBase, request);
+
+  try {
+    return await request;
   } finally {
-    clearTimeout(timeoutId);
+    if (inFlightRequests.get(safeBase) === request) {
+      inFlightRequests.delete(safeBase);
+    }
   }
 }
 
