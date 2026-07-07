@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getLocalFxFallback } from "../connectors/free/frankfurterApi";
 
 export default function useAppState(defaultProduct) {
   const [tab, setTab] = useState("calculateur");
@@ -8,7 +9,7 @@ export default function useAppState(defaultProduct) {
     defaultProduct("Coque iPhone 17 Transparente 456")
   ]);
   const [activeProduct, setActiveProduct] = useState(0);
-  const [fxRates, setFxRates] = useState(null);
+  const [fxRates, setFxRates] = useState(() => getLocalFxFallback().rates);
   const [loaded, setLoaded] = useState(false);
   const [saveStatus, setSaveStatus] = useState("");
   const [toast, setToast] = useState(null);

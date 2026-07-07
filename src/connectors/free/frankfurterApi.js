@@ -7,10 +7,20 @@ export const FX_FALLBACK_RATES = Object.freeze({
   EUR: 1,
   USD: 1.08,
   GBP: 0.86,
-  CAD: 1.47,
-  JPY: 170,
+  CAD: 1.45,
+  JPY: 157,
   CHF: 0.96,
-  AUD: 1.63
+  AUD: 1.52,
+  PLN: 4.3,
+  SEK: 11.2,
+  MXN: 18.5,
+  BRL: 5.4,
+  SGD: 1.44,
+  INR: 89.5,
+  AED: 3.97,
+  SAR: 4.05,
+  TRY: 34.5,
+  EGP: 51.2
 });
 
 function normalizeBase(base) {
