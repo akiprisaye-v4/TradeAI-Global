@@ -189,38 +189,6 @@ div {
     overflow-x: hidden !important;
   }
 
-  .nav-tabs.nav-tabs-open {
-    position: fixed !important;
-    top: 88px !important;
-    left: 12px !important;
-    right: 12px !important;
-    width: auto !important;
-    max-width: calc(100vw - 24px) !important;
-    max-height: calc(100dvh - 112px) !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    padding: 14px !important;
-    border-radius: 22px !important;
-    background: rgba(13, 17, 23, 0.97) !important;
-    border: 1px solid rgba(255, 153, 0, 0.28) !important;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55) !important;
-    z-index: 1200 !important;
-    backdrop-filter: blur(18px) !important;
-  }
-
-  .nav-tabs.nav-tabs-open button {
-    width: 100% !important;
-    min-height: 52px !important;
-    justify-content: flex-start !important;
-    border-radius: 14px !important;
-    padding: 14px 16px !important;
-    font-size: 15px !important;
-    line-height: 1.2 !important;
-  }
-
   .product-selector,
   [class*="product-selector" i],
   [class*="ProductSelector"] {
@@ -278,18 +246,6 @@ div {
 }
 
 @media (max-width: 430px) {
-  .nav-tabs.nav-tabs-open {
-    top: 82px !important;
-    left: 10px !important;
-    right: 10px !important;
-    max-height: calc(100dvh - 104px) !important;
-    padding: 12px !important;
-  }
-
-  .nav-tabs.nav-tabs-open button {
-    min-height: 50px !important;
-    padding: 12px 14px !important;
-  }
 
   .product-selector button,
   [class*="product-selector" i] button {
@@ -300,36 +256,6 @@ div {
 
 /* PHASE 4F3C - Targeted mobile visual hardening */
 @media (max-width: 768px) {
-
-  /* Drawer mobile : hauteur maîtrisée + scroll interne */
-  .nav-tabs.nav-tabs-open {
-    top: 96px !important;
-    bottom: calc(14px + env(safe-area-inset-bottom)) !important;
-    left: 14px !important;
-    right: 14px !important;
-    width: auto !important;
-    height: auto !important;
-    max-height: none !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    overscroll-behavior: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding: 12px !important;
-    gap: 8px !important;
-    border-radius: 20px !important;
-    box-sizing: border-box !important;
-  }
-
-  .nav-tabs.nav-tabs-open button {
-    width: 100% !important;
-    min-height: 48px !important;
-    flex: 0 0 auto !important;
-    padding: 11px 14px !important;
-    margin: 0 !important;
-    border-radius: 13px !important;
-    font-size: 15px !important;
-    line-height: 1.2 !important;
-  }
 
   /* Onglets internes Calculateurs / FBA / AiPrice */
   [class*="calculator" i] nav,
@@ -403,21 +329,6 @@ div {
 }
 
 @media (max-width: 430px) {
-
-  .nav-tabs.nav-tabs-open {
-    top: 92px !important;
-    bottom: calc(10px + env(safe-area-inset-bottom)) !important;
-    left: 10px !important;
-    right: 10px !important;
-    padding: 10px !important;
-    gap: 7px !important;
-  }
-
-  .nav-tabs.nav-tabs-open button {
-    min-height: 46px !important;
-    padding: 10px 12px !important;
-    font-size: 14px !important;
-  }
 }
 
 /* PHASE 4F3D - Burger drawer isolation */
