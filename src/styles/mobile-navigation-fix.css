@@ -169,18 +169,6 @@
     overflow-wrap: anywhere !important;
   }
 
-  .floating-chat,
-  .chat-bubble,
-  .ai-chat,
-  .chatbot,
-  [aria-label*="chat" i] {
-    width: 46px !important;
-    height: 46px !important;
-    right: max(12px, env(safe-area-inset-right)) !important;
-    bottom: max(76px, env(safe-area-inset-bottom)) !important;
-    z-index: 20 !important;
-  }
-
   input, select, textarea, button {
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -683,17 +671,6 @@
   body {
     padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   }
-
-  .floating-chat-button,
-  .chat-floating-button,
-  .chatbot-floating-button,
-  [aria-label*="chat" i],
-  [aria-label*="assistant" i] {
-    bottom: calc(22px + env(safe-area-inset-bottom, 0px)) !important;
-    right: 18px !important;
-    max-width: 72px !important;
-    max-height: 72px !important;
-  }
 }
 
 /* TRADEAI_FLOATING_CONTROLS_FINAL_20260703
@@ -711,20 +688,6 @@
 
   .apropos-presentation [aria-expanded] {
     padding-right: 18px !important;
-  }
-
-  .floating-chat-button,
-  .chat-floating-button,
-  .chatbot-floating-button,
-  button[aria-label*="chat" i],
-  button[aria-label*="assistant" i] {
-    width: 56px !important;
-    height: 56px !important;
-    min-width: 56px !important;
-    min-height: 56px !important;
-    right: 16px !important;
-    bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
-    z-index: 900 !important;
   }
 
   .theme-toggle,
@@ -785,20 +748,6 @@
     z-index: -1;
     pointer-events: none;
   }
-
-  .floating-chat-button,
-  .chat-floating-button,
-  .chatbot-floating-button,
-  button[aria-label*="chat" i],
-  button[aria-label*="assistant" i] {
-    bottom: calc(82px + env(safe-area-inset-bottom, 0px)) !important;
-    right: 18px !important;
-    width: 56px !important;
-    height: 56px !important;
-    min-width: 56px !important;
-    min-height: 56px !important;
-    z-index: 900 !important;
-  }
 }
 
 /* GLOBAL UX PATCH - pricing/mobile polish */
@@ -818,34 +767,10 @@
   a {
     touch-action: manipulation;
   }
-
-  .floating-chat-button,
-  .chat-floating-button,
-  .chatbot-floating-button,
-  button[aria-label*="chat" i],
-  button[aria-label*="assistant" i] {
-    right: 18px !important;
-    bottom: calc(86px + env(safe-area-inset-bottom)) !important;
-    width: 56px !important;
-    height: 56px !important;
-    z-index: 900 !important;
-  }
 }
 
 /* FINAL MOBILE COMMERCIAL POLISH */
 @media (max-width: 768px) {
-  .floating-chat-button,
-  .chat-floating-button,
-  .chatbot-floating-button,
-  button[aria-label*="chat" i],
-  button[aria-label*="assistant" i] {
-    right: 16px !important;
-    bottom: calc(118px + env(safe-area-inset-bottom)) !important;
-    width: 52px !important;
-    height: 52px !important;
-    transform: none !important;
-    opacity: 0.92 !important;
-  }
 
   [class*="pricing"] button,
   [class*="Pricing"] button {

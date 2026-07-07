@@ -278,23 +278,6 @@ nav::-webkit-scrollbar,
     margin-block: 3px !important;
   }
 
-  /* Assistant: discreet and clear of Android safe area */
-  .floating-chat-button,
-  .chat-floating-button,
-  .chatbot-floating-button,
-  .chatbot-button,
-  .ai-chat-button,
-  button[aria-label*="chat" i],
-  button[aria-label*="assistant" i] {
-    width: 42px !important;
-    height: 42px !important;
-    min-width: 42px !important;
-    min-height: 42px !important;
-    right: 14px !important;
-    bottom: calc(18px + env(safe-area-inset-bottom)) !important;
-    border-radius: 11px !important;
-  }
-
   /* Tables must not destroy mobile viewport */
   table {
     max-width: 100%;
