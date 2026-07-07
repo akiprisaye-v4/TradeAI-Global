@@ -9,7 +9,7 @@ const LanguageSwitcher = () => {
       position: 'fixed',
       bottom: 20,
       right: 20,
-      zIndex: 1000,
+      zIndex: 820,
       display: 'flex',
       gap: 8,
       background: 'rgba(22, 27, 34, 0.95)',

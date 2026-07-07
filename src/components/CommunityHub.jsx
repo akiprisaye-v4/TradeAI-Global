@@ -271,7 +271,7 @@ export default function CommunityHub() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              zIndex: 1000
+              zIndex: 1320
             }}>
               <div style={{
                 background: "var(--bg-card)",

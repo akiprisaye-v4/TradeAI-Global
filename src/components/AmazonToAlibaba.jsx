@@ -474,7 +474,7 @@ const AmazonToAlibaba = () => {
             right: 0,
             bottom: 0,
             background: "rgba(0,0,0,0.8)",
-            zIndex: 1000,
+            zIndex: 1320,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

@@ -56,7 +56,7 @@ function InstallPWA() {
         position: "fixed",
         bottom: 20,
         right: 20,
-        zIndex: 1000,
+        zIndex: 820,
         boxShadow: "0 4px 12px rgba(255,153,0,0.4)"
       }}
     >
