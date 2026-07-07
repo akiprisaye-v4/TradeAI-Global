@@ -207,7 +207,7 @@ div {
     background: rgba(13, 17, 23, 0.97) !important;
     border: 1px solid rgba(255, 153, 0, 0.28) !important;
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55) !important;
-    z-index: 9990 !important;
+    z-index: 1200 !important;
     backdrop-filter: blur(18px) !important;
   }
 
@@ -250,7 +250,7 @@ div {
     height: 56px !important;
     right: 14px !important;
     bottom: calc(74px + env(safe-area-inset-bottom)) !important;
-    z-index: 8500 !important;
+    z-index: 840 !important;
   }
 
   input,
@@ -421,7 +421,7 @@ div {
     right: 10px !important;
     bottom: calc(18px + env(safe-area-inset-bottom)) !important;
     margin: 0 !important;
-    z-index: 8400 !important;
+    z-index: 840 !important;
   }
 
   /* Réserver une zone basse pour le bouton flottant */
@@ -589,12 +589,12 @@ div {
     height: 52px !important;
     right: 12px !important;
     bottom: calc(18px + env(safe-area-inset-bottom)) !important;
-    z-index: 8400 !important;
+    z-index: 840 !important;
   }
 
   /* When burger is open, navigation stays above chat */
   .nav-tabs.nav-tabs-open {
-    z-index: 9990 !important;
+    z-index: 1200 !important;
   }
 }
 
@@ -707,7 +707,7 @@ div {
     height: 46px !important;
     right: 8px !important;
     bottom: calc(12px + env(safe-area-inset-bottom)) !important;
-    z-index: 8300 !important;
+    z-index: 840 !important;
   }
 }
 
