@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 export default function DashboardPage({
   products,
@@ -10,22 +10,43 @@ export default function DashboardPage({
   fmt,
   fmtPct
 }) {
-  const totalMonthlyProfit = products.reduce((sum, prod) => {
-    const c = calcProduct(prod, fxRates);
-    return sum + c.monthlyProfit;
-  }, 0);
+  const productMetrics = useMemo(
+    () => products.map(product => ({ product, calc: calcProduct(product, fxRates) })),
+    [products, fxRates, calcProduct]
+  );
 
-  const avgMargin = products.length > 0
-    ? products.reduce((sum, prod) => sum + calcProduct(prod, fxRates).netMargin, 0) / products.length
+  const totalMonthlyProfit = productMetrics.reduce((sum, { calc }) => sum + calc.monthlyProfit, 0);
+
+  const avgMargin = productMetrics.length > 0
+    ? productMetrics.reduce((sum, { calc }) => sum + calc.netMargin, 0) / productMetrics.length
     : 0;
 
-  const bestProduct = products.reduce((best, prod) => {
-    const c = calcProduct(prod, fxRates);
-    const bestC = calcProduct(best, fxRates);
-    return c.monthlyProfit > bestC.monthlyProfit ? prod : best;
-  }, products[0]);
+  const bestMetric = productMetrics.reduce((best, current) => {
+    if (!best) return current;
+    return current.calc.monthlyProfit > best.calc.monthlyProfit ? current : best;
+  }, null);
 
-  const bestCalc = bestProduct ? calcProduct(bestProduct, fxRates) : null;
+  const bestProduct = bestMetric?.product;
+  const bestCalc = bestMetric?.calc || null;
+
+  const topProducts = useMemo(
+    () => productMetrics
+      .slice()
+      .sort((a, b) => b.calc.monthlyProfit - a.calc.monthlyProfit)
+      .slice(0, 3),
+    [productMetrics]
+  );
+
+  const marketplaceStats = useMemo(() => {
+    return Object.keys(MARKETPLACES).slice(0, 6).map(mk => {
+      const matchingMetrics = productMetrics.filter(({ product }) => product.marketplace === mk);
+      return {
+        mk,
+        count: matchingMetrics.length,
+        profit: matchingMetrics.reduce((sum, { calc }) => sum + calc.monthlyProfit, 0)
+      };
+    });
+  }, [MARKETPLACES, productMetrics]);
 
   return (
     <div>
@@ -39,12 +60,8 @@ export default function DashboardPage({
       </Section>
 
       <Section title="🏆 Top 3 Produits">
-        {products.slice()
-          .sort((a, b) => calcProduct(b, fxRates).monthlyProfit - calcProduct(a, fxRates).monthlyProfit)
-          .slice(0, 3)
-          .map((prod, i) => {
-            const c = calcProduct(prod, fxRates);
-            return (
+        {topProducts.map(({ product: prod, calc: c }, i) => {
+              return (
               <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "10px 12px", background: "#1C2128", borderRadius: 8, marginBottom: 8, border: "1px solid #30363D" }}>
                 <div>
                   <div style={{ fontSize: 13, fontWeight: 700 }}>{i + 1}. {prod.name}</div>
@@ -59,12 +76,7 @@ export default function DashboardPage({
       </Section>
 
       <Section title="📈 Répartition par marketplace">
-        {Object.keys(MARKETPLACES).slice(0, 6).map(mk => {
-          const count = products.filter(p => p.marketplace === mk).length;
-          const profit = products
-            .filter(p => p.marketplace === mk)
-            .reduce((sum, p) => sum + calcProduct(p, fxRates).monthlyProfit, 0);
-
+        {marketplaceStats.map(({ mk, count, profit }) => {
           return (
             <div key={mk} style={{ display: "flex", justifyContent: "space-between", padding: "8px 12px", background: "#1C2128", borderRadius: 6, marginBottom: 6, fontSize: 12 }}>
               <span>{MARKETPLACES[mk].label}</span>

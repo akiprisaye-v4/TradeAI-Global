@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 export default function AnalyticsPage({
   products,
@@ -11,24 +11,44 @@ export default function AnalyticsPage({
   fmtPct,
   scoreColor
 }) {
-  const categoryStats = {};
+  const productMetrics = useMemo(
+    () => products.map(product => ({ product, calc: calcProduct(product, fxRates) })),
+    [products, fxRates, calcProduct]
+  );
 
-  products.forEach(p => {
-    const cat = CATEGORIES[p.categoryIdx]?.label || "Autre";
-    if (!categoryStats[cat]) categoryStats[cat] = { count: 0, profit: 0 };
-    categoryStats[cat].count++;
-    categoryStats[cat].profit += calcProduct(p, fxRates).monthlyProfit;
-  });
+  const categoryStats = useMemo(() => {
+    return productMetrics.reduce((stats, { product, calc }) => {
+      const cat = CATEGORIES[product.categoryIdx]?.label || "Autre";
+      if (!stats[cat]) stats[cat] = { count: 0, profit: 0 };
+      stats[cat].count++;
+      stats[cat].profit += calc.monthlyProfit;
+      return stats;
+    }, {});
+  }, [productMetrics, CATEGORIES]);
 
-  const totalProfit = products.reduce((sum, p) => sum + calcProduct(p, fxRates).monthlyProfit, 0);
+  const totalProfit = productMetrics.reduce((sum, { calc }) => sum + calc.monthlyProfit, 0);
 
-  const totalROI = products.length > 0
-    ? products.reduce((sum, p) => sum + calcProduct(p, fxRates).roi, 0) / products.length
+  const totalROI = productMetrics.length > 0
+    ? productMetrics.reduce((sum, { calc }) => sum + calc.roi, 0) / productMetrics.length
     : 0;
 
-  const avgScore = products.length > 0
-    ? (products.reduce((s, p) => s + calcProduct(p, fxRates).score, 0) / products.length).toFixed(1) + "/10"
+  const avgScore = productMetrics.length > 0
+    ? (productMetrics.reduce((s, { calc }) => s + calc.score, 0) / productMetrics.length).toFixed(1) + "/10"
     : "0/10";
+
+  const profitableProductsCount = productMetrics.filter(({ calc }) => calc.profit > 0).length;
+
+  const scoreDistribution = useMemo(() => {
+    const distribution = Array.from({ length: 11 }, () => 0);
+    productMetrics.forEach(({ calc }) => {
+      if (Number.isInteger(calc.score) && calc.score >= 0 && calc.score <= 10) {
+        distribution[calc.score]++;
+      }
+    });
+    return distribution;
+  }, [productMetrics]);
+
+  const maxScoreCount = Math.max(...scoreDistribution, 1);
 
   return (
     <div>
@@ -36,7 +56,7 @@ export default function AnalyticsPage({
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12 }}>
           <StatCard label="Profit total" value={fmt(totalProfit)} color={totalProfit >= 0 ? "#00C853" : "#FF3D00"} />
           <StatCard label="ROI moyen" value={fmtPct(totalROI)} color={totalROI >= 50 ? "#00C853" : "#FF9900"} />
-          <StatCard label="Produits rentables" value={products.filter(p => calcProduct(p, fxRates).profit > 0).length + "/" + products.length} color="#00C853" />
+          <StatCard label="Produits rentables" value={profitableProductsCount + "/" + products.length} color="#00C853" />
           <StatCard label="Score moyen" value={avgScore} color="#FFD600" />
         </div>
       </Section>
@@ -61,18 +81,12 @@ export default function AnalyticsPage({
 
       <Section title="📊 Distribution des scores">
         <div style={{ display: "flex", gap: 8, height: 80, alignItems: "flex-end" }}>
-          {[...Array(11)].map((_, i) => {
-            const count = products.filter(p => calcProduct(p, fxRates).score === i).length;
-            const maxCount = Math.max(
-              ...[...Array(11)].map((_, j) => products.filter(p => calcProduct(p, fxRates).score === j).length),
-              1
-            );
-
+          {scoreDistribution.map((count, i) => {
             return (
               <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
                 <div style={{
                   width: "100%",
-                  height: (count / maxCount * 70) + "px",
+                  height: (count / maxScoreCount * 70) + "px",
                   background: scoreColor(i),
                   borderRadius: "2px 2px 0 0",
                   minHeight: count > 0 ? 4 : 0
