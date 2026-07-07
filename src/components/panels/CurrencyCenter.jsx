@@ -25,20 +25,39 @@ export default function CurrencyCenter() {
   }, []);
 
   const isLive = data.mode === "live";
+  const isCache = data.mode === "cache";
+
+  const statusLabel = isLive
+    ? "LIVE API"
+    : isCache
+      ? "CACHE RÉCENT"
+      : "FALLBACK LOCAL";
+
+  const modeLabel = isLive
+    ? "Temps réel"
+    : isCache
+      ? "Cache récent"
+      : "Fallback local";
+
+  const statusStyle = isLive
+    ? styles.live
+    : isCache
+      ? styles.cache
+      : styles.fallback;
 
   return (
     <section style={styles.card}>
       <div style={styles.header}>
         <h2 style={{ margin: 0 }}>💱 Devises</h2>
-        <span style={{ ...styles.badge, ...(isLive ? styles.live : styles.fallback) }}>
-          {isLive ? "LIVE API" : "FALLBACK LOCAL"}
+        <span style={{ ...styles.badge, ...statusStyle }}>
+          {statusLabel}
         </span>
       </div>
 
       <div style={styles.muted}>
-        Source : {data.source || (isLive ? "frankfurter" : "local-fallback")}
+        Source : {data.source || "inconnue"}
       </div>
-      <div style={styles.muted}>Mode : {isLive ? "Temps réel" : "Fallback local"}</div>
+      <div style={styles.muted}>Mode : {modeLabel}</div>
       <div style={styles.muted}>Base : {data.base}</div>
       {data.date && <div style={styles.muted}>Date : {data.date}</div>}
       {loading && <div style={styles.muted}>Chargement des taux…</div>}
@@ -84,6 +103,11 @@ const styles = {
     color: "#00C853",
     borderColor: "#00C85355",
     background: "#00C85312"
+  },
+  cache: {
+    color: "#58A6FF",
+    borderColor: "#58A6FF55",
+    background: "#58A6FF12"
   },
   fallback: {
     color: "#FFB020",
