@@ -70,7 +70,7 @@ const Tutorial = ({ onClose }) => {
       right: 0,
       bottom: 0,
       background: 'rgba(0,0,0,0.85)',
-      zIndex: 2000,
+      zIndex: 1350,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

@@ -149,7 +149,7 @@ const ChatAssistant = ({ isOpen, onClose, products, activeProduct, calcP, p, mk 
       boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
       display: 'flex',
       flexDirection: 'column',
-      zIndex: 1001
+      zIndex: 1300
     }}>
       {/* Header */}
       <div style={{

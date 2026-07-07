@@ -114,7 +114,7 @@ export default function NotificationCenter() {
         position: "fixed",
         top: "calc(76px + env(safe-area-inset-top, 0px))",
         right: 16,
-        zIndex: 5000,
+        zIndex: 1360,
         width: "min(380px, calc(100vw - 32px))",
         display: "flex",
         flexDirection: "column",

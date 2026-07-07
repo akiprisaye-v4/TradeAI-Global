@@ -210,9 +210,8 @@ function Toast({ message, type, onClose }) {
  position:"fixed", bottom: 24, right: 24, background: c.bg,
  border:`1px solid ${c.border}`, borderLeft:`4px solid ${c.border}`,
  borderRadius: 9, padding:"12px 16px", color: c.text,
- fontSize: 12, fontWeight: 600, zIndex: 1000, maxWidth: 320
+ fontSize: 12, fontWeight: 600, zIndex: 1400, maxWidth: 320
  }}>
-      <NotificationCenter />
  {message}
  </div>
  );
@@ -1178,6 +1177,7 @@ setActiveProduct(products.length);
  </div>
  </div>
 
+      <NotificationCenter />
       {showTutorial && <Tutorial onClose={closeTutorial} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
